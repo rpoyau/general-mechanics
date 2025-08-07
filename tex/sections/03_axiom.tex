@@ -1,0 +1,81 @@
+% sections/axiom.tex  —  The REOS axiom and Tier-0 identities  (≈3 pp)
+
+\section{The REOS Axiom}
+\label{sec:axiom}
+
+\paragraph{Notation recap.}
+\begin{itemize}
+\item $\rho(\mathbf x,t)$\;—\;local Shannon‐entropy density in bits
+      (cf.\ Sec.~\ref{sec:kick}).
+\item $R^{(a)}(\mathbf x,t)$\;—\;$m$ conserved resource densities
+      ($a=1,\dots,m$), e.g.\ energy, momentum components, charge$^{2}$.
+\item $J^\mu=(\rho,\mathbf J)$\;—\;information $4$-current,
+      $\mathcal J=\star J^\mu dx_\mu$\;—\;informational $n$-form.
+\end{itemize}
+
+\begin{boxedeq}{REOS Axiom (Relational Form)}
+\label{eq:reos}
+\Phi\!\bigl(\rho,R^{(a)}\bigr)=0,
+\end{boxedeq}
+with $\Phi:\mathbb R^{\,1+m}\!\to\mathbb R$ smooth and monotonically
+increasing in each argument.\footnote{%
+No specific $\Phi$ is assumed in this note; all
+results depend only on differentiability and monotonicity.}
+
+\subsection{Differential consequences}
+
+Total differential of \eqref{eq:reos}:
+\begin{equation}
+\label{eq:differential}
+d\rho = -\Lambda_a\,dR^{(a)},
+\qquad
+\Lambda_a :=
+\frac{\partial\Phi/\partial R^{(a)}}{\partial\Phi/\partial\rho}.
+\end{equation}
+The $\Lambda_a$ are the \emph{informational potentials} conjugate to
+each resource density.
+
+\subsection{Tier-0 Identity I: Continuity Equation}
+\label{sec:continuity}
+
+Conservation (or production) of uncertainty is expressed by
+\begin{equation}
+\boxed{%
+\partial_t\rho + \nabla\!\cdot\!\mathbf J = \sigma
+}\!,
+\qquad
+\sigma(\mathbf x,t)~\text{bits m$^{-n}$ s$^{-1}$}.
+\end{equation}
+\emph{Proof.}  Insert \eqref{eq:differential} into the standard
+continuity law for the $m+1$ conserved densities
+$(\rho,R^{(a)})$; all cross-terms cancel by construction. \qed
+
+\subsection{Tier-0 Identity II: Generalised Stokes Balance}
+\label{sec:stokes}
+
+Let $V\subset M^{n+1}$ be an oriented region with boundary
+$\partial V=\Sigma$.  Exterior differentiation of $\mathcal J$
+followed by the Stokes theorem yields
+\begin{equation}
+\boxed{%
+\int_{\Sigma}\!\mathcal J
+  = \int_{V}\!\sigma\,d^{\,n+1}x
+}\!.
+\end{equation}
+\emph{Interpretation.}  The left integral is the net
+information flux (bits) through the hypersurface~$\Sigma$;
+the right integral is the net information created
+($\sigma>0$) or annihilated ($\sigma<0$) inside~$V$.
+No physical constants enter.
+
+\subsection{Remarks}
+\begin{itemize}
+\item The scale factor in $S=C\ln W$ cancels in
+      \eqref{eq:differential}; all boxed identities are invariant
+      under $C\!\to\!\kappa C$.
+\item Setting $\sigma=0$ recovers a purely conservative flow; measurement
+      (\S\ref{sec:measurement}) re-enters via $\sigma<0$.
+\item Sections~\ref{sec:tier0}–\ref{sec:tier1} list further corollaries
+      obtained by choosing explicit transport tensors $A^{ij}$ or
+      specific resource lists $R^{(a)}$.
+\end{itemize}

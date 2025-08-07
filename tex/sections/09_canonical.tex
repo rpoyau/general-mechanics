@@ -1,0 +1,48 @@
+% sections/09_canonical.tex  —  Canonical resource lists & shorthand forms
+% Plan ref: §9  • Tbl 9-1 canonical cases
+
+\section{Canonical Resource Lists}
+\label{sec:canonical}
+
+\noindent
+Table \ref{tab:canonical} compiles four resource sets that recur
+throughout the note.  For each set we show the shorthand symbol used in
+later equations and note which boxed corollaries first invoke it.
+
+\begin{table}[ht]
+\centering
+\caption{Canonical resource lists.  “First use” refers to boxed results
+         in Tier-0 or Tier-1 sections.}
+\label{tab:canonical}
+\begin{tabular}{lclp{5cm}}
+\toprule
+Label & Resources \(R^{(a)}\) & Shorthand & First use \\
+\midrule
+\textbf{Thermo-pair} & \(E,\,S_{\text{phys}}\) &
+\(\{E,S\}\) &
+Landauer bound (\S\ref{sec:landauer}) \\[2pt]
+\textbf{Vacuum 4-mom.} & \(P^{\mu}\) &
+\(P\!\!\!\!\phantom{P}^{\mu}\) &
+Energy–time capacity (\S\ref{sec:tier1\_maxwell}) \\[2pt]
+\textbf{Charge + energy} & \(E,\,Q^{2}\) &
+\(\{E,Q^{2}\}\) &
+Informational force example 2 (\S\ref{sec:info_force}) \\[2pt]
+\textbf{Entanglement} & \(E_{\mathrm{PR}},\,E\) &
+\(\{E_{\mathrm{PR}},E\}\) &
+Path-integral UV cut-off (§15) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Why canonical?}
+Each list closes under the REOS differential
+\(d\rho=-\Lambda_{a}dR^{(a)}\) with \emph{no} extra multipliers.
+For instance, adding photons to the thermo-pair would introduce
+chemical potential terms that complicate Tier-0 proofs; the minimalist
+lists keep the algebra transparent.
+
+\paragraph{Usage note.}
+When a later section quotes “canonical vacuum list,” it means the
+\(\{P^{\mu}\}\) entry above; likewise “thermo-pair” implies
+\(\{E,S\}\).  This single‐table convention avoids repeating resource
+definitions.

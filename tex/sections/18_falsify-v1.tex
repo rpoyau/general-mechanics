@@ -1,0 +1,66 @@
+% sections/18_falsify.tex  —  Falsification ladder for the REOS axiom
+
+\section{Falsification Ladder}
+\label{sec:falsify}
+
+\noindent
+Because the note is deliberately “claims‐light,” its scientific value rests
+on how easily the REOS axiom could be \emph{empirically} contradicted.
+Table~\ref{tab:falsify} lists a spectrum of potential tests, ordered
+from least to most challenging.  Failure at \emph{any} rung falsifies the
+axiom.
+
+\begin{table}[ht]
+\centering
+\caption{Falsification ladder --- each rung contradicts a specific boxed
+         REOS corollary.}
+\label{tab:falsify}
+\begin{tabular}{cll}
+\toprule
+Level & Experimental scenario & Contradicted equation \\
+\midrule
+F\,1  & Bit‐erasure with work $W < T\Delta H\ln 2$ (quasistatic) &
+       Landauer bound (Sec.~\ref{sec:landauer}) \\[2pt]
+F\,2  & Energy–time product $\Delta E\,\Delta t < 1/(2\ln2)$
+       in a Ramsey‐type interference & URC inequality
+       (Appendix~\ref{app:covariant}) \\[2pt]
+F\,3  & Information flux through a wave-guide exceeding
+       capacity $J^0 > C(R)$ for known power budget &
+       Tier-1 capacity ceiling (Sec.~\ref{sec:tier1}) \\[2pt]
+F\,4  & Spatial confinement of $\rho$ inside a
+       mobility barrier (Sec.~\ref{sec:confine1d})
+       fails to match simulated force &
+       Informational force law (Sec.~\ref{sec:info_force}) \\[2pt]
+F\,5  & Observation of $\partial_\mu J^\mu \neq \sigma$
+       in a closed, measurement-free region &
+       Continuity identity C\,0 (Sec.~\ref{sec:continuity}) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Notes on feasibility.}
+\begin{itemize}
+\item \textbf{F\,1} is routinely satisfied by state-of-the-art
+      single-electron boxes within experimental error; any verified
+      violation would be headline news.
+\item \textbf{F\,2} approaches current atomic-clock precision limits
+      ($10^{-4}$ below the bound).  A dedicated Ramsey or
+      spin-echo protocol could close that gap.
+\item \textbf{F\,3} applies to optical fibres, microwave wave-guides, or
+      biological ion channels—whichever offers the cleanest resource
+      audit (power in ↔ bit-rate out).
+\item \textbf{F\,4} can be tested on a nanophotonic lattice with spatially
+      patterned refractive index; Sec.~\ref{sec:confine1d}
+      details the simulation recipe.
+\item \textbf{F\,5} is the “nuclear option”: every known measurement‐free
+      system respects local continuity, so falsifying C\,0 would upend
+      not just the REOS axiom but standard probability theory.
+\end{itemize}
+
+\paragraph{Recommended strategy.}
+Start at F\,1 and climb.  Each successive rung demands either tighter
+metrology (F\,2), stricter resource bookkeeping (F\,3), or more refined
+control over inhomogeneous mobilities (F\,4).  The ladder thus
+provides a clear experimental roadmap for evaluating the relational
+model.
+

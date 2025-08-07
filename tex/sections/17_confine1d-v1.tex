@@ -1,0 +1,51 @@
+% sections/09_confine1d.tex  —  1 + 1 confinement demonstration
+
+\section{Demo: 1\,+\,1 Confinement}
+\label{sec:confine1d}
+
+\paragraph{Set-up.}
+We simulate a one-dimensional channel of length $L=1$ Kick-metre
+discretised into $N=256$ cells.  
+The mobility tensor is piece-wise:
+
+\[
+A^{xx}(x)=
+\begin{cases}
+D_{\text{in}}        & x\in[0,\tfrac14L]\cup[\tfrac34L,L],\\[4pt]
+D_{\text{barrier}}   & x\in(\tfrac14L,\tfrac34L),
+\end{cases}
+\qquad
+D_{\text{barrier}}\;\ll\;D_{\text{in}} .
+\]
+
+Hence $\mathbf J=-A^{xx}\partial_x\rho$ produces a kinetic “barrier”
+in the middle half of the line.
+
+\paragraph{Numerics.}
+Script \texttt{src/lattice\_M1.py} solves
+\[
+\partial_t\rho = \partial_x
+ \!\bigl( A^{xx}\partial_x\rho \bigr)
+\qquad (\sigma=0)
+\]
+with Crank–Nicolson time-stepping, initial condition
+$\rho(x,0)=\delta_{x,\,N/8}$, and reflective boundaries.
+The output CSV is cached under \texttt{data/} and the
+steady‐state profile is plotted in
+Fig.\,\ref{fig:lattice_potential}.
+
+\paragraph{Interpretation.}
+Because $A^{xx}$ is small in the central region, the informational force
+$\mathbf f=-\rho\nabla(1/A^{xx})$ pushes uncertainty outwards, confining
+the density to the two end-pockets and reproducing the textbook “double-well”
+picture without invoking potential energy—only the mobility tensor.
+All mass, charge, or bandwidth resources remain free parameters; the
+entire effect follows from the REOS differential plus the chosen $A^{xx}$.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.72\linewidth]{lattice_potential.pdf}
+  \caption{Steady‐state Shannon entropy density
+           $\rho(x)$ for $D_{\text{barrier}}/D_{\text{in}}=10^{-2}$.
+           Uncertainty accumulates in the low-resistance pockets at
+           $x

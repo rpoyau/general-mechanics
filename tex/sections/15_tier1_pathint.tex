@@ -1,0 +1,63 @@
+% sections/15_tier1_pathint.tex  —  Tier-1: UV-finite path-integral sketch
+
+\section{Tier-1 Corollary II: UV-Finite Path Integral}
+\label{sec:tier1_pathint}
+
+\paragraph{Action functional.}
+Insert the Maxwell-style field
+$F_{\mu\nu} = \partial_\mu \Lambda_\nu - \partial_\nu \Lambda_\mu$
+into the least-action density (\S\ref{sec:lagrangian}) with
+$A^{\mu\nu} \!=\! \eta^{\mu\nu}$ (flat Kick metric).  
+The on-shell value yields
+\[
+S[\Lambda] \;=\;
+\frac12 \int_{M^{n+1}}
+        F_{\mu\nu}F^{\mu\nu}\,d^{\,n+1}x .
+\]
+
+\paragraph{UV cutoff from the REOS clock.}
+Because the conjugate clock $\Theta_{(E)} \equiv t$ obeys
+$\Delta E\,\Delta t \!\gtrsim\! 1/(2\ln2)$
+(App.~\ref{app:covariant}),
+modes with period shorter than
+$\Delta t_\mathrm{min}=1/\Delta E_\mathrm{max}$
+\emph{cannot be resolved}.  
+Imposing the same $\Delta t_\mathrm{min}$ on spatial clocks
+yields a lattice spacing
+$a = \Delta x_\mathrm{min}=1/\Delta p_\mathrm{max}$,
+cutting off the UV divergences that plague unconstrained
+$\int\!\mathcal D\Lambda$.
+
+\paragraph{Discrete path integral (Kick lattice).}
+\[
+\mathcal Z
+  \;=\;
+  \lim_{a\to a_\mathrm{min}}
+  \sum_{\{\Lambda_\mu\}}
+  \exp\!\bigl(-S[\Lambda]\bigr),
+\]
+where
+$\{\Lambda_\mu\}$ runs over fields defined on a hypercubic
+Kick lattice with spacing~$a_\mathrm{min}$.
+No counter-terms are required; the finite clock enforces finiteness.
+
+\paragraph{Illustrative pseudo-code.}
+
+```python
+# lattice_M1.py  --  UV-finite PI toy
+import numpy as np
+Nx, Nt = 128, 128                # Kick lattice dims
+a = 1 / np.exp(10)               # minimal Δt = Δx
+Lambda = np.random.randn(Nt, Nx) # initial field
+
+def action(L):
+    F = np.diff(L, axis=1) - np.diff(L, axis=0)[:, :-1]
+    return 0.5 * np.sum(F**2) * a**2
+
+logZ = 0.0
+for sweep in range(10_000):
+    L_new = Lambda + 0.1 * np.random.randn(*Lambda.shape)
+    dS = action(L_new) - action(Lambda)
+    if np.random.rand() < np.exp(-dS):
+        Lambda = L_new
+        logZ += -dS

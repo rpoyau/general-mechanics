@@ -1,0 +1,59 @@
+% sections/06_landauer.tex  —  Anchor Corollary: Landauer Bound
+
+\section{Anchor Corollary I: Landauer Cost}
+\label{sec:landauer}
+
+\paragraph{Statement.}
+Erasing $\Delta H$ bits of Shannon uncertainty in a reservoir at
+temperature $T$ requires a minimum work
+\begin{equation}
+\boxed{\displaystyle
+W_{\min}
+   \;=\;
+   T\,\Delta H\,\ln 2
+   \quad
+   (\text{joule}).
+}
+\end{equation}
+In Kick units ($k_{B}=\hbar=c=1$) this is simply
+$W_{\min} = T\,\Delta H$.
+
+\paragraph{Derivation from the REOS axiom.}
+
+\begin{enumerate}
+\item \textbf{Choose resources.}  
+      Take the resource vector to be
+      $R^{(1)}=E$ (internal energy) and
+      $R^{(2)}=S_{\text{therm}}$ (physical entropy).
+\item \textbf{Invoke Eq.\,(\ref{eq:reos_diff}).}  
+      With $C=\tfrac1{\ln 2}$ we have
+      $\rho = S_{\text{therm}}/k_{B}\ln 2$ so
+      $d\rho = dS_{\text{therm}}/(k_{B}\ln 2)$.
+\item \textbf{Isothermal process.}  
+      For a reversible isothermal path at temperature $T$
+      the first law gives $dE = T\,dS_{\text{therm}}$.
+      Insert both differentials into
+      $d\rho=-\Lambda_E\,dE-\Lambda_S\,dS_{\text{therm}}$
+      and note $\Lambda_S=1$ by construction; solve for $\Lambda_E$:
+      $\Lambda_E = 1/(T\ln 2)$.
+\item \textbf{Integrate.}  
+      Remove $\Delta H$ bits ($\Delta\rho=-\Delta H$) while the bath
+      absorbs energy $\Delta E=W_{\min}$.  Using
+      $\Delta E = -\Delta H / \Lambda_E$ yields
+      $\Delta E = T\,\Delta H\,\ln 2$, completing the proof.
+\end{enumerate}
+
+\paragraph{Interpretation.}
+No additional postulates (irreversibility, thermodynamic limit, etc.)
+enter—the bound is a direct algebraic consequence of the REOS
+differential and the isothermal leg of the first law.  In later
+sections we treat erasure as a point sink
+$\sigma=-\Delta H\,\delta(x-x_{m})$; the same algebra recovers the cost
+locally.
+
+\paragraph{References.}
+Landauer’s original argument appears in \cite{Landauer1961}.  Our
+derivation matches recent algebraic proofs
+(e.g.\ \cite{ReebWolf2014}) but removes the need for explicit bath
+Hamiltonians or coarse-graining assumptions.
+
