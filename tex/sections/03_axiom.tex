@@ -1,7 +1,6 @@
 % sections/axiom.tex  —  The REOS axiom and Tier-0 identities  (≈3 pp)
 
-\section{The REOS Axiom}
-\label{sec:axiom}
+\section{The REOS Axiom\label{sec:axiom}}
 
 \paragraph{Notation recap.}
 \begin{itemize}
@@ -24,7 +23,7 @@ increasing in each argument.\footnote{%
 No specific $\Phi$ is assumed in this note; all
 results depend only on differentiability and monotonicity.}
 
-\subsection{Differential consequences}
+\subsection{Differential Consequences\label{subsec:axiom-diff}}
 
 Total differential of \eqref{eq:reos}:
 \begin{equation}
@@ -37,8 +36,8 @@ d\rho = -\Lambda_a\,dR^{(a)},
 The $\Lambda_a$ are the \emph{informational potentials} conjugate to
 each resource density.
 
-\subsection{Tier-0 Identity I: Continuity Equation}
-\label{sec:continuity}
+\subsection{Tier-0 Identity I: Continuity Equation\label{subsec:axiom-continuity}}
+
 
 Conservation (or production) of uncertainty is expressed by
 \begin{equation}
@@ -52,8 +51,7 @@ Conservation (or production) of uncertainty is expressed by
 continuity law for the $m+1$ conserved densities
 $(\rho,R^{(a)})$; all cross-terms cancel by construction. \qed
 
-\subsection{Tier-0 Identity II: Generalised Stokes Balance}
-\label{sec:stokes}
+\subsection{Tier-0 Identity II: Generalised Stokes Balance\label{sec:gts_balance}}
 
 Let $V\subset M^{n+1}$ be an oriented region with boundary
 $\partial V=\Sigma$.  Exterior differentiation of $\mathcal J$
@@ -70,14 +68,35 @@ the right integral is the net information created
 ($\sigma>0$) or annihilated ($\sigma<0$) inside~$V$.
 No physical constants enter.
 
+\subsubsection{1 + 1 D (Time + 1 space)}\label{subsec:gst_1p1}
+For a rectangle \(V=[t_1,t_2]\times[x_1,x_2]\) in the \(t\)–\(x\) plane,
+the net line-flux equals area production:
+\[
+\int_{t_1}^{t_2}\! J_x\,dt \;=\; \int_{t_1}^{t_2}\!\int_{x_1}^{x_2}\! \sigma\,dt\,dx.
+\]
+
+\subsubsection{2 + 1 D (Time + 2 space)}\label{subsec:gst_2p1}
+For a slab \(V=[t_1,t_2]\times\Omega\subset\mathbb R^2\), the closed tube
+(side + caps) equals the volume integral:
+\[
+\iint_{\partial V}\!\mathcal J \;=\; \iiint_{V}\! \sigma\,dt\,dx\,dy.
+\]
+
+\subsubsection{3 + 1 D (Time + 3 space) — Information-Field Divergence}\label{subsec:gst_3p1}
+For a 4-volume \(V\subset\mathbb R^{3,1}\), the world-tube hypersurface equals
+the integrated source:
+\[
+\iiint_{\partial V}\!\mathcal J \;=\; \int_{V}\! \sigma\,d^{\,4}x.
+\]
+
 \subsection{Remarks}
 \begin{itemize}
 \item The scale factor in $S=C\ln W$ cancels in
       \eqref{eq:differential}; all boxed identities are invariant
       under $C\!\to\!\kappa C$.
 \item Setting $\sigma=0$ recovers a purely conservative flow; measurement
-      (\S\ref{sec:measurement}) re-enters via $\sigma<0$.
-\item Sections~\ref{sec:tier0}–\ref{sec:tier1} list further corollaries
+      (Sec.~\ref{sec:landauer}) re-enters via $\sigma<0$.
+\item Sections~\ref{sec:tier0}–\ref{sec:tier1_jacobson} list further corollaries
       obtained by choosing explicit transport tensors $A^{ij}$ or
       specific resource lists $R^{(a)}$.
 \end{itemize}
