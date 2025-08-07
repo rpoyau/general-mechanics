@@ -1,2 +1,81 @@
-\newenvironment{boxedeq}[1][]%
-  {\begin{equation}\boxed{\label{#1}}}{\end{equation}}
+% ------------------------------------------------------------------
+% Global preamble for REOS / RIM note
+% ------------------------------------------------------------------
+
+% -------------------- Document geometry & fonts -------------------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}            % LM family, looks fine in math
+\usepackage{microtype}
+
+% -------------------- Math & symbols ------------------------------
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{physics}            % for \grad, \div, etc.
+\usepackage{siunitx}            % \SI{ }{ } if needed
+
+
+\usepackage{listings} 
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  language=Python,
+  literate={Δ}{{$\Delta$}}1                   % map U+0394 → math \Delta
+           {δ}{{$\delta$}}1                   % (optional) U+03B4 → \delta
+}
+
+
+
+% -------------------- Graphics & colour ---------------------------
+\usepackage{graphicx}
+\graphicspath{{../figs/}}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{float} 
+
+% -------------------- Tables & lists ------------------------------
+\usepackage{standalone} 
+\usepackage{booktabs}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.1em}
+
+% -------------------- Boxes & environments ------------------------
+\usepackage[skins,breakable]{tcolorbox}
+
+% boxed equation environment ---------------------------------------
+\usepackage{environ}  % to capture body of custom env.
+
+\NewEnviron{boxedeq}[1][]% optional argument = label name
+{%
+  \begin{equation}
+    \boxed{\BODY}
+    \if\relax\detokenize{#1}\relax\else\label{#1}\fi
+  \end{equation}
+}
+
+% -------------------- Kick-unit symbol ----------------------------
+\newcommand{\Kk}{\text{K\kern-.1em k}}   % upright “Kk” ligature
+
+% -------------------- Hyperlinks & clever references --------------
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise]{cleveref}
+
+% -------------------- TikZ (figures like pillars mosaic) ----------
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,positioning,decorations.pathmorphing,patterns}
+
+% -------------------- Theorem style (if you need) -----------------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+
+% -------------------- Bibliography setup --------------------------
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+
+% -------------------- Handy shorthand macros ----------------------
+
+\newcommand{\bmf}[1]{\boldsymbol{#1}}  % bold math
+
+\newcommand{\bb}[1]{\mathbb{#1}}       % blackboard bold
+
+% ------------------------------------------------------------------
+% End preamble
+% ------------------------------------------------------------------

@@ -15,14 +15,42 @@ The Crank–Nicolson solver in \texttt{src/lattice\_M1.py} evolves
 \(\partial_t\rho = \partial_x(D\partial_x\rho)\) to steady state.
 Figure \ref{fig:lattice_potential} shows the resulting confinement.
 
+% ---------- Figure 3 – potential ----------
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=.72\linewidth]{lattice_potential.pdf}
+  \resizebox{.72\linewidth}{!}{\input{figs/lattice_potential}}%
+  \caption{One-dimensional sinusoidal confinement potential used in the
+           Kick-lattice toy model. Red dots mark the minima.}
+  \label{fig:lattice_potential}
+\end{figure}
+
+% ---------- Figure 4 – entropy density ----------
+\begin{figure}[ht]
+  \centering
+  \resizebox{.72\linewidth}{!}{\input{figs/entropy_density}}%
   \caption{Entropy density \(\rho(x)\) for three barrier strengths.
            Colours: blue \(D_{\mathrm{bar}}/D_{\mathrm{in}}=10^{-1}\),
            orange \(10^{-2}\), green \(10^{-3}\).}
-  \label{fig:lattice_potential}
+  \label{fig:entropy_density}
 \end{figure}
+
+%% \begin{figure}[H]            % same style as other figures
+%%   \centering
+%%   \resizebox{.72\linewidth}{!}{\input{figs/entropy_density}}%
+%%   \caption{One–dimensional sinusoidal confinement potential used in the
+%%            Kick-lattice toy model.  Red dots mark the minima.}
+%%   \label{fig:lattice_potential}
+%% \end{figure}
+
+
+%% \begin{figure}[ht]
+%%   \centering
+%%   \resizebox{.72\linewidth}{!}{\input{figs/lattice_potential}}%
+%%   \caption{Entropy density \(\rho(x)\) for three barrier strengths.
+%%            Colours: blue \(D_{\mathrm{bar}}/D_{\mathrm{in}}=10^{-1}\),
+%%            orange \(10^{-2}\), green \(10^{-3}\).}
+%%   \label{fig:lattice_potential}
+%% \end{figure}
 
 \paragraph{Source–sink balance.}
 Table \ref{tab:sigma} records the effective source term

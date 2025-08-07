@@ -43,12 +43,12 @@ No counter-terms are required; the finite clock enforces finiteness.
 
 \paragraph{Illustrative pseudo-code.}
 
-```python
+\begin{lstlisting}
 # lattice_M1.py  --  UV-finite PI toy
 import numpy as np
-Nx, Nt = 128, 128                # Kick lattice dims
-a = 1 / np.exp(10)               # minimal Δt = Δx
-Lambda = np.random.randn(Nt, Nx) # initial field
+Nx, Nt = 128, 128          # Kick lattice dims
+a  = 1 / np.exp(10)        # minimal Δt = Δx
+Lambda = np.random.randn(Nt, Nx)  # initial field
 
 def action(L):
     F = np.diff(L, axis=1) - np.diff(L, axis=0)[:, :-1]
@@ -61,3 +61,6 @@ for sweep in range(10_000):
     if np.random.rand() < np.exp(-dS):
         Lambda = L_new
         logZ += -dS
+\end{lstlisting}
+
+
