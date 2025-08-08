@@ -1,7 +1,9 @@
 % sections/16_tier1_jacobson.tex  —  Tier-1: Null-tube → Einstein equation
 % Plan ref: §16  (≈1 page)
 
-\section{Tier-1 Corollary III: Null-Tube to Einstein Field Equation\label{sec:tier1_jacobson}}
+\section{Tier-1 Corollary III: Null-Tube $\Rightarrow$ Einstein Field Equation\label{sec:tier1_jacobson}}
+\noindent\emph{Grounding in Stokes (3+1):} see Sec.~\ref{subsec:gst_3p1}.
+
 
 \paragraph{Setup (Jacobson 1995 template).}
 Choose a space-time point $p$ and a local Rindler horizon patch
@@ -34,7 +36,7 @@ the heat flow across the horizon is
 \delta Q
   = \int_{0}^{\lambda_0}\!\!\!
     T_{\mu\nu}\chi^{\mu}k^{\nu}\,d\lambda\,dA
-  = 2\pi\,\lambda_0^{2}T_{\mu\nu}k^{\mu}k^{\nu}\frac{dA}{2}.
+  = \pi\,\lambda_0^{2}\,T_{\mu\nu}k^{\mu}k^{\nu}\,dA.
 \]
 
 \paragraph{REOS clock bound as Clausius relation.}
@@ -48,10 +50,10 @@ for \emph{all} null vectors $k^{\mu}$ and choices of $dA$
 implies
 \[
 R_{\mu\nu}-\frac12 R\,g_{\mu\nu}
-  = 8\pi\,T_{\mu\nu},
+  = 8\pi\,G\,T_{\mu\nu},
 \]
-i.e.\ the Einstein field equation with Newton constant
-$G=1$ in Kick units.
+i.e.\ the Einstein field equation (we keep \(G\) explicit; in the Kick gauge
+we set \(c=\hbar=k_B=4\pi\varepsilon_0=1\)).
 
 \paragraph{Interpretation.}
 No horizon entropy proportional to area was postulated; instead,

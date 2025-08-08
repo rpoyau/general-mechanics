@@ -1,7 +1,7 @@
-% sections/08_info_force.tex  —  Anchor Corollary III: Informational Force
-
+% sections/08_info_force.tex — Anchor Corollary III: Informational Force
 \section{Anchor Corollary III: Informational Force}
-\label{sec:info_force}
+\label{sec:info_force}\label{sec:force}
+
 
 \paragraph{Force density.}
 From the differential REOS equation
@@ -32,8 +32,7 @@ $\mathbf v := \mathbf J/\rho$ gives
 so the work done by $\mathbf f$ converts resource \(R^{(a)}\) into or
 out of Shannon entropy at a rate fixed by the continuity identity.
 
-\subsection{Example 1: Inhomogeneous Diffusive Bus}
-
+\subsection{Example 1: Inhomogeneous Diffusive Bus}\label{subsec:force-example}
 \begin{itemize}
 \item \textbf{Data bus.}\; 1-D line, bandwidth profile
       $B(x)$ [Kick s\(^{-1}\) m\(^{-1}\)].
@@ -46,24 +45,8 @@ Hence bits drift from congested ($B\!\downarrow$) to roomy
 ($B\!\uparrow$) regions exactly as charge carriers drift down a
 resistivity gradient.
 
-%% \subsection{Example 2: Electrostatic Self-Energy Pull}
-
-%% \begin{itemize}
-%% \item \textbf{Resource list.}\; $R^{(1)}=E$ (rest+kinetic),
-%%       $R^{(2)}=Q^{2}$ (charge squared).
-%% \item \textbf{Potentials.}\; With
-%%       $U=\tfrac{\alpha}{2r}$ and Kick units,
-%%       $\Lambda_{Q^{2}} = 1/(2r)$.
-%% \item \textbf{Force.}\; Keeping $E$ uniform but letting
-%%       $r(x)$ vary (dielectric spacer),
-%%       $\mathbf f = -Q^{2}\nabla(1/2r) =
-%%       -\tfrac12 Q^{2}\,\nabla r^{-1}$,
-%%       pulling charge toward narrower regions—micro-analog of the
-%%       capacitor edge effect.
-%% \end{itemize}
-
 \paragraph{Relation to Tier-1 capacities.}
-In Secs.~\ref{sec:tier1_maxwell}–\ref{sec:tier1_jacobson} the channel capacity ceiling
+In Secs.~\ref{sec:info_field_div}--\ref{sec:tier1_jacobson} the channel capacity ceiling
 $J^{\mu}n_{\mu}\le C(R^{(a)})$ is enforced by setting
 $\nabla\Lambda_{a}$ so steep that $\mathbf f$ opposes any attempt to
 exceed $C$; the force formalism therefore re-expresses capacity limits
