@@ -20,21 +20,19 @@ F_{\mu\nu}
 (\text{$n$-form current}).
 \]
 
-\paragraph{“Source” equation (informational analogue of Gauss–Ampère).}
-Take the divergence of \(F_{\mu\nu}\):
+\paragraph{Source equation (Gauss–Ampère analogue).}
+Taking the divergence of $F_{\mu\nu}$ gives
 \[
-\partial^\mu F_{\mu\nu}
-  \;=\;
-  -\,\partial^\mu\partial_\nu\Lambda_\mu
-  \;=\;
-  \partial_\nu \rho
-  \;=\;
-  -\,\sigma_\nu,
-\qquad
-\sigma_\nu := \partial_\nu\rho .
+\partial_\mu F^{\mu\nu}
+= \Box\,\Lambda^\nu - \partial^\nu(\partial\!\cdot\!\Lambda)
+\;\coloneqq\; J^\nu_{\mathrm{info}} \, .
 \]
-Thus \(\sigma_\nu\) plays the role of a four-current source for the
-informational field.
+We \emph{define} the informational source four–current by
+$J^\nu_{\mathrm{info}} := \partial_\mu F^{\mu\nu}$.
+Its relation to $(\rho,\mathbf J)$ is fixed by the continuity identity
+$\partial_t \rho + \partial_i J^i = \sigma$ and boundary data; there is no identity that enforces
+$J^\nu_{\mathrm{info}} = \pm\,\partial^\nu \rho$.
+
 
 \paragraph{“Bianchi” identity (informational Faraday).}
 By construction
