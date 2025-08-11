@@ -1,13 +1,30 @@
-% §01 — Motivation  (≈145 words total after roadmap)
-\section{Motivation\label{sec:motivation}}
+% ======================================================================
+% 01_motivation.tex
+% ======================================================================
 
-Physics, social dynamics, communication networks—all update relations.  
-The \emph{Relational Information Model} (RIM) keeps only relations and models
-what is still unresolved.  Two ideas suffice: (i) relations are primary
-(Mach); (ii) each unresolved binary choice measures one Shannon bit (Shannon,
-1948).
+\section{Motivation and Contributions}
+\label{sec:motivation}
 
-\paragraph{Meta-Axiom M}
-\emph{Only relational distinctions may be declared; an absolute property is
-ill-formed and cannot enter the model.}
+\paragraph{Why axioms first.}
+Many treatments of information dynamics start from specific transport equations or metrics, then retrofit conservation and cost. We invert this order. The ledger (generalized Stokes) is taken as a \emph{first principle}, and the state law (REOS) is the unique link that defines \emph{informational potentials}. Dynamics arise from these two, plus an explicit state-space generator.
 
+\paragraph{Gaps we close.}
+(i) We separate \emph{core ontology} from \emph{dynamics}. (ii) We state the ledger as an axiom (not an identity) and keep sources to price measurement/erasure locally. (iii) We make the REOS differential explicit, so potentials are not introduced ad hoc. (iv) We encode thermodynamic cost and an \emph{uncertain} information force as axioms rather than heuristics. (v) We give a constrained action, a UV‑finite path integral (via multi‑clock resolution bounds), a functional master equation, and ledger‑exact capacity bounds.
+
+\paragraph{What we assume.}
+Only orientation and additivity on the base domain are required; no metric is assumed. The model is a finite set of tracked relations, represented by an information state field.
+
+\paragraph{What follows.}
+From the axioms we derive: continuity with sources (ledger) \eqref{eq:stokes-ledger}, the REOS differential \eqref{eq:reos-differential}, expected force density \eqref{eq:force-deterministic}, the constrained action \eqref{eq:action} (and potential form \eqref{eq:action-potentials}), the UV‑finite kernel/partition \eqref{eq:kernel-partition}, the functional Fokker–Planck \eqref{eq:ffp}, and capacity bounds \eqref{eq:capacity}.
+
+\paragraph{How to use the framework.}
+Pick a \emph{transport law} (model choice) and a list of tracked relations. The axioms do the rest. In \S\ref{sec:apply-classical} we show the minimal steps to recover familiar classical forms.
+
+\subsection*{Summary of contributions}
+\begin{enumerate}
+  \item A two‑tier axiom system: RIM core (ontology) and RIM+REOS dynamics (ledger + state law + IVF).
+  \item Thermodynamic‑cost and uncertain‑force axioms compatible with REOS potentials.
+  \item A constrained action that enforces both ledger and state law, enabling a UV‑finite path integral.
+  \item A functional master equation for probability over information states.
+  \item Ledger‑exact throughput and rate bounds (capacity) under tracked‑relations budgets.
+\end{enumerate}

@@ -1,0 +1,183 @@
+% ======================================================================
+% 04_axiom_rim_dynamics.tex  —  RIM Dynamics + REOS axioms & structures
+% Requires: \usepackage{amsmath,amssymb,amsthm,mathtools}
+% ======================================================================
+
+\section{RIM Dynamics and REOS: Axioms and Structures}
+\label{sec:rim-reos-axioms}
+
+% ---------- RIM: dynamical axioms ----------
+\subsection{RIM — Dynamical Axioms}
+\label{sec:rim-dyn-axioms}
+
+\paragraph{RIM--D1 (Information Vector Field — deterministic flow).}
+There exists an information vector field $\vec F(\vec\Psi,t)$ on state space such that
+\begin{equation}
+\boxed{\ \frac{d\vec\Psi}{dt}=\vec F(\vec\Psi,t)\ }.
+\label{eq:ivf}
+\end{equation}
+
+\paragraph{RIM--D2 (Measurement = Bayesian update).}
+Evidence updates the state by Bayesian / I-projection:
+\begin{equation}
+\boxed{\ \vec\Psi_{\mathrm{prior}}\ \xrightarrow{\text{Bayes/I-proj}}\ \vec\Psi_{\mathrm{post}}\ }.
+\label{eq:bayes}
+\end{equation}
+
+\paragraph{RIM--D3 (Uncertainty \& cost).}
+For each tracked relations–clock pair $(R^{(a)},\Theta^{(a)})$,
+\begin{equation}
+\boxed{\ \Delta R^{(a)}\,\Delta \Theta^{(a)} \ \ge\ \kappa_a>0\ },
+\label{eq:uncertainty}
+\end{equation}
+and any state change incurs non-negative model cost.
+
+% ---------- REOS: ledger + state law ----------
+\subsection{REOS — Ledger \& State Axioms}
+\label{sec:reos-axioms}
+
+\paragraph{REOS--S (Generalized Stokes / informational ledger).}
+There exists an informational current $J$ (an $n$-form) and source $\Sigma$ (an $(n{+}1)$-form) with
+\begin{equation}
+\boxed{\ \int_{\partial V} J=\int_V \Sigma\ }\quad\Longleftrightarrow\quad
+\boxed{\ \partial_t\rho+\nabla\!\cdot\mathbf J=\sigma\ }\quad\text{for all }V\subset\mathcal M.
+\label{eq:stokes-ledger}\label{eq:continuity} % alias for legacy refs
+\end{equation}
+
+\paragraph{REOS--R (Relational equation of state — state law).}
+There exists a smooth, strictly monotone relation
+\begin{equation}
+\boxed{\ \Phi\big(\rho,R^{(a)}\big)=0\ }
+\label{eq:reos-relation}
+\end{equation}
+whose total differential is
+\begin{equation}
+\boxed{\ d\rho=-\,\Lambda_a\,dR^{(a)},\qquad
+\Lambda_a:=\frac{\partial\Phi/\partial R^{(a)}}{\partial\Phi/\partial \rho}\ }.
+\label{eq:reos-differential}\label{eq:reos} % alias for legacy refs
+\end{equation}
+
+\paragraph{REOS--U (Multi-clock extension).}
+With clocks $\Theta^{(a)}$ and extended domain $\mathcal M_c=\mathcal M\times\prod_a S^1_{\Theta^{(a)}}$,
+\begin{equation}
+\boxed{\ J_{\Theta^{(a)}}:=-\,\Lambda_a\ },\qquad
+\int_{\Sigma_b}\!J_b=\int_{V_b}\!\sigma,\ \ b\in\{x^\mu,\Theta^{(a)}\},
+\label{eq:extended-stokes}
+\end{equation}
+and projection onto $(R^{(a)},\Theta^{(a)})$ yields \eqref{eq:uncertainty}.
+
+% ---------- Thermodynamic cost ----------
+\subsection{Thermodynamic-Cost Axioms}
+\label{sec:thermo-axioms}
+
+\paragraph{TC--1 (Information Hamiltonian).}
+There exists a cost functional $\mathcal H[\Psi,R]$ monotone in total Shannon content
+\[
+S_{\mathrm{tot}}:=\int_{\mathcal M}\rho\,d^{\,d}x,
+\]
+at fixed $R$, and we define
+\begin{equation}
+\boxed{\ T_I:=\frac{\partial \mathcal H}{\partial S_{\mathrm{tot}}}\ \ge 0\ }.
+\label{eq:ti}
+\end{equation}
+
+\paragraph{TC--2 (Cost differential and prices).}
+With $\Upsilon_a:=\partial\mathcal H/\partial R^{(a)}$,
+\begin{equation}
+\boxed{\ \delta \mathcal H = T_I\,\delta S_{\mathrm{tot}} + \Upsilon_a\,\delta R^{(a)}\ },\qquad
+\boxed{\ \Upsilon_a\ \equiv\ \Lambda_a\ }.
+\label{eq:cost-diff}
+\end{equation}
+
+% ---------- Information force ----------
+\subsection{Information Force Axioms}
+\label{sec:force-axioms}
+
+\paragraph{IF--1 (Expected force density).}
+\begin{equation}
+\boxed{\ \mathbf f(x,t)= -\,R^{(a)}(x,t)\,\nabla \Lambda_a(x,t)\ }.
+\label{eq:force-deterministic}\label{eq:info-force} % alias
+\end{equation}
+
+\paragraph{IF--2 (Uncertain force).}
+There exists a random field $\mathbf f(x,t,\omega)$ with
+\begin{equation}
+\boxed{\ \mathbb E[\mathbf f(x,t,\omega)]= -\,R^{(a)}(x,t)\,\nabla \Lambda_a(x,t)\ }.
+\label{eq:force-stochastic}
+\end{equation}
+
+% ---------- Path integral ----------
+\subsection{Path-Integral Axioms}
+\label{sec:pi-axioms}
+
+\paragraph{PI--1 (Action with constraints).}
+For positive-definite mobility $A_{ij}(x)$ and multipliers $\lambda,\psi$,
+\begin{equation}
+\boxed{\ S[\rho,R,J;\lambda,\psi]=\int_{\mathcal M}\!\Big(\tfrac12\,A_{ij}J^iJ^j+\lambda\,\Phi(\rho,R^{(a)})+\psi\,(\partial_t\rho+\nabla\!\cdot J-\sigma)\Big)\,d^{\,d}x\,dt\ }.
+\label{eq:action}\label{eq:ledger-action} % alias
+\end{equation}
+Equivalently, in potentials $\Lambda$ via curvature $F=d\Lambda$,
+\begin{equation}
+S[\Lambda]=\tfrac12\int_{\mathcal M}\! \langle F,F\rangle .
+\label{eq:action-potentials}
+\end{equation}
+
+\paragraph{PI--2 (Kernel/partition; cutoff by clocks).}
+\begin{equation}
+\boxed{\ K=\int\!\mathcal D[\rho,R,J,\lambda,\psi]\ \exp\!\Big(\tfrac{i}{\kappa_{\mathrm{PI}}}\,S\Big)\ },\qquad
+\boxed{\ Z=\int\!\mathcal D[\rho,R,J,\lambda,\psi]\ \exp\!\Big(-\tfrac{1}{\kappa_E}\,S\Big)\ },
+\label{eq:kernel-partition}
+\end{equation}
+with minimal ticks/steps implied by \eqref{eq:uncertainty}–\eqref{eq:extended-stokes} furnishing the UV cutoff.
+
+% ---------- Master equation ----------
+\subsection{Master-Equation Axioms}
+\label{sec:me-axioms}
+
+\paragraph{ME--1 (Functional Fokker–Planck).}
+For positive operators $\Gamma(x),D(x)$,
+\begin{equation}
+\boxed{\ \partial_t P[\Psi,t]=\int d^{\,d}x\ \frac{\delta}{\delta \Psi(x)}\!\left(\Gamma(x)\,\frac{\delta \mathcal H}{\delta \Psi(x)}\,P[\Psi,t]+D(x)\,\frac{\delta P[\Psi,t]}{\delta \Psi(x)}\right)\ }.
+\label{eq:ffp}
+\end{equation}
+
+\paragraph{ME--2 (Einstein relation, optional).}
+\begin{equation}
+\boxed{\ D(x)=\Gamma(x)\,T_I(x)\ }.
+\label{eq:einstein}
+\end{equation}
+
+% ---------- Capacity ----------
+\subsection{Model-Tracking Capacity Axioms}
+\label{sec:capacity-axioms}
+
+\paragraph{MC--1 (Flux ledger).}
+For any world-tube boundary $\Sigma=\partial V$,
+\begin{equation}
+\boxed{\ \mathcal B:=\int_{\Sigma} J=\int_V \Sigma\ }\quad\text{(bits).}
+\label{eq:throughput}
+\end{equation}
+
+\paragraph{MC--2 (Budget bound; rate form).}
+Let $B_a:=\int_V |\,dR^{(a)}|$, $\Lambda_a^{\max}:=\sup_V|\Lambda_a|$, duration $\tau$:
+\begin{equation}
+\boxed{\ \mathcal B\ \le\ \sum_a \Lambda_a^{\max}\,B_a\ },\qquad
+\boxed{\ C:=\mathcal B/\tau\ \le\ \sum_a \Lambda_a^{\max}\,\dot{R}^{(a)}_{\text{budget}}\ }.
+\label{eq:capacity}\label{eq:model-capacity} % alias
+\end{equation}
+
+% ---------- Discrete equivalents ----------
+\subsection{Discrete equivalents (graph/lattice)}
+\label{sec:discrete}
+
+Per tick on a tube $V\subset\mathcal M$,
+\begin{equation}
+\sum_{e\in\partial V} J_e=\sum_{i\in V}\sigma_i,\qquad
+\rho_{t+1}-\rho_t+\mathrm{div}\,J=\sigma,
+\label{eq:discrete-ledger}
+\end{equation}
+and within the tick
+\begin{equation}
+\Delta\rho=-\,\Lambda_a\,\Delta R^{(a)}.
+\label{eq:discrete-reos}
+\end{equation}
