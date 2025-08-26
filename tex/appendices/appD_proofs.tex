@@ -1,0 +1,70 @@
+% appendices/appD_proofs.tex — Proof notes (dependency-light, no amsthm)
+
+\section{Proof Notes}
+\label{app:proofs}
+
+\subsection*{Lemma: Poincar\'e $\Rightarrow$ REOS}
+Let $U\subset\mathbb R^{m}$ be simply connected. If
+$\alpha(R):=\Lambda_a(R)\,dR^{(a)}$ satisfies $d\alpha=0$ on $U$, then there exists
+$\rho:U\to\mathbb R$ such that
+\[
+  d\rho \;+\; \Lambda_a(R)\,dR^{(a)} \;=\; 0 .
+\]
+\textit{Proof.} By the Poincar\'e lemma, $d\alpha=0$ implies $\alpha=d\Phi$ for some scalar
+potential $\Phi$ on $U$. Set $\rho:=-\Phi$. This is Eq.~\eqref{eq:reos}.
+
+\subsection*{Lemma: Maxwell symmetry}
+With $\alpha=\Lambda_a\,dR^{(a)}$ and $d\alpha=0$,
+\[
+  \partial_{R^{(b)}}\Lambda_a \;=\; \partial_{R^{(a)}}\Lambda_b
+  \quad\text{for all } a,b .
+\]
+\textit{Proof.} $d\alpha=0$ gives
+$(\partial_{b}\Lambda_a-\partial_{a}\Lambda_b)\,dR^{(b)}\wedge dR^{(a)}=0$.
+
+\subsection*{Lemma: Stokes balance (strong/weak)}
+If $J\in\Omega^{n-1}(\mathcal M)$ and $\Sigma\in\Omega^{n}(\mathcal M)$ are smooth with
+$dJ=\Sigma$, then $\int_{\partial V}J=\int_V\Sigma$ for every region $V\subset\mathcal M$.
+Conversely, if this equality holds for all $V$ and $J,\Sigma$ are de~Rham currents, then
+$dJ=\Sigma$ in the sense of distributions.
+\textit{Proof.} Stokes' theorem and the definition of the distributional exterior derivative.
+
+\subsection*{Lemma: Reversible path–cost}
+On a simply connected patch $U$ with \eqref{eq:reos}, for any smooth path $\Gamma:[0,1]\to U$,
+\[
+  \int_{\Gamma} \Lambda_a\,dR^{(a)} \;=\; -\,\Delta\rho .
+\]
+\textit{Proof.} Integrate \eqref{eq:reos} along $\Gamma$. This is Eq.~\eqref{eq:rev-cost}.
+
+\subsection*{Lemma: Force covector identity}
+With $\rho=\rho(R)$ and $\Lambda_a=-\partial_{R^{(a)}}\rho$,
+\[
+  \mathcal F \;:=\; -\,R^{(a)}\,d\Lambda_a \;=\; -\,d\!\big(\rho+\Lambda_a R^{(a)}\big).
+\]
+\textit{Proof.} Use $d(\Lambda_a R^{(a)})=d\Lambda_a\, R^{(a)}+\Lambda_a\,dR^{(a)}$ and
+\eqref{eq:reos}. This is Eq.~\eqref{eq:force-covector}.
+
+\subsection*{Lemma: Gibbs differential (thermodynamic representation)}
+With $R=(E,V,N_i,\ldots)$, $\rho=S$, and
+$\Lambda_E=-1/T$, $\Lambda_V=-p/T$, $\Lambda_{N_i}=+\mu_i/T$,
+\[
+  dS \;=\; \frac{1}{T}\,dE \;+\; \frac{p}{T}\,dV \;-\; \sum_i \frac{\mu_i}{T}\,dN_i .
+\]
+\textit{Proof.} Substitute the dictionary into \eqref{eq:reos}. This is Eq.~\eqref{eq:gibbs-entropy-form}.
+
+\subsection*{Lemma: Landauer equality (reversible)}
+At fixed $(V,N_i)$ in the thermodynamic representation,
+\[
+  \Delta E_{\min} \;=\; T\,\Delta S .
+\]
+\textit{Proof.} From the previous lemma with $dV=dN_i=0$, $dE=T\,dS$; integrate. This is Eq.~\eqref{eq:landauer-equality}.
+
+\subsection*{Lemma: Discrete chain balance}
+On a finite $n$‑complex with incidence $B_n$, assigning currents on $(n\!-\!1)$‑cells and
+sources on $n$‑cells yields $B_n^{\mathsf T} J = \sigma$ and, for any union $V$ of $n$‑cells,
+\[
+  \sum_{e\subset \partial V} \!\mathrm{sign}(e,V)\, J_e
+  \;=\;
+  \sum_{c\subset V} \sigma_c .
+\]
+\textit{Proof.} $B_n B_{n+1}=0$ and cancellation of internal faces. This matches Eq.~\eqref{eq:disc-balance}.

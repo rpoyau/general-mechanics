@@ -1,0 +1,53 @@
+\section{Tier‑1: Confinement in One Spatial Dimension}
+\label{sec:confine1d}
+
+\subsection{Setup}
+Let $(\tau,x)$ be a local chart on $V=[\tau_1,\tau_2]\times[0,L]\subset\mathcal M$
+with volume form $d\tau\wedge dx$. Write
+\[
+  J \;=\; j^{\tau}\, dx \;-\; j^{x}\, d\tau,
+  \qquad
+  \Sigma \;=\; \sigma\, d\tau\wedge dx .
+\]
+Then \eqref{eq:stokes-balance} reads
+\begin{equation}
+  \partial_{\tau} j^{\tau} + \partial_{x} j^{x} \;=\; \sigma .
+  \label{eq:conf1d-balance}
+\end{equation}
+
+\subsection{Impenetrable walls (no‑flux)}
+Boundary conditions at $x=0$ and $x=L$:
+\begin{equation}
+  j^{x}(\tau,0)=0, \qquad j^{x}(\tau,L)=0 .
+  \label{eq:conf1d-noflux}
+\end{equation}
+Integrating \eqref{eq:conf1d-balance} over $x\in[0,L]$ and using \eqref{eq:conf1d-noflux} gives
+\begin{equation}
+  \frac{d}{d\tau}\,\int_{0}^{L} j^{\tau}(\tau,x)\,dx
+  \;=\;
+  \int_{0}^{L} \sigma(\tau,x)\,dx .
+  \label{eq:conf1d-integrated}
+\end{equation}
+
+\subsection{Partially permeable wall}
+If $j^{x}(\tau,L)=\phi(\tau)$ while $j^{x}(\tau,0)=0$, then
+\begin{equation}
+  \frac{d}{d\tau}\,\int_{0}^{L} j^{\tau}\,dx
+  \;=\;
+  \int_{0}^{L} \sigma\,dx \;-\; \phi(\tau) .
+  \label{eq:conf1d-leaky}
+\end{equation}
+
+\subsection{Discrete 1D chain}
+Let cells be intervals $c_i=[x_i,x_{i+1}]$ with oriented edges $e_i$ at $x_i$.
+Assign $J_{e_i}$ to edges and $\sigma_{c_i}$ to cells. With incidence $B$,
+\begin{equation}
+  (B^{\mathsf T}J)_{c_i} \;=\; \sigma_{c_i}
+  \quad\Longleftrightarrow\quad
+  J_{e_{i+1}} - J_{e_i} \;=\; \sigma_{c_i}.
+  \label{eq:conf1d-discrete}
+\end{equation}
+No‑flux at the ends means $J_{e_0}=J_{e_N}=0$, yielding
+$\sum_{i=0}^{N-1} \sigma_{c_i} = 0$ for a steady state.
+For a leaky right end with $J_{e_N}=\phi(\tau)$ one recovers the discrete form of
+\eqref{eq:conf1d-leaky}.

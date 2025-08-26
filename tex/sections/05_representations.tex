@@ -1,0 +1,35 @@
+\section{Representations}
+\label{sec:representations}
+
+\subsection{Thermodynamic representation}
+Choose resource coordinates
+\[
+  R \;=\; (E,\, V,\, N_1,\ldots,N_k),
+  \qquad
+  \rho \;=\; S .
+\]
+Define the conjugates by
+\[
+  \Lambda_E \;=\; -\frac{1}{T},
+  \qquad
+  \Lambda_V \;=\; -\frac{p}{T},
+  \qquad
+  \Lambda_{N_i} \;=\; +\frac{\mu_i}{T}.
+\]
+Substituting these into the resource–space identity \eqref{eq:reos} gives the Gibbs differential:
+\begin{equation}
+  dS
+  \;=\;
+  \frac{1}{T}\, dE
+  \;+\;
+  \frac{p}{T}\, dV
+  \;-\;
+  \sum_{i=1}^{k} \frac{\mu_i}{T}\, dN_i .
+  \label{eq:gibbs-entropy-form}
+\end{equation}
+
+\subsection{Other choices}
+Any declared list $R^{(a)}$ determines its own naming via
+\[
+  \Lambda_a(R) \;=\; -\,\partial_{R^{(a)}} \rho(R).
+\]

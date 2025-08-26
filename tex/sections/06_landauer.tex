@@ -1,59 +1,39 @@
-% sections/06_landauer.tex  —  Anchor Corollary: Landauer Bound
+% sections/06_landauer.tex — Anchor Corollary: Landauer Cost (Kick-native)
 
 \section{Anchor Corollary I: Landauer Cost}
 \label{sec:landauer}
 
 \paragraph{Statement.}
-Erasing $\Delta H$ bits of Shannon uncertainty in a reservoir at
-temperature $T$ requires a minimum work
+In Kick units (Kk) with entropy in nats, erasing $\Delta S$ nats of Shannon information
+in a reservoir at temperature $T$ requires the reversible work
 \begin{equation}
-\boxed{\displaystyle
-W_{\min}
-   \;=\;
-   T\,\Delta H\,\ln 2
-   \quad
-   (\text{joule}).
-}
+\boxed{\, W_{\min} \;=\; T\,\Delta S \, }.
 \end{equation}
-In Kick units this is simply
-$W_{\min} = T\,\Delta H$.
+If information is counted in bits ($\Delta H$), this reads $W_{\min}=T\,(\ln 2)\,\Delta H$.
+In SI units: $W_{\min} = k_B\, T_{\mathrm K}\, \ln 2 \,\Delta H$ (see App.~\ref{sec:kick}).
 
-\paragraph{Derivation from the REOS axiom.}
-
+\paragraph{Derivation from the resource–space identity.}
 \begin{enumerate}
-\item \textbf{Choose resources.}  
-      Take the resource vector to be
-      $R^{(1)}=E$ (internal energy) and
-      $R^{(2)}=S_{\text{therm}}$ (physical entropy).
-\item \textbf{Invoke Eq.\,(\ref{eq:reos_diff}).}  
-      With $C=\tfrac1{\ln 2}$ we have
-      $\rho = S_{\text{therm}}/k_{B}\ln 2$ so
-      $d\rho = dS_{\text{therm}}/(k_{B}\ln 2)$.
-\item \textbf{Isothermal process.}  
-      For a reversible isothermal path at temperature $T$
-      the first law gives $dE = T\,dS_{\text{therm}}$.
-      Insert both differentials into
-      $d\rho=-\Lambda_E\,dE-\Lambda_S\,dS_{\text{therm}}$
-      and note $\Lambda_S=1$ by construction; solve for $\Lambda_E$:
-      $\Lambda_E = 1/(T\ln 2)$.
-\item \textbf{Integrate.}  
-      Remove $\Delta H$ bits ($\Delta\rho=-\Delta H$) while the bath
-      absorbs energy $\Delta E=W_{\min}$.  Using
-      $\Delta E = -\Delta H / \Lambda_E$ yields
-      $\Delta E = T\,\Delta H\,\ln 2$, completing the proof.
+\item \textbf{Representation.} Choose the thermodynamic representation with
+      $\rho=S$ (nats) and resources $R=(E,V,N_i,\dots)$.
+      From the resource–space differential \eqref{eq:reos},
+      \[
+        d\rho + \Lambda_E\,dE + \Lambda_V\,dV - \sum_i \Lambda_{N_i}\,dN_i = 0,
+      \]
+      with dictionary $\Lambda_E=-\tfrac{1}{T}$, $\Lambda_V=-\tfrac{p}{T}$,
+      $\Lambda_{N_i}=+\tfrac{\mu_i}{T}$.
+
+\item \textbf{Isothermal reversible leg.} At fixed $(V,N_i)$ the Gibbs identity gives
+      $dS=\tfrac{1}{T}\,dE$, hence $dE=T\,dS$.
+
+\item \textbf{Integrate.} Reversible erasure from $S_1$ to $S_2$ yields
+      $\Delta E_{\min}=\int T\,dS = T\,\Delta S$.
 \end{enumerate}
 
 \paragraph{Interpretation.}
-No additional postulates (irreversibility, thermodynamic limit, etc.)
-enter—the bound is a direct algebraic consequence of the REOS
-differential and the isothermal leg of the first law.  In later
-sections we treat erasure as a point sink
-$\sigma=-\Delta H\,\delta(x-x_{m})$; the same algebra recovers the cost
-locally.
+This is the \emph{reversible} (minimum) cost implied directly by \eqref{eq:reos} and the
+isothermal Gibbs relation. Any inequality $W\ge W_{\min}$ requires an irreversibility
+assumption (Tier~1) and is not used at the axiomatic level.
 
 \paragraph{References.}
-Landauer’s original argument appears in \cite{Landauer1961}.  Our
-derivation matches recent algebraic proofs
-(e.g.\ \cite{ReebWolf2014}) but removes the need for explicit bath
-Hamiltonians or coarse-graining assumptions.
-
+Landauer \cite{Landauer1961}; see also algebraic proofs such as \cite{ReebWolf2014}.

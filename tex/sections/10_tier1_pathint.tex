@@ -1,0 +1,52 @@
+\section{Tier‑1: Kernels and Path Integrals}
+\label{sec:tier1-pathint}
+
+\subsection{Field content and constraints}
+Integrate over
+\[
+  J \in \Omega^{n-1}(\mathcal M), \quad
+  \rho:\mathcal M\to\mathbb R, \quad
+  R^{(a)}:\mathcal M\to\mathbb R,
+\]
+with multipliers $\psi$ and $\lambda\in\Omega^{n-1}(\mathcal M)$ imposing
+\begin{equation}
+  dJ=\Sigma,
+  \qquad
+  d\rho + \Lambda_a(R)\, dR^{(a)} = 0 .
+  \label{eq:t1-constraints}
+\end{equation}
+
+\subsection{Action}
+Fix a metric on $\mathcal M$ with Hodge map $\star$.
+Let $A:\Omega^{n-1}\!\to\!\Omega^{n-1}$ and $(B_{ab})$ act on $1$-forms.
+Define
+\begin{equation}
+  S_E[J,\rho,R;\psi,\lambda]
+  \;=\;
+  \tfrac12 \!\int_{\mathcal M}\! J \wedge \star A J
+  \;+\; \tfrac12 \sum_{a,b} \!\int_{\mathcal M}\! dR^{(a)} \wedge \star B_{ab}\, dR^{(b)}
+  \;+\; \int_{\mathcal M}\! \psi\, (dJ-\Sigma)
+  \;+\; \int_{\mathcal M}\! \lambda \wedge \big(d\rho + \Lambda_a(R)\, dR^{(a)}\big).
+  \label{eq:t1-action}
+\end{equation}
+(For phase kernels replace $S_E$ by $S$.)
+
+\subsection{Boundary kernels}
+For boundary data $\mathcal B$ on $\partial V\subset\mathcal M$,
+\begin{align}
+  K_E(\mathcal B)
+  &:= \!\!\int_{\substack{J,\rho,R,\psi,\lambda\\ \text{match }\mathcal B \text{ on }\partial V}}
+        \!\!\!\!\!\!\!\!
+        \mathcal D[J,\rho,R,\psi,\lambda]\;
+        \exp\!\big[ - S_E \big],
+  \\
+  K_P(\mathcal B)
+  &:= \!\!\int_{\substack{J,\rho,R,\psi,\lambda\\ \text{match }\mathcal B \text{ on }\partial V}}
+        \!\!\!\!\!\!\!\!
+        \mathcal D[J,\rho,R,\psi,\lambda]\;
+        \exp\!\big[ i S \big].
+\end{align}
+
+\subsection{Stationarity}
+Variations in $(\psi,\lambda)$ enforce \eqref{eq:t1-constraints}; variations in $(J,\rho,R)$
+yield the adjoint Euler–Lagrange equations associated with $A$ and $B_{ab}$.

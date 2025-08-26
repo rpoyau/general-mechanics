@@ -1,0 +1,78 @@
+\section{Falsification Ladders}
+\label{sec:falsify}
+
+\subsection{Tier‑0: Balance on \texorpdfstring{$\mathcal M$}{M}}
+\begin{enumerate}\itemsep0pt
+  \item \textbf{Boundary–interior equality.}
+        For any admissible $V\subset \mathcal M$, test
+        \[
+          \int_{\partial V} J \stackrel{?}{=} \int_V \Sigma
+          \quad\text{(Eq.~\eqref{eq:stokes-balance})}.
+        \]
+  \item \textbf{Partition invariance.}
+        For $V=\bigsqcup_k V_k$ (disjoint interiors), verify
+        $\int_{\partial V}J=\sum_k\int_{\partial V_k}J$ and
+        $\int_V\Sigma=\sum_k\int_{V_k}\Sigma$.
+  \item \textbf{Discrete chain test.}
+        On a finite $n$‑complex with incidence $B$, record edge currents $J$ and cell sources $\sigma$;
+        test $B^{\mathsf T}J\stackrel{?}{=}\sigma$ on all $n$‑cells.
+\end{enumerate}
+
+\subsection{Resource–space integrability}
+Let $\alpha(R)=\Lambda_a(R)\,dR^{(a)}$.
+\begin{enumerate}\itemsep0pt
+  \item \textbf{Loop test.} On small rectangles $\Pi$ in a resource patch,
+        $\oint_{\partial\Pi}\alpha \stackrel{?}{=} 0$.
+  \item \textbf{Maxwell symmetry.} Cross‑partials:
+        $\partial_{R^{(b)}}\Lambda_a \stackrel{?}{=} \partial_{R^{(a)}}\Lambda_b$.
+  \item \textbf{Path independence.} For two paths $\Gamma_1,\Gamma_2$ with same endpoints,
+        \[
+          \int_{\Gamma_1}\Lambda_a\,dR^{(a)}
+          \stackrel{?}{=}
+          \int_{\Gamma_2}\Lambda_a\,dR^{(a)} .
+        \]
+\end{enumerate}
+
+\subsection{Tier‑0 consequences}
+\begin{enumerate}\itemsep0pt
+  \item \textbf{Reversible path–cost.}
+        For a protocol $\Gamma$,
+        \[
+          \int_{\Gamma}\Lambda_a\,dR^{(a)} \stackrel{?}{=} -\,\Delta\rho
+          \quad\text{(Eq.~\eqref{eq:rev-cost})}.
+        \]
+  \item \textbf{Force covector.}
+        For a field $R^{(a)}(x)$, compute $\mathcal F:=-\,R^{(a)}\,d\Lambda_a$
+        and compare with measured tendencies under small controlled spatial variations.
+  \item \textbf{Variational scaffold.}
+        Stationarity of $\mathcal S$ in Eq.~\eqref{eq:tier0-action}
+        reproduces \eqref{eq:stokes-balance} and \eqref{eq:reos}.
+\end{enumerate}
+
+\subsection{Thermodynamic representation}
+With $R=(E,V,N_i,\ldots)$ and $\rho=S$:
+\begin{enumerate}\itemsep0pt
+  \item \textbf{Gibbs identity.}
+        \(
+          dS \stackrel{?}{=} \tfrac{1}{T}dE + \tfrac{p}{T}dV - \sum_i \tfrac{\mu_i}{T} dN_i
+          \quad\text{(Eq.~\eqref{eq:gibbs-entropy-form})}.
+        \)
+  \item \textbf{Landauer equality (reversible).}
+        At fixed $(V,N_i)$,
+        \(
+          \Delta E_{\min} \stackrel{?}{=} T\,\Delta S
+          \quad\text{(Eq.~\eqref{eq:landauer-equality})}.
+        \)
+\end{enumerate}
+
+\subsection{Tier‑1 (only when the extra structure is chosen)}
+\begin{enumerate}\itemsep0pt
+  \item \textbf{Channel throughput/capacity.}
+        For each channel $k$, test $\mathcal M_k(\theta_k)=\frac{d}{d\theta_k}\int_{\Sigma_k(\theta_k)}J$
+        and the bound $\lvert \mathcal M_k\rvert \stackrel{?}{\le} C_k$.
+  \item \textbf{Maxwell‑style analogue.}
+        If $(\mathcal A,F)$ and a metric are chosen, test $dF=0$ and
+        $d\,\star F=J-\Pi$ with $d\Pi=\Sigma$.
+  \item \textbf{Kernel stationarity.}
+        With the quadratic action \eqref{eq:t1-action}, check that variations reproduce the imposed constraints and adjoint equations.
+\end{enumerate}

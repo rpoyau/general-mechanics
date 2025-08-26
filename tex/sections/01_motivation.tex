@@ -2,29 +2,19 @@
 % 01_motivation.tex
 % ======================================================================
 
-\section{Motivation and Contributions}
+\section{Motivation}
 \label{sec:motivation}
 
-\paragraph{Why axioms first.}
-Many treatments of information dynamics start from specific transport equations or metrics, then retrofit conservation and cost. We invert this order. The ledger (generalized Stokes) is taken as a \emph{first principle}, and the state law (REOS) is the unique link that defines \emph{informational potentials}. Dynamics arise from these two, plus an explicit state-space generator.
+The motivation for this work is to construct a \emph{General Mechanics} from the ground up by synthesizing three of the most powerful and fundamental ideas from physics, engineering, and mathematics.
 
-\paragraph{Gaps we close.}
-(i) We separate \emph{core ontology} from \emph{dynamics}. (ii) We state the ledger as an axiom (not an identity) and keep sources to price measurement/erasure locally. (iii) We make the REOS differential explicit, so potentials are not introduced ad hoc. (iv) We encode thermodynamic cost and an \emph{uncertain} information force as axioms rather than heuristics. (v) We give a constrained action, a UV‑finite path integral (via multi‑clock resolution bounds), a functional master equation, and ledger‑exact capacity bounds.
+The approach is built on three core pillars:
 
-\paragraph{What we assume.}
-Only orientation and additivity on the base domain are required; no metric is assumed. The model is a finite set of tracked relations, represented by an information state field.
-
-\paragraph{What follows.}
-From the axioms we derive: continuity with sources (ledger) \eqref{eq:stokes-ledger}, the REOS differential \eqref{eq:reos-differential}, expected force density \eqref{eq:force-deterministic}, the constrained action \eqref{eq:action} (and potential form \eqref{eq:action-potentials}), the UV‑finite kernel/partition \eqref{eq:kernel-partition}, the functional Fokker–Planck \eqref{eq:ffp}, and capacity bounds \eqref{eq:capacity}.
-
-\paragraph{How to use the framework.}
-Pick a \emph{transport law} (model choice) and a list of tracked relations. The axioms do the rest. In \S\ref{sec:apply-classical} we show the minimal steps to recover familiar classical forms.
-
-\subsection*{Summary of contributions}
 \begin{enumerate}
-  \item A two‑tier axiom system: RIM core (ontology) and RIM+REOS dynamics (ledger + state law + IVF).
-  \item Thermodynamic‑cost and uncertain‑force axioms compatible with REOS potentials.
-  \item A constrained action that enforces both ledger and state law, enabling a UV‑finite path integral.
-  \item A functional master equation for probability over information states.
-  \item Ledger‑exact throughput and rate bounds (capacity) under tracked‑relations budgets.
+  \item \textbf{Relationism.} A mechanical model is purely relational. Its properties and dynamics are determined by the network of connections within the model, not by any absolute background.
+
+  \item \textbf{Information theory.} The substance of these relations is informational. Adopting an information‑theoretic modelling stance grounds the framework in operational limits from the outset: Shannon entropy and channel capacity \cite{Shannon1948,CoverThomas2006,Gallager1968}, and thermodynamic cost \cite{Landauer1961}.
+
+  \item \textbf{Geometric calculus.} We describe the evolution of this relational, informational system using geometric calculus. Applying a generalized Stokes balance on an oriented $n{+}1$ domain to a well‑behaved informational phase vector field (IVF) lets the ``laws of motion'' emerge as a single, necessary consequence of the underlying geometry.
 \end{enumerate}
+
+This note therefore presents a set of axioms for this General Mechanics and begins the exploration of the rich, self‑consistent mathematical and conceptual framework that emerges from this modern synthesis.

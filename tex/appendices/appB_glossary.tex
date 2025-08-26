@@ -1,0 +1,61 @@
+% appendices/appB_glossary.tex — Glossary (minimal; axioms-first vocabulary)
+
+\section{Glossary}
+\label{app:glossary}
+
+\begin{description}\itemsep3pt
+
+\item[\(\mathcal M\) (base domain).]
+Oriented finite-dimensional manifold / chain complex; regions \(V\subset\mathcal M\) with boundary \(\partial V\).
+
+\item[Tracked relations \(R^{(a)}(x,t)\).]
+Scalar resource densities; the relations vector is \(R=(R^{(1)},\ldots,R^{(m)})\).
+
+\item[Information State Field \(\vec\Psi(x,t)\).]
+Model state over \(\mathcal M\).
+
+\item[Shannon density \(\rho(x,t)\).]
+Local information content; units set by the chosen log base (nats by default).
+
+\item[Current \(J\).]
+\((n{-}1)\)-form on \(\mathcal M\) representing boundary flux.
+
+\item[Source \(\Sigma\).]
+\(n\)-form on \(\mathcal M\) representing interior creation/annihilation.
+
+\item[Geometric balance (Stokes).]
+\(\displaystyle \int_{\partial V} J = \int_V \Sigma\), equivalently \(dJ=\Sigma\).
+
+\item[Resource–space 1‑form \(\alpha(R)\).]
+\(\alpha:=\Lambda_a(R)\, dR^{(a)}\).
+
+\item[REOS (state differential).]
+\(\displaystyle d\rho + \Lambda_a(R)\, dR^{(a)} = 0\).
+
+\item[Conjugates \(\Lambda_a\).]
+Intensive “prices’’ dual to the coordinates \(R^{(a)}\); satisfy \(\partial_{R^{(b)}}\Lambda_a=\partial_{R^{(a)}}\Lambda_b\).
+
+\item[Reversible path–cost.]
+\(\displaystyle \int_{\Gamma}\Lambda_a\, dR^{(a)} = -\,\Delta\rho\).
+
+\item[Force covector \(\mathcal F\).]
+\(\displaystyle \mathcal F := -\,R^{(a)}\, d\Lambda_a = -\,d\big(\rho+\Lambda_a R^{(a)}\big)\).
+
+\item[Constrained action (Tier‑0 scaffold).]
+\(\displaystyle \mathcal S=\int_{\mathcal M}\psi\,(dJ-\Sigma)+\lambda\wedge\big(d\rho+\Lambda_a\,dR^{(a)}\big)\).
+
+\item[Channel \(\Sigma_k(\theta_k)\) (Tier‑1).]
+Oriented family of cross‑sections indexed by a channel clock \(\theta_k\).
+
+\item[Channel flux and throughput (Tier‑1).]
+\(B_k(\theta_k)=\int_{\Sigma_k(\theta_k)}\!J\), \quad
+\(\mathcal M_k(\theta_k)=\dfrac{d}{d\theta_k}B_k(\theta_k)\).
+
+\item[Capacity (Tier‑1).]
+A bound \(\lvert \mathcal M_k \rvert \le C_k\) on channel \(k\).
+
+\item[Thermodynamic representation.]
+\(R=(E,V,N_i,\ldots)\), \(\rho=S\); dictionary:
+\(\Lambda_E=-1/T\), \(\Lambda_V=-p/T\), \(\Lambda_{N_i}=+\mu_i/T\).
+
+\end{description}

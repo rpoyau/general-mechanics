@@ -1,0 +1,40 @@
+\section{RIM Dynamics: Geometric Balance}
+\label{sec:rim-dynamics}
+
+\subsection{RIM--D1 (Generalised Stokes balance)}
+There exists an $(n\!-\!1)$-form current $J$ on $\mathcal M$ with source $n$-form
+$\Sigma := dJ$. For every admissible region $V\subset \mathcal M$,
+\begin{equation}
+  \int_{\partial V} J \;=\; \int_{V} \Sigma .
+  \label{eq:stokes-balance}
+\end{equation}
+
+\subsection{Immediate identities (derived from D1; non-axiomatic)}
+\label{subsec:rim-dynamics-identities}
+
+\paragraph{Partition / coarse-graining.}
+For pairwise-disjoint regions $V=\bigcup_{k} V_k$,
+\[
+  \int_{\partial V} J \;=\; \sum_{k} \int_{\partial V_k} J,
+  \qquad
+  \int_{V} \Sigma \;=\; \sum_{k} \int_{V_k} \Sigma .
+\]
+
+\paragraph{Gluing / orientation.}
+If adjacent regions share an internal interface $S$ with opposite orientations,
+the interface contributions cancel in \eqref{eq:stokes-balance}.
+
+\paragraph{Weak form (currents).}
+If $J$ and $\Sigma$ are de~Rham currents, then for any compactly supported
+$(n\!-\!1)$-form $\varphi$,
+\[
+  \langle \Sigma,\varphi\rangle \;=\; \langle J, d\varphi\rangle .
+\]
+
+\paragraph{Discrete chain complex.}
+On a finite $n$-dimensional chain complex with incidence matrix $B$,
+the balance reads $B^{\mathsf T} J=\sigma$ on $n$-cells (signs fixed by orientation).
+
+\paragraph{Automorphism invariance.}
+For any orientation-preserving automorphism $g$ of $\mathcal M$ that preserves the
+declared relations, the pullbacks $g^{*}J$ and $g^{*}\Sigma$ satisfy \eqref{eq:stokes-balance}.

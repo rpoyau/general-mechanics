@@ -1,0 +1,67 @@
+% appendices/appC_discrete_chains.tex — Discrete chain formulation
+
+\section{Discrete Chains}
+\label{app:discrete-chains}
+
+\subsection{Cell complex and incidence}
+Let $\mathcal K$ be a finite oriented cell complex with $k$‑cells $C_k$.
+The boundary operator $\partial_k:C_k\to C_{k-1}$ has incidence matrix $B_k$,
+so that $B_k B_{k+1}=0$.
+
+\subsection{Cochains and coboundary}
+A $k$‑cochain is a vector in $\mathbb R^{|C_k|}$.
+The coboundary $\delta_k:\mathbb R^{|C_k|}\to \mathbb R^{|C_{k+1}|}$ is
+\[
+  \delta_k \;=\; B_{k+1}^{\mathsf T},
+  \qquad
+  \delta_k\,\delta_{k-1}=0 .
+\]
+
+\subsection{Discrete balance (Tier‑0)}
+Let $n=\dim\mathcal K$.
+Assign a current to $(n\!-\!1)$‑cells: $J\in\mathbb R^{|C_{n-1}|}$,
+and a source to $n$‑cells: $\sigma\in\mathbb R^{|C_n|}$.
+The balance is
+\begin{equation}
+  B_n^{\mathsf T}\,J \;=\; \sigma .
+  \label{eq:disc-balance}
+\end{equation}
+
+\subsection{Regional form}
+For a set $V\subset C_n$ (union of $n$‑cells) with oriented boundary faces
+$\partial V \subset C_{n-1}$,
+\begin{equation}
+  \sum_{e\in \partial V} \!\mathrm{sign}(e,V)\, J_e
+  \;=\;
+  \sum_{c\in V} \sigma_c .
+  \label{eq:disc-regional}
+\end{equation}
+Internal faces cancel by $B_n B_{n+1}=0$.
+
+\subsection{Graph case (n=1)}
+For vertices $C_0$ and oriented edges $C_1$ with incidence $B_1$,
+\[
+  B_1^{\mathsf T} J \;=\; \sigma
+  \quad\Longleftrightarrow\quad
+  \sum_{e:\,e\to v} J_e \;-\! \sum_{e:\,v\to e} J_e \;=\; \sigma_v \;\; \text{for all } v\in C_0 .
+\]
+
+\subsection{Grid case (n=2)}
+On a rectangular grid with horizontal/vertical $(n\!-\!1)$‑cells indexed by $(i+\tfrac12,j)$ and $(i,j+\tfrac12)$,
+\[
+  (B_2^{\mathsf T}J)_{i,j}
+  \;=\;
+  J^{x}_{i+\tfrac12,j} - J^{x}_{i-\tfrac12,j}
+  + J^{y}_{i,j+\tfrac12} - J^{y}_{i,j-\tfrac12}
+  \;=\; \sigma_{i,j}.
+\]
+
+\subsection{Discrete resource–space path cost}
+For a path $\Gamma=(R_0,\ldots,R_m)$ in a resource lattice with increments
+$\Delta R^{(a)}_k=R^{(a)}_{k+1}-R^{(a)}_{k}$,
+\begin{equation}
+  \sum_{k=0}^{m-1} \Lambda_a(R_k)\,\Delta R^{(a)}_k
+  \;=\; -\,\big(\rho(R_m)-\rho(R_0)\big) .
+  \label{eq:disc-reos-path}
+\end{equation}
+On a simply connected patch, the sum is path‑independent.

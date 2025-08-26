@@ -1,0 +1,98 @@
+% appendices/appA_kick.tex — Units: the Compton energy Kick
+
+\section{Units: The Compton Energy Kick \texorpdfstring{\(\Kk\)}{Kk}}
+\label{sec:kick_units}\label{sec:kick}
+
+% ------------------------------------------------------------------
+\subsection*{Frequency \(\equiv\) energy}
+The mass–energy identity
+\[
+  E \;=\; m c^{2} \;=\; h\,f_{\mathrm C}(m)
+  \tag{2.1}
+\]
+equates every rest mass with a \emph{frequency}. We therefore \emph{define} the \textbf{Kick}~\cite{Compton1923}:
+\[
+  1\,\Kk \;\coloneqq\; 1~\text{Hz}.
+\]
+\noindent\emph{Remark.} Kick is a \textbf{representation} of energy as frequency (Hz). It is independent of the entropy gauge \(C\) (nats/bits/SI).
+
+% ------------------------------------------------------------------
+\subsection{Kilogram relegated}\label{subsec:kick-kg}
+The SI kilogram is a derived label in Kick units:
+\[
+  1~\text{kg} \;=\; \frac{c^{2}}{h} \;\Kk
+  \;=\;
+  1.356392489652\times 10^{50}\;\Kk,
+\]
+retained for commercial continuity; all calculations may proceed in \(\Kk\).
+
+% ------------------------------------------------------------------
+\subsection{Planck frequency: a natural ceiling}\label{subsec:kick-planck}
+The Planck tick \(t_{P}\approx 5.391\times 10^{-44}\,\text{s}\) sets a maximal natural frequency:
+\[
+  f_{P}=t_{P}^{-1}\approx 1.854\times 10^{43}\;\text{Hz}
+  \;=\; 1.854\times 10^{43}\;\Kk.
+\]
+
+% ------------------------------------------------------------------
+\subsection{Prefix ladder}\label{subsec:kick-prefixes}
+\[
+\begin{array}{@{}llc@{}}
+\text{Name} & \text{Symbol} & \text{Definition (Hz)} \\ \hline
+\text{Kick}          & \Kk      & 10^{0} \\
+\text{Kilokick}      & \text{k}\Kk & 10^{3} \\
+\text{Megakick}      & \text{M}\Kk & 10^{6} \\
+\text{Gigakick}      & \text{G}\Kk & 10^{9} \\
+\text{Terakick}      & \text{T}\Kk & 10^{12} \\
+\text{Planck freq.}  & f_{P}    & 1.854\times 10^{43}
+\end{array}
+\]
+
+% ------------------------------------------------------------------
+\subsection{Quick reference}\label{subsec:kick-quick-ref}
+\[
+\begin{aligned}
+f_{\mathrm C}(m_{e}) &\approx 1.2356\times 10^{20}\;\Kk,\\
+f_{\mathrm C}(m_{p}) &\approx 2.2687\times 10^{23}\;\Kk,\\
+f_{\mathrm C}\bigl(1~\text{g}\bigr) &\approx 1.3564\times 10^{47}\;\Kk.
+\end{aligned}
+\]
+
+\begin{tcolorbox}[title=Kick–SI round-trip,width=\linewidth]
+\begin{enumerate}\itemsep0pt
+  \item \textbf{Electron mass.}\quad
+        \(m_{e}=1.2356\times 10^{20}\,\Kk
+        \;\longrightarrow\;
+        9.11\times 10^{-31}\,\text{kg}
+        \;\longrightarrow\;
+        1.2356\times 10^{20}\,\Kk\).
+  \item \textbf{One joule.}\quad
+        \(1~\text{J}=\tfrac{1}{h}\,\Kk
+        \;\approx\;
+        1.50919045\times 10^{33}\,\Kk\);\;
+        the inverse map is \(E[\text{J}]=h\,E[\Kk]\).
+\end{enumerate}
+\end{tcolorbox}
+
+% ------------------------------------------------------------------
+\subsection{Temperature in Kick units}\label{subsec:kick-temperature}
+Temperature shares the same unit when expressed as a frequency:
+\[
+  T[\Kk] \;=\; \frac{k_B}{h}\,T[\text{K}]
+  \;\approx\; 2.08366191\times 10^{10}\;\Kk/\text{K}\;\times T[\text{K}].
+\]
+(Thus \(k_B\) and \(h\) appear only in conversions; formulas written entirely in \(\Kk\) need neither.)
+
+% ------------------------------------------------------------------
+\paragraph{Practical consequence.}
+Representing energy (and temperature) in \(\Kk\):
+\begin{itemize}\itemsep3pt
+  \item removes \(h\) and \(\hbar\) from expressions written in Kick units; constants appear only in conversions (this appendix);
+  \item keeps the speed of light \(c\) explicit as the bridge between space and time;
+  \item makes the joule a fixed multiplier: \(1~\text{J}=\tfrac{1}{h}\,\Kk\) (exact by SI definition of \(h\));
+  \item allows temperature to use the same unit: \(T[\Kk]=\tfrac{k_B}{h}\,T[\text{K}]\);
+  \item lets entropy remain a pure Shannon tally (nats by default; bits add a factor \(\ln 2\)).
+\end{itemize}
+
+Thus kilogram, joule, and kelvin become veneers; once stripped away, the thermodynamic
+identities (e.g.\ Sec.~\ref{sec:landauer}) reduce to straight arithmetic in \(\Kk\).

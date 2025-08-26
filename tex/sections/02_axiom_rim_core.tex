@@ -1,0 +1,30 @@
+\section{Relational Information Model (RIM): Core Axioms}
+\label{sec:rim-core-axioms}
+
+\subsection*{Notation}
+\begin{itemize}
+  \item Base domain (space–time): oriented finite-dimensional manifold / chain complex $\mathcal M$; regions $V\subset\mathcal M$ with boundary $\partial V$.
+  \item Tracked \emph{relations} $\{R_i\}$; their component densities form the \emph{relations vector} $R^{(a)}(x,t)$.
+  \item Information state vector/field: $\vec\Psi(x,t)$ over $\mathcal M$.
+  \item Shannon density $\rho$ is built from declared probabilities; log base sets units (bits/nats).
+\end{itemize}
+
+\noindent\emph{Glossary:} see Appendix~\ref{app:glossary}.
+
+
+\subsection{RIM--C1 (Relationism)}\label{ax:rim-c1}
+A model $M$ is constituted solely by a finite set of tracked relations $\{R_i\}$. Only statements invariant under automorphisms preserving $\{R_i\}$ are admissible.
+
+\subsection{RIM--C2 (Incompleteness)}\label{ax:rim-c2}
+$M\ll T$: the model’s state space is a strict projection of the target’s state space.
+
+\subsection{RIM--C3 (Base domain)}\label{ax:rim-c3}
+The model is posed on an oriented finite-dimensional domain $\mathcal M$ with induced boundary operator.
+
+\subsection{RIM--C4 (Information state field)}\label{ax:rim-c4}
+At each $x\in\mathcal M$ the model has an \emph{Information State Vector} $\vec\Psi(x,t)$; the collection $\{\vec\Psi(x,t)\}_{x\in\mathcal M}$ is the \emph{Information State Field}.
+
+% ---------- Consistency notes (metric-free; integrability; duality) ----------
+\subsection{Metric‑free presentation; integrability; duality}
+\label{subsec:consistency}
+Balances are stated with $d$ and integrals on oriented domains; vector‑calculus forms appear only if a metric/volume is later chosen. If $\partial_\rho\Phi\neq 0$, then locally $\rho=G(R)$ and $\Lambda_a=\partial_{R^{(a)}}G$ (Maxwell‑type identities follow). With $G$ convex, the Legendre dual $G^\star$ yields $\mathcal H=T_I S_{\rm tot}+\int G^\star(\Lambda)\,d^{\,n}x$ and $\delta\mathcal H/\delta R^{(a)}=\Lambda_a$.

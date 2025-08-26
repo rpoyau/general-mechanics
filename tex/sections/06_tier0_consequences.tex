@@ -1,0 +1,34 @@
+\section{Tier‑0 Consequences}
+\label{sec:tier0-consequences}
+
+\subsection{Reversible path–cost}
+From \eqref{eq:reos}, along any smooth path $\Gamma$ in resource space,
+\begin{equation}
+  \int_{\Gamma} \Lambda_a(R)\, dR^{(a)} \;=\; -\,\Delta \rho .
+  \label{eq:rev-cost}
+\end{equation}
+
+\subsection{Force covector}
+Define the $1$‑form
+\begin{equation}
+  \mathcal F \;:=\; -\,R^{(a)}\, d\Lambda_a \;=\; -\, d\!\big(\rho + \Lambda_a R^{(a)}\big).
+  \label{eq:force-covector}
+\end{equation}
+
+\subsection{Constrained variational scaffold}
+Introduce multipliers $\psi$ and $\lambda$ and define
+\begin{equation}
+  \mathcal S[J,\rho,R;\psi,\lambda]
+  \;=\;
+  \int_{\mathcal M} \psi\, (dJ-\Sigma) \;+\; \lambda \wedge \big(d\rho + \Lambda_a(R)\, dR^{(a)}\big).
+  \label{eq:tier0-action}
+\end{equation}
+Stationarity in $(\psi,\lambda)$ imposes \eqref{eq:stokes-balance} and \eqref{eq:reos}.
+
+\subsection{Landauer equality (reversible)\label{sec:landauer}}
+In the thermodynamic representation $R=(E,V,N_i,\ldots)$ with $\rho=S$,
+at fixed $(V,N_i)$,
+\begin{equation}
+  \Delta E_{\min} \;=\; T\,\Delta S .
+  \label{eq:landauer-equality}
+\end{equation}

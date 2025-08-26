@@ -1,0 +1,45 @@
+\section{Tier‑1: Channel Clocks and Capacity}
+\label{sec:tier1-channels}
+
+\subsection*{Scope}
+Time enters at Tier‑1 via \emph{channel clocks}. Tier‑0 statements remain valid without clocks.
+
+\subsection{T1CH1 (Channels and clocks)}
+Fix a finite set of channels $\mathcal C=\{k\}$.
+Each channel $k$ has a scalar clock $\theta_k\in\mathbb R$ and an oriented family of
+$(n{-}1)$‑dimensional cross‑sections $\{\Sigma_k(\theta_k)\}$.
+
+\subsection{T1CH2 (Throughput)}
+The boundary flux through channel $k$ at clock value $\theta_k$ is
+\begin{equation}
+  B_k(\theta_k) \;:=\; \int_{\Sigma_k(\theta_k)} J .
+  \label{eq:channel-flux}
+\end{equation}
+The instantaneous throughput is
+\begin{equation}
+  \mathcal M_k(\theta_k) \;:=\; \frac{d}{d\theta_k}\, B_k(\theta_k).
+  \label{eq:channel-throughput}
+\end{equation}
+
+\subsection{T1CH3 (Capacity)}
+There exists $C_k \ge 0$ such that
+\begin{equation}
+  \big|\,\mathcal M_k(\theta_k)\,\big| \;\le\; C_k \quad \text{for all } \theta_k .
+  \label{eq:channel-capacity}
+\end{equation}
+
+\subsection{T1CH4 (Cost rate along a channel)}
+For any channel‑parametrised protocol $R(\theta_k)$, the resource–space identity \eqref{eq:reos} yields
+\begin{equation}
+  \frac{d\rho}{d\theta_k} \;+\; \Lambda_a\big(R(\theta_k)\big)\,\frac{dR^{(a)}}{d\theta_k}
+  \;=\; 0 .
+  \label{eq:channel-reos-rate}
+\end{equation}
+
+\subsection{T1CH5 (Optional global time calibration)}
+If there exists a scalar $t$ and monotone functions $f_k$ with $\theta_k=f_k(t)$, then
+\[
+  \frac{dB_k}{dt} \;=\; f'_k(t)\,\mathcal M_k(\theta_k),
+  \qquad
+  \bigg|\frac{dB_k}{dt}\bigg| \;\le\; f'_k(t)\, C_k .
+\]
