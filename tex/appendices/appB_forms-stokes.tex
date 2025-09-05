@@ -1,0 +1,105 @@
+% ======================================================================
+% appendices/appB_forms-stokes.tex — Differential forms & Stokes (v1.0.2)
+% ======================================================================
+
+\section{Differential forms and Stokes conventions}
+\label{app:forms-stokes}
+
+\paragraph{Manifold, metric, orientation.}
+Work on an oriented Lorentzian manifold \((\mathcal M^{n+1},g)\) with \emph{mostly-plus} signature \((-,+,\dots,+)\).
+Choose coordinates \((x^\mu)=(t,x^1,\dots,x^n)\) with orientation
+\[
+\mathrm{vol}:=\sqrt{|g|}\;\mathrm dt\wedge\mathrm dx^1\wedge\cdots\wedge \mathrm dx^n.
+\]
+For a \(p\)-form \(\alpha=\tfrac1{p!}\alpha_{\mu_1\cdots\mu_p}\,\mathrm dx^{\mu_1}\!\wedge\!\cdots\!\wedge\!\mathrm dx^{\mu_p}\),
+the pointwise inner product is
+\(\langle \alpha,\beta\rangle=\tfrac1{p!}\alpha_{\mu_1\cdots\mu_p}\beta^{\mu_1\cdots\mu_p}\).
+
+\paragraph{Hodge star \(*\).}
+The Hodge dual \(*:\Lambda^p\to\Lambda^{n+1-p}\) is defined by
+\[
+\alpha\wedge *\beta = \langle \alpha,\beta\rangle\,\mathrm{vol}\qquad(\alpha,\beta\in\Lambda^p).
+\]
+We will not need explicit \(*^2\) signs; all identities below are written without squaring \(*\).
+In \(3{+}1\) with our orientation one has, in components,
+\[
+*(\mathrm dt)=\sqrt{|g|}\,\mathrm dx^1\wedge\mathrm dx^2\wedge\mathrm dx^3,\qquad
+*(\mathrm dx^i)= -\,\sqrt{|g|}\,\mathrm dt\wedge\epsilon_{ijk}\,\mathrm dx^j\wedge\mathrm dx^k/2,
+\]
+and similarly for higher degrees (these are sufficient to recover the \(3{+}1\) split below).
+
+\paragraph{Exterior derivative and Stokes.}
+The exterior derivative \(\mathrm d:\Lambda^p\to\Lambda^{p+1}\) obeys \(\mathrm d(\alpha\wedge\beta)=\mathrm d\alpha\wedge\beta+(-1)^p\alpha\wedge\mathrm d\beta\).
+For any smooth region \(\Omega\subset\mathcal M\) with smooth boundary \(\partial\Omega\),
+\[
+\boxed{\quad \displaystyle \int_{\partial\Omega}\omega = \int_{\Omega}\mathrm d\omega\qquad(\omega\in\Lambda^p). \quad}
+\]
+
+\paragraph{Worldtube cap–side decomposition.}
+Let \(\Omega=V\times[t_0,t_1]\) be a fixed worldtube with \(V\subset\mathbb R^n\).
+With the standard product orientation,
+\[
+\partial\Omega \;=\; \underbrace{(V\times\{t_1\})}_{\text{top cap}}
+\;\;\sqcup\;\; \underbrace{-(V\times\{t_0\})}_{\text{bottom cap}}
+\;\;\sqcup\;\; \underbrace{(\partial V)\times[t_0,t_1]}_{\text{lateral side}}.
+\]
+Thus any Stokes identity over \(\Omega\) splits into “cap” and “side” contributions, which we used for the Poynting‑type balance.
+
+\subsection*{Continuity as a 3‑form identity}
+Let \(J_I^\mu=(i,\mathbf j)\) be the information 4‑current and \(j:=J_{I\mu}\,\mathrm dx^\mu\) the associated \(1\)-form.
+Define the dual \(3\)-form
+\[
+j_3:=*j.
+\]
+Then the continuity equation with production \(\sigma\) is exactly
+\[
+\boxed{\quad \nabla_\mu J_I^\mu=\sigma \qquad\Longleftrightarrow\qquad \mathrm d j_3=\sigma\,\mathrm{vol}. \quad}
+\]
+Integrating over a worldtube \(\Omega=V\times[t_0,t_1]\) gives the master balance
+\[
+\int_{\partial\Omega}\!\!*j=\int_{\Omega}\sigma\,\mathrm d^{\,n+1}x
+\quad\Longleftrightarrow\quad
+\int_{V_{t_1}}\!\!*j-\int_{V_{t_0}}\!\!*j+\int_{\partial V\times[t_0,t_1]}\!\!*j=\int_{\Omega}\sigma\,\mathrm{vol}.
+\]
+In a static snapshot (\(\partial_t i=0\)) with \(\sigma\) time‑independent, this reduces to the Gauss law used in \S\ref{sec:static-gauss-nd}.
+
+\subsection*{Information electrodynamics (IED) in forms}
+Introduce the information potential \(1\)-form \(\mathcal A_I\), field \(2\)-form \(\mathcal F_I:=\mathrm d\mathcal A_I\), and excitation \(2\)-form \(\mathcal H_I:=\chi\!\cdot\!\mathcal F_I\) (linear medium map \(\chi\) in the simplest cases).
+IED is the pair
+\[
+\boxed{\quad \mathrm d\mathcal F_I=0,\qquad \mathrm d\mathcal H_I=j_3. \quad}
+\]
+In a \(3{+}1\) split with \(\mathcal A_I=-\phi_I\,\mathrm dt+\mathbf A_I\cdot\mathrm d\mathbf x\),
+\[
+\mathcal F_I=\mathbf E_I\cdot \mathrm dt\wedge\mathrm d\mathbf x
++\mathbf B_I\cdot \tfrac12\,\epsilon_{ijk}\,\mathrm dx^i\wedge\mathrm dx^j,
+\]
+and writing \(\mathcal H_I=\mathbf D_I\cdot \mathrm d\mathbf x\wedge\mathrm dt
++\mathbf H_I\cdot \tfrac12\,\epsilon_{ijk}\,\mathrm dx^i\wedge\mathrm dx^j\),
+the equations become the Maxwell‑type system
+\[
+\nabla\cdot \mathbf D_I=i,\qquad \nabla\cdot \mathbf B_I=0,\qquad
+\nabla\times \mathbf H_I=\mathbf j+\partial_t\mathbf D_I,\qquad
+\nabla\times \mathbf E_I=-\partial_t\mathbf B_I,
+\]
+used in \S\ref{sec:worldtube-IED}. The static limit with \(\mathbf j=0\) recovers \(\mathbf E_I=-\nabla\Phi_I\) and the Laplace/Poisson forms of \S\ref{sec:static-gauss-nd}.
+
+\subsection*{Variation strip for the information 1‑form}
+Let \(\Theta\) be any \(1\)-form on the extended space \((q,t)\), and let \(\Sigma\) be the \emph{variation strip} swept by a 1‑parameter family of nearby curves between fixed endpoints at \(t_0,t_1\).
+Stokes on \(\Sigma\) gives
+\[
+\int_{\partial\Sigma}\Theta=\int_{\Sigma}\mathrm d\Theta.
+\]
+Taking \(\Theta=\Theta_{\mathcal R}=P\!\cdot\mathrm dq-\Phi\,\mathrm dt\) with \(\mathcal R(q,\dot q,t)\) convex in \(\dot q\), one finds
+\[
+\mathrm d\Theta_{\mathcal R}= \mathrm dP\wedge \mathrm dq - \mathrm d\Phi\wedge \mathrm dt
+\quad\Rightarrow\quad
+\iota_X(\mathrm d\Theta_{\mathcal R})=0 \;\;\Longleftrightarrow\;\; \dot q=\partial_P\Phi,\ \dot P=-\partial_q\Phi,
+\]
+the canonical equations of \S\ref{sec:path-rate}. Here \(X=\partial_t+\dot q^i\partial_{q^i}+\dot P_i\partial_{P_i}\) is the strip tangent.
+No action functional is assumed; the result is an immediate corollary of boundary calculus.
+
+\paragraph{Remarks.}
+(1) All identities above are \((n{+}1)\)-covariant and metric‑compatible; only the choice of \(\chi\) (constitutive law) and calibrations to measured sectors are empirical.  
+(2) The worldtube cap–side split is the bookkeeping device behind our fixed‑boundary balances (e.g.\ the Poynting‑type identity).  
+(3) The same machinery applies to other conserved/distinguished currents by replacing \(j\) and \(\chi\) accordingly.

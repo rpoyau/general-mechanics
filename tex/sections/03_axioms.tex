@@ -1,0 +1,101 @@
+% ======================================================================
+% sections/03_axioms.tex — Axioms (information-first, v1.0.2)
+% ======================================================================
+
+\section{Axioms (information-first)}
+\label{sec:axioms}
+
+Throughout, all energy-like quantities are expressed in Kick (Kz), so relations like
+\(PV=NT\) and \(u=\tfrac{3}{2}nT\) are written without subscripts; see \S\ref{sec:conventions}.
+
+\begin{axiom}[Distinctions and relations]
+Model content is given by relations \(R=\{R^a\}\) (geometry/connectivity/boundary conditions).
+Admissible microstates \(\Omega(R)\) define the information (Shannon) \(S[R]=\ln W(R)\) with \(W(R)=\#\Omega(R)\).
+Functional derivatives \( \Lambda_a(x):=\delta S/\delta R^a(x) \) are \emph{intensities from counting}.
+\end{axiom}
+
+\begin{axiom}[Information density, flux, and production]
+Define the information 4-current \(J_I^\mu=(i,\mathbf j)\) and production \(\sigma\ge 0\).
+The balance (continuity) law is
+\[
+\nabla_\mu J_I^\mu=\sigma.
+\]
+\end{axiom}
+
+\begin{axiom}[Worldtube Stokes balance]
+For any fixed spacetime worldtube \(\Omega=V\times[t_0,t_1]\),
+\[
+\int_{\partial\Omega}\!*j=\int_{\Omega}\sigma\,\mathrm d^{\,n+1}x,
+\]
+which is equivalent to \(\nabla_\mu J_I^\mu=\sigma\). The static snapshot (\(\partial_t i=0\)) reduces to a Gauss law on \(\partial V\).
+\end{axiom}
+
+\begin{axiom}[Static closure and informational field]
+A simple static constitutive closure is \(\mathbf j=\kappa\,\nabla\Phi_I\).
+Define the informational field \(\mathbf F_I:=-\nabla\Phi_I\). In spherical symmetry,
+\[
+|\nabla\Phi_I(r)|=\frac{\dot I_{\mathrm{enc}}}{S_{n-1}\,\kappa\,r^{\,n-1}},\qquad \mathbf F_I=-\nabla\Phi_I.
+\]
+\end{axiom}
+
+\begin{axiom}[Dynamic closure: information electrodynamics (IED)]
+Introduce an information potential 1-form \(\mathcal A_I\), field \(\mathcal F_I:=\mathrm d\mathcal A_I\), and excitation
+\(\mathcal H_I:=\chi\!\cdot\!\mathcal F_I\) (medium response \(\chi\)). The field equations are
+\[
+\mathrm d\mathcal F_I=0,\qquad \mathrm d\mathcal H_I=j_3,\quad j_3:=*j,
+\]
+so “surprise’’ propagates causally with the retarded Green function determined by \(\chi\).
+\end{axiom}
+
+\begin{axiom}[Relational equation of state (REOS)]
+Small changes in relations produce changes in a local density \(\rho\) according to
+\[
+\mathrm d\rho \;=\; -\,\Lambda_a\,\mathrm dR^a,
+\]
+so \(\Lambda_a\) act as \emph{prices} conjugate to the relations \(R^a\). (No Lagrange multipliers are postulated; \(\Lambda\) are gradients of \(S\).)
+\end{axiom}
+
+\begin{axiom}[Path-rate mechanics (no \texorpdfstring{$L/H$}{L/H} assumed)]
+Counting micro-moves induces an information \emph{rate} \(\mathcal R(q,\dot q,t)\).
+Define \(P:=\partial_{\dot q}\mathcal R\) and the convex dual \(\Phi:=P\!\cdot\!\dot q-\mathcal R\).
+The information Poincaré–Cartan 1-form
+\[
+\Theta_{\mathcal R}=P\!\cdot\mathrm dq-\Phi\,\mathrm dt
+\]
+obeys strip–Stokes; stationarity yields the canonical equations
+\[
+\dot q=\partial_P\Phi,\qquad \dot P=-\partial_q\Phi.
+\]
+For fields \(\phi^a(x)\) (De Donder–Weyl form), \(P_a^{\ \mu}=\partial\mathcal R/\partial(\partial_\mu\phi^a)\) and
+\(\partial_\mu P_a^{\ \mu}=\partial\mathcal R/\partial\phi^a\).
+\end{axiom}
+
+\begin{axiom}[Calibrations to measured fields]
+Measured sectors are \emph{linear calibrations} of \(\mathbf F_I\) and/or \(J_I\):
+\[
+\mathbf g = c_M\,\mathbf F_I,\qquad \mathbf E = c_Q\,\mathbf F_I,\qquad \mathbf j_{\rm th} = \kappa_T\,\mathbf F_I,
+\]
+with one datum per sector fixing \(c_M,c_Q,\kappa_T\). Because energies are in Kz, constants like \(k_B\) and \(G\) do not appear in algebra.
+\end{axiom}
+
+\begin{axiom}[Geometric response (info–Einstein)]
+Choose the unique local, covariant, divergence-free metric response
+\[
+G_{\mu\nu}+\Lambda g_{\mu\nu}=\chi_M\,T_{\mu\nu},
+\]
+where \(T_{\mu\nu}\) includes rest, kinetic, pressure (and shear) sources in Kz. The weak-field/static limit reproduces a Poisson law with the calibrated source.
+\end{axiom}
+
+\begin{axiom}[Finite counts and noise]
+Boundary estimation is Poisson-limited: for a patch of area \(\Delta A\) over \(\Delta t\),
+\[
+\mathrm{Var}(\hat j)\approx \frac{j}{\Delta A\,\Delta t},\qquad
+\frac{\sigma_{\hat F}}{|\mathbf F_I|}\sim \frac{1}{\sqrt{\kappa\,|\mathbf F_I|\,\Delta A\,\Delta t}}.
+\]
+Thermal motion (e.g.\ Unruh at acceleration \(a\): \(T\sim a/4\pi^2 c\) in Kz) sets a tiny floor; dense/hot media add stochastic sources to geometry (Einstein–Langevin).
+\end{axiom}
+
+\paragraph{Remarks.}
+(1) Axioms above keep the \emph{geometric calculus} (forms/Stokes) central; choices of \(\kappa,\chi,c_M,c_Q\) are empirical calibrations.  
+(2) The Lagrangian/Hamiltonian pair are \emph{names} for the convex duals \((\mathcal R,\Phi)\); they are not primitives here.  
+(3) All statements are \((n{+}1)\)-covariant; static \(n\)-D results are recovered as snapshots.

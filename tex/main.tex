@@ -2,7 +2,7 @@
 \documentclass[11pt]{article}
 
 % Load shared preamble (packages & macros)
-\input{preamble.tex}
+\input{preamble-new.tex}
 
 
 \begin{document}
@@ -14,22 +14,17 @@
 
 % ---------------------------  Sections  ----------------------------
 \input{sections/01_motivation}     % 200‑word rationale
-\input{sections/02_axiom_rim_core}
-\input{sections/03_axiom_rim_dynamics}
-\input{sections/04_info_currents}  
-\input{sections/05_reos_differential}
-\input{sections/06_landauer}
-\input{sections/07_action_hamiltonian}
-\input{sections/08_info_force}     % boxed force law
-\input{sections/09_canonical}      % •Tbl 9‑1 canonical cases
-\input{sections/10_synthesis}      % ▲Fig 10‑1 pillars mosaic (TikZ optional)
-\input{sections/11_multi_clock}    % • Tbl 12‑1 resource‑clock pairs
-\input{sections/12_tier0}          % seven boxed mini‑proofs
-\input{sections/13_tier1_maxwell}  % ½‑page Maxwell derivation
-\input{sections/14_tier1_pathint}  % ¼‑page UV‑finite PI sketch + pseudo‑code
-\input{sections/15_tier1_jacobson} % 1‑page null‑tube → Einstein
-\input{sections/16_confine1d}      % ▲ Fig 17‑1 lattice_potential.pdf  • Tbl σ values
-\input{sections/17_falsify}        % falsification ladder table
+\input{sections/02_conventions}
+\input{sections/03_axioms}
+\input{sections/04_static-gauss-nd}
+\input{sections/05_bit-gas}
+\input{sections/06_entropic-gravity-screen}
+\input{sections/07_worldtube-IED.tex}
+\input{sections/08_geometry-response}
+\input{sections/09_path-rate}
+\input{sections/10_time-info-bounds}
+\input{sections/11_examples-noise-decoherence}
+\input{sections/12_discussion-outlook}
 
 %% ---------------------- Appendix -------------------------------------------------
 \FloatBarrier
@@ -37,6 +32,13 @@
 \appendix
 
 \input{appendices/appA_kick}
+\input{appendices/appB_forms-stokes}
+\input{appendices/appC_d-dim-gauss}
+\input{appendices/appD_jacobson-sketch}
+\input{appendices/appE_noise-kernel}
+\input{appendices/appF_calibrations}
+\input{appendices/appG_de-donder-weyl}
+\input{appendices/appH_quick-notation-table}
 
 \bibliographystyle{unsrt}
 \bibliography{refs}

@@ -1,0 +1,59 @@
+% ======================================================================
+% sections/12_discussion-outlook.tex — Discussion & Outlook (v1.0.2)
+% ======================================================================
+
+\section{Discussion and outlook}
+\label{sec:discussion-outlook}
+
+\paragraph{What we have shown.}
+This draft develops a boundary-first, information-theoretic mechanics that:
+\begin{enumerate}[itemsep=0.25em]
+\item treats relations and counting as primitives (\S\ref{sec:axioms});
+\item derives static inverse-power laws in any spatial dimension directly from Stokes (\S\ref{sec:static-gauss-nd});
+\item interprets pressure and heat flux as \emph{momentum–bit} flows (\S\ref{sec:bit-gas});
+\item recovers an inverse-square acceleration from an entropic screen with Unruh temperature in Kz (\S\ref{sec:entropic-gravity-screen});
+\item formulates a covariant, gauge-like dynamics for “surprise’’ (\(d\mathcal F=0,\ d\mathcal H=j_3\)) on fixed worldtubes (\S\ref{sec:worldtube-IED});
+\item encodes metric response as a single calibrated law \(G_{\mu\nu}+\Lambda g_{\mu\nu}=\chi_M T_{\mu\nu}\) in Kz (\S\ref{sec:geometry-response});
+\item derives canonical equations from a \emph{rate} and the information Poincaré–Cartan form (no \(L/H\) assumed; \S\ref{sec:path-rate});
+\item states operational time–information bounds (Landauer, counting, Shannon) and Kz‑recast quantum speed limits (\S\ref{sec:time-info-bounds});
+\item quantifies a principled, finite-count noise floor and the resulting decoherence times (\S\ref{sec:examples-noise-decoherence}).
+\end{enumerate}
+All energy-like quantities are in Kick (Kz), and decade anchors use the Kram units (App.~\ref{sec:kick}).
+
+\paragraph{Falsifiable predictions.}
+\begin{enumerate}[itemsep=0.25em]
+\item \textbf{Shot-noise floor for weak static fields.} Any unbiased boundary estimate of an inverse-square field exhibits a relative uncertainty \(\delta a/a \sim 1/\sqrt{N}\) with \(N\propto\) area (\S\ref{sec:entropic-gravity-screen}, eq.~\eqref{eq:rel-noise}). The same \(1/\sqrt{N}\) scaling must appear in repeated field maps with increasing aperture or dwell time.
+\item \textbf{Worldtube balance without moving boundaries.} Radiation/export balances obey the fixed-boundary identity \eqref{eq:poynting-worldtube}. Experiments that modulate sources inside a rigid cavity must satisfy this cap/side partition within errors set by counting noise.
+\item \textbf{Calibration sufficiency.} A \emph{single} datum per sector fixes the linear map from \(\mathbf F_I\) to measured \(\mathbf g, \mathbf E\), or thermal flux (\eqref{eq:calibrations-FI}). No additional universal constants are needed in the algebra once Kz is adopted.
+\item \textbf{Decoherence times vs.\ counting parameters.} Spatial superposition decoherence scales as in \eqref{eq:tau-white}–\eqref{eq:tau-phi-screen}. In particular, holding \(M,\Delta x\) fixed while changing the screen radius \(r\) must produce \(\tau_\phi\propto r^7\) under the simple OU closure and fixed \(\alpha\) (\S\ref{sec:examples-noise-decoherence}).
+\item \textbf{Pressure/bit flux identity.} Direct particle counting at a wall must satisfy \(P=\langle\Delta p\rangle \times j_{\rm bits}\) (\eqref{eq:pressure-from-counting}) with \(\langle\Delta p\rangle\) inferred from kinematics and \(j_{\rm bits}\) from hits per area per time.
+\end{enumerate}
+
+\paragraph{Concrete experiments.}
+\begin{enumerate}[itemsep=0.25em]
+\item \textbf{Torsion balance / accelerometers (static).} Map a weak field from a compact source at multiple radii with fixed integration time; check \(\delta a/a\propto r^{-1}\) (from \(N\propto r^2\)) and \(\langle a\rangle\propto r^{-2}\).
+\item \textbf{Cavity worldtube test (dynamic).} Drive a time-varying source inside a rigid cavity and measure lateral Poynting‑type export vs.\ cap energy change; verify \eqref{eq:poynting-worldtube}.
+\item \textbf{Atom interferometry (OU floor).} With controlled \(\alpha\) (effective bit density) and tunable \(r\) (effective screen size or geometry), test the \(\tau_\phi(r)\) scaling from \eqref{eq:tau-OU}–\eqref{eq:tau-phi-screen}. Independent estimates of \(\sigma_a,\tau\) from auxiliary sensors close the loop.
+\item \textbf{Heat‑mode calibration.} Fix \(\kappa_T\) by a single datum; predict heat‑flux vs.\ \(|\mathbf F_I|\) across geometrically similar boundaries; confirm linearity and area scaling.
+\item \textbf{Electrostatic mapping.} After fixing \(c_Q\) once, confirm that \(\mathbf E = c_Q\,\mathbf F_I\) reproduces Coulomb profiles and boundary balances across scales without further constants.
+\end{enumerate}
+
+\paragraph{Scope and assumptions.}
+\begin{enumerate}[itemsep=0.25em]
+\item \textbf{Closures are empirical.} The static closure \(\mathbf j=\kappa\nabla\Phi_I\) and the IED constitutive law \(\mathcal H=\chi\!\cdot\!\mathcal F\) are \emph{choices} justified by simplicity, symmetry, and data; more general, anisotropic, nonlinear, or dispersive \(\chi\) may be needed in complex media.
+\item \textbf{Calibration, not constants.} The algebra contains no \(k_B\) or \(G\); sectors are fixed by one datum each. This is a modeling stance, not a denial of SI practice.
+\item \textbf{Counting floor is principle-level only.} The \(1/\sqrt{N}\) limits assume unbiased counting without technical noise; experiments must separate instrumental noise from the principle floor.
+\item \textbf{Kinematics domain.} Speed formulas (\S\ref{sec:bit-gas}) assume nonrelativistic sampling of thermal motion; strongly relativistic gases require the appropriate rate density \(\mathcal R\).
+\end{enumerate}
+
+\paragraph{Near-term theory tasks.}
+\begin{enumerate}[itemsep=0.25em]
+\item \textbf{Noise kernel to OU parameters.} Derive \((\sigma_a,\tau)\) from a coarse‑grained two‑point function of sources (App.~\ref{app:noise-kernel}); compare with the simple screen model \(\sigma_a\simeq a/\sqrt{N}\), \(\tau\simeq r/v_I\).
+\item \textbf{De Donder–Weyl completions.} Work out the multisymplectic Cartan form and Noether currents for field rates \(\mathcal R(\phi,\partial\phi)\) coupled to \(\mathcal A_I\) (App.~\ref{appG_de-donder-weyl}).
+\item \textbf{Geometry–information reciprocity.} Tighten the bridge between \eqref{eq:info-einstein} and the worldtube energy balance \eqref{eq:poynting-worldtube}, including stochastic backreaction.
+\item \textbf{Non-Abelian extensions.} Explore informational gauge sectors with non-Abelian structure for multi‑channel or constrained distinction flows.
+\item \textbf{Boundary inference.} Formalize Bayesian field reconstruction from boundary counts under worldtube constraints; quantify optimal estimators and saturation of \eqref{eq:poisson-bound}.
+\end{enumerate}
+
+\paragraph{Outlook.}
+At static level, the informational Gauss law (\S\ref{sec:static-gauss-nd}) and the entropic screen (\S\ref{sec:entropic-gravity-screen}) unify the inverse-power phenomenology across sectors by calibration. Dynamically, the worldtube IED (\S\ref{sec:worldtube-IED}) and the geometric response (\S\ref{sec:geometry-response}) place “surprise’’ and curvature on equal footing. Path‑rate mechanics (\S\ref{sec:path-rate}) shows that canonical structure is a boundary artifact of counting. The remaining work is empirical: fix the calibrations once, test the balances, and measure the counting floor. Success or failure on these concrete points will decide the utility of the framework.

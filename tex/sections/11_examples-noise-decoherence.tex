@@ -1,0 +1,83 @@
+% ======================================================================
+% sections/11_examples-noise-decoherence.tex — Noise & decoherence (v1.0.2)
+% ======================================================================
+
+\section{Worked examples: noise and decoherence}
+\label{sec:examples-noise-decoherence}
+
+All energy-like quantities are in Kick (Kz); see \S\ref{sec:conventions}. We treat acceleration noise as the dominant classical stochastic source and show how it sets (i) a principled \emph{decoherence} time for spatial superpositions and (ii) a minimal \emph{estimation} time for accurate field measurements.
+
+\subsection*{A. Decoherence from acceleration noise (spatial superposition)}
+Consider a particle of rest–Kick \(M=mc^2/h\) in a spatial superposition with separation \(\Delta x\) along a (possibly effective) uniform acceleration \(a(t)\). The two arms acquire a relative phase (in cycles)
+\begin{equation}
+\phi_{\rm cyc}(t) \;=\; \int_0^t \frac{\Delta E}{h}\,dt'
+\;=\; \int_0^t \frac{M\,a(t')\,\Delta x}{c^2}\,dt'.
+\label{eq:cycles}
+\end{equation}
+The phase in radians is \(2\pi\,\phi_{\rm cyc}\). If \(a(t)\) is zero-mean stationary noise, then
+\begin{equation}
+\mathrm{Var}\big[\phi_{\rm rad}(t)\big] \;=\; (2\pi)^2\left(\frac{M\,\Delta x}{c^2}\right)^{\!2}\ \mathrm{Var}\!\left[\int_0^t a(t')\,dt'\right].
+\label{eq:var-phase-master}
+\end{equation}
+
+\paragraph{White-noise limit.}
+With \(\langle a(t)a(t')\rangle=2D_a\,\delta(t-t')\) (diffusion constant \(D_a\) in SI units), we have
+\begin{equation}
+\mathrm{Var}\!\left[\int_0^t a\,dt'\right] \;=\; 2D_a\,t,
+\quad\Rightarrow\quad
+\mathrm{Var}\big[\phi_{\rm rad}(t)\big] \;=\; 2(2\pi)^2 D_a \left(\frac{M\,\Delta x}{c^2}\right)^{\!2} t.
+\end{equation}
+Defining the decoherence time by \(\mathrm{Var}[\phi_{\rm rad}(\tau_\phi)]=1\) gives
+\begin{equation}
+\boxed{\quad \tau_\phi^{(\mathrm{white})} \;=\; \frac{1}{\,2(2\pi)^2\,D_a\,}\,\frac{c^4}{M^2\,\Delta x^2}\,. \quad}
+\label{eq:tau-white}
+\end{equation}
+
+\paragraph{Colored noise: OU/Langevin model.}
+A causal relaxation with correlation time \(\tau\) (e.g.\ screen light‑crossing \(\tau\simeq r/v_I\)) is modeled by
+\begin{equation}
+\dot a = -\frac{1}{\tau}\big(a-a_{\rm mean}\big)+\sqrt{2D_a}\,\xi(t),
+\qquad \langle\xi(t)\xi(t')\rangle=\delta(t-t').
+\label{eq:ou}
+\end{equation}
+In steady state \(\mathrm{Var}(a)=D_a\tau\) and the autocorrelation is \(\langle a(t)a(0)\rangle=\mathrm{Var}(a)\,e^{-|t|/\tau}\).
+One finds
+\begin{equation}
+\mathrm{Var}\!\left[\int_0^t a\,dt'\right]
+= 2D_a\,\tau^2\!\left(t - \tau(1-e^{-t/\tau})\right)
+\;\xrightarrow{\,t\gg\tau\,}\; 2D_a\,\tau^2\,t.
+\end{equation}
+Hence
+\begin{equation}
+\boxed{\quad \tau_\phi^{(\mathrm{OU})} \;\simeq\; \frac{1}{\,2(2\pi)^2\,D_a\,\tau^{2}\,}\,\frac{c^4}{M^2\,\Delta x^2}
+\;=\; \frac{\tau}{\,2(2\pi)^2\,\sigma_a^{2}\,}\,\frac{c^4}{M^2\,\Delta x^2}\,,
+\quad (t\gg\tau), \quad}
+\label{eq:tau-OU}
+\end{equation}
+where \(\sigma_a^2:=\mathrm{Var}(a)=D_a\tau\).
+
+\paragraph{Entropic screen estimate.}
+For the spherical screen of \S\ref{sec:entropic-gravity-screen}, with \(N(r)=\alpha\,4\pi r^2\) bits and mean acceleration \(a(r)\), shot noise implies \(\sigma_a\simeq a(r)/\sqrt{N(r)}\). Taking \(\tau\simeq r/v_I\) (IED signal speed \(v_I\le c\)) gives
+\begin{equation}
+\boxed{\quad
+\tau_\phi(r,\Delta x) \;\simeq\; \frac{N(r)}{\,2(2\pi)^2\,}\,\frac{r}{v_I}\,
+\frac{c^4}{a(r)^2\,M^2\,\Delta x^2}
+\;=\; \frac{\alpha\,4\pi r^3}{\,2(2\pi)^2 v_I\,}\,
+\frac{c^4}{a(r)^2\,M^2\,\Delta x^2}\,.
+\quad}
+\label{eq:tau-phi-screen}
+\end{equation}
+Using the mean \(a(r)=(2\pi c/\alpha)\,M_{\rm enc}/r^2\) from \eqref{eq:a-mean}, one obtains \(\tau_\phi\propto r^{7}\) for fixed \(M_{\rm enc}\), \(\alpha\), \(M\), and \(\Delta x\)—astronomically long at macroscopic \(r\).
+
+\subsection*{B. Minimal time to estimate a static field (counting bound)}
+If a detector of area \(A\) sees an event flux \(j\) (events/s/m\(^2\)), the Poisson relative uncertainty on the rate \(r=jA\) over time \(\Delta t\) is \(1/\sqrt{r\,\Delta t}\) (\S\ref{sec:time-info-bounds}). To estimate a \emph{static} field whose local signal scales linearly with the rate (e.g.\ \(P\propto r\) or \(|\mathbf F_I|\propto r\)), achieving relative accuracy \(\epsilon\) requires
+\begin{equation}
+\boxed{\quad \Delta t \;\ge\; \frac{1}{\epsilon^{2}\,r} \;=\; \frac{1}{\epsilon^{2}\,j\,A}\,.\quad}
+\label{eq:time-accuracy}
+\end{equation}
+This bound coexists with the Landauer power bound and the quantum speed limits in \S\ref{sec:time-info-bounds}; the slowest of the bounds controls the wall clock.
+
+\paragraph{Remarks.}
+(1) Equations \eqref{eq:tau-white}–\eqref{eq:tau-phi-screen} are \emph{calibration-free}: they use only Kz, \(c\), and counting parameters \((D_a,\tau,N)\). Mapping to measured sectors (gravity/EM/heat) uses a single linear calibration per sector. \\
+(2) In typical lab interferometers \(M\) and \(\Delta x\) are modest while \(a(r)\) and \(1/\sqrt{N(r)}\) are tiny, so \(\tau_\phi\) is enormous—consistent with the empirical stability of phase coherence against weak, large‑scale fields. \\
+(3) The same machinery carries to metric fluctuations via the Einstein–Langevin scheme of \S\ref{sec:geometry-response} and App.~\ref{app:noise-kernel}; the OU parameters \((\sigma_a,\tau)\) are proxies for the noise kernel’s coarse graining.

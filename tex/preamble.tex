@@ -1,91 +1,82 @@
-% ------------------------------------------------------------------
-% Global preamble for REOS / RIM note
-% ------------------------------------------------------------------
+% ======================================================================
+% preamble.tex  (merged/provisioned v1.0.2) — packages, macros, formatting
+% ======================================================================
 
-% -------------------- Document geometry & fonts -------------------
-\usepackage[a4paper,margin=1in]{geometry}
+% --- Encoding & fonts (safe for Unicode dashes etc.)
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}            % LM family, looks fine in math
-\usepackage{microtype}
 
-% -------------------- Math & symbols ------------------------------
+% --- Packages
+\usepackage[a4paper,margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage{physics}            % for \grad, \div, etc.
-\usepackage{siunitx}            % \SI{ }{ } if needed
-
-
-\usepackage{listings} 
-
-\lstset{
-  basicstyle=\ttfamily\small,
-  language=Python,
-  literate={Δ}{{$\Delta$}}1                   % map U+0394 → math \Delta
-           {δ}{{$\delta$}}1                   % (optional) U+03B4 → \delta
-}
-
-
-
-% -------------------- Graphics & colour ---------------------------
-\usepackage{graphicx}
-\graphicspath{{../figs/}}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{float} 
-
-% -------------------- Tables & lists ------------------------------
-\usepackage{standalone} 
-\usepackage{booktabs}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{microtype}
 \usepackage{enumitem}
-\setlist[itemize]{leftmargin=1.1em}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+\usepackage[nameinlink,capitalise]{cleveref}
 
-% -------------------- Boxes & environments ------------------------
-\usepackage[skins,breakable]{tcolorbox}
+% --- TikZ libraries (used by tcolorbox and diagrams)
+\usetikzlibrary{calc,arrows.meta,decorations.pathmorphing}
 
-% boxed equation environment ---------------------------------------
-\usepackage{environ}  % to capture body of custom env.
-
-\NewEnviron{boxedeq}[1][]% optional argument = label name
-{%
-  \begin{equation}
-    \boxed{\BODY}
-    \if\relax\detokenize{#1}\relax\else\label{#1}\fi
-  \end{equation}
+% --- Hyperref setup
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black,
+  pdfauthor={},
+  pdftitle={Boundary Information Mechanics (v1.0.2)}
 }
 
-% -------------------- Kick-unit symbol ----------------------------
-\newcommand{\Kk}{\text{K\kern-.1em k}}   % upright “Kk” ligature
+% --- Theorem-like envs
+\newtheorem{axiom}{Axiom}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
 
-% -------------------- Hyperlinks & clever references --------------
-\usepackage[hidelinks]{hyperref}
-\usepackage[capitalise]{cleveref}
+% --- siunitx
+\sisetup{
+  separate-uncertainty = true,
+  per-mode = symbol,
+  detect-all = true
+}
 
-% -------------------- TikZ (figures like pillars mosaic) ----------
-\usepackage{tikz}
-\usetikzlibrary{calc,arrows.meta,positioning,decorations.pathmorphing,patterns}
+% --- Cleveref names
+\crefname{equation}{eq.}{eqs.}
+\Crefname{equation}{Eq.}{Eqs.}
+\crefname{figure}{fig.}{figs.}
+\Crefname{figure}{Fig.}{Figs.}
+\crefname{table}{table}{tables}
+\Crefname{table}{Table}{Tables}
+\crefname{section}{\S}{\S\S}
+\Crefname{section}{Section}{Sections}
 
-% -------------------- Theorem style (if you need) -----------------
-\theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[section]
+% --- Lists
+\setlist{itemsep=0.25em, topsep=0.25em}
 
-\usepackage[section]{placeins} % auto-places a FloatBarrier at each \section
+% --- Shortcuts & notation
+\newcommand{\Kk}{\mathrm{Kk}}                    % Kick unit (Hz)
+\newcommand{\Ekk}{E_{\mathrm{Kk}}}               % E/h
+\newcommand{\Mkk}{m_{\mathrm{Kk}}}               % mc^2/h
+\newcommand{\Tkk}{T_{\mathrm{Kk}}}               % k_B T / h
+\newcommand{\Pkk}{P_{\mathrm{Kk}}}               % P / h
 
-% -------------------- Bibliography setup --------------------------
-\usepackage[numbers,sort&compress]{natbib}
+\newcommand{\JJ}{J^{\mu}_I}                      % info 4-current
+\newcommand{\jj}{\bm{j}}                         % spatial info flux
+\newcommand{\ii}{i}                              % info density
+\newcommand{\sig}{\sigma}                        % production
 
+\newcommand{\Ainfo}{\mathcal{A}_I}               % info potential 1-form
+\newcommand{\Finfo}{\mathcal{F}_I}               % info field 2-form
+\newcommand{\Hinfo}{\mathcal{H}_I}               % info excitation
 
-% -------------------- Handy shorthand macros ----------------------
-
-\newcommand{\bmf}[1]{\boldsymbol{#1}}  % bold math
-
-\newcommand{\bb}[1]{\mathbb{#1}}       % blackboard bold
-
-% Einstein coupling without G
-\newcommand{\AEin}{\mathcal{A}_{\mathrm{E}}}      % Einstein-area symbol A_E
-\newcommand{\AEinVal}{8\pi \ell_{\mathrm P}^{2}}  % its value
-\newcommand{\kE}{\frac{\AE}{\hbar c}}         % replaces 8\pi G/c^4
-% optional: G/c^4 used in Newtonian limit
-\newcommand{\GonCfour}{\frac{\kE}{8\pi}}
-
-
-% ------------------------------------------------------------------
-% End preamble
-% ------------------------------------------------------------------
+% --- Equation numbering per section (optional)
+\numberwithin{equation}{section}

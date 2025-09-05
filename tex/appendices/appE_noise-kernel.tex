@@ -1,0 +1,126 @@
+% ======================================================================
+% appendices/appE_noise-kernel.tex — Noise kernel & Einstein–Langevin (v1.0.2)
+% ======================================================================
+
+\section{Noise kernel, Einstein–Langevin, and coarse graining}
+\label{app:noise-kernel}
+
+All energy-like quantities are in Kick (Kz), cf.\ \S\ref{sec:conventions}. Acceleration \(a\) retains SI units.
+We collect (i) the stochastic metric response driven by stress fluctuations, (ii) static reductions that
+connect to inverse-square fields, and (iii) a coarse-grained OU model consistent with boundary counting.
+
+\subsection*{Einstein–Langevin in Kz}
+Decompose the stress tensor into mean and fluctuation
+\begin{equation}
+T_{\mu\nu}=\langle T_{\mu\nu}\rangle + \tau_{\mu\nu},\qquad
+\langle \tau_{\mu\nu}\rangle=0,\qquad \nabla^\mu \tau_{\mu\nu}=0,
+\label{eq:splitT}
+\end{equation}
+and define the \emph{noise kernel}
+\begin{equation}
+N_{\mu\nu\alpha\beta}(x,x') := \tfrac12\,\big\langle \{\tau_{\mu\nu}(x),\tau_{\alpha\beta}(x')\}\big\rangle,
+\label{eq:Nkernel}
+\end{equation}
+which is symmetric, positive (as a bilinear form on test tensors), and covariantly conserved in each index pair.
+
+Linearizing the metric response \eqref{eq:info-einstein} of \S\ref{sec:geometry-response} about a background \(g\) with
+\(\mathcal E[h]\) the linearized Einstein operator, the \emph{Einstein–Langevin} equation is
+\begin{equation}
+\mathcal E[h]_{\mu\nu}(x) \;=\; \chi_M\,\tau_{\mu\nu}(x),
+\label{eq:EL}
+\end{equation}
+with \(\chi_M\) the single calibration constant in Kz units. In a fixed gauge, the formal retarded solution reads
+\begin{equation}
+h_{\mu\nu}(x)=\chi_M\int d^{\,n+1}x'\; G^{\ \alpha\beta}_{\mu\nu,\mathrm{ret}}(x,x')\,\tau_{\alpha\beta}(x'),
+\label{eq:EL-solution}
+\end{equation}
+so the metric two-point function is
+\begin{equation}
+\big\langle h_{\mu\nu}(x)\,h_{\rho\sigma}(y)\big\rangle
+= \chi_M^2 \int d^{\,n+1}x'\!\int d^{\,n+1}y'\;
+G^{\ \alpha\beta}_{\mu\nu,\mathrm{ret}}(x,x')\,N_{\alpha\beta\gamma\delta}(x',y')\,
+G^{\ \gamma\delta}_{\rho\sigma,\mathrm{ret}}(y,y').
+\label{eq:h-corr}
+\end{equation}
+
+\subsection*{Quasi-static (Poisson) reduction for accelerations}
+In the weak, slow regime the time–time component dominates and
+\(\psi\) (Newtonian potential) obeys the calibrated Poisson law
+\(\nabla^2\psi=\kappa_N\,\rho_{\mathrm{eff}}\) with \(\rho_{\mathrm{eff}}\simeq T_{00}\) in Kz
+(\S\ref{sec:geometry-response}). Fluctuations \(\delta\psi\) arise from \(\delta\rho:=\tau_{00}\):
+\begin{equation}
+\delta\psi(\mathbf x) = \kappa_N \int d^3x'\; G_3(\mathbf x-\mathbf x')\,\delta\rho(\mathbf x'),
+\qquad
+G_3(\mathbf r)=-\frac{1}{4\pi|\mathbf r|}.
+\label{eq:psi-fluc}
+\end{equation}
+The (instantaneous) acceleration is \(\mathbf a(\mathbf x)=-\nabla\psi(\mathbf x)\), so the equal-time
+two-point function of accelerations follows by differentiating the Green function:
+\begin{equation}
+\big\langle a_i(\mathbf x)\,a_j(\mathbf y)\big\rangle
+= \kappa_N^2 \!\int d^3x'\!\int d^3y'\;
+\partial_i G_3(\mathbf x-\mathbf x')\,\partial_j G_3(\mathbf y-\mathbf y')\,
+N_{00,00}(\mathbf x',\mathbf y';t,t),
+\label{eq:aa-corr}
+\end{equation}
+where \(N_{00,00}(\cdot,\cdot;t,t)\) is the equal-time slice of the noise kernel.
+For spherical symmetry one may set \(\mathbf x=\mathbf y=r\,\hat{\mathbf r}\) and reduce \eqref{eq:aa-corr} to
+a single radial integral over the interior noise distribution.
+
+\subsection*{Integrated-acceleration variance}
+For a stationary zero-mean process \(a(t)\) at a fixed point, with autocovariance \(C_a(\Delta t)=\langle a(t)a(t+\Delta t)\rangle\),
+the variance of the time integral entering phase estimates (cf.\ \S\ref{sec:examples-noise-decoherence}) is
+\begin{equation}
+\mathrm{Var}\!\left[\int_0^t a(t')\,dt'\right]
+= 2 \int_0^t (t-s)\,C_a(s)\,ds.
+\label{eq:var-int-a}
+\end{equation}
+The \emph{integral timescale} is \(\tau_c:=C_a(0)^{-1}\int_0^\infty C_a(s)\,ds\) (if it exists), with \(C_a(0)=\sigma_a^2\).
+
+\subsection*{OU coarse graining and spectral forms}
+A widely useful coarse graining is the Ornstein–Uhlenbeck (OU) model
+\begin{equation}
+\dot a = -\frac{1}{\tau}\,(a-a_{\rm mean})+\sqrt{2D_a}\,\xi(t),\qquad \langle\xi(t)\xi(t')\rangle=\delta(t-t'),
+\label{eq:ou-app}
+\end{equation}
+with stationary variance \(\sigma_a^2=D_a\,\tau\) and autocovariance \(C_a(s)=\sigma_a^2 e^{-|s|/\tau}\).
+Its (two-sided) power spectral density is
+\begin{equation}
+S_a(\omega)=\frac{2D_a}{(1/\tau)^2 + \omega^2}
+=\frac{2\sigma_a^2\,\tau}{1+\omega^2\tau^2},
+\label{eq:OU-PSD}
+\end{equation}
+and \eqref{eq:var-int-a} gives \( \mathrm{Var}[\int_0^t a]=2D_a\big[t-\tau(1-e^{-t/\tau})\big] \).
+For \(t\gg\tau\), this reduces to the diffusive limit \(2D_a\tau^2\,t\), matching \S\ref{sec:examples-noise-decoherence}.
+
+\subsection*{Screen/shot-noise estimate of \(\sigma_a\) and \(\tau\)}
+For the spherical screen of \S\ref{sec:entropic-gravity-screen} with \(N(r)=\alpha\,4\pi r^2\) bits and mean acceleration \(a(r)\),
+Poisson counting over the screen yields the principle relative floor
+\begin{equation}
+\frac{\sigma_a}{a(r)} \;\sim\; \frac{1}{\sqrt{N(r)}} \;=\; \frac{1}{\sqrt{\alpha\,4\pi r^2}},
+\label{eq:sigmaa-shot}
+\end{equation}
+so we may set
+\begin{equation}
+\sigma_a(r) \;\simeq\; \frac{a(r)}{\sqrt{\alpha\,4\pi r^2}},
+\qquad
+\tau(r) \;\simeq\; \frac{r}{v_I},
+\label{eq:sigmaa-tau-screen}
+\end{equation}
+where \(v_I\le c\) is the IED signal speed (Sec.~\ref{sec:worldtube-IED}). The associated diffusion constant is \(D_a(r)=\sigma_a(r)^2/\tau(r)\).
+These estimates feed directly into the decoherence time formulas of \S\ref{sec:examples-noise-decoherence}.
+
+\subsection*{From the noise kernel to OU parameters (recipe)}
+Given \(N_{\mu\nu\alpha\beta}\),
+\begin{enumerate}[itemsep=0.25em,leftmargin=1.3em]
+\item \emph{Quasi-static reduction}: extract \(N_{00,00}(\mathbf x,\mathbf y;t,t')\); compute
+\(C_a(\Delta t)\) from \eqref{eq:aa-corr} by choosing \(\mathbf x=\mathbf y\) and integrating over space.
+\item \emph{Integral scale}: set \(\sigma_a^2=C_a(0)\), \(\tau=\tau_c=C_a(0)^{-1}\!\int_0^\infty C_a(s)\,ds\).
+\item \emph{OU fit}: use \(D_a=\sigma_a^2/\tau\) and \eqref{eq:OU-PSD} to compare with measured spectra.
+\end{enumerate}
+If only boundary counts are available, replace step (1) by the shot‑noise estimate \eqref{eq:sigmaa-shot} and the causal time \(\tau\simeq r/v_I\).
+
+\paragraph{Remarks.}
+(1) Equations \eqref{eq:EL}–\eqref{eq:h-corr} are fully covariant; the Poisson reduction is a convenience for slow, weak fields.
+(2) The screen estimate \eqref{eq:sigmaa-tau-screen} is a \emph{principle} floor: technical noise typically dominates in practice.
+(3) All calibrations enter only through \(\chi_M\) (geometry) and \(\alpha\) or \(v_I\) (boundary/IED); no \(G\) or \(k_B\) appear in algebra.

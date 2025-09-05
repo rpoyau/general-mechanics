@@ -1,0 +1,81 @@
+% ======================================================================
+% appA_kick.tex — Kick (Kz), Kram prefixes, and unit convention (v1.0.2)
+% ======================================================================
+
+\section{Units: the Kick \texorpdfstring{(\(\mathrm{Kz}\))}{(Kz)} and kram (k) prefixes}
+\label{sec:kick_units}\label{sec:kick}
+
+% Safe aliases (only used if not already defined)
+\providecommand{\Kz}{\mathrm{Kz}}   % base unit symbol: Kick
+\providecommand{\Ekz}{E_{\Kz}}      % E/h
+\providecommand{\Mkz}{m_{\Kz}}      % m c^2 / h
+\providecommand{\Tkz}{T_{\Kz}}      % k_B T / h
+\providecommand{\Pkz}{P_{\Kz}}      % P / h
+
+\paragraph{Kick (definition and convention).}
+A \emph{kick} is a frequency unit for energy with symbol \( \mathrm{Kz} \):
+\[
+1~\mathrm{Kz} \coloneqq 1~\mathrm{Hz},\qquad
+\frac{E}{h}=\Ekz,\quad \frac{m c^2}{h}=\Mkz,\quad \frac{k_B T}{h}=\Tkz,\quad \frac{P}{h}=\Pkz.
+\]
+Every rest mass defines a frequency (de~Broglie--Compton): \(E=mc^2=h\,f_C \Rightarrow f_C=\Mkz\)~\cite{Compton1923}.
+\emph{Convention for this appendix:} \textbf{all quantities are expressed in Kick units (Kz)}, so we \emph{omit} the Kz subscript thereafter. Example: we write simply
+\[
+PV = NT,\qquad u=\tfrac{3}{2}\,n\,T,
+\]
+with \(P,T,u\) already in Kz and \(n\) in \(\mathrm{m}^{-3}\). (To revert to SI, multiply by \(h\).)
+
+\paragraph{Kram prefixes (no SI collision).}
+We fix the Kram decade anchors by definition:
+\[
+\boxed{\,1\,k = 10^{47}\,\mathrm{Kz}\,},\qquad
+\boxed{\,1\,kk = 10^{50}\,\mathrm{Kz}\,},\qquad
+\boxed{\,1\,Mk = 10^{53}\,\mathrm{Kz}\,},\qquad
+\boxed{\,1\,Gk = 10^{56}\,\mathrm{Kz}\,},\qquad
+\boxed{\,1\,Tk = 10^{59}\,\mathrm{Kz}\,}.
+\]
+These symbols (\(k, kk, Mk, Gk, Tk\)) are unit anchors in the Kick scale; do \emph{not} append “Kz” to them.
+
+\paragraph{Ladder: exact equivalences (rest–Kick).}
+Using \(c^2/h = 1.3563924897\times 10^{50}\ \mathrm{Hz/kg}\) (CODATA~2018~\cite{CODATA2018}),
+\[
+\begin{aligned}
+1~\mathrm{g}   &= 1.3563924897\times 10^{47}\ \mathrm{Kz} \;=\; 1.3563924897\,k,\\
+1~\mathrm{kg}  &= 1.3563924897\times 10^{50}\ \mathrm{Kz} \;=\; 1.3563924897\,kk,\\
+1~\mathrm{t}   &= 1.3563924897\times 10^{53}\ \mathrm{Kz} \;=\; 1.3563924897\,Mk,\\
+10^3~\mathrm{t}&= 1.3563924897\times 10^{56}\ \mathrm{Kz} \;=\; 1.3563924897\,Gk,\\
+10^6~\mathrm{t}&= 1.3563924897\times 10^{59}\ \mathrm{Kz} \;=\; 1.3563924897\,Tk.
+\end{aligned}
+\]
+Right‑hand units are Kram anchors; Kz is shown on the left for reference only.
+
+\paragraph{Planck scale: frequency vs.\ energy in Kz.}
+Do not conflate the Planck \emph{frequency} with the Planck \emph{energy per \(h\)}:
+\[
+f_P \equiv t_P^{-1} \approx 1.854\times 10^{43}\ \mathrm{Hz},\qquad
+\frac{E_P}{h}=\frac{\hbar}{h}\frac{1}{t_P}=\frac{f_P}{2\pi}\approx 2.953\times 10^{42}\ \mathrm{Kz}.
+\]
+Use \(f_P\) when anchoring time scales, and \(E_P/h\) when comparing energies in Kz (or against Kram anchors).
+
+\paragraph{Field relations (all in Kz).}
+With the unit convention above, the basic relations read:
+\[
+PV = NT,\qquad u=\tfrac{3}{2}\,n\,T,\qquad
+\bar v = c\,\sqrt{\frac{8}{\pi}\,\frac{T}{M}},\qquad
+v_{\mathrm{rms}}=c\,\sqrt{3\,\frac{T}{M}},
+\]
+where \(M=mc^2/h\) is the rest–Kick of a particle species and \(T=k_BT/h\).
+Electrostatics and gravity appear as \emph{calibrations} of the informational field \(\bm F_I=-\nabla\Phi_I\); in Kick algebra, constants like \(k_B\) and \(G\) drop out once the calibration to measured fields is fixed.
+
+\paragraph{Quick conversions.}
+\[
+1~\mathrm{eV} = \frac{1~\mathrm{eV}}{h} = 2.417989242\times 10^{14}\ \mathrm{Kz},\qquad
+1~\mathrm{Pa} = \frac{1}{h}\ \frac{\mathrm{Kz}}{\mathrm{m}^3} \approx 1.509190\times 10^{33}\ \frac{\mathrm{Kz}}{\mathrm{m}^3},
+\]
+\[
+300~\mathrm{K} \;\Rightarrow\; T = \frac{k_B}{h}\,300 \approx 6.25098574\times 10^{12}\ \mathrm{Kz}.
+\]
+
+\paragraph{Bibliographic note.}
+“Compton frequency’’ is standard in matter–wave contexts (e.g.\ \cite{Compton1923}); the Kick formalism simply reuses \(E/h\) as a working unit across mechanics and thermodynamics. Constant values above follow CODATA~2018~\cite{CODATA2018}.
+% (Optional siunitx helper, if you want \SI{...}{\Kz}: \DeclareSIUnit{\Kz}{Kz})

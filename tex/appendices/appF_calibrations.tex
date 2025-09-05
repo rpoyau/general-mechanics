@@ -1,0 +1,116 @@
+% ======================================================================
+% appendices/appF_calibrations.tex — Calibrations (v1.0.2)
+% ======================================================================
+
+\section{Calibrations (one datum per sector)}
+\label{app:calibrations}
+
+All energy-like quantities are in Kick (Kz), cf.\ \S\ref{sec:conventions}. The informational field is
+\(\mathbf F_I:=-\nabla\Phi_I\) with static closure \(\mathbf j=\kappa\,\nabla\Phi_I\).
+For a sphere of radius \(r\) enclosing a source measure \(\dot I_{\rm enc}\) (Kz),
+\begin{equation}
+\label{eq:FI-cal}
+\bigl|\mathbf F_I(r)\bigr|=\frac{\dot I_{\rm enc}}{4\pi\,\kappa\,r^2}\,.
+\end{equation}
+Each measured sector is a \emph{linear calibration} of \(\mathbf F_I\) fixed by a \emph{single datum}.
+You may either (i) adopt a \emph{canonical normalization} \(\kappa\equiv 1\) for \(\Phi_I\), or (ii) keep \(\kappa\) explicit and absorb it in sector constants. We present formulas with \(\kappa\) explicit.
+
+\subsection*{Gravity (static acceleration)}
+Definition: \(\mathbf g = c_M\,\mathbf F_I\).
+Choose a reference configuration with known enclosed rest–Kick \(M_*\) (e.g.\ a point mass or spherically symmetric body), radius \(r_*\), and measured acceleration \(g_*\).
+Identify the informational source with total rest–Kick:
+\[
+\dot I_{\rm enc}^{(M)}:=M_*=\int_V \rho\,d^3x,
+\]
+where \(\rho\) is energy density in Kz. Then from \eqref{eq:FI-cal}
+\begin{equation}
+\boxed{\quad c_M \;=\; \frac{4\pi\,\kappa\,r_*^2\,g_*}{M_*}\,.\quad}
+\label{eq:cM}
+\end{equation}
+Prediction for any other radius/source: \(g(r)=c_M \dot I_{\rm enc}/(4\pi\kappa r^2)\).
+
+\paragraph{Consistency with the entropic screen.}
+From \S\ref{sec:entropic-gravity-screen}, \(a(r)=(2\pi c/\alpha)\,M/r^2\).
+Equating \(g(r)=c_M M/(4\pi\kappa r^2)\) gives the identity
+\begin{equation}
+\boxed{\quad \alpha \;=\; \frac{8\pi^2\,c\,\kappa}{c_M}\,.\quad}
+\label{eq:alpha-cM}
+\end{equation}
+Thus fixing \(c_M\) is equivalent to fixing the bit density \(\alpha\).
+
+\subsection*{Electrostatics (Coulomb sector)}
+Definition: \(\mathbf E = c_Q\,\mathbf F_I\).
+Choose a calibration with charge \(Q_*\) at radius \(r_*\) and measured field \(E_*\).
+Set the informational source proportional to enclosed charge, \(\dot I_{\rm enc}^{(Q)}:=Q_*\).
+Then
+\begin{equation}
+\boxed{\quad c_Q \;=\; \frac{4\pi\,\kappa\,r_*^2\,E_*}{Q_*}\,.\quad}
+\label{eq:cQ}
+\end{equation}
+With this choice, \(E(r)=c_Q Q/(4\pi\kappa r^2)\) reproduces Coulomb’s inverse-square law by construction.
+(If you prefer to keep \(Q\) in SI Coulombs, \(c_Q\) numerically absorbs the SI/Kz bridge.)
+
+\subsection*{Heat/transport (Fourier sector)}
+Definition: \(j_{\rm th} = \kappa_T\,\mathbf F_I\) (heat/particle flux density proportional to the informational field).
+For a spherically symmetric steady source of power \(P\) (watts), the radial flux in SI is \(q_{\rm SI}(r)=P/(4\pi r^2)\).
+Convert to Kz by dividing by \(h\): \(q(r)=q_{\rm SI}(r)/h\).
+Choose a datum \((P_*,r_*,q_*)\) and identify \(\dot I_{\rm enc}^{(\rm th)}:=P_*/h\), then
+\begin{equation}
+\boxed{\quad \kappa_T \;=\; \frac{4\pi\,\kappa\,r_*^2\,q_*}{P_*/h}\,.\quad}
+\label{eq:kappaT}
+\end{equation}
+Prediction: \(q(r)=\kappa_T \dot I_{\rm enc}/(4\pi\kappa r^2)\).
+
+\subsection*{IED medium (wave speed and impedance)}
+The worldtube dynamics use \(\mathbf D_I=\varepsilon_I\,\mathbf E_I\) and \(\mathbf B_I=\mu_I\,\mathbf H_I\).
+These set the signal speed and impedance,
+\begin{equation}
+\label{eq:vZ}
+v_I=\frac{c}{\sqrt{\varepsilon_I\mu_I}},\qquad
+Z_I=\sqrt{\frac{\mu_I}{\varepsilon_I}}.
+\end{equation}
+\emph{One datum} for speed (e.g.\ measured propagation delay \(v_I\)) and \emph{one datum} for radiative coupling (e.g.\ ratio of Poynting flux to field amplitudes in a plane wave) determine \(\varepsilon_I\) and \(\mu_I\):
+\begin{equation}
+\boxed{\quad \varepsilon_I = \frac{c}{v_I\,Z_I},\qquad \mu_I = \frac{Z_I\,v_I}{c}\,.\quad}
+\label{eq:epsmu}
+\end{equation}
+In vacuum‑like channels one may set \(v_I=c\) and determine \(Z_I\) from a single power/field measurement.
+
+\subsection*{Metric response (info–Einstein calibration)}
+In the weak/static limit (\S\ref{sec:geometry-response}), the Newtonian potential obeys
+\(\nabla^2\psi=\kappa_N\,\rho_{\rm eff}\) with solution outside a compact source
+\(\psi(r)=-\kappa_N M/(4\pi r)\), hence \(g(r)=\kappa_N M/(4\pi r^2)\).
+A single datum \((M_*,r_*,g_*)\) yields
+\begin{equation}
+\boxed{\quad \kappa_N \;=\; \frac{4\pi\,r_*^2\,g_*}{M_*}\,.\quad}
+\label{eq:kappaN}
+\end{equation}
+The geometric calibration in \eqref{eq:info-einstein} then is
+\begin{equation}
+\boxed{\quad \chi_M \;=\; \frac{2\,\kappa_N}{c^2}\,.\quad}
+\label{eq:chiM}
+\end{equation}
+(If you also calibrated \(c_M\) via \eqref{eq:cM}, the two routes agree provided the informational source is identified with \(M\) and \(\kappa\) is the same in both static and worldtube closures; otherwise \(\kappa\) differences are absorbed into \(c_M\) vs.\ \(\kappa_N\).)
+
+\subsection*{Worked example (gravity, single datum)}
+Let \(M_*=1~\mathrm{kg}\), \(r_*=1~\mathrm{m}\), \(g_*=9.80665~\mathrm{m/s^2}\).
+Convert \(M_*\) to Kz using \(c^2/h=1.3563924897\times 10^{50}~\mathrm{Hz/kg}\):
+\[
+M_* = 1.3563924897\times 10^{50}\ \text{Kz}.
+\]
+With \(\kappa=1\) (canonical normalization), \eqref{eq:cM} gives
+\[
+c_M = \frac{4\pi (1\,\mathrm{m})^2 (9.80665)}{1.3563924897\times 10^{50}}
+\;\approx\; 9.09\times 10^{-49}\ \frac{\mathrm{m}}{\mathrm{s^2}}\;\text{per Kz}.
+\]
+Equivalently, the Poisson calibration \eqref{eq:kappaN} gives
+\(\kappa_N \approx 9.09\times 10^{-49}\ \mathrm{m^3\,s^{-2}/Kz}\),
+and \(\chi_M=2\kappa_N/c^2\).
+
+\subsection*{Notes and options}
+\begin{enumerate}[itemsep=0.25em,leftmargin=1.3em]
+\item \textbf{Canonical \(\kappa\).} Setting \(\kappa=1\) fixes the \(\Phi_I\) scale; then all sector calibrations are numerically equal to the corresponding Gauss‑law constants (up to \(4\pi\)).
+\item \textbf{Sector‑specific \(\kappa\).} If different channels require distinct static closures (e.g.\ different transport coefficients), keep a \(\kappa\) subscript and apply the same one‑datum recipes per sector.
+\item \textbf{Charge units.} In \eqref{eq:cQ}, if \(Q\) is kept in SI Coulombs, \(c_Q\) inherits the SI\(\to\)Kz bridge; nothing changes in the algebra since \(c_Q\) is a single fixed number.
+\item \textbf{Screen link.} Using \eqref{eq:alpha-cM} you can move freely between the entropic screen parameter \(\alpha\) and the static calibration \(c_M\); choose whichever is more natural for a given application.
+\end{enumerate}

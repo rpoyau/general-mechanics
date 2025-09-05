@@ -1,0 +1,138 @@
+% ======================================================================
+% sections/07_worldtube-IED.tex — Worldtube dynamics & IED (v1.0.2)
+% ======================================================================
+
+\section{Worldtube dynamics and information electrodynamics (IED)}
+\label{sec:worldtube-IED}
+
+\paragraph{Setup (forms).}
+Let \(\mathcal A_I\) be the information potential \(1\)-form and
+\(\mathcal F_I:=\mathrm d\mathcal A_I\) the field \(2\)-form.
+A medium map \(\chi\) produces the excitation \(2\)-form
+\(\mathcal H_I:=\chi\!\cdot\!\mathcal F_I\).
+The information current \(1\)-form is \(j=J_{I\mu}\,\mathrm dx^\mu\),
+and its Hodge dual is the \(3\)-form \(j_3:=*j\).
+
+\paragraph{Field equations (worldtube Stokes).}
+IED is the pair
+\begin{equation}
+\mathrm d\mathcal F_I=0,
+\qquad
+\mathrm d\mathcal H_I=j_3,
+\label{eq:ied-forms}
+\end{equation}
+i.e.\ Bianchi identity plus sourced response.
+Integrating \eqref{eq:ied-forms} over a fixed worldtube
+\(\Omega=V\times[t_0,t_1]\) gives
+\[
+\int_{\partial\Omega}\!\!\mathcal F_I=0,
+\qquad
+\int_{\partial\Omega}\!\!\mathcal H_I=\int_{\Omega}\! j_3,
+\]
+so the lateral flux across \(\partial V\times[t_0,t_1]\) equals interior production plus the difference of the top and bottom caps. No moving boundary is required.
+
+\paragraph{Gauge and potential.}
+\(\mathcal A_I\) is defined up to a gauge \( \mathcal A_I \mapsto \mathcal A_I + \mathrm d\lambda\).
+In a \((3{+}1)\) split with coordinates \((t,\mathbf x)\),
+\begin{equation}
+\mathcal A_I = -\phi_I\,\mathrm dt + \mathbf A_I\cdot \mathrm d\mathbf x,
+\qquad
+\mathcal F_I = \mathbf E_I\cdot \mathrm dt\wedge \mathrm d\mathbf x
++ \mathbf B_I\cdot \frac{1}{2}\,\epsilon_{ijk}\,\mathrm dx^i\wedge \mathrm dx^j,
+\label{eq:split-AF}
+\end{equation}
+with \(\mathbf E_I=-\nabla\phi_I-\partial_t\mathbf A_I\) and
+\(\mathbf B_I=\nabla\times\mathbf A_I\).
+
+\paragraph{Maxwell-type system (3+1).}
+Writing \(\mathcal H_I\) in the same split as
+\(\mathcal H_I=\mathbf D_I\cdot \mathrm d\mathbf x\wedge \mathrm dt
++ \mathbf H_I\cdot \tfrac12\,\epsilon_{ijk}\,\mathrm dx^i\wedge \mathrm dx^j\),
+\eqref{eq:ied-forms} yields
+\begin{equation}
+\begin{aligned}
+\nabla\cdot \mathbf D_I &= i, & \qquad \nabla\cdot \mathbf B_I &= 0,\\
+\nabla\times \mathbf H_I &= \mathbf j + \partial_t \mathbf D_I, & \qquad
+\nabla\times \mathbf E_I &= -\,\partial_t \mathbf B_I,
+\end{aligned}
+\label{eq:maxwell-like}
+\end{equation}
+where \(i\) and \(\mathbf j\) are the information density and flux of \(J_I^\mu=(i,\mathbf j)\) from §\ref{sec:conventions}.
+This is the dynamic counterpart of the continuity law \(\nabla_\mu J_I^\mu=\sigma\): here \(J_I\) acts as the \emph{source} of the IED field.
+
+\paragraph{Constitutive laws and wave speed.}
+For homogeneous, isotropic media we take
+\begin{equation}
+\mathbf D_I = \varepsilon_I\,\mathbf E_I,
+\qquad
+\mathbf B_I = \mu_I\,\mathbf H_I,
+\label{eq:constitutive}
+\end{equation}
+with \(\varepsilon_I,\mu_I>0\) constant (in general \(\chi\) may be anisotropic, dispersive, or nonlinear).
+Combining \eqref{eq:maxwell-like}–\eqref{eq:constitutive} gives the wave equations
+\begin{equation}
+\Box_{v_I}\,\mathbf E_I = -\,\frac{1}{\varepsilon_I}\,\partial_t \mathbf j - \frac{1}{\varepsilon_I}\,\nabla i,
+\qquad
+\Box_{v_I}\,\mathbf B_I = \mu_I\,\nabla\times \mathbf j,
+\quad
+\Box_{v_I}:=\frac{1}{v_I^2}\,\partial_t^2 - \nabla^2,
+\label{eq:wave-E-B}
+\end{equation}
+with signal speed \(v_I=\dfrac{c}{\sqrt{\varepsilon_I \mu_I}}\le c\) (causal).
+In Lorenz gauge \(\nabla\cdot \mathbf A_I + \tfrac{1}{v_I^2}\partial_t \phi_I=0\),
+the potentials satisfy
+\begin{equation}
+\Box_{v_I}\,\phi_I = -\,\frac{i}{\varepsilon_I},
+\qquad
+\Box_{v_I}\,\mathbf A_I = -\,\mu_I\,\mathbf j.
+\label{eq:wave-potentials}
+\end{equation}
+
+\paragraph{Poynting-type balance on a worldtube.}
+Define the IED energy density and flux (Poynting vector)
+\begin{equation}
+u_I := \tfrac{1}{2}\big(\mathbf E_I\cdot \mathbf D_I + \mathbf B_I\cdot \mathbf H_I\big),
+\qquad
+\mathbf S_I := \mathbf E_I\times \mathbf H_I.
+\label{eq:poynting-def}
+\end{equation}
+From \eqref{eq:maxwell-like}–\eqref{eq:constitutive} one obtains the local balance
+\begin{equation}
+\partial_t u_I + \nabla\cdot \mathbf S_I \;=\; -\,\mathbf j\cdot \mathbf E_I,
+\label{eq:poynting-local}
+\end{equation}
+and integrating \eqref{eq:poynting-local} over \(\Omega=V\times[t_0,t_1]\) yields
+\begin{equation}
+\int_{\partial V\times[t_0,t_1]}\!\!\mathbf S_I\!\cdot d\mathbf A\,dt
+= \int_{V}\! u_I\,d^3x\Big|_{t_0}^{t_1}
+\;-\;\int_{\Omega}\! \mathbf j\!\cdot\!\mathbf E_I\,d^4x.
+\label{eq:poynting-worldtube}
+\end{equation}
+Thus the \emph{lateral} radiative export equals the cap energy change minus source work.
+This makes the worldtube balance explicit with fixed boundaries.
+
+\paragraph{Static limit and connection to §\ref{sec:static-gauss-nd}.}
+In static situations (\(\partial_t=0\), \(\mathbf B_I=\mathbf H_I=0\)),
+\eqref{eq:maxwell-like} reduces to
+\[
+\nabla\cdot(\varepsilon_I \mathbf E_I)= i,\qquad \nabla\times \mathbf E_I=0,
+\]
+so \(\mathbf E_I=-\nabla\Phi_I\) and \(\varepsilon_I\,\Delta\Phi_I=-i\).
+This matches §\ref{sec:static-gauss-nd} with \(\kappa=1/\varepsilon_I\) and \(\dot I_{\rm enc}=\int_V i\,d^3x\).
+Hence the static \(1/r^{\,2}\) profiles (or \(1/r^{\,n-1}\) in \(n\)D) appear as the steady snapshot of IED.
+
+\paragraph{Retarded solutions (sketch).}
+From \eqref{eq:wave-potentials}, the potentials admit the retarded integral
+\begin{equation}
+\phi_I(t,\mathbf x) = \frac{1}{4\pi \varepsilon_I}\int \frac{i(t_r,\mathbf x')}{R}\,d^3x',
+\qquad
+\mathbf A_I(t,\mathbf x) = \frac{\mu_I}{4\pi}\int \frac{\mathbf j(t_r,\mathbf x')}{R}\,d^3x',
+\label{eq:retarded}
+\end{equation}
+with \(R=|\mathbf x-\mathbf x'|\) and \(t_r=t-\dfrac{R}{v_I}\).
+These generate the Liénard–Wiechert–type information fields \((\mathbf E_I,\mathbf B_I)\), ensuring causal propagation of “surprise’’ at speed \(v_I\).
+
+\paragraph{Remarks.}
+(1) \(\varepsilon_I,\mu_I\) (or the full \(\chi\)) are \emph{calibrations} that set wave speed and impedance; no universal constants appear in algebra.  
+(2) The worldtube identity \eqref{eq:poynting-worldtube} is exact for fixed boundaries and cleanly separates lateral export, cap change, and source work.  
+(3) The static limit reproduces §\ref{sec:static-gauss-nd}; time dependence adds retarded radiation of information.

@@ -1,0 +1,72 @@
+% ======================================================================
+% sections/10_time-info-bounds.tex — Time–information bounds (v1.0.2)
+% ======================================================================
+
+\section{Time–information bounds}
+\label{sec:time-info-bounds}
+
+All energy-like quantities are expressed in Kick (Kz), cf.\ \S\ref{sec:conventions}. We state three operational bounds—power/erasure, counting/shot-noise, and channel capacity—then recast quantum speed limits in Kz.
+
+\subsection*{Power/erasure bound (Landauer in Kz)}
+Erasing one bit at temperature \(T\) costs at least \(T\ln 2\) in Kz (since \(k_BT\ln2/h = T\ln 2\)).
+If a boundary can sustain an average power budget \(\mathcal P\) (Kz/s), then the maximal sustainable bit rate is
+\begin{equation}
+\boxed{\quad \dot I_{\max}^{(\mathrm{bits/s})} \;\le\; \frac{\mathcal P}{T\,\ln 2}\,, \qquad
+\dot I_{\max}^{(\mathrm{nats/s})} \;\le\; \frac{\mathcal P}{T}\,. \quad}
+\label{eq:landauer-cap}
+\end{equation}
+Equivalently, time to (irreversibly) erase or reliably commit \(\Delta I\) bits obeys
+\begin{equation}
+\boxed{\quad \Delta t \;\ge\; \frac{\Delta I\,T\,\ln 2}{\mathcal P}\,. \quad}
+\label{eq:landauer-time}
+\end{equation}
+(If computation and transport are fully reversible, Landauer costs can be deferred, but any finalization/erasure still pays \eqref{eq:landauer-time}.)
+
+\subsection*{Counting/shot-noise bound (Poisson limit)}
+When information is carried by discrete \emph{counts} across a boundary—e.g.\ impacts on a screen or quanta in a detector—estimation is Poisson-limited. Let the event rate be \(r\) (s\(^{-1}\)) across the relevant aperture, with \(\Delta N=r\,\Delta t\) events in time \(\Delta t\). The relative uncertainty of any unbiased rate estimator is
+\begin{equation}
+\frac{\sigma_{\hat r}}{r} \approx \frac{1}{\sqrt{\Delta N}} = \frac{1}{\sqrt{r\,\Delta t}}.
+\label{eq:poisson-bound}
+\end{equation}
+If each event conveys at most one clean bit (worst-case coding), the raw bit rate obeys \(\dot I \le r\) and to achieve relative accuracy \(\epsilon\) you need
+\begin{equation}
+\boxed{\quad \Delta t \;\ge\; \frac{1}{\epsilon^2\,r}\,.\quad}
+\label{eq:time-for-eps}
+\end{equation}
+With area \(A\) and local flux \(j\) (events/s/m\(^2\)), use \(r=jA\). This is the operational version of the \(1/\sqrt{N}\) floor used in \S\ref{sec:entropic-gravity-screen} and \S\ref{sec:worldtube-IED}.
+
+\subsection*{Channel-capacity bound (optional, AWGN example)}
+For a bandlimited additive white Gaussian noise (AWGN) channel of bandwidth \(B\) (Hz), signal power \(\mathcal P\) (Kz/s), and noise spectral density \(N_0\) (Kz/Hz), Shannon’s capacity reads
+\begin{equation}
+\boxed{\quad C \;=\; B\,\log_2\!\bigg(1+\frac{\mathcal P}{N_0\,B}\bigg)\ \ \text{bits/s}. \quad}
+\label{eq:shannon}
+\end{equation}
+This is independent of Landauer; \eqref{eq:landauer-cap} still limits irreversible commit/erase stages, while \eqref{eq:shannon} limits what can be \emph{reliably} transmitted over a noise‑limited analog channel.
+
+\subsection*{Quantum speed limits in Kz}
+Let \(E\) denote the mean energy above the ground state (in Kz) and \(\Delta E\) its standard deviation (in Kz). The minimal time to evolve to an orthogonal state obeys the Mandelstam–Tamm and Margolus–Levitin bounds, which in Kz become
+\begin{equation}
+\boxed{\quad \tau_{\rm MT} \;\ge\; \frac{1}{4\,\Delta E}, \qquad
+\tau_{\rm ML} \;\ge\; \frac{1}{4\,E}. \quad}
+\label{eq:qsl-kz}
+\end{equation}
+(These follow from \(\tau_{\rm MT}\ge \pi\hbar/(2\Delta E_{\rm SI})\) and \(\tau_{\rm ML}\ge \pi\hbar/(2E_{\rm SI})\) using \(E_{\rm SI}=h\,E\) and \(\hbar/h=1/(2\pi)\).)
+For general evolution, one may take
+\begin{equation}
+\boxed{\quad \tau \;\ge\; \max\!\Big\{\frac{1}{4\,\Delta E},\,\frac{1}{4\,E}\Big\}. \quad}
+\label{eq:qsl-combined}
+\end{equation}
+These provide an intrinsic time–energy tradeoff even when power and channel constraints are generous.
+
+\subsection*{Putting the bounds together}
+Given a boundary with power budget \(\mathcal P\), temperature \(T\), and a counting channel of rate \(r\) within a bandwidth \(B\), the achievable time to deliver and \emph{commit} \(\Delta I\) bits must satisfy all of
+\begin{equation}
+\Delta t \;\ge\; \max\!\left\{ \frac{\Delta I\,T\ln 2}{\mathcal P},\ \ \frac{1}{\epsilon^2\,r},\ \ \frac{\Delta I}{C},\ \ \frac{1}{4\,\Delta E},\ \ \frac{1}{4\,E} \right\},
+\label{eq:combined-bounds}
+\end{equation}
+where \(\epsilon\) is the target relative accuracy for counting. The first three terms are operational (power/erasure, shot‑noise, Shannon); the last two are intrinsic (quantum speed limits) and matter when evolution is constrained by small \(E\) or \(\Delta E\).
+
+\paragraph{Remarks.}
+(1) In Kz, Landauer’s cost reduces to “\(T\) per nat” and “\(T\ln 2\) per bit,” making power‑limited bounds particularly transparent.  
+(2) Counting bounds tie directly to the worldtube Stokes picture: the \emph{same} counts that define \(\mathbf j\) set the variance floor via \eqref{eq:poisson-bound}.  
+(3) Quantum speed limits \eqref{eq:qsl-kz} are universal and sit “below” operational constraints; they can dominate only when \(\mathcal P\) and \(r\) are extremely small or when evolution is restricted to low \(E,\Delta E\).

@@ -1,0 +1,80 @@
+% ======================================================================
+% sections/05_bit-gas.tex — Bit-gas (PV=NT; momentum–bit flux) v1.0.2
+% ======================================================================
+
+\section{Bit-gas: pressure as momentum–bit flux}
+\label{sec:bit-gas}
+
+Throughout this section, all energy-like quantities are in Kick (Kz), so we write \(PV=NT\) directly
+(see \S\ref{sec:conventions}).
+
+\paragraph{Ideal-gas relations in Kz.}
+For an ideal monoatomic gas,
+\begin{equation}
+PV = NT, \qquad u = \tfrac{3}{2}\,n\,T,
+\label{eq:ig-kz}
+\end{equation}
+with number density \(n=N/V\) and internal energy density \(u\).
+These are exactly the usual SI relations divided by \(h\), using \(T\equiv k_B T_{\rm SI}/h\).
+
+\paragraph{Kinetic theory in Kz.}
+Let \(M:=mc^2/h\) be the rest–Kick of a particle species. Nonrelativistic kinetic energy per particle is
+\((1/2)\,M\,v^2/c^2\) (in Kz). Equipartition gives per Cartesian degree
+\((1/2)T\), hence
+\begin{equation}
+\frac{\langle v_x^2\rangle}{c^2}=\frac{T}{M},\qquad
+\frac{v_{\rm rms}^2}{c^2}=3\,\frac{T}{M}.
+\label{eq:vrms}
+\end{equation}
+The standard Maxwell speeds translate to
+\begin{equation}
+\bar v = c\,\sqrt{\frac{8}{\pi}\,\frac{T}{M}},\qquad
+v_{\rm rms} = c\,\sqrt{3\,\frac{T}{M}},\qquad
+v_{\rm mp} = c\,\sqrt{2\,\frac{T}{M}}.
+\label{eq:speeds}
+\end{equation}
+The kinetic-theory pressure follows either from \(P=\tfrac{2}{3}u\) using \eqref{eq:ig-kz}, or directly:
+\begin{equation}
+P = \frac{1}{3}\,n\,M\,\frac{v_{\rm rms}^2}{c^2}
+= \frac{1}{3}\,n\,M\,\frac{3T}{M}
+= n\,T,
+\label{eq:pressure-kinetic}
+\end{equation}
+consistent with \(PV=NT\).
+
+\paragraph{Boundary counting: pressure as momentum–bit flux.}
+Consider a planar patch of wall of area \(A\). For a Maxwell gas, the rate of wall hits is
+\(\Gamma = \tfrac14\,n\,\bar v\,A\).
+If each resolved collision is counted as one \emph{distinction} (one “bit event”), the \emph{information flux}
+(bits/s/m\(^2\)) is
+\begin{equation}
+j_{\rm bits} = \frac{\Gamma}{A} = \frac14\,n\,\bar v.
+\label{eq:bitflux}
+\end{equation}
+Each elastic hit transfers mean normal impulse \(\langle\Delta p\rangle = 2\,m\,\langle v_x\rangle\).
+Translating to Kz via \(m = M\,h/c^2\) and averaging over the Maxwell distribution yields precisely
+\begin{equation}
+P \;=\; \big\langle \Delta p \big\rangle \times j_{\rm bits}
+\quad \Longrightarrow \quad
+P = \frac{1}{3}\,n\,M\,\frac{v_{\rm rms}^2}{c^2} = n\,T,
+\label{eq:pressure-from-counting}
+\end{equation}
+so \emph{pressure is momentum per distinction} times the boundary distinction rate.
+Operationally, \eqref{eq:bitflux}–\eqref{eq:pressure-from-counting} identify the informational current at the wall with a measurable (countable) surrogate of \(\mathbf j\) in \S\ref{sec:static-gauss-nd}.
+
+\paragraph{Link to the informational field.}
+With the static closure \(\mathbf j=\kappa\,\nabla\Phi_I\) and \(\mathbf F_I=-\nabla\Phi_I\),
+the boundary flux \(\int_{\partial V}\mathbf j\!\cdot d\mathbf A\) equals the interior production \(\dot I_{\rm enc}\)
+(\S\ref{sec:static-gauss-nd}). In steady state (\(\sigma=0\)) the net boundary bit flux vanishes over a closed surface,
+but \emph{local} fluxes (like \eqref{eq:bitflux}) remain nonzero and proportional to \(|\mathbf F_I|\) through \(\kappa\).
+Measured sectors are linear calibrations of \(\mathbf F_I\) (gravity/EM/heat; see \S\ref{sec:static-gauss-nd}).
+
+\paragraph{General degrees of freedom.}
+For \(f\) quadratic degrees per particle (e.g.\ rotations/vibrations if active), equipartition gives \(u=\tfrac f2\,n\,T\).
+The ideal-gas law \(PV=NT\) is unchanged. The speed relations \eqref{eq:speeds} use only the translational part, so they
+remain valid provided the translational equipartition \(\tfrac{3}{2}T\) per particle holds.
+
+\paragraph{Remarks.}
+(1) The Kz convention collapses all \(k_B\) factors; recovering SI is the single map \(E=h\,(\cdot)\).
+(2) The counting view makes contact with the information flux \(\mathbf j\) and Gauss/Stokes balances,
+and will be reused for entropic screens and worldtube dynamics in \S\ref{sec:entropic-gravity-screen} and \S\ref{sec:worldtube-IED}.
