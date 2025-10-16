@@ -1,0 +1,103 @@
+% ======================================================================
+% 03c08_dimensional-flows-confinement.tex — C8: Dimensional flows & confinement
+% ======================================================================
+
+\subsection{C8: Dimensional flows \& confinement}
+\label{corollary:dimensional}
+
+We make explicit how static and wave amplitudes scale with the number of accessible spatial
+dimensions and how boundaries reduce the \emph{effective} dimension. All statements follow from
+the Stokes identity \eqref{eq:stokes-identity} (D1), the static closure \eqref{eq:static-closure} (D2), and
+(for waves) the exported–power identity \eqref{eq:poynting} (App.~\ref{app:forms-stokes}; see also C4,
+\S\ref{corollary:info-em}). No new constants are introduced.
+
+% ------------------------- C8.0 — Summary (static vs waves) ------------
+
+\paragraph{C8.0 \; Summary (static vs.\ waves).}
+Let \(A_n(r)\) be the area of a radius–\(r\) screen in \(n\) spatial dimensions (App.~\ref{app:nD-screens},
+eq.~\eqref{appC:eq:areas}). On a steady, source‑free annulus the tube/screen flux \(\Phi\) is constant (C0:
+\S\ref{corollary:info-gas}), so the static mean and amplitude obey (C1: \S\ref{corollary:static-screen})
+\begin{equation}
+\big\langle j_n\big\rangle(r)=\frac{\Phi}{A_n(r)},
+\qquad
+\big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\frac{\Phi}{A_n(r)} .
+\label{eq:c8-static}
+\end{equation}
+For spherical/conical screens with \(A_n(r)=S_{n-1}\,r^{\,n-1}\) (App.~\ref{app:nD-screens}, eq.~\eqref{appC:eq:areas}),
+this gives \(|\mathbf E_I|\propto r^{-(n-1)}\).
+For wave segments in homogeneous media, time‑averaging the Poynting identity on a source‑free annulus yields
+radius‑independent exported power (C4: \S\ref{corollary:info-em}),
+\begin{equation}
+P(r):=\int_{\Sigma(r)}\!\big\langle \mathbf S_I\big\rangle\!\cdot n\,dA=\text{const in }r ,
+\label{eq:c8-power}
+\end{equation}
+and with \(\langle \mathbf S_I\rangle\propto \langle|\mathbf E_I|^2\rangle\) the far‑field envelope scales as
+\begin{equation}
+\big\langle |\mathbf E_I(r)| \big\rangle \;\propto\; \frac{1}{\sqrt{A_n(r)}}
+\quad\text{(cf.\ C4, eq.~\eqref{eq:c4-amp-scaling})}.
+\label{eq:c8-waves}
+\end{equation}
+For spherical/conical screens this gives \(\langle|\mathbf E_I|\rangle\propto r^{-(n-1)/2}\).
+
+% ------------------------- C8.1 — Dimensional table --------------------
+
+\paragraph{C8.1 \; Dimensional summary (table).}
+\begin{table}[t]
+\centering
+\caption{Geometric scaling of static amplitudes and wave envelopes by effective spatial dimension.
+Here $A_n(r)$ is the $n$D screen area (App.~\ref{app:nD-screens}). Static scaling follows \eqref{eq:c8-static};
+wave envelopes follow \eqref{eq:c8-power}–\eqref{eq:c8-waves}.}
+\label{tab:c8-dim}
+\begin{tabular}{lccc}
+\hline
+\textbf{Effective dimension} & \textbf{Area $A_n(r)$} & \textbf{Static $|\mathbf E_I|$} & \textbf{Wave $\langle|\mathbf E_I|\rangle$} \\
+\hline
+1D (guide / tube)     & $A_\perp$ (const.)     & $\propto r^{0}$   & $\propto r^{0}$ \\
+2D (sheet / interface)& $A_2(r)\propto r$      & $\propto r^{-1}$  & $\propto r^{-1/2}$ \\
+3D (spherical)        & $A_3(r)=4\pi r^{2}$    & $\propto r^{-2}$  & $\propto r^{-1}$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent\emph{Sector note.} For a fixed solid-angle sector $\Delta\Omega$ in $n$D,
+replace $A_n(r)$ by $A_\Delta(r)=\Delta\Omega\,r^{\,n-1}$ (App.~\ref{app:nD-screens}); the exponents are unchanged.
+
+% ------------------------- C8.2 — Confinement cases --------------------
+
+\paragraph{C8.2 \; Confinement cases (effective dimension).}
+Boundaries that constrain propagation reduce the accessible dimension \(n_{\rm eff}\):
+\begin{itemize}\itemsep2pt
+\item \textbf{Waveguides (effective 1D).} Cross–section \(A_\perp\) fixed along the axis.
+Static: \(\langle j_n\rangle=\Phi/A_\perp\) and \( |\mathbf E_I|=\Phi/(\kappa A_\perp)\) are independent of \(r\).
+Waves: \(\langle|\mathbf E_I|\rangle\sim r^0\) along the guide; mode power is exported with \eqref{eq:c8-power}.
+\item \textbf{Sheets / interfaces (effective 2D).} Fixed thickness \(\Rightarrow A_2(r)\propto r\).
+Static: \( |\mathbf E_I|\propto 1/r\). Waves: \( \langle|\mathbf E_I|\rangle\propto 1/\sqrt{r}\).
+\end{itemize}
+Mode spectra and group velocities are set by boundary conditions and any chosen constitutive map \(\chi\).
+
+% ------------------------- C8.3 — Directional sectors ------------------
+
+\paragraph{C8.3 \; Directional sectors and apertures.}
+For an aperture subtending \(\Delta\Omega\) (in \(n\)D), use \(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\) in
+\eqref{eq:c8-static}–\eqref{eq:c8-waves}. This is the sector (tube) form of the same conservation rule
+(C0: \S\ref{corollary:info-gas}).
+
+% ------------------------- C8.4 — Remarks & scope ----------------------
+
+\paragraph{C8.4 \; Remarks.}
+(i) Near–field structure depends on sources and boundary detail; the listed wave scalings are far–field envelopes.\\
+(ii) Edge diffraction in 2D sheets and leakage in imperfect guides enter through attenuation/survival factors (C11:
+\S\ref{corollary:entropic-corrections}) and modify only prefactors, not the exponents, in the asymptotic limits.
+
+\medskip
+\noindent\emph{Summary.}
+Static amplitudes fall as \(1/A_n(r)\); wave envelopes fall as \(1/\sqrt{A_n(r)}\). Confinement replaces \(A_n(r)\)
+by the appropriate effective cross–section or circumference. These follow directly from the Stokes identity,
+the static closure, and constant exported power, with no additional postulates.
+
+\medskip
+\noindent\emph{Literature note.}
+Background geometry/areas and cone/tube forms are summarized in App.~\ref{app:nD-screens};
+the Poynting/export statement is recalled in App.~\ref{app:forms-stokes} and C4. For standard expositions,
+see Frankel~\cite{Frankel2011} (geometry) and Jackson~\cite{Jackson1999} or
+Landau--Lifshitz--Pitaevskii~\cite{LandauLifshitzEDCM1984}.

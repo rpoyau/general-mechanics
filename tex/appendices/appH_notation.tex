@@ -1,0 +1,178 @@
+% ======================================================================
+% appH_notation.tex — Appendix H: Notation & units
+% ======================================================================
+
+\section{Notation \& units}
+\label{app:notation-units}
+\label{app:notation}
+
+This appendix collects the notational conventions and unit choices
+used throughout. Cross-references point back to the axioms and core
+corollaries where the symbols first appear. Calibrations and operational
+usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operationalization}.
+
+% ----------------------------- H.1 -------------------------------------
+\subsection{Indices, operators, manifolds}
+\label{appH:indices}
+
+\begin{itemize}\itemsep2pt
+\item \textbf{Manifold and region.} $M$ is a differentiable manifold. A problem
+      specifies a region $U\subset M$ with boundary $\partial U$. Dynamics use the
+      time-extended region $U\times[t_0,t_1]$.
+\item \textbf{Indices.} Greek indices $\mu,\nu,\dots$ denote spacetime components; Latin
+      indices $i,j,\dots$ denote spatial components. Summation over repeated indices is understood.
+\item \textbf{Forms and operators.} $d$ is the exterior derivative, $\wedge$ the
+      wedge product, $\iota$ interior contraction, and ${*}$ the Hodge dual (with
+      the chosen orientation/metric). $\mathrm{vol}$ denotes the oriented volume form.
+\item \textbf{Normals and measures.} $n$ is the outward unit normal on $\partial U$,
+      $dA$ its area element, and $d^n x$ the induced $n$-volume on $U$.
+\end{itemize}
+
+% ----------------------------- H.2 -------------------------------------
+\subsection{Informational current and balance}
+\label{appH:current-balance}
+
+\begin{itemize}\itemsep2pt
+\item \textbf{Current.} $j:=J^\mu dx_\mu$ is the informational/entropic current $1$-form,
+      with components $J^\mu=(i,\mathbf j)$. Its Hodge dual $j^{(n)}:=*j$ is an $n$-form.
+\item \textbf{Production.} $\Sigma:=\sigma\,\mathrm{vol}$ is the $(n{+}1)$-form production.
+\item \textbf{Balance (Stokes).} The fundamental identity is
+      \[
+      d(*j)=\Sigma \quad\Longleftrightarrow\quad \partial_\mu J^\mu=\sigma,
+      \]
+      see \eqref{eq:stokes-identity} and App.~\ref{app:forms-stokes}, eq.~\eqref{appB:eq:stokes}.
+\item \textbf{Integral and cut forms.} For $U\times[t_0,t_1]$,
+      \[
+      \int_{\partial(U\times[t_0,t_1])} j^{(n)} \;=\; \int_{U\times[t_0,t_1]} \Sigma,
+      \]
+      and on a fixed $U$,
+      \(
+      \dot I_{\rm enc}=\Phi_{\rm in}-\Phi_{\rm out}+\Pi
+      \)
+      (cut balance), see \eqref{eq:cut-balance}.
+\item \textbf{Local continuity.} $\partial_t i+\nabla\!\cdot\mathbf j=\sigma$, see \eqref{eq:local-continuity}.
+\item \textbf{Directional split.} $(a)_\pm:=\tfrac12(a\pm|a|)$; used for inward/outward fluxes on $\partial U$.
+\end{itemize}
+
+% ----------------------------- H.3 -------------------------------------
+\subsection{Static sector and closures}
+\label{appH:static-closures}
+
+\begin{itemize}\itemsep2pt
+\item \textbf{Informational potential/field.} $\Phi_I$ is the potential; $\mathbf E_I:=-\nabla\Phi_I$.
+\item \textbf{Static closure (snapshot tool).} $\mathbf j=-\kappa\,\mathbf E_I$, see \eqref{eq:static-closure}.
+\item \textbf{Screens/sectors.} For screens of radius $r$ in $n$D,
+      $A_n(r)=S_{n-1}\,r^{\,n-1}$ (Appendix~\ref{app:nD-screens}, eq.~\eqref{appC:eq:areas}).
+      Static amplitudes follow the inverse-area rule from the balance: $\langle j_n\rangle=\Phi/A$,
+      hence $|\mathbf E_I|\propto 1/A$. Sector and confinement variants appear in C0--C1 and C8
+      (Corollaries~\ref{corollary:info-gas}, \ref{corollary:static-screen}, \ref{corollary:dimensional}).
+\end{itemize}
+
+% ----------------------------- H.4 -------------------------------------
+\subsection{Informational electrodynamics (Info--EM)}
+\label{appH:info-em}
+
+\begin{itemize}\itemsep2pt
+\item \textbf{Potentials and fields.} $A_I$ is a 1-form, $F_I:=dA_I$ a 2-form, $H_I=\chi:F_I$ a 2-form via
+      a constitutive map $\chi$ (linear, local on the segment considered).
+\item \textbf{Equations.} $dF_I=0,\quad dH_I={*}j$ (source term).
+\item \textbf{Energy balance (Poynting).} $u_I=\tfrac12 F_I\!:\!H_I$; the identity is
+      \[
+      \partial_t\!\int_V u_I\,d^n x + \int_{\partial V}\mathbf S_I\!\cdot n\,dA
+      \;=\; -\int_V \mathbf j\!\cdot\mathbf E_I\,d^n x,
+      \]
+      see App.~\ref{app:forms-stokes}, eq.~\eqref{appB:eq:poynting} (alias \eqref{eq:poynting}).
+      In homogeneous, source-free segments, far-field envelopes scale as $A_n(r)^{-1/2}$; see
+      Corollary~\ref{corollary:info-em}, eq.~\eqref{eq:c4-amp-scaling}.
+\item \textbf{Causality note.} Causality of $\chi$ implies Kramers--Kronig dispersion; see App.~\ref{appB:KK}.
+\end{itemize}
+
+% ----------------------------- H.5 -------------------------------------
+\subsection{Rate mechanics on $(q,t)$}
+\label{appH:rate}
+
+\begin{itemize}\itemsep2pt
+\item \textbf{Poincar\'e--Cartan 1-form.} $\Theta_{\mathcal R}=P_i\,dq^i - H(q,P,t)\,dt$, see \eqref{eq:pc-form}.
+\item \textbf{Canonical rates.} $d\Theta_{\mathcal R}=0$ on admissible evolution yields
+      $\dot q^i=\partial_{P_i}H,\ \dot P_i=-\partial_{q^i}H$, see \eqref{eq:canonical}.
+\item \textbf{Least-action equivalence.} Euler--Lagrange form follows by convex duality; cf. Corollary~\ref{corollary:least-action}.
+\end{itemize}
+
+% ----------------------------- H.6 -------------------------------------
+\subsection{Relational equation of state (REOS)}
+\label{appH:reos}
+
+\begin{itemize}\itemsep2pt
+\item \textbf{Controls and prices.} Controls $R^{(a)}$ parameterize boundary/channel changes; the calibrated
+      rate density $\rho(R)$ (informational cost) induces a price 1-form $\lambda=\lambda_a\,dR^{(a)}$.
+\item \textbf{Statement.} $d\rho=-\,\lambda_a\,dR^{(a)}$, see \eqref{eq:reos}. If $d\lambda=0$ the sector is integrable
+      (Maxwell-type identities). If $d\lambda\neq 0$, cyclic changes imply dissipation (production $\sigma\ge0$ in the balance).
+\end{itemize}
+
+% ----------------------------- H.7 -------------------------------------
+\subsection{Geometry and focusing (tool)}
+\label{appH:geometry}
+
+\begin{itemize}\itemsep2pt
+\item \textbf{Tube kinematics.} A generator $k^a$ carries expansion $\theta=\nabla_a k^a$; for a cross-section $A(\lambda)$,
+      $d(\ln A)/d\lambda=\theta$.
+\item \textbf{Raychaudhuri (zero vorticity).} $\tfrac{d\theta}{d\lambda}=-\tfrac12\theta^2-\sigma_{ab}\sigma^{ab}-R_{ab}k^a k^b$.
+\item \textbf{Calibrated focusing (consistency).} On the same tube, a single sector calibration gives
+      $R_{ab}k^a k^b\ \overset{\mathrm{cal}}{=}\ 8\pi\,\mathcal T^{(\mathrm{cal})}_{ab}k^a k^b$,
+      see \eqref{eq:info-einstein} and Appendix~\ref{app:jacobson}. This is a \emph{consistency tool}, not an axiom.
+\end{itemize}
+
+% ----------------------------- H.8 -------------------------------------
+\subsection{Operational measures: capacity, erasure, counting}
+\label{appH:operational}
+
+\begin{itemize}\itemsep2pt
+\item \textbf{Capacity.} The reliable channel capacity $C_{\rm chan}(\varepsilon)$ depends on control path $R^{(a)}$,
+      the noise kernel (Appendix~\ref{app:noise-kernel}), and resource budgets (power $P$, temperature $T$, area $A$,
+      window $\Delta t$, reliability $\varepsilon$). Bounds appear in Corollary~\ref{corollary:time-info}.
+\item \textbf{Erasure cost.} Durable record formation and erasure introduce a $P/T$ budget term in the
+      time--information bounds (Corollary~\ref{corollary:time-info}).
+\item \textbf{Counting units.} Bits and nats are related by $S_{\rm nats}=(\ln 2)\,S_{\rm bits}$; fluxes likewise.
+\end{itemize}
+
+% ----------------------------- H.9 -------------------------------------
+\subsection{Units and conversions}
+\label{appH:kz}
+
+\begin{itemize}\itemsep2pt
+\item \textbf{Kick (Kz).} Energies-as-rates: $X^{(\mathrm{Kz})}=X/h$ (SI$/h$); see Appendix~\ref{app:kick}.
+      Examples: $E^{(\mathrm{Kz})}=E/h$, $T^{(\mathrm{Kz})}=k_B T/h$, $P^{(\mathrm{Kz})}=P_{\rm SI}/h$.
+\item \textbf{Use.} Balances and bounds are expressed in Kz; measured sectors use one-datum
+      calibration (Appendix~\ref{app:calibrations}). This is a \emph{bookkeeping convention}; physics does not depend on it.
+\item \textbf{Avoid confusion.} Kz (Kick units) is unrelated to the wavevector symbol $k$ (or $k_z$); context distinguishes them.
+\end{itemize}
+
+% ----------------------------- H.10 ------------------------------------
+\subsection{Symbol dictionary \& naming conventions}
+\label{appH:symbols}
+
+\begin{description}\itemsep2pt
+\item[$\Phi$] Directed flux through a screen/sector, $\Phi=\int_{\Sigma}\mathbf j\!\cdot n\,dA$ (static tube/screen).
+\item[$\Phi_I$] Informational potential (scalar); $\mathbf E_I:=-\nabla\Phi_I$.
+\item[$\mathbf E_I$] Informational field (vector) used in statics and in Info--EM.
+\item[$\mathbf j,\ i$] Spatial current and density components of $j$; $j=J^\mu dx_\mu$.
+\item[$\kappa$] Static constitutive scale in $\mathbf j=-\kappa\,\mathbf E_I$.
+\item[$A_n(r),\ S_{n-1}$] Screen area and unit-sphere area; App.~\ref{app:nD-screens}, eq.~\eqref{appC:eq:areas}.
+\item[$A_\Delta(r)$] Sector area for solid angle $\Delta\Omega$: $A_\Delta=\Delta\Omega\,r^{\,n-1}$.
+\item[$A_I,\ F_I,\ H_I,\ \chi$] Info--EM potential, field, excitation, and constitutive map; $F_I=dA_I$, $dH_I={*}j$.
+\item[$u_I,\ \mathbf S_I$] Informational energy-rate density and Poynting vector (App.~\ref{app:forms-stokes}, \eqref{appB:eq:poynting}).
+\item[$H(q,P,t)$] \emph{Rate generator} in the Poincar\'e--Cartan form $\Theta_{\mathcal R}=P\,dq-H\,dt$ (no collision with $\Phi$).
+\item[$\Theta_{\mathcal R}$] Rate (Poincar\'e--Cartan) $1$-form on $(q,t)$; $d\Theta_{\mathcal R}=0\Rightarrow$ canonical rates.
+\item[$R^{(a)},\ \rho(R),\ \lambda$] REOS controls, calibrated rate density (informational cost), and price $1$-form.
+\item[$k^a,\ \theta,\ \sigma_{ab},\ R_{ab}$] Congruence generator, expansion, shear, and Ricci tensor (geometry/focusing).
+\item[$\mathcal T^{(\mathrm{cal})}_{ab}$] Calibrated stress used only for focusing consistency (not an axiom).
+\item[$c_M,\ c_Q,\ \kappa_T$] One-datum sector scales for gravitational, electric, and thermal readouts (App.~\ref{app:calibrations}).
+\item[$C_{\rm chan},\ \mathcal N$] Reliable capacity functional and noise kernel (App.~\ref{app:noise-kernel}); used in C5/C6.
+\end{description}
+
+\medskip
+\noindent\emph{Literature note.}
+Background on differential forms, Hodge duals, and Stokes appears in Frankel~\cite{Frankel2011}
+(and Spivak~\cite{Spivak1965}, Bott--Tu~\cite{BottTu1982}); the Poincar\'e--Cartan/Hamiltonian
+framework underlying the $(q,t)$ rate form is classical (Arnold~\cite{Arnold1989}). For an EM
+realization of the Poynting identity, see Jackson~\cite{Jackson1999} or Landau--Lifshitz--Pitaevskii~\cite{LandauLifshitzEDCM1984}.

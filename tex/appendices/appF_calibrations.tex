@@ -1,116 +1,159 @@
 % ======================================================================
-% appendices/appF_calibrations.tex — Calibrations (v1.0.2)
+% appF_calibrations.tex — Appendix F: One‑datum calibrations (static sectors)
 % ======================================================================
 
-\section{Calibrations (one datum per sector)}
+\section{One‑datum calibrations (static sectors)}
 \label{app:calibrations}
 
-All energy-like quantities are in Kick (Kz), cf.\ \S\ref{sec:conventions}. The informational field is
-\(\mathbf F_I:=-\nabla\Phi_I\) with static closure \(\mathbf j=\kappa\,\nabla\Phi_I\).
-For a sphere of radius \(r\) enclosing a source measure \(\dot I_{\rm enc}\) (Kz),
-\begin{equation}
-\label{eq:FI-cal}
-\bigl|\mathbf F_I(r)\bigr|=\frac{\dot I_{\rm enc}}{4\pi\,\kappa\,r^2}\,.
-\end{equation}
-Each measured sector is a \emph{linear calibration} of \(\mathbf F_I\) fixed by a \emph{single datum}.
-You may either (i) adopt a \emph{canonical normalization} \(\kappa\equiv 1\) for \(\Phi_I\), or (ii) keep \(\kappa\) explicit and absorb it in sector constants. We present formulas with \(\kappa\) explicit.
+We record how a \emph{single} datum per sector maps the informational field
+$\mathbf E_I:=-\nabla\Phi_I$ to measured quantities, using only the static closure
+\eqref{eq:static-closure} and the screen/sector balance (via \eqref{eq:stokes-identity}).
 
-\subsection*{Gravity (static acceleration)}
-Definition: \(\mathbf g = c_M\,\mathbf F_I\).
-Choose a reference configuration with known enclosed rest–Kick \(M_*\) (e.g.\ a point mass or spherically symmetric body), radius \(r_*\), and measured acceleration \(g_*\).
-Identify the informational source with total rest–Kick:
+% ------------------------- F.1 Recap -----------------------------------
+\subsection{Recap: static screen/sector law}
+\label{appF:recap}
+
+On a time‑frozen snapshot in a source‑free annulus ($\sigma=0$), the directed flux
 \[
-\dot I_{\rm enc}^{(M)}:=M_*=\int_V \rho\,d^3x,
+\Phi(r)\;:=\;\int_{\Sigma(r)} \mathbf j\!\cdot n\,dA
 \]
-where \(\rho\) is energy density in Kz. Then from \eqref{eq:FI-cal}
+is independent of $r$. With the static closure $\mathbf j=-\kappa\,\mathbf E_I$,
+the mean normal current on a radius‑$r$ screen in $n$ spatial dimensions is
 \begin{equation}
-\boxed{\quad c_M \;=\; \frac{4\pi\,\kappa\,r_*^2\,g_*}{M_*}\,.\quad}
-\label{eq:cM}
+\big\langle j_n\big\rangle(r)=\frac{\Phi}{A_n(r)},\qquad
+|\mathbf E_I(r)|=\frac{1}{\kappa}\,\frac{\Phi}{A_n(r)},
+\qquad A_n(r)=S_{n-1}\,r^{\,n-1},
+\label{appF:eq:screen}
 \end{equation}
-Prediction for any other radius/source: \(g(r)=c_M \dot I_{\rm enc}/(4\pi\kappa r^2)\).
+with $S_{n-1}$ given in Appendix~\ref{app:nD-screens}, eq.~\eqref{appC:eq:areas}. For a conical sector of
+solid angle $\Delta\Omega$, replace $A_n(r)$ by $A_\Delta(r)=\Delta\Omega\,r^{\,n-1}$.
 
-\paragraph{Consistency with the entropic screen.}
-From \S\ref{sec:entropic-gravity-screen}, \(a(r)=(2\pi c/\alpha)\,M/r^2\).
-Equating \(g(r)=c_M M/(4\pi\kappa r^2)\) gives the identity
-\begin{equation}
-\boxed{\quad \alpha \;=\; \frac{8\pi^2\,c\,\kappa}{c_M}\,.\quad}
-\label{eq:alpha-cM}
-\end{equation}
-Thus fixing \(c_M\) is equivalent to fixing the bit density \(\alpha\).
+% ------------------------- F.2 Definition ------------------------------
+\subsection{Calibration definition (one datum per sector)}
+\label{appF:def}
 
-\subsection*{Electrostatics (Coulomb sector)}
-Definition: \(\mathbf E = c_Q\,\mathbf F_I\).
-Choose a calibration with charge \(Q_*\) at radius \(r_*\) and measured field \(E_*\).
-Set the informational source proportional to enclosed charge, \(\dot I_{\rm enc}^{(Q)}:=Q_*\).
-Then
+A measured sector is a linear readout of $\mathbf E_I$ set by a \emph{single} datum:
 \begin{equation}
-\boxed{\quad c_Q \;=\; \frac{4\pi\,\kappa\,r_*^2\,E_*}{Q_*}\,.\quad}
-\label{eq:cQ}
+\boxed{\qquad
+\mathbf g=c_M\,\mathbf E_I,\qquad
+\mathbf E=c_Q\,\mathbf E_I,\qquad
+\mathbf j_{\rm th}=\kappa_T\,\mathbf E_I
+\qquad}
+\label{appF:eq:cal-def}
 \end{equation}
-With this choice, \(E(r)=c_Q Q/(4\pi\kappa r^2)\) reproduces Coulomb’s inverse-square law by construction.
-(If you prefer to keep \(Q\) in SI Coulombs, \(c_Q\) numerically absorbs the SI/Kz bridge.)
+The sector scales $(c_M,c_Q,\kappa_T)$ are fixed once (units as stated in Appendix~\ref{app:kick}).
 
-\subsection*{Heat/transport (Fourier sector)}
-Definition: \(j_{\rm th} = \kappa_T\,\mathbf F_I\) (heat/particle flux density proportional to the informational field).
-For a spherically symmetric steady source of power \(P\) (watts), the radial flux in SI is \(q_{\rm SI}(r)=P/(4\pi r^2)\).
-Convert to Kz by dividing by \(h\): \(q(r)=q_{\rm SI}(r)/h\).
-Choose a datum \((P_*,r_*,q_*)\) and identify \(\dot I_{\rm enc}^{(\rm th)}:=P_*/h\), then
-\begin{equation}
-\boxed{\quad \kappa_T \;=\; \frac{4\pi\,\kappa\,r_*^2\,q_*}{P_*/h}\,.\quad}
-\label{eq:kappaT}
-\end{equation}
-Prediction: \(q(r)=\kappa_T \dot I_{\rm enc}/(4\pi\kappa r^2)\).
+% ------------------------- F.3 One datum fixes scale -------------------
+\subsection{How one datum fixes the scale}
+\label{appF:one-datum}
 
-\subsection*{IED medium (wave speed and impedance)}
-The worldtube dynamics use \(\mathbf D_I=\varepsilon_I\,\mathbf E_I\) and \(\mathbf B_I=\mu_I\,\mathbf H_I\).
-These set the signal speed and impedance,
+Pick a reference screen $\Sigma(r_\star)$ around a source with directed flux $\Phi_\star$.
+Measure a sector field $Y_\star\in\{g_\star,E_\star,j_{{\rm th},\star}\}$ at $r_\star$.
+Using \eqref{appF:eq:screen},
 \begin{equation}
-\label{eq:vZ}
-v_I=\frac{c}{\sqrt{\varepsilon_I\mu_I}},\qquad
-Z_I=\sqrt{\frac{\mu_I}{\varepsilon_I}}.
+c_{\rm sec}
+\;=\;
+\frac{Y_\star}{|\mathbf E_I(r_\star)|}
+\;=\;
+Y_\star\,\frac{\kappa\,A_n(r_\star)}{\Phi_\star},
+\qquad
+\text{(sec}\in\{M,Q,{\rm th}\}).
+\label{appF:eq:one-datum}
 \end{equation}
-\emph{One datum} for speed (e.g.\ measured propagation delay \(v_I\)) and \emph{one datum} for radiative coupling (e.g.\ ratio of Poynting flux to field amplitudes in a plane wave) determine \(\varepsilon_I\) and \(\mu_I\):
-\begin{equation}
-\boxed{\quad \varepsilon_I = \frac{c}{v_I\,Z_I},\qquad \mu_I = \frac{Z_I\,v_I}{c}\,.\quad}
-\label{eq:epsmu}
-\end{equation}
-In vacuum‑like channels one may set \(v_I=c\) and determine \(Z_I\) from a single power/field measurement.
+No further inputs are required.
 
-\subsection*{Metric response (info–Einstein calibration)}
-In the weak/static limit (\S\ref{sec:geometry-response}), the Newtonian potential obeys
-\(\nabla^2\psi=\kappa_N\,\rho_{\rm eff}\) with solution outside a compact source
-\(\psi(r)=-\kappa_N M/(4\pi r)\), hence \(g(r)=\kappa_N M/(4\pi r^2)\).
-A single datum \((M_*,r_*,g_*)\) yields
-\begin{equation}
-\boxed{\quad \kappa_N \;=\; \frac{4\pi\,r_*^2\,g_*}{M_*}\,.\quad}
-\label{eq:kappaN}
-\end{equation}
-The geometric calibration in \eqref{eq:info-einstein} then is
-\begin{equation}
-\boxed{\quad \chi_M \;=\; \frac{2\,\kappa_N}{c^2}\,.\quad}
-\label{eq:chiM}
-\end{equation}
-(If you also calibrated \(c_M\) via \eqref{eq:cM}, the two routes agree provided the informational source is identified with \(M\) and \(\kappa\) is the same in both static and worldtube closures; otherwise \(\kappa\) differences are absorbed into \(c_M\) vs.\ \(\kappa_N\).)
+% ------------------------- F.4 Ratio predictions -----------------------
+\subsection{Ratio predictions (same source family)}
+\label{appF:ratios}
 
-\subsection*{Worked example (gravity, single datum)}
-Let \(M_*=1~\mathrm{kg}\), \(r_*=1~\mathrm{m}\), \(g_*=9.80665~\mathrm{m/s^2}\).
-Convert \(M_*\) to Kz using \(c^2/h=1.3563924897\times 10^{50}~\mathrm{Hz/kg}\):
-\[
-M_* = 1.3563924897\times 10^{50}\ \text{Kz}.
-\]
-With \(\kappa=1\) (canonical normalization), \eqref{eq:cM} gives
-\[
-c_M = \frac{4\pi (1\,\mathrm{m})^2 (9.80665)}{1.3563924897\times 10^{50}}
-\;\approx\; 9.09\times 10^{-49}\ \frac{\mathrm{m}}{\mathrm{s^2}}\;\text{per Kz}.
-\]
-Equivalently, the Poisson calibration \eqref{eq:kappaN} gives
-\(\kappa_N \approx 9.09\times 10^{-49}\ \mathrm{m^3\,s^{-2}/Kz}\),
-and \(\chi_M=2\kappa_N/c^2\).
+After fixing $c_{\rm sec}$, any screen at $r$ gives
+\begin{equation}
+Y(r)\;=\;c_{\rm sec}\,|\mathbf E_I(r)|
+\;=\;
+Y_\star\,
+\frac{\Phi(r)}{\Phi_\star}\,
+\frac{A_n(r_\star)}{A_n(r)}.
+\label{appF:eq:ratio}
+\end{equation}
+In lossless statics ($\Phi(r)=\Phi_\star$),
+\begin{equation}
+\boxed{\qquad
+Y(r)=Y_\star\,\frac{A_n(r_\star)}{A_n(r)}
+\;=\;
+Y_\star\left(\frac{r_\star}{r}\right)^{\!n-1}.
+\qquad}
+\label{appF:eq:one-datum-ratio}
+\end{equation}
+In $n{=}3$ this specializes to $Y(r)=Y_\star\,(r_\star^2/r^2)$.
 
-\subsection*{Notes and options}
-\begin{enumerate}[itemsep=0.25em,leftmargin=1.3em]
-\item \textbf{Canonical \(\kappa\).} Setting \(\kappa=1\) fixes the \(\Phi_I\) scale; then all sector calibrations are numerically equal to the corresponding Gauss‑law constants (up to \(4\pi\)).
-\item \textbf{Sector‑specific \(\kappa\).} If different channels require distinct static closures (e.g.\ different transport coefficients), keep a \(\kappa\) subscript and apply the same one‑datum recipes per sector.
-\item \textbf{Charge units.} In \eqref{eq:cQ}, if \(Q\) is kept in SI Coulombs, \(c_Q\) inherits the SI\(\to\)Kz bridge; nothing changes in the algebra since \(c_Q\) is a single fixed number.
-\item \textbf{Screen link.} Using \eqref{eq:alpha-cM} you can move freely between the entropic screen parameter \(\alpha\) and the static calibration \(c_M\); choose whichever is more natural for a given application.
-\end{enumerate}
+% ------------------------- F.5 Operational label -----------------------
+\subsection{Operational source label (optional)}
+\label{appF:Qop}
+
+Define an operational source label by the flux ratio
+\begin{equation}
+\frac{\mathcal Q}{\mathcal Q_\star}:=\frac{\Phi}{\Phi_\star}.
+\label{appF:eq:Qop}
+\end{equation}
+Then \eqref{appF:eq:ratio} becomes
+\begin{equation}
+Y(r)\;=\;Y_\star\,\frac{\mathcal Q}{\mathcal Q_\star}\,
+\frac{A_n(r_\star)}{A_n(r)}.
+\label{appF:eq:ratio-Q}
+\end{equation}
+Naming $\mathcal Q$ as $M$ or $Q$ is \emph{bookkeeping}; no new constants are introduced.
+
+% ------------------------- F.6 Sector notes ----------------------------
+\subsection{Sector notes}
+\label{appF:sectors}
+
+\begin{itemize}\itemsep2pt
+\item \textbf{Gravitational readout.} $Y\!=\!g$ with $c_{\rm sec}\!\equiv\!c_M$ yields inverse‑power profiles via \eqref{appF:eq:one-datum-ratio}.
+\item \textbf{Electrostatic readout.} $Y\!=\!E$ with $c_{\rm sec}\!\equiv\!c_Q$ uses the same $A_n(r)$ geometry; only the datum changes.
+\item \textbf{Thermal/particle channel.} $Y\!=\!j_{\rm th}$ with $c_{\rm sec}\!\equiv\!\kappa_T$ maps a measured heat/particle flux density to $\mathbf E_I$.
+\end{itemize}
+
+% ------------------------- F.7 Apertures & confinement -----------------
+\subsection{Cones/apertures and confinement}
+\label{appF:apertures}
+
+For a conical sector of solid angle $\Delta\Omega$, replace $A_n(r)$ by
+$A_\Delta(r)=\Delta\Omega\,r^{\,n-1}$ in \eqref{appF:eq:one-datum}–\eqref{appF:eq:ratio-Q}.
+In guides/sheets (Corollary~\ref{corollary:dimensional}), use the effective cross‑section or
+circumference in place of $A_n(r)$.
+
+% ------------------------- F.8 Far‑field waves -------------------------
+\subsection{Far‑field waves (transfer of envelopes)}
+\label{appF:waves}
+
+In homogeneous, source‑free segments the exported power is constant and the far‑field envelope obeys
+$\langle|\mathbf E_I|\rangle\propto 1/\sqrt{A_n(r)}$ (Corollary~\ref{corollary:info-em}).
+Readouts inherit:
+\begin{equation}
+\langle|Y(r)|\rangle
+\;=\; c_{\rm sec}\,\langle|\mathbf E_I(r)|\rangle
+\;\propto\; \frac{1}{\sqrt{A_n(r)}}.
+\label{appF:eq:waves}
+\end{equation}
+
+% ------------------------- F.9 Bit‑density bookkeeping -----------------
+\subsection{Bit‑density parameterizations (bookkeeping only)}
+\label{appF:bitdensity}
+
+One may write $N(r)=\alpha\,A_n(r)$ (bits on a screen) and a per‑bit hit rate $f(r)$ with $\Phi(r)=f(r)\,N(r)$.
+Conservation then fixes $f(r)\propto 1/A_n(r)$, so only the \emph{product} $f\alpha$ matters and can be absorbed into
+the single calibration via \eqref{appF:eq:one-datum}. Hence $\alpha$ is a convenient parameterization, not an extra constant.
+
+% ------------------------- F.10 Dependencies ---------------------------
+\subsection{Dependencies}
+\label{appF:units}
+
+Equations \eqref{appF:eq:screen}–\eqref{appF:eq:waves} depend only on:
+(i) the static closure \eqref{eq:static-closure}, (ii) the balance identity \eqref{eq:stokes-identity},
+and (iii) the geometric areas $A_n(r)$ from Appendix~\ref{app:nD-screens} (eq.~\eqref{appC:eq:areas}).
+No bare constants appear beyond the single datum per sector.
+
+\medskip
+\noindent\emph{Literature note.}
+Geometry and screen areas are collected in Appendix~\ref{app:nD-screens}; a standard reference is Frankel~\cite{Frankel2011}.
+For a Poynting‑type export identity in an EM realization, see Appendix~\ref{app:forms-stokes} and e.g.\ Jackson~\cite{Jackson1999}.

@@ -1,0 +1,212 @@
+% ======================================================================
+% 03_operationalization.tex — Section 3: Operationalization & Calibration
+% ======================================================================
+
+\section{Operationalization \& Calibration}
+\label{sec:operationalization}
+
+We record the minimal steps required to turn the Stokes identity on a region
+$U\subset M$ with boundary $\partial U$ into numerical predictions for a chosen
+measured sector. The spine remains the same: generalized Stokes on $U$ and
+on $U\times[t_0,t_1]$ (see \eqref{eq:stokes-identity}–\eqref{eq:cut-balance}),
+the static linear closure \eqref{eq:static-closure}, and (when used) a
+\emph{wave transport closure} that admits a Poynting identity on
+source–free segments (App.~\ref{app:forms-stokes}, eq.~\eqref{appB:eq:poynting}).
+
+% ----------------------------- 3.1 -------------------------------------
+\subsection{Inputs and outputs}
+\label{subsec:op-inputs}
+
+To make the framework predictive, the observer supplies:
+\begin{enumerate}\itemsep2pt
+  \item \textbf{Boundary choice.} A concrete $\partial U$: closed \emph{screen} or open \emph{sector/aperture}
+        (cf.\ C0, \S\ref{corollary:info-gas}; C1, \S\ref{corollary:static-screen}). Confinement choices
+        (guides/sheets) produce effective lower dimensions (C8, \S\ref{corollary:dimensional}).
+  \item \textbf{Channel class.} Static (use $\mathbf j=-\kappa\,\mathbf E_I$) or a \emph{wave
+        segment} (use a wave transport closure with a quadratic energy density $u$ and flux
+        $\mathbf S$ obeying \eqref{appB:eq:poynting}; C4 shows one realization via Info–EM,
+        \S\ref{corollary:info-em}). If waves, state the constitutive description (e.g.\ $\chi$)
+        on the segment where it is treated as homogeneous.
+  \item \textbf{One datum (sector scale).} A single measurement $Y_\star$ on a reference
+        screen/sector (radius $r_\star$, area $A_\star$) for the chosen readout
+        $Y\in\{g,E,j_{\rm th}\}$; see \S\ref{subsec:op-calibration}.
+  \item \textbf{Resource budgets.} Area $A$, time window $\Delta t$, power budget $P$,
+        boundary temperature $T$ (Kz; App.~\ref{app:kick}), and a target reliability $\varepsilon$
+        for coding/decoding.
+  \item \textbf{Noise model (optional).} If needed, a noise kernel $\mathcal N$ for
+        fluctuations (App.~\ref{app:noise-kernel}) or simply the Poisson shot–noise assumption
+        used in C6 (\S\ref{corollary:noise}).
+\end{enumerate}
+\emph{Outputs} are calibrated fields and bounds over the same region and window:
+static profiles $Y(r)$, wave envelopes $\langle|Y(r)|\rangle$, and operational
+limits from time–information and noise.
+
+% ----------------------------- 3.2 -------------------------------------
+\subsection{One–datum calibration (constant–free scale setting)}
+\label{subsec:op-calibration}
+
+On a time–frozen, source–free annulus the directed flux $\Phi$ across any screen is
+constant and
+\[
+\big\langle j_n\big\rangle(r)=\frac{\Phi}{A_n(r)},\qquad
+|\mathbf E_I(r)|=\frac{1}{\kappa}\,\frac{\Phi}{A_n(r)}
+\quad\text{(C0–C1; \S\ref{corollary:info-gas}, \S\ref{corollary:static-screen}).}
+\]
+A measured sector is a linear readout of $\mathbf E_I$:
+\[
+\mathbf g=c_M\,\mathbf E_I,\qquad
+\mathbf E=c_Q\,\mathbf E_I,\qquad
+\mathbf j_{\rm th}=\kappa_T\,\mathbf E_I.
+\]
+Fix $c_{\rm sec}$ by a single datum $Y_\star$ on a reference screen $(r_\star,A_\star)$
+with the same flux $\Phi$:
+\begin{equation}
+c_{\rm sec}
+=\frac{Y_\star}{|\mathbf E_I(r_\star)|}
+=Y_\star\,\frac{\kappa\,A_\star}{\Phi}.
+\label{eq:op-cal-const}
+\end{equation}
+Thereafter, in the lossless snapshot regime,
+\begin{equation}
+Y(r)=c_{\rm sec}\,|\mathbf E_I(r)|
+=Y_\star\,\frac{A_\star}{A_n(r)}.
+\label{eq:op-one-datum-ratio}
+\end{equation}
+If a flux label $\mathcal Q$ is used operationally (e.g.\ mass/charge within a source
+family) with $\Phi\propto\mathcal Q$, then $Y(r)=Y_\star(\mathcal Q/\mathcal Q_\star)\,
+[A_\star/A_n(r)]$ (App.~\ref{app:calibrations}).
+
+\paragraph{Cones and confinement.}
+For a conical sector of solid angle $\Delta\Omega$, replace $A_n(r)$ by
+$A_\Delta(r)=\Delta\Omega\,r^{\,n-1}$. For guides/sheets use the effective constant
+cross–section/circumference (C8, \S\ref{corollary:dimensional}). No new constants are introduced.
+
+% ----------------------------- 3.3 -------------------------------------
+\subsection{Wave segments: envelopes and export}
+\label{subsec:op-waves}
+
+On homogeneous source–free segments, a wave transport closure with the Poynting identity
+(App.~\ref{app:forms-stokes}, \eqref{appB:eq:poynting}) implies constant exported power
+through screens. Time–averaging gives
+\[
+P(r)=\int_{\Sigma(r)}\!\langle \mathbf S\rangle\!\cdot n\,dA=\text{const},\qquad
+\langle \mathbf S\rangle\propto \langle|\mathbf E_I|^2\rangle,
+\]
+hence the far–field envelope
+\begin{equation}
+\big\langle |\mathbf E_I(r)| \big\rangle \propto \frac{1}{\sqrt{A_n(r)}}
+\quad\Rightarrow\quad
+\big\langle |Y(r)| \big\rangle = c_{\rm sec}\,\big\langle |\mathbf E_I(r)| \big\rangle .
+\label{eq:op-wave-envelope}
+\end{equation}
+In short time windows $\Delta t$, interference can suppress instantaneous export on sub‑windows,
+while the \emph{window‐integrated} export $\int_t^{t+\Delta t}\!P(\tau)\,d\tau$ remains radius‑independent
+on the same segment. Resolution is bounded by \eqref{eq:op-rate}–\eqref{eq:op-time} and the noise floor
+\eqref{eq:op-noise}. Confinement replaces $A_n(r)$ by the effective cross–section/circumference (C8,
+\S\ref{corollary:dimensional}).
+
+% ----------------------------- 3.4 -------------------------------------
+\subsection{Operational limits: time, capacity, and erasure}
+\label{subsec:op-limits}
+
+Let $\overline{J}_{A}$ be the inward counting rate over a patch $A$ in a window
+$\Delta t$ (C5, \S\ref{corollary:time-info}). With a reliability target $\varepsilon$
+and a channel class choice (coding, alphabet, constraints), let
+$C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)$ denote the corresponding $\varepsilon$–reliable
+capacity (trits per time). Then the resource–limited bounds (C5) are
+\begin{align}
+\frac{\Delta I_{\rm trits}}{\Delta t}
+&\le \min\!\left\{\frac{\overline{J}_{A}}{\ln 3},\
+C_{\rm chan}^{(\mathrm{trits})}(\varepsilon),\
+\frac{P}{T\,\ln 3}\right\},
+\label{eq:op-rate}\\[4pt]
+\Delta t
+&\ge \max\!\left\{\frac{\Delta I_{\rm trits}}{\overline{J}_{A}/\ln 3},\
+\frac{\Delta I_{\rm trits}}{C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)},\
+\frac{\Delta I_{\rm trits}\,\ln 3\,T}{P}\right\}.
+\label{eq:op-time}
+\end{align}
+
+\paragraph{Erasures/unknowns (resolved content).}
+If a fraction $\varepsilon_{\bot}\in[0,1)$ of symbols observed on the same window are erasures $(\bot)$,
+and one wishes to bound \emph{resolved} content only, make the substitution
+\begin{equation}
+\overline{J}_{A}\ \mapsto\ (1-\varepsilon_{\bot})\,\overline{J}_{A},
+\qquad
+C_{\rm chan}^{(\mathrm{trits})}\ \mapsto\ (1-\varepsilon_{\bot})\,C_{\rm chan}^{(\mathrm{trits})}
+\end{equation}
+in \eqref{eq:op-rate}–\eqref{eq:op-time}. The $P/T$ term is unchanged.
+
+% ----------------------------- 3.5 -------------------------------------
+\subsection{Noise floor and estimator width}
+\label{subsec:op-noise}
+
+For Poisson arrivals across $A$ over $\Delta t$ with mean inward current
+$\overline{j}_A$, the Cram\'er–Rao bound (C6, \S\ref{corollary:noise}) yields
+\begin{equation}
+\mathrm{Var}(\widehat{E}_I)\ \gtrsim\ \frac{\overline{j}_A}{\kappa^2\,|A|\,\Delta t}
+\quad\Rightarrow\quad
+\sigma_{Y}\ \gtrsim\ c_{\rm sec}\,\frac{1}{\kappa}\sqrt{\frac{\overline{j}_A}{|A|\,\Delta t}}.
+\label{eq:op-noise}
+\end{equation}
+Correlation time $\tau>0$ reduces independent samples to $\approx\Delta t/\tau$,
+rescaling the RHS by $\sqrt{\tau/\Delta t}$ (C6, App.~\ref{app:noise-kernel}).
+
+% ----------------------------- 3.6 -------------------------------------
+\subsection{Procedure checklist (static and wave cases)}
+\label{subsec:op-checklist}
+
+\noindent\emph{Static.}
+\begin{enumerate}\itemsep2pt
+  \item Choose $\partial U$ (screen/sector) and, if needed, confinement geometry (C8, \S\ref{corollary:dimensional}).
+  \item Apply \eqref{eq:stokes-identity} and the cut form \eqref{eq:cut-balance} with $\sigma=0$ on the annulus to identify
+        a constant directed flux $\Phi$.
+  \item Fix $c_{\rm sec}$ from one datum $Y_\star$ on $(r_\star,A_\star)$ via \eqref{eq:op-cal-const}.
+  \item Predict $Y(r)$ from the ratio law \eqref{eq:op-one-datum-ratio}; apply C11 corrections if attenuation
+        or capacity ceilings are relevant (C11, \S\ref{corollary:entropic-corrections}).
+  \item If a finite window/area is used, report estimator width from \eqref{eq:op-noise}.
+\end{enumerate}
+
+\noindent\emph{Waves.}
+\begin{enumerate}\itemsep2pt
+  \item Specify the segment and constitutive description where it is treated homogeneous; ensure sources are excluded (C4, \S\ref{corollary:info-em}).
+  \item Use the Poynting identity to obtain constant power $P(r)$ and the envelope
+        \eqref{eq:op-wave-envelope}; apply confinement if appropriate (C8, \S\ref{corollary:dimensional}).
+  \item Calibrate with the same $c_{\rm sec}$ and quantify bounds via
+        \eqref{eq:op-rate}–\eqref{eq:op-time} for the chosen reliability $\varepsilon$.
+\end{enumerate}
+
+% ----------------------------- 3.7 -------------------------------------
+\subsection{Micro–example (3D static screen)}
+\label{subsec:op-example}
+
+A 3D screen of radius $r$ encloses a steady source. One datum for a gravitational
+readout: $(r_\star,g_\star)$ on a full screen ($A_\star=4\pi r_\star^2$). Then for any
+$r$ on the same source family,
+\[
+g(r)=g_\star\,\frac{A_\star}{A_3(r)}=g_\star\,\frac{r_\star^2}{r^2},
+\]
+with estimator width from \eqref{eq:op-noise} using the collected inward flux and
+integration window. The derivation is constant–free; flux labels (e.g.\ mass) can be
+introduced as operational names if desired (App.~\ref{app:calibrations}).
+
+% ----------------------------- 3.8 -------------------------------------
+\subsection{Units (Kz) and trits/nats}
+\label{subsec:op-units}
+
+All rates are expressed in Kz (SI$/h$) once (App.~\ref{app:kick}). Counts recorded in
+\emph{trits} map to nats by
+\begin{equation}
+S_{\rm nats}=(\ln 3)\,S_{\rm trits}.
+\end{equation}
+Formulas above are invariant under the trit/nat choice except for the explicit factors
+of $\ln 3$ in the time–information bounds \eqref{eq:op-rate}–\eqref{eq:op-time}.
+(Recovering binary units replaces $\ln 3$ by $\ln 2$ only.)
+
+\medskip
+\noindent\emph{Literature note.}
+Capacity and reliability follow Shannon and Gallager~\cite{Shannon1948,Gallager1968};
+erasure cost follows Landauer and Bennett~\cite{Landauer1961,Bennett2003}; estimator
+floors use Cram\'er–Rao bounds~\cite{Kay1993,VanTrees2001}. The Poynting identity is
+stated in App.~\ref{app:forms-stokes} and, for an EM realization, in standard texts
+(e.g.\ Jackson~\cite{Jackson1999}).

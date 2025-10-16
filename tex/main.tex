@@ -1,47 +1,45 @@
-% ------------------------------  main.tex  ------------------------------
+% ======================================================================
+% main.tex — Document driver (preamble is separate)
+% ======================================================================
+
 \documentclass[11pt]{article}
 
-% Load shared preamble (packages & macros)
-\input{preamble-new.tex}
-
+% Bring in all packages, macros, and global settings
+\input{preamble}
 
 \begin{document}
-\input{sections/00_title}          % title, authors, abstract
-\vspace{-2em}                   % (compact note—remove vertical gap)
 
+% ---------- Title + Abstract ----------
+\input{sections/00_title}
+
+% ---------- Table of contents ----------
 \tableofcontents
-\bigskip
-
-% ---------------------------  Sections  ----------------------------
-\input{sections/01_motivation}     % 200‑word rationale
-\input{sections/02_conventions}
-\input{sections/03_axioms}
-\input{sections/04_static-gauss-nd}
-\input{sections/05_bit-gas}
-\input{sections/06_entropic-gravity-screen}
-\input{sections/07_worldtube-IED.tex}
-\input{sections/08_geometry-response}
-\input{sections/09_path-rate}
-\input{sections/10_time-info-bounds}
-\input{sections/11_examples-noise-decoherence}
-\input{sections/12_discussion-outlook}
-
-%% ---------------------- Appendix -------------------------------------------------
-\FloatBarrier
 \clearpage
-\appendix
 
-\input{appendices/appA_kick}
-\input{appendices/appB_forms-stokes}
-\input{appendices/appC_d-dim-gauss}
-\input{appendices/appD_jacobson-sketch}
-\input{appendices/appE_noise-kernel}
-\input{appendices/appF_calibrations}
-\input{appendices/appG_de-donder-weyl}
-\input{appendices/appH_quick-notation-table}
+% ---------- Core sections ----------
+\input{sections/01_introduction}
+\input{sections/02_axioms}
+\input{sections/03_operationalization}
+\input{sections/03_corollaries} % aggregator that \input{}s C0..C12
+\input{sections/04_appendices}
 
+% ---------- Appendices ----------
+%\appendix
+% If any appendix source still uses \section*{...}, they won't appear in the TOC.
+% Best practice: use \section{...} in each appendix file.
+% If you must keep \section*{...}, add \phantomsection + \addcontentsline before each \input.
+
+%\input{appendices/appA_kick}
+%\input{appendices/appB_forms-stokes}
+%\input{appendices/appC_nd-geometry}
+%\input{appendices/appD_jacobson}
+%\input{appendices/appE_noise-kernel}
+%\input{appendices/appF_calibrations}
+%\input{appendices/appG_ddw}
+%\input{appendices/appH_notation}
+
+% ---------- References ----------
 \bibliographystyle{unsrt}
 \bibliography{refs}
 
 \end{document}
-% ------------------------------------------------------------------------

@@ -1,0 +1,92 @@
+% ======================================================================
+% 03c02_continuity-clausius.tex — C2: Continuity & Clausius (thermal channel)
+% ======================================================================
+
+\subsection{C2: Continuity \& Clausius (thermal channel)}
+\label{corollary:continuity}
+
+\paragraph{Local continuity (nats).}
+Let $j=J^\mu dx_\mu$ be the informational/entropic current $1$-form and $j^{(n)}=\!*j$ its Hodge dual.
+The generalized Stokes identity \eqref{eq:stokes-identity} yields the local continuity law
+\begin{equation}
+\partial_t i + \nabla\!\cdot \mathbf j \;=\; \sigma .
+\label{eq:c2-local}
+\end{equation}
+Unless stated otherwise, all quantities are in nats per unit volume.
+
+\paragraph{Cut (fixed region).}
+On a fixed spatial region $V$ with outward unit normal $n$,
+\begin{equation}
+\dot I_{\mathrm{enc}}
+\;=\;
+\Phi_{\mathrm{in}}-\Phi_{\mathrm{out}}+\Pi,
+\qquad
+\Phi_{\mathrm{in/out}}=\int_{\partial V}( \mathbf j\!\cdot n )_{\mp}\,dA,
+\quad
+\Pi=\int_V \sigma\,d^n x ,
+\label{eq:c2-cut}
+\end{equation}
+which is the cap/side decomposition of \eqref{eq:cut-balance}.
+
+\paragraph{Thermal channel and Clausius form.}
+Identify the entropy flux density (nats) across the boundary as
+\begin{equation}
+\mathbf j_S := \mathbf j \quad\text{(nats)} .
+\label{eq:c2-jS}
+\end{equation}
+Let the measurable heat (power) flux be
+\begin{equation}
+\mathbf q := T\,\mathbf j_S ,
+\label{eq:c2-q}
+\end{equation}
+with $T$ a rate (Kz; see App.~\ref{app:kick}). Then \eqref{eq:c2-local} is the Clausius statement
+\begin{equation}
+\partial_t s + \nabla\!\cdot\!\left(\frac{\mathbf q}{T}\right) \;=\; \sigma_{\mathrm th}\ \ge\ 0 ,
+\label{eq:c2-clausius-local}
+\end{equation}
+where $s=i$ is the entropy density (nats) and $\sigma_{\mathrm th}\equiv\sigma$ is the nonnegative production density.\footnote{Nonnegativity follows from the cyclic–cost monotonicity in D3 (\S\ref{axiom:reos}): for admissible control cycles, $\oint \lambda_a\,dR^{(a)}\!\ge0$, which registers as $\sigma\ge0$ under \eqref{eq:stokes-identity}–\eqref{eq:cut-balance}.}
+The cut form reads
+\begin{equation}
+\dot S_{\mathrm{enc}}
+\;=\;
+\int_{\partial V}\frac{(\mathbf q\!\cdot n)_-}{T}\,dA
+\;-\;
+\int_{\partial V}\frac{(\mathbf q\!\cdot n)_+}{T}\,dA
+\;+\;
+\Pi_{\mathrm th}
+\ \ \ge\ \ 0 .
+\label{eq:c2-clausius-cut}
+\end{equation}
+
+\paragraph{Calibration to the informational field.}
+Using the static closure \eqref{eq:static-closure} and the one–datum sector calibration in App.~\ref{app:calibrations},
+\begin{equation}
+\mathbf j_S=\kappa_T\,\mathbf E_I,
+\qquad
+\mathbf q = T\,\kappa_T\,\mathbf E_I .
+\label{eq:c2-calibrated}
+\end{equation}
+Thus the Clausius fluxes in \eqref{eq:c2-clausius-local}–\eqref{eq:c2-clausius-cut} are read directly
+from $\mathbf E_I$; $\kappa_T$ is fixed once and is not repeated here.
+
+\paragraph{Directional filtering.}
+For one–sided diaphragms or conical apertures, replace $\mathbf q\!\cdot n$ by the inward component $(\mathbf q\!\cdot n)_-$ in the inflow term; the outflow uses $(\mathbf q\!\cdot n)_+$.
+
+\paragraph{Trits vs.\ nats.}
+If boundary counts are recorded in trits, convert by $j_S=(\ln 3)\,j_{\text{trits}}$.
+Equations \eqref{eq:c2-local}–\eqref{eq:c2-calibrated} are invariant under this choice of unit; only the
+numerical value of $\kappa_T$ changes with the log–base convention.
+
+\medskip
+\noindent\emph{Summary.}
+Continuity \eqref{eq:c2-local} with $\mathbf j_S=\mathbf q/T$ gives Clausius in both local and cut forms.
+Calibration \eqref{eq:c2-calibrated} ties these fluxes to the same informational field that governs the
+static screen laws (C0–C1; \S\ref{corollary:info-gas}, \S\ref{corollary:static-screen}), with no additional
+constants beyond the single one–datum choice.
+
+\medskip
+\noindent\emph{Literature note.}
+Background on forms/Stokes and our cap/side decomposition is summarized in App.~\ref{app:forms-stokes};
+operational units appear in App.~\ref{app:kick}. Connections between information, entropy, and thermodynamic
+balances may be found in Cover--Thomas \cite{CoverThomas2006} and Jaynes \cite{Jaynes1957}; erasure
+costs and reversibility in Landauer \cite{Landauer1961} and Bennett \cite{Bennett2003}.

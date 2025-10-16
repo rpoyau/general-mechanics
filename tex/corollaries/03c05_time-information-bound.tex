@@ -1,0 +1,112 @@
+% ======================================================================
+% 03c05_time-information-bound.tex — C5: Time--information complementarity
+% ======================================================================
+
+\subsection{C5: Time--information complementarity}
+\label{corollary:time-info}
+
+We bound the information that can be gained across a boundary patch \(A \subset \partial U\) over a finite time window \([t,\,t+\Delta t]\) by three operational resources measured on the same region: (i) counting via the inward entropy flux, (ii) reliable channel capacity, and (iii) erasure power at temperature.
+
+% ------------------------- Definitions ---------------------------------
+
+\paragraph{Definitions.}
+Let \(j=J^\mu dx_\mu\) be the informational/entropic current (nats), and define the \emph{incoming} flux rate averaged over the window by
+\begin{equation}
+\overline{J}_{A}\;:=\;\frac{1}{\Delta t}\int_{t}^{t+\Delta t}\!\!\int_{A} \big( \mathbf j\!\cdot n \big)_{-}\, dA\, dt
+\qquad\text{(nats per time)} .
+\label{eq:c5-JA}
+\end{equation}
+Let \(C_{\rm chan}\) denote the \(\varepsilon\)-reliable channel capacity (nats/time unless stated), \(T\) the boundary temperature, and \(P\) the available erasure power. (Noise kernels and reliable capacities are discussed in App.~\ref{app:noise-kernel}; unit policy in App.~\ref{app:kick}.)
+
+% ------------------------- Bounds: rate forms --------------------------
+
+\paragraph{Rate form (nats; \(\varepsilon\)-reliable).}
+By Stokes on the same region (cut bookkeeping) and operational limits,
+\begin{equation}
+\boxed{\quad
+\frac{\Delta I_{\rm nats}}{\Delta t}\ \le\ \min\!\Big\{\,\overline{J}_{A}\,,\ \ C_{\rm chan}^{(\rm nats)}(\varepsilon)\,,\ \ \frac{P}{T}\,\Big\}.
+\quad}
+\label{eq:c5-rate-nats}
+\end{equation}
+
+\paragraph{Rate form (trits; \(\varepsilon\)-reliable).}
+If information is recorded in trits, \(j_{\rm trits}=(1/\ln 3)\,j\) and \(C_{\rm chan}^{(\rm trits)}=(1/\ln 3)\,C_{\rm chan}^{(\rm nats)}\). Thus
+\begin{equation}
+\boxed{\quad
+\frac{\Delta I_{\rm trits}}{\Delta t}\ \le\ \min\!\Big\{\,\frac{\overline{J}_{A}}{\ln 3}\,,\ \ C_{\rm chan}^{(\rm trits)}(\varepsilon)\,,\ \ \frac{P}{T\,\ln 3}\,\Big\}.
+\quad}
+\label{eq:c5-rate-trits}
+\end{equation}
+
+% ------------------------- Bounds: time forms --------------------------
+
+\paragraph{Time form (trits; \(\Delta I\)-conditional, \(\varepsilon\)-reliable).}
+For a chosen target gain \(\Delta I_{\rm trits}\) over the window,
+\begin{equation}
+\boxed{\quad
+\Delta t\ \ge\ \max\!\Big\{\,\frac{\Delta I_{\rm trits}}{\overline{J}_{A}/\ln 3}\,,\ \ \frac{\Delta I_{\rm trits}}{C_{\rm chan}^{(\rm trits)}(\varepsilon)}\,,\ \ \frac{\Delta I_{\rm trits}\,\ln 3\,T}{P}\,\Big\}.
+\quad}
+\label{eq:c5-time-trits}
+\end{equation}
+\emph{This product-style inequality is \(\Delta I\)-conditional and purely resource-limited; it is not a quantum \(\hbar\) bound.}
+
+\paragraph{Special case (one reliable trit).}
+Setting \(\Delta I_{\rm trits}=1\) in \eqref{eq:c5-time-trits} gives
+\begin{equation}
+\Delta t\ \ge\ \max\!\Big\{\,(\overline{J}_{A}/\ln 3)^{-1},\ \ C_{\rm chan}^{(\rm trits)}(\varepsilon)^{-1},\ \ (\ln 3)\,T/P\,\Big\}.
+\label{eq:c5-one-trit}
+\end{equation}
+
+% ------------------------- Erasures/unknowns ---------------------------
+
+\paragraph{Erasures/unknowns (resolved content only).}
+If a fraction \(\varepsilon_{\bot}\in[0,1)\) of observed symbols are erasures \( (\bot) \) on the same window, the \emph{resolved} symbol rate is scaled by \((1-\varepsilon_{\bot})\). To bound only resolved content, replace
+\begin{equation}
+\overline{J}_{A}\ \mapsto\ (1-\varepsilon_{\bot})\,\overline{J}_{A},
+\qquad
+C_{\rm chan}\ \mapsto\ (1-\varepsilon_{\bot})\,C_{\rm chan}
+\label{eq:c5-erasure-subst}
+\end{equation}
+in \eqref{eq:c5-rate-nats}–\eqref{eq:c5-one-trit}. The \(P/T\) term is unchanged.
+
+% ------------------------- Capacity as a functional --------------------
+
+\paragraph{Capacity as an abstract functional.}
+We view capacity as a functional of boundary controls, noise, and budgets:
+\[
+C_{\rm chan}^{(\rm trits)}(\varepsilon)\;=\;
+\mathcal{C}\big[R^{(a)};\,\mathcal N,\,\mathcal B;\,\varepsilon\big],
+\]
+where \(R^{(a)}\) are control parameters (apertures, alphabets, admissible codes), \(\mathcal N\) is the noise kernel (see App.~\ref{app:noise-kernel}), and \(\mathcal B\) are resource budgets \(\{P,\,T,\,A,\,\Delta t,\ldots\}\). The explicit form is channel-class dependent; only its existence is required in \eqref{eq:c5-rate-nats}--\eqref{eq:c5-time-trits}.
+
+% ------------------------- Practicalities ------------------------------
+
+\paragraph{Directional filtering and area choice.}
+The counting term uses the inward component \((\mathbf j\!\cdot n)_-\) over the chosen patch \(A\). Enlarging \(A\) or steering \(n\) to collect more inward flux increases \(\overline{J}_{A}\) and tightens the bound.
+
+\paragraph{Composition rules.}
+For disjoint, truly parallel resources over the same window:
+\begin{equation}
+\overline{J}_{A}^{\rm (tot)}=\sum_k \overline{J}_{A_k},\qquad
+C_{\rm chan}^{\rm (tot)}=\sum_k C_{{\rm chan},k},\qquad
+P^{\rm (tot)}=\sum_k P_k .
+\label{eq:c5-parallel}
+\end{equation}
+For serial segments that must be traversed in order, the effective rate is bottlenecked:
+\begin{equation}
+\overline{J}_{A}^{\rm (series)}=\min_k \overline{J}_{A_k},\qquad
+C_{\rm chan}^{\rm (series)}=\min_k C_{{\rm chan},k},\qquad
+P^{\rm (series)}=\min_k P_k\ \ \ \text{(power-limited stage)} .
+\label{eq:c5-series}
+\end{equation}
+
+\paragraph{Units and conventions.}
+All rate quantities are expressed once in App.~\ref{app:kick}; the bounds above are unit-agnostic apart from the log-base conversion factors (\(\ln 3\) for trits). When durable records are formed and later erased, the \(P/T\) term enters as an operational erasure rate; see App.~\ref{app:kick} and App.~\ref{app:noise-kernel} for context.
+
+\medskip
+\noindent\emph{Summary.}
+Information and time form a constrained pair set by three independent resources on the same region: counting flux through \(A\), reliable channel capacity, and erasure power at temperature. The bounds \eqref{eq:c5-rate-nats}--\eqref{eq:c5-time-trits}, with optional substitution \eqref{eq:c5-erasure-subst} for resolved content, are constant-free and apply to any channel class once units are fixed.
+
+\medskip
+\noindent\emph{Literature note.}
+Capacity and coding theory originate with Shannon and are developed for reliable communication by Gallager~\cite{Shannon1948,Gallager1968}. The erasure/thermodynamic cost is due to Landauer and reversible computation clarifications by Bennett~\cite{Landauer1961,Bennett2003}. Our use is purely operational and tied to the same Stokes/cut bookkeeping; see App.~\ref{app:noise-kernel} for noise kernels.

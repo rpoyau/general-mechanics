@@ -1,0 +1,104 @@
+% ======================================================================
+% 03c06_noise-floor.tex — C6: Noise floor ("force cloud")
+% ======================================================================
+
+\subsection{C6: Noise floor (``force cloud'')}
+\label{corollary:noise}
+
+We quantify the estimator floor on the informational field from boundary counting and show how it propagates to calibrated sectors. Let $A$ be a readout patch with outward unit normal $n$, observed over a window $[t,t{+}\Delta t]$. Define the inward flux and the patch-mean normal current as
+\begin{equation}
+J_A \;:=\; \int_A \big(\mathbf j\!\cdot n\big)_{-}\, dA,
+\qquad
+\overline{j}_A \;:=\; \frac{J_A}{|A|}.
+\label{eq:c6-flux-defs}
+\end{equation}
+
+\paragraph{Poisson counting and the Cram\'er--Rao bound.}
+If arrivals across $A$ are well modeled as a Poisson process with mean
+\begin{equation}
+\mu \;=\; J_A\,\Delta t ,
+\label{eq:c6-poisson-mean}
+\end{equation}
+then Fisher information for $J_A$ is $\mathcal I(J_A)=\Delta t/J_A$ and the Cram\'er--Rao bound gives
+\begin{equation}
+\mathrm{Var}(\widehat{J}_A)\ \ge\ \frac{J_A}{\Delta t}.
+\label{eq:c6-crb-J}
+\end{equation}
+For the mean normal current $\overline{j}_A=J_A/|A|$,
+\begin{equation}
+\mathrm{Var}(\widehat{\overline{j}}_A)\ \ge\ \frac{\overline{j}_A}{|A|\,\Delta t}.
+\label{eq:c6-crb-jbar}
+\end{equation}
+
+\paragraph{From $\mathbf j$ to the informational field $\mathbf E_I$.}
+Using the static closure \eqref{eq:static-closure}, $\ \mathbf j=-\kappa\,\mathbf E_I$, we obtain
+\begin{equation}
+\boxed{\quad
+\mathrm{Var}(\widehat{E}_I)\ \ge\ \frac{\overline{j}_A}{\kappa^{2}\,|A|\,\Delta t},
+\qquad
+\sigma_{E_I}(\Delta t)\ \gtrsim\ \frac{1}{\kappa}\sqrt{\frac{\overline{j}_A}{|A|\,\Delta t}} \ .
+\quad}
+\label{eq:c6-var-EI}
+\end{equation}
+Thus the \emph{force estimate} has a probabilistic cloud whose width shrinks only as $\Delta t^{-1/2}$ unless one increases either the collected area $|A|$ or the inward flux $J_A$.
+
+\paragraph{Finite correlation time.}
+If arrivals exhibit correlations with an effective correlation time $\tau>0$ (dead time, coherence, batching), the number of independent samples in $\Delta t$ is $\approx \Delta t/\tau$, and
+\begin{equation}
+\mathrm{Var}(\widehat{\overline{j}}_A)\ \gtrsim\ \frac{\overline{j}_A}{|A|}\,\frac{\tau}{\Delta t},
+\qquad
+\sigma_{E_I}\ \gtrsim\ \frac{1}{\kappa}\sqrt{\frac{\overline{j}_A}{|A|}\,\frac{\tau}{\Delta t}} .
+\label{eq:c6-corr}
+\end{equation}
+
+\paragraph{Spherical screen (3D, far‑field).}
+In the \emph{far‑field}, for a full screen $A=4\pi r^2$ around a steady source with inward flux $J_{4\pi}$,
+\begin{equation}
+\overline{j}_A=\frac{J_{4\pi}}{4\pi r^2},
+\qquad
+\sigma_{E_I}\ \gtrsim\ \frac{1}{\kappa}\,\frac{1}{4\pi r^2}\,\sqrt{\frac{J_{4\pi}}{\Delta t}} .
+\label{eq:c6-spherical}
+\end{equation}
+Directional diaphragms use the aperture area for $|A|$ and replace $J_{4\pi}$ by the collected inward flux.
+
+\paragraph{Measured sectors (one‑datum calibration).}
+With the sector mappings (one‑datum calibration; see \S\ref{subsec:op-calibration} and App.~\ref{app:calibrations})
+\begin{equation}
+\mathbf g=c_M\mathbf E_I,\qquad \mathbf E=c_Q\mathbf E_I,
+\label{eq:c6-sector-maps}
+\end{equation}
+the estimator widths propagate as
+\begin{equation}
+\sigma_{g}\ \gtrsim\ \frac{c_M}{\kappa}\sqrt{\frac{\overline{j}_A}{|A|\,\Delta t}},
+\qquad
+\sigma_{E}\ \gtrsim\ \frac{c_Q}{\kappa}\sqrt{\frac{\overline{j}_A}{|A|\,\Delta t}} .
+\label{eq:c6-measured}
+\end{equation}
+An acceleration estimate $a(r)=|\mathbf g|$ inherits the same $\Delta t^{-1/2}$ floor.
+
+\paragraph{Trit‑density picture (screen shot‑noise).}
+For a spherical screen with \emph{trit density} $N(r)=\alpha\,4\pi r^2$ and mean per‑trit hit rate $f$ (1/time), the mean inward count in $\Delta t$ is $\mu=f\,N(r)\,\Delta t$ and
+\[
+\frac{\sigma_{\text{counts}}}{\mu}\ \approx\ \frac{1}{\sqrt{\mu}}
+\ =\ \frac{1}{\sqrt{f\,\alpha\,4\pi r^2\,\Delta t}} .
+\]
+Mapping counts to $\mathbf E_I$ through \eqref{eq:c6-var-EI} reproduces the same $1/\sqrt{|A|\Delta t}$ scaling.
+
+\paragraph{Relation to time--information and capacity.}
+The counting term in the rate bound of C5 (\S\ref{corollary:time-info}) is precisely $\overline{J}_{A}=\int_A(\mathbf j\!\cdot n)_-\,dA/\Delta t$. Equations \eqref{eq:c6-var-EI}--\eqref{eq:c6-corr} give the corresponding estimator width for $\mathbf E_I$, showing that shorter windows both require more informational flux (C5) and enlarge the force cloud. In applications that form durable records and later erase/compress them, the $P/T$ resource in C5 provides an additional operational limit; the variance floor here is independent of that cost and arises purely from counting statistics.
+
+\paragraph{Noise kernel link (App.\ E).}
+The local bounds above define a minimal \emph{noise kernel} for flux fluctuations on the boundary. App.\ E uses such kernels $\mathcal{N}$ to propagate covariances through linear response (Einstein--Langevin–type) and to connect static shot noise to dynamical spectra.
+
+\paragraph{Units and practical levers.}
+All fluxes here are in nats/time (or \emph{trits}/time via $1/\ln 3$). To tighten the cloud: enlarge $|A|$, increase the inward flux $J_A$ (e.g., by wider apertures or focusing), extend $\Delta t$, reduce correlation time $\tau$, or multiplex independent patches and average.
+
+\medskip
+\noindent\emph{Summary.}
+Poisson counting with or without finite correlation time implies an operational floor
+\(\sigma_{E_I}\propto \sqrt{\overline{j}_A/(|A|\Delta t)}\).
+This sets a principled ``force cloud'' that narrows only with larger area, greater inward flux, or longer integration time, and it propagates to calibrated sectors by a single one‑datum mapping.
+
+\medskip
+\noindent\emph{Literature note.}
+Background on Poisson counting and shot noise, CRLB/estimation, and OU noise models: Kingman \cite{Kingman1993}; Kay \cite{Kay1993} and van Trees \cite{VanTrees2001}; Gardiner \cite{Gardiner2004}. Appendix~\ref{app:noise-kernel} collects our noise‑kernel and covariance‑propagation formulas.

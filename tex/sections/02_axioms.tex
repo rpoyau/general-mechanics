@@ -1,0 +1,111 @@
+% ======================================================================
+% 02_axioms.tex — Axioms (manifold-first, Stokes-only core)
+% ======================================================================
+
+\section{Axioms}
+\label{sec:axioms}
+\label{axiom:root}
+
+% ---------------------------- R-axioms --------------------------------
+
+\subsection{R-axioms (relational and informational)}
+\begin{description}\itemsep0.45em
+  \item[\textbf{R0 (Relational primacy).}] Relations are the primitives; observables are relational. A model specifies a region \(U\subset M\) and its boundary \(\partial U\).
+  \label{axiom:R0}
+
+  \item[\textbf{R1 (Counting \& priors, trits).}] A configuration determined by \(n\) ternary distinctions has \(W=3^{\,n}\) microstates. With a prior \(p(x)\) on an alphabet \(\mathcal A\) of size \(3\), the uncertainty is the Shannon entropy \(H(p)=-\sum_x p(x)\ln p(x)\) (nats). Units are a log-base choice:
+  \[
+  H_{\text{trits}}=\frac{H}{\ln 3}.
+  \]
+  “Unknown’’ can be modeled explicitly by an alphabet symbol \(\bot\in\mathcal A\) without altering any geometric or Stokes statements. All later rate/flux formulas are invariant under the nat/trit unit choice up to factors of \(\ln 3\).
+  \label{axiom:R1}
+\end{description}
+
+\paragraph{Where Stokes is applied.}
+The same generalized Stokes identity is applied on
+\begin{enumerate}\itemsep0.25em
+  \item a time-frozen spatial region \(U\) (static screens/sectors), and
+  \item the time-extended region \(U\times[t_0,t_1]\) (dynamics).
+\end{enumerate}
+Conventions for forms, orientations, and Hodge duals are summarized in App.~\ref{app:forms-stokes}.
+
+% ---------------------------- D-axioms --------------------------------
+
+\subsection{D-axioms (dynamical statements from Stokes)}
+
+\subsubsection{D1. Generalized Stokes identity (continuity)}
+\label{axiom:stokes}
+Let \(j:=J^\mu dx_\mu\) be the informational/entropic current \(1\)-form and \(j^{(n)}:=\!*j\) its Hodge-dual \(n\)-form on \(U\times[t_0,t_1]\). With production \(\Sigma:=\sigma\,\mathrm{vol}\),
+\begin{equation}
+d\,j^{(n)}=\Sigma
+\quad\Longleftrightarrow\quad
+\partial_\mu J^\mu=\sigma .
+\label{eq:stokes-identity}
+\end{equation}
+The integral identity is
+\begin{equation}
+\int_{\partial(U\times[t_0,t_1])}\! j^{(n)}
+\;=\;
+\int_{U\times[t_0,t_1]}\! \Sigma .
+\label{eq:stokes-integral}
+\end{equation}
+On a fixed \(U\) with outward unit normal \(n\), define the enclosed information
+\(I_{\mathrm{enc}}(t):=\int_U i(x,t)\,d^n x\), the inward/outward fluxes
+\(\Phi_{\mathrm{in/out}}(t):=\int_{\partial U}(\mathbf j\!\cdot n)_{\mp}\,dA\),
+and the interior production \(\Pi(t):=\int_U \sigma\,d^n x\). Then
+\begin{equation}
+\dot I_{\mathrm{enc}}(t)=\Phi_{\mathrm{in}}(t)-\Phi_{\mathrm{out}}(t)+\Pi(t).
+\label{eq:cut-balance}
+\end{equation}
+In local coordinates this is the continuity equation
+\begin{equation}
+\partial_t i(x,t)+\nabla\!\cdot \mathbf j(x,t)=\sigma(x,t).
+\label{eq:local-continuity}
+\end{equation}
+
+\subsubsection{D2. Static linear closure (snapshot limit)}
+\label{axiom:static}
+On time-frozen snapshots in linear, isotropic, near-equilibrium regimes,
+\begin{equation}
+\mathbf E_I:=-\,\nabla\Phi_I,
+\qquad
+\mathbf j=-\,\kappa\,\mathbf E_I .
+\label{eq:static-closure}
+\end{equation}
+Here \(\Phi_I\) is the informational potential, \(\mathbf E_I\) its field, and \(\kappa\) a constitutive scale of the channel. This closure is a \emph{snapshot tool} for static screen/sector laws; it is not assumed on time-extended segments (propagation closures appear only in corollaries).
+
+\subsubsection{D3. Relational equation of state (REOS)}
+\label{axiom:reos}
+Let \(R^{(a)}\) denote admissible boundary/control variations (e.g.\ apertures, partitions, admissible alphabets, connectivity), and let \(\rho=\rho(R)\) be a \emph{calibrated rate density (informational cost)} on the control manifold; “calibrated’’ here only means that the single sector scale has been fixed once outside the axioms (see \S\ref{sec:operationalization}). Define the price one-form \(\lambda:=\lambda_a\,dR^{(a)}\) with components \(\lambda_a:=\partial\rho/\partial R^{(a)}\) when \(\rho\) is differentiable. The REOS statement is
+\begin{equation}
+d\rho \;=\; -\,\lambda_a\,dR^{(a)} .
+\label{eq:reos}
+\end{equation}
+If \(d\lambda=0\) (integrable sector), \(\rho\) is path-independent and Maxwell-type identities hold. If \(d\lambda\neq 0\) (non-integrable sector), cyclic variations of \(R^{(a)}\) entail positive net cost that appears as nonnegative production \(\sigma\) in the identities \eqref{eq:stokes-identity}–\eqref{eq:cut-balance}.
+
+\subsubsection{D4. Canonical rates from Stokes on (q,t)}
+\label{axiom:path-rate}
+Define the rate (Poincar\'e--Cartan) \(1\)-form on configuration-time space
+\begin{equation}
+\Theta_{\mathcal R}=P_i\,dq^i- H(q,P,t)\,dt .
+\label{eq:pc-form}
+\end{equation}
+Evaluating Stokes on a rectangular \(2\)-surface spanned by two nearby paths between \(t\) and \(t+dt\) and imposing \(d\Theta_{\mathcal R}=0\) yields the canonical rate equations
+\begin{equation}
+\dot q^i=\partial_{P_i}H,
+\qquad
+\dot P_i=-\,\partial_{q^i}H .
+\label{eq:canonical}
+\end{equation}
+No least-action postulate is assumed; the Euler--Lagrange form follows under convex duality (see Corollary~\ref{corollary:least-action}).
+
+\medskip
+\noindent\emph{Notes.}
+(1) Trits versus nats are related by a factor \(\ln 3\); the axioms are invariant under this unit choice.\\
+(2) Propagation closures (e.g.\ Info--EM) and wave transport are \emph{specializations} introduced later (not axioms); see Corollary~\ref{corollary:info-em} for one realization.\\
+(3) Operational sector mappings and units (Kz) are specified once outside this section (App.~\ref{app:kick}).
+
+\medskip
+\noindent\emph{Literature note (provenance).}
+The geometric/Stokes ingredients are recalled in Apps.~\ref{app:forms-stokes}--\ref{app:nD-screens}; see also standard sources on forms and Stokes in physics \cite{Frankel2011,Spivak1965,BottTu1982}.
+The Poincar\'e--Cartan/Hamiltonian rate structure underlying D4 is classical \cite{Arnold1989}; convex duality/Legendre transform background appears in \cite{Rockafellar1970}.

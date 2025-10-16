@@ -1,0 +1,80 @@
+% ======================================================================
+% 03c07_geometry-equivalence.tex — C7: Geometry as tool (flat curved)
+% ======================================================================
+
+\subsection{C7: Geometry as tool—flat \texorpdfstring{$\leftrightarrow$}{↔} curved}
+\label{corollary:geometry}
+
+We use geometry purely as a \emph{tool} to relate boundary amplitudes to cross–sectional area change along a thin tube of trajectories in a (Lorentzian or Riemannian) manifold. Let $k^a$ be a future–directed null or timelike congruence threading a narrow tube, with affine (or proper) parameter $\lambda$ and cross–sectional area $A(\lambda)$ orthogonal to $k^a$.
+
+\paragraph{Expansion and area.}
+The congruence expansion is
+\begin{equation}
+\theta \;:=\; \nabla_a k^a,
+\qquad
+\frac{d}{d\lambda}\ln A \;=\; \theta .
+\label{eq:c7-expansion}
+\end{equation}
+In a steady, source–free tube the directed flux $\Phi$ is constant and the mean normal current obeys
+$\langle j_n\rangle=\Phi/A$. Therefore
+\begin{equation}
+\frac{d}{d\lambda}\ln \langle j_n\rangle \;=\; -\,\theta .
+\label{eq:c7-spread-static}
+\end{equation}
+For wave amplitudes in homogeneous segments (see C4, \S\ref{corollary:info-em}), $\langle |\mathbf E_I|\rangle \propto A^{-1/2}$, hence
+\begin{equation}
+\frac{d}{d\lambda}\ln \langle |\mathbf E_I|\rangle \;=\; -\,\frac{1}{2}\,\theta .
+\label{eq:c7-spread-wave}
+\end{equation}
+Equations \eqref{eq:c7-spread-static}–\eqref{eq:c7-spread-wave} are the flat $\leftrightarrow$ curved
+\emph{equivalence}: spreading in flat regions ($\theta>0$) is the same statement as focusing in curved regions
+($\theta<0$), with amplitudes set solely by $A(\lambda)$.
+
+\paragraph{Raychaudhuri focusing.}
+For a geodesic, hypersurface–orthogonal congruence ($\omega_{ab}=0$), the Raychaudhuri equation gives
+\begin{equation}
+\frac{d\theta}{d\lambda}
+\;=\;
+-\,\frac{1}{2}\,\theta^2
+-\,\sigma_{ab}\sigma^{ab}
+-\,R_{ab}\,k^a k^b ,
+\label{eq:raychaudhuri}
+\end{equation}
+where $\sigma_{ab}$ is the shear tensor and $R_{ab}$ the Ricci tensor. \textit{Positive} $R_{ab}k^a k^b$ increases focusing
+(drives $\theta$ downward), which tightens $A(\lambda)$ and raises amplitudes via
+\eqref{eq:c7-spread-static}–\eqref{eq:c7-spread-wave}.
+
+\paragraph{Calibrated equality (consistency tool, not an axiom).}
+On the \emph{same} region used for flux measurements, we employ a single sector calibration (see \S\ref{subsec:op-calibration}) that ties the focusing term
+to a calibrated stress component:
+\begin{equation}
+R_{ab}\,k^a k^b
+\;\overset{\mathrm{cal}}{=}\;
+8\pi\,\mathcal T^{(\mathrm{cal})}_{ab}\,k^a k^b .
+\label{eq:info-einstein}
+\end{equation}
+The symbol $\overset{\mathrm{cal}}{=}$ denotes equality \emph{after} one calibration (no bare coupling).
+Equation \eqref{eq:info-einstein} is used only as a \emph{consistency check}: the same calibration that fixes statics
+(C1, \S\ref{corollary:static-screen}) fixes the focusing response inferred from $A(\lambda)$.
+
+\paragraph{Flat check.}
+In flat geometry with a radial congruence in $n$ spatial dimensions, $A(\lambda)\propto r^{\,n-1}$ and
+$\theta=(n{-}1)\,\dot r/r$. Then \eqref{eq:c7-spread-static} gives
+$\langle j_n\rangle\propto r^{-(n-1)}$ and \eqref{eq:c7-spread-wave} gives
+$\langle |\mathbf E_I|\rangle\propto r^{-(n-1)/2}$, matching C1 and C4.
+
+\paragraph{Remarks (shear and vorticity).}
+Shear $\sigma_{ab}$ can broaden or squeeze the tube independently of $R_{ab}k^a k^b$; vorticity $\omega_{ab}\neq 0$
+would enter Raychaudhuri with a sign that counteracts focusing. These kinematics combine through
+\eqref{eq:raychaudhuri} to determine $A(\lambda)$, hence amplitudes via
+\eqref{eq:c7-spread-static}–\eqref{eq:c7-spread-wave}.
+
+\medskip
+\noindent\emph{Summary.}
+Geometry fixes how $A(\lambda)$ evolves; Stokes fixes the conserved quantities. With one calibration shared with
+statics, the focusing term can be related to a calibrated stress along the tube. No new constants are introduced,
+and all amplitude rules reduce to the area relations in \eqref{eq:c7-spread-static}–\eqref{eq:c7-spread-wave}.
+
+\medskip
+\noindent\emph{Literature note.}
+Background on geodesic congruences and the Raychaudhuri equation can be found in Wald \cite{Wald1984}, the original paper \cite{Raychaudhuri1955}, and Poisson \cite{Poisson2004}. Our calibrated focusing equality \eqref{eq:info-einstein} follows the local-horizon logic summarized in App.~\ref{app:jacobson} (cf.\ Jacobson \cite{Jacobson1995}). Static and wave amplitude scalings referenced here are established in C1 (\S\ref{corollary:static-screen}) and C4 (\S\ref{corollary:info-em}), with screen geometry collected in App.~\ref{app:nD-screens}.

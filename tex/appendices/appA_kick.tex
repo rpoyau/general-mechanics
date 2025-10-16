@@ -1,81 +1,142 @@
 % ======================================================================
-% appA_kick.tex — Kick (Kz), Kram prefixes, and unit convention (v1.0.2)
+% appA_kz-kram.tex — Appendix A: Kick (Kz) units & Kram anchors
 % ======================================================================
 
-\section{Units: the Kick \texorpdfstring{(\(\mathrm{Kz}\))}{(Kz)} and kram (k) prefixes}
-\label{sec:kick_units}\label{sec:kick}
+\section{Kick (Kz) units \& Kram anchors}
+\label{app:kick}
 
-% Safe aliases (only used if not already defined)
-\providecommand{\Kz}{\mathrm{Kz}}   % base unit symbol: Kick
-\providecommand{\Ekz}{E_{\Kz}}      % E/h
-\providecommand{\Mkz}{m_{\Kz}}      % m c^2 / h
-\providecommand{\Tkz}{T_{\Kz}}      % k_B T / h
-\providecommand{\Pkz}{P_{\Kz}}      % P / h
+This appendix fixes the unit convention used throughout: write energy‑like quantities as \emph{rates} by dividing SI units by $h$. This keeps every balance and bound in rate form and avoids bare constants in the spine of the framework. Cross‑references to screen geometry use App.~\ref{app:nD-screens}; noise kernels and covariance propagation are in App.~\ref{app:noise-kernel}; one‑datum sector calibrations are collected in App.~\ref{app:calibrations}.
 
-\paragraph{Kick (definition and convention).}
-A \emph{kick} is a frequency unit for energy with symbol \( \mathrm{Kz} \):
-\[
-1~\mathrm{Kz} \coloneqq 1~\mathrm{Hz},\qquad
-\frac{E}{h}=\Ekz,\quad \frac{m c^2}{h}=\Mkz,\quad \frac{k_B T}{h}=\Tkz,\quad \frac{P}{h}=\Pkz.
-\]
-Every rest mass defines a frequency (de~Broglie--Compton): \(E=mc^2=h\,f_C \Rightarrow f_C=\Mkz\)~\cite{Compton1923}.
-\emph{Convention for this appendix:} \textbf{all quantities are expressed in Kick units (Kz)}, so we \emph{omit} the Kz subscript thereafter. Example: we write simply
-\[
-PV = NT,\qquad u=\tfrac{3}{2}\,n\,T,
-\]
-with \(P,T,u\) already in Kz and \(n\) in \(\mathrm{m}^{-3}\). (To revert to SI, multiply by \(h\).)
+% ---------------------------- A.1 --------------------------------------
+\subsection{Kz (Kick) convention}
+\label{appA:kz-conv}
 
-\paragraph{Kram prefixes (no SI collision).}
-We fix the Kram decade anchors by definition:
-\[
-\boxed{\,1\,k = 10^{47}\,\mathrm{Kz}\,},\qquad
-\boxed{\,1\,kk = 10^{50}\,\mathrm{Kz}\,},\qquad
-\boxed{\,1\,Mk = 10^{53}\,\mathrm{Kz}\,},\qquad
-\boxed{\,1\,Gk = 10^{56}\,\mathrm{Kz}\,},\qquad
-\boxed{\,1\,Tk = 10^{59}\,\mathrm{Kz}\,}.
-\]
-These symbols (\(k, kk, Mk, Gk, Tk\)) are unit anchors in the Kick scale; do \emph{not} append “Kz” to them.
+We define Kz (\emph{Kick}) units by dividing by Planck's constant $h$:
+\begin{equation}
+\label{eq:appA-kz-map}
+E^{(\mathrm{Kz})}=\frac{E}{h},\qquad
+M^{(\mathrm{Kz})}=\frac{mc^{2}}{h},\qquad
+T^{(\mathrm{Kz})}=\frac{k_{B}T}{h},\qquad
+P^{(\mathrm{Kz})}=\frac{P_{\rm SI}}{h}.
+\end{equation}
+Thus $E^{(\mathrm{Kz})}$, $M^{(\mathrm{Kz})}$, $T^{(\mathrm{Kz})}$, and $P^{(\mathrm{Kz})}$ all carry units of s$^{-1}$. In these units, the \emph{erasure power divided by temperature} is a \emph{rate}, which is the form used in the time–information bounds (Corollary~\ref{corollary:time-info}).
 
-\paragraph{Ladder: exact equivalences (rest–Kick).}
-Using \(c^2/h = 1.3563924897\times 10^{50}\ \mathrm{Hz/kg}\) (CODATA~2018~\cite{CODATA2018}),
-\[
-\begin{aligned}
-1~\mathrm{g}   &= 1.3563924897\times 10^{47}\ \mathrm{Kz} \;=\; 1.3563924897\,k,\\
-1~\mathrm{kg}  &= 1.3563924897\times 10^{50}\ \mathrm{Kz} \;=\; 1.3563924897\,kk,\\
-1~\mathrm{t}   &= 1.3563924897\times 10^{53}\ \mathrm{Kz} \;=\; 1.3563924897\,Mk,\\
-10^3~\mathrm{t}&= 1.3563924897\times 10^{56}\ \mathrm{Kz} \;=\; 1.3563924897\,Gk,\\
-10^6~\mathrm{t}&= 1.3563924897\times 10^{59}\ \mathrm{Kz} \;=\; 1.3563924897\,Tk.
-\end{aligned}
-\]
-Right‑hand units are Kram anchors; Kz is shown on the left for reference only.
+\paragraph{Sanity check.}
+In Kz, the Landauer/erasure rate bound for reliable, durable records reads (bits/s)
+\begin{equation}
+\label{eq:appA-erasure-rate}
+\frac{\Delta I_{\rm bits}}{\Delta t}\ \le\ \frac{P^{(\mathrm{Kz})}}{T^{(\mathrm{Kz})}\,\ln 2},
+\end{equation}
+and the same expression without $\ln 2$ holds in nats/s. See the rate and time forms in Corollary~\ref{corollary:time-info}.
 
-\paragraph{Planck scale: frequency vs.\ energy in Kz.}
-Do not conflate the Planck \emph{frequency} with the Planck \emph{energy per \(h\)}:
-\[
-f_P \equiv t_P^{-1} \approx 1.854\times 10^{43}\ \mathrm{Hz},\qquad
-\frac{E_P}{h}=\frac{\hbar}{h}\frac{1}{t_P}=\frac{f_P}{2\pi}\approx 2.953\times 10^{42}\ \mathrm{Kz}.
-\]
-Use \(f_P\) when anchoring time scales, and \(E_P/h\) when comparing energies in Kz (or against Kram anchors).
+% ---------------------------- A.2 --------------------------------------
+\subsection{Bits, nats, and entropic flux}
+\label{appA:bits-nats}
 
-\paragraph{Field relations (all in Kz).}
-With the unit convention above, the basic relations read:
-\[
-PV = NT,\qquad u=\tfrac{3}{2}\,n\,T,\qquad
-\bar v = c\,\sqrt{\frac{8}{\pi}\,\frac{T}{M}},\qquad
-v_{\mathrm{rms}}=c\,\sqrt{3\,\frac{T}{M}},
-\]
-where \(M=mc^2/h\) is the rest–Kick of a particle species and \(T=k_BT/h\).
-Electrostatics and gravity appear as \emph{calibrations} of the informational field \(\bm F_I=-\nabla\Phi_I\); in Kick algebra, constants like \(k_B\) and \(G\) drop out once the calibration to measured fields is fixed.
+If boundary counts are recorded in bits,
+\begin{equation}
+\label{eq:appA-bits-nats}
+j_{\text{nats}}=(\ln 2)\,j_{\text{bits}},\qquad
+S_{\text{nats}}=(\ln 2)\,S_{\text{bits}}.
+\end{equation}
+All screen/tube relations (e.g.\ inverse‑area scaling on screens from C0–C1) and bounds are invariant under this change of unit; only numerical prefactors in calibrations change by $\ln 2$.
 
-\paragraph{Quick conversions.}
-\[
-1~\mathrm{eV} = \frac{1~\mathrm{eV}}{h} = 2.417989242\times 10^{14}\ \mathrm{Kz},\qquad
-1~\mathrm{Pa} = \frac{1}{h}\ \frac{\mathrm{Kz}}{\mathrm{m}^3} \approx 1.509190\times 10^{33}\ \frac{\mathrm{Kz}}{\mathrm{m}^3},
-\]
-\[
-300~\mathrm{K} \;\Rightarrow\; T = \frac{k_B}{h}\,300 \approx 6.25098574\times 10^{12}\ \mathrm{Kz}.
-\]
+% ---------------------------- A.3 --------------------------------------
+\subsection{Kram anchors (optional decimal ladder)}
+\label{appA:kram}
 
-\paragraph{Bibliographic note.}
-“Compton frequency’’ is standard in matter–wave contexts (e.g.\ \cite{Compton1923}); the Kick formalism simply reuses \(E/h\) as a working unit across mechanics and thermodynamics. Constant values above follow CODATA~2018~\cite{CODATA2018}.
-% (Optional siunitx helper, if you want \SI{...}{\Kz}: \DeclareSIUnit{\Kz}{Kz})
+When rough magnitudes span many decades, we optionally name logarithmic anchors for Kz rates:
+\begin{equation}
+\label{eq:appA-kram}
+1\,k=10^{47}\,\mathrm{Kz},\qquad
+1\,kk=10^{50}\,\mathrm{Kz},\qquad
+1\,Mk=10^{53}\,\mathrm{Kz},\qquad
+1\,Gk=10^{56}\,\mathrm{Kz},\qquad
+1\,Tk=10^{59}\,\mathrm{Kz}.
+\end{equation}
+These are \emph{bookkeeping labels only}; all algebra is performed in Kz.
+
+% ---------------------------- A.4 --------------------------------------
+\subsection{One–datum sector calibrations (static readouts)}
+\label{appA:calibrations}\label{axiom:calibrations} % alias for legacy refs
+
+The informational field is $\mathbf E_I:=-\nabla\Phi_I$, with static closure $\mathbf j=-\kappa\,\mathbf E_I$ (Axiom~D2, eq.~\eqref{eq:static-closure}). Measured sectors are defined by a \emph{single} linear calibration (Kz once):
+\begin{equation}
+\label{eq:appA-calib-map}
+\mathbf g=c_M\,\mathbf E_I,\qquad
+\mathbf E=c_Q\,\mathbf E_I,\qquad
+\mathbf j_{\rm th}=\kappa_T\,\mathbf E_I .
+\end{equation}
+Each constant $(c_M,c_Q,\kappa_T)$ is fixed by one datum in that sector (see App.~\ref{app:calibrations}).
+
+\paragraph{How one datum fixes the scale.}
+On a time‑frozen, source‑free annulus, the directed flux $\Phi$ through a radius‑$r$ screen is constant and
+\begin{equation}
+\label{eq:appA-screen-law}
+\big\langle j_n\big\rangle(r)=\frac{\Phi}{A_n(r)},\qquad
+\big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\frac{\Phi}{A_n(r)},\qquad
+A_n(r)=S_{n-1}\,r^{\,n-1}\ \ \text{(App.~\ref{app:nD-screens}, eq.~\eqref{appC:eq:areas})}.
+\end{equation}
+Given a reference screen $r_\star$ around a source with flux $\Phi_\star$ and a measured field $Y_\star\in\{g_\star,E_\star,j_{{\rm th},\star}\}$,
+\begin{equation}
+\label{eq:appA-one-datum}
+c_{\rm sec}
+=\frac{Y_\star}{|\mathbf E_I(r_\star)|}
+=Y_\star\,\frac{\kappa\,A_n(r_\star)}{\Phi_\star},
+\qquad \text{(sec}\in\{M,Q,{\rm th}\}).
+\end{equation}
+No bare constants enter beyond this datum.
+
+\paragraph{Ratio predictions (constant‑free).}
+Once $c_{\rm sec}$ is fixed,
+\begin{equation}
+\label{eq:appA-ratio}
+Y(r)=c_{\rm sec}\,|\mathbf E_I(r)|
+=Y_\star\,\frac{\Phi(r)}{\Phi_\star}\,\frac{A_n(r_\star)}{A_n(r)}.
+\end{equation}
+In lossless statics $\Phi(r)=\Phi_\star$, so $Y(r)=Y_\star\,(r_\star/r)^{\,n-1}$ (cf.\ C1).
+
+% ---------------------------- A.5 --------------------------------------
+\subsection{Capacity and erasure in Kz (operational knobs)}
+\label{appA:capacity-erasure}
+
+When a channel class and budgets are specified, the reliable capacity (bits/s) is a functional
+\begin{equation}
+\label{eq:appA-capacity}
+C_{\rm chan}^{(\text{bits})}(\varepsilon)\ =\ \mathcal C\big[R^{(a)};\,\mathcal N,\,\mathcal B;\,\varepsilon\big],
+\end{equation}
+where $R^{(a)}$ are boundary controls (apertures, alphabets), $\mathcal N$ is the noise kernel (see App.~\ref{app:noise-kernel}), and $\mathcal B$ collects budgets (power $P^{(\mathrm{Kz})}$, temperature $T^{(\mathrm{Kz})}$, area $A$, time window $\Delta t$, reliability $\varepsilon$). The time–information bounds used in the body (Corollary~\ref{corollary:time-info}) combine three independent ceilings:
+\[
+\frac{\Delta I_{\text{bits}}}{\Delta t}
+\ \le\
+\min\!\left\{
+\frac{\overline{J}_{A}}{\ln 2},\quad
+C_{\rm chan}^{(\text{bits})}(\varepsilon),\quad
+\frac{P^{(\mathrm{Kz})}}{T^{(\mathrm{Kz})}\,\ln 2}
+\right\},
+\]
+with the last term originating from \eqref{eq:appA-erasure-rate} when durable records are formed and later erased.
+
+% ---------------------------- A.6 --------------------------------------
+\subsection{Quick conversions and notes}
+\label{appA:conversions}
+
+For any SI quantity $X$, $X^{(\mathrm{Kz})}=X/h$.
+Examples (units shown as s$^{-1}$):
+\[
+E\,[\mathrm{J}]\mapsto E/h,\qquad
+E\,[\mathrm{eV}]\mapsto \frac{E\,[\mathrm{eV}]\cdot e}{h},\qquad
+T\,[\mathrm{K}]\mapsto \frac{k_B T}{h},\qquad
+P\,[\mathrm{W}]\mapsto \frac{P}{h}.
+\]
+All predictions in the main text are expressed in Kz; numerical evaluations (if any) convert back to SI at the final step.
+
+\medskip
+\noindent\emph{Summary.}
+Kz turns energies, masses, temperatures, and powers into rates, aligning all balances and bounds with the informational viewpoint. One‑datum, sector‑specific calibrations then translate the informational field into measured readouts without introducing bare constants; capacity and erasure appear as independent, operational ceilings in the same units.
+
+\medskip
+\noindent\emph{Literature note.}
+Information measures and reliable communication: Shannon and Cover--Thomas~\cite{Shannon1948,CoverThomas2006};
+erasure cost and reversibility: Landauer and Bennett~\cite{Landauer1961,Bennett2003}.
+(Internal provenance for balances/closures is in Apps.~\ref{app:forms-stokes}, \ref{app:nD-screens}, \ref{app:noise-kernel}, and \ref{app:calibrations}.)

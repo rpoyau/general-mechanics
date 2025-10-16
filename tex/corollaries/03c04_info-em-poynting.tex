@@ -1,0 +1,118 @@
+% ======================================================================
+% 03c04_info-em-poynting.tex — C4: Informational electrodynamics — waves & export
+% ======================================================================
+
+\subsection{C4: Informational electrodynamics — waves and Poynting export}
+\label{corollary:info-em}
+
+\paragraph{Field equations (Info--EM specialization).}
+On channels that support wave-like transport, we specialize to the informational electrodynamics
+\begin{equation}
+dF_I=0,\qquad dH_I={*}j,\qquad H_I=\chi:F_I,\qquad F_I=dA_I ,
+\label{eq:c4-ied}
+\end{equation}
+where $A_I$ is a $1$-form potential, $F_I$ the $2$-form field, and $\chi$ a linear, local, causal
+constitutive map on the segment considered. This is a \emph{closure choice} (not an axiom of the
+framework). \emph{Causality of $\chi$ implies Kramers--Kronig dispersion relations}, see
+App.~\ref{app:forms-stokes}, eq.~\eqref{appB:eq:KK}.
+
+\paragraph{Energy identity and export.}
+The Poynting identity (App.~\ref{app:forms-stokes}, eq.~\eqref{appB:eq:poynting}) holds on any spatial
+region $V$ with outward unit normal $n$:
+\begin{equation}
+\frac{d}{dt}\int_V u_I\,d^n x \;+\; \int_{\partial V}\mathbf S_I\!\cdot n\,dA \;=\; -\int_V \mathbf j\!\cdot\!\mathbf E_I\,d^n x,
+\qquad
+u_I=\tfrac12\,F_I\!:\!H_I .
+\label{eq:c4-poynting}
+\end{equation}
+In a source-free subregion ($\mathbf j\!=\!0$), the exported power through $\partial V$ equals the decrease
+of informational field energy in $V$.
+
+\paragraph{Remark (wave closures beyond Info--EM).}
+All statements here use only the existence of a quadratic energy density $u$ and flux
+$\mathbf S$ obeying a local conservation identity on source--free segments. Info--EM is one such closure. Others—
+elastic/solid, acoustic/hydrodynamic, plasma, and the Isaacson effective stress of gravitational waves—
+likewise supply $(u,\mathbf S)$. In each case, exported power through screens is radially constant and the
+far--field envelope follows $\langle|\mathbf E_I|\rangle\propto A_n(r)^{-1/2}$ \emph{as stated below in}
+\eqref{eq:c4-amp-scaling}.
+
+\paragraph{Wave propagation (homogeneous, source-free segments).}
+If $\chi$ is spatially homogeneous and time-invariant on a segment and $\mathbf j=0$, one may choose a
+Lorenz-type gauge to obtain
+\begin{equation}
+\partial_t^{2}A_I \;-\; c_I^{\,2}\,\nabla^{2}A_I \;=\; 0 ,
+\label{eq:c4-wave-A}
+\end{equation}
+with characteristic speed $c_I$ set by $\chi$ and the background geometry.
+Equivalently, the electric-like field $\mathbf E_I$ satisfies
+\begin{equation}
+\partial_t^{2}\mathbf E_I \;-\; c_I^{\,2}\,\nabla^{2}\mathbf E_I \;=\; 0 ,
+\label{eq:c4-wave-E}
+\end{equation}
+together with the usual transversality constraint in source-free regions.
+
+\paragraph{Far-field amplitude scaling (all spatial dimensions $n$).}
+Let $\Sigma(r)$ be a screen of radius $r$ enclosing the emitters, with area $A_n(r)$.
+Time-averaging \eqref{eq:c4-poynting} over many periods in a source-free annulus yields a radius-independent
+exported power
+\begin{equation}
+P(r)\;:=\;\int_{\Sigma(r)}\!\big\langle \mathbf S_I\big\rangle\!\cdot n\,dA \;=\; \text{const in } r .
+\label{eq:c4-power-const}
+\end{equation}
+In homogeneous media $\langle \mathbf S_I\rangle \propto \langle |\mathbf E_I|^2\rangle$, giving the far-field envelope
+\begin{equation}
+\big\langle |\mathbf E_I(r)| \big\rangle \;\propto\; \frac{1}{\sqrt{A_n(r)}} .
+\label{eq:c4-amp-scaling}
+\end{equation}
+For spherical/conical screens, $A_n(r)=S_{n-1}\,r^{\,n-1}$, hence
+\begin{equation}
+\big\langle |\mathbf E_I(r)| \big\rangle \;\propto\; r^{-\frac{n-1}{2}}
+\quad\Longleftrightarrow\quad
+\begin{cases}
+r^{\,0} & n=1\ \text{(1D line)},\\[2pt]
+r^{-1/2} & n=2\ \text{(2D sheet / cylindrical)},\\[2pt]
+r^{-1} & n=3\ \text{(3D spherical)}.
+\end{cases}
+\label{eq:c4-amp-table}
+\end{equation}
+These entries match the dimensional summary in C8 (\S\ref{corollary:dimensional}).
+
+\paragraph{Screens, cones, and sectors (tube view).}
+For any fixed solid-angle sector $\Delta\Omega$, the exported power through the corresponding conical patch is constant:
+\[
+P_\Delta(r)=\!\int_{\Delta\Omega}\!\langle \mathbf S_I\rangle\!\cdot n\,r^{\,n-1}d\Omega=\text{const}.
+\]
+Therefore the sector envelope follows the same $\propto 1/\sqrt{A_n(r)}$ law with $A_n(r)$ replaced by
+$A_\Delta(r)=\Delta\Omega\,r^{\,n-1}$, the dynamic analogue of the static tube rule
+$\langle j_n\rangle=\Phi/A$ (C0; \S\ref{corollary:info-gas}).
+
+\paragraph{Confinement and effective dimension.}
+Boundary conditions that constrain propagation reduce the effective spatial dimension:
+\begin{itemize}\itemsep2pt
+  \item \textbf{Waveguides (1D).} Fixed cross-section $A_\perp$ implies no geometric decay of the guided mode envelope along the guide ($\propto r^0$).
+  \item \textbf{Sheets / interfaces (2D).} Fixed thickness yields cylindrical spreading: $\langle|\mathbf E_I|\rangle \propto r^{-1/2}$.
+\end{itemize}
+Mode spectra and group velocities are set by boundary conditions and the constitutive map $\chi$; each mode
+exports power according to \eqref{eq:c4-poynting}.
+
+\paragraph{Calibration (optional).}
+With one-datum calibrations (App.~\ref{app:calibrations}),
+\begin{equation}
+\mathbf g=c_M\,\mathbf E_I,\qquad \mathbf E=c_Q\,\mathbf E_I ,
+\label{eq:c4-calib}
+\end{equation}
+the envelopes \eqref{eq:c4-amp-scaling}--\eqref{eq:c4-amp-table} transfer directly to measured sectors.
+
+\medskip
+\noindent\emph{Summary.}
+The Info--EM closure \eqref{eq:c4-ied} together with the Poynting identity (App.~\ref{app:forms-stokes},
+eq.~\eqref{appB:eq:poynting}) yields wave propagation with radius-independent exported power across screens.
+Far-field amplitudes decay as $A_n(r)^{-1/2}$; under confinement the effective dimension is reduced, altering
+the geometric decay accordingly. Calibrations map these informational envelopes to measured fields without
+introducing bare constants.
+
+\medskip
+\noindent\emph{Literature note.}
+Our Poynting and causality statements are recalled in App.~\ref{app:forms-stokes}. Standard expositions include
+Jackson~\cite{Jackson1999} and Landau--Lifshitz--Pitaevskii~\cite{LandauLifshitzEDCM1984}; for dispersion/causality
+see Nussenzveig~\cite{Nussenzveig1972}.

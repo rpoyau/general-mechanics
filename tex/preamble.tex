@@ -1,10 +1,6 @@
 % ======================================================================
-% preamble.tex  (merged/provisioned v1.0.2) — packages, macros, formatting
+% preamble.tex  (v1.0.2) — shared packages, macros, and formatting
 % ======================================================================
-
-% --- Encoding & fonts (safe for Unicode dashes etc.)
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 
 % --- Packages
 \usepackage[a4paper,margin=1in]{geometry}
@@ -16,13 +12,8 @@
 \usepackage{siunitx}
 \usepackage{booktabs}
 \usepackage{tikz}
-\usepackage[dvipsnames,svgnames]{xcolor}
-\usepackage[most]{tcolorbox}
 \usepackage{hyperref}
 \usepackage[nameinlink,capitalise]{cleveref}
-
-% --- TikZ libraries (used by tcolorbox and diagrams)
-\usetikzlibrary{calc,arrows.meta,decorations.pathmorphing}
 
 % --- Hyperref setup
 \hypersetup{
@@ -41,6 +32,8 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{lemma}{Lemma}
 \newtheorem{corollary}{Corollary}
+
+\usepackage[section]{placeins} % auto-places a FloatBarrier at each \section
 
 % --- siunitx
 \sisetup{
@@ -77,6 +70,14 @@
 \newcommand{\Ainfo}{\mathcal{A}_I}               % info potential 1-form
 \newcommand{\Finfo}{\mathcal{F}_I}               % info field 2-form
 \newcommand{\Hinfo}{\mathcal{H}_I}               % info excitation
+
+% Semantic label helpers (optional)
+\newcommand{\labtitle}{\label{title:root}}
+\newcommand{\labintro}[1][]{\label{introduction\if\relax\detokenize{#1}\relax\else:#1\fi}}
+\newcommand{\labaxiom}[1]{\label{axiom:#1}}
+\newcommand{\labcor}[1]{\label{corollary:#1}}
+\newcommand{\labapp}[1]{\label{appendix:#1}}
+
 
 % --- Equation numbering per section (optional)
 \numberwithin{equation}{section}

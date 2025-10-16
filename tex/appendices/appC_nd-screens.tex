@@ -1,0 +1,139 @@
+% ======================================================================
+% appC_nd-screens.tex — Appendix C: Screens in n dimensions
+% ======================================================================
+
+\section{Screens in $n$ dimensions: areas, harmonics, Green functions}
+\label{app:nD-screens}
+
+This appendix collects geometric identities for $n$-dimensional screens and
+their consequences for static amplitudes under the balance law (D1; eq.~\eqref{eq:stokes-identity})
+and the static closure (D2; eq.~\eqref{eq:static-closure}). All amplitudes are informational;
+measured sectors follow by one–datum calibration (Appendix~\ref{app:calibrations}).
+
+% ----------------------------- C.1 -------------------------------------
+\subsection{Sphere areas and ball volumes}
+\label{appC:areas}
+
+Let $S_{n-1}$ denote the area of the unit $(n{-}1)$–sphere in $\mathbb R^{n}$ and
+$B_n(r)$ the ball of radius $r$. Then
+\begin{equation}
+S_{n-1}=\frac{2\,\pi^{n/2}}{\Gamma(n/2)}, 
+\qquad
+A_n(r)=S_{n-1}\,r^{\,n-1},
+\qquad
+V_n(r)=\frac{\pi^{n/2}}{\Gamma(\tfrac{n}{2}+1)}\,r^{\,n}.
+\label{appC:eq:areas}
+\end{equation}
+Checks: $S_0=2$, $S_1=2\pi$, $S_2=4\pi$ so that
+$A_1(r)=2$, $A_2(r)=2\pi r$, $A_3(r)=4\pi r^2$.
+
+% ----------------------------- C.2 -------------------------------------
+\subsection{Radial harmonics and the static screen law}
+\label{appC:radial-harmonic}
+
+On a time-frozen slice with $\sigma=0$ in an annulus and with the static
+closure $\mathbf j=\kappa\nabla\Phi_I$ and $\mathbf E_I:=-\nabla\Phi_I$
+(D2; eq.~\eqref{eq:static-closure}), the local balance (D1) reads
+$\nabla\!\cdot\mathbf j=0$, hence $\Delta\Phi_I=0$ away from sources.
+For radial $\Phi_I(r)$,
+\begin{equation}
+\frac{d}{dr}\!\left(r^{\,n-1}\,\frac{d\Phi_I}{dr}\right)=0
+\ \Longrightarrow\
+\frac{d\Phi_I}{dr}=\frac{C}{r^{\,n-1}},
+\qquad
+|\mathbf E_I(r)|=\frac{|C|}{r^{\,n-1}} .
+\label{appC:eq:radial-harmonic}
+\end{equation}
+Let $\Phi(r):=\int_{\Sigma(r)}\mathbf j\!\cdot n\,dA$ be the directed flux
+through a spherical screen $\Sigma(r)$. With $\mathbf j=-\kappa\,\mathbf E_I$,
+\begin{equation}
+\Phi(r)=-\kappa\,|\mathbf E_I(r)|\,A_n(r)
+\ \Rightarrow\
+|\mathbf E_I(r)|=\frac{1}{\kappa}\,\frac{|\Phi|}{A_n(r)}
+=\frac{|\Phi|}{\kappa\,S_{n-1}}\,\frac{1}{r^{\,n-1}} .
+\label{appC:eq:screen-law}
+\end{equation}
+Equation \eqref{appC:eq:screen-law} is the full-screen version of the cone/tube
+rule used in the main text (C0–C1; see \S\ref{corollary:info-gas} and \S\ref{corollary:static-screen}).
+
+% ----------------------------- C.3 -------------------------------------
+\subsection{Green functions of the Laplacian (normalization by $S_{n-1}$)}
+\label{appC:greens}
+
+Let $G_n(x)$ solve $\Delta G_n=\delta$ in $\mathbb R^n$ with the
+normalization compatible with \eqref{appC:eq:screen-law}:
+\begin{equation}
+G_n(x)=
+\begin{cases}
+-\dfrac{1}{2}\,|x|, & n=1,\\[6pt]
+\dfrac{1}{2\pi}\,\ln |x|, & n=2,\\[8pt]
+-\dfrac{1}{(n-2)\,S_{n-1}}\,|x|^{\,2-n}, & n\ge 3.
+\end{cases}
+\label{appC:eq:greens}
+\end{equation}
+Then $\Phi_I=G_n * \rho$ solves $\Delta\Phi_I=\rho$ and
+$\mathbf E_I=-\nabla\Phi_I$. The factors of $S_{n-1}$ ensure that integrating
+$\nabla\!\cdot\mathbf j=0$ on a ball and using $A_n(r)$ reproduces the
+$1/r^{\,n-1}$ amplitude.
+
+% ----------------------------- C.4 -------------------------------------
+\subsection{Sector (cone) and tube forms}
+\label{appC:sector}
+
+For a conical sector of fixed solid angle $\Delta\Omega$,
+\begin{equation}
+A_\Delta(r)=\Delta\Omega\,r^{\,n-1},\qquad
+\big\langle j_n\big\rangle(r)=\frac{\Phi_\Delta}{A_\Delta(r)},
+\qquad
+|\mathbf E_I(r)|=\frac{1}{\kappa}\,\frac{\Phi_\Delta}{\Delta\Omega}\,\frac{1}{r^{\,n-1}} .
+\label{appC:eq:sector}
+\end{equation}
+For a narrow tube whose side surface is tangent to $j$, the directed tube flux
+is constant along the tube; cross–sectional averages satisfy
+$\langle j_n\rangle=\Phi/A_\perp$ with fixed $A_\perp$.
+
+% ----------------------------- C.5 -------------------------------------
+\subsection{Multipoles on $S^{n-1}$ (outside bounded sources)}
+\label{appC:multipole}
+
+If $\sigma=0$ outside a bounded region, $\Phi_I$ is harmonic there and admits
+the expansion
+\begin{equation}
+\Phi_I(r,\Omega)=\sum_{\ell=0}^{\infty} r^{-(\ell+n-2)}
+\sum_{m} a_{\ell m}\,Y_{\ell m}(\Omega)\qquad (n\ge 3),
+\label{appC:eq:multipole}
+\end{equation}
+with $Y_{\ell m}$ the spherical harmonics on $S^{n-1}$. The leading term
+($\ell=0$) reproduces \eqref{appC:eq:radial-harmonic}; higher multipoles decay
+faster and average to zero on full screens.
+
+% ----------------------------- C.6 -------------------------------------
+\subsection{Notes for $n=1$ and $n=2$}
+\label{appC:notes-n12}
+
+For $n=2$, harmonic potentials are logarithmic and the static field decays as
+$1/r$, consistent with \eqref{appC:eq:screen-law}. For $n=1$, the screen area
+is $A_1(r)=2$ (two points), so static amplitudes are $r$–independent along a
+line/tube. These are the confinement limits discussed in C8 (\S\ref{corollary:dimensional}).
+
+% ----------------------------- C.7 -------------------------------------
+\subsection{Conventions and units}
+\label{appC:units}
+
+The results above are informational. Measured sector fields follow from the
+one–datum calibrations $\mathbf g=c_M\mathbf E_I$,
+$\mathbf E=c_Q\mathbf E_I$ (Appendix~\ref{app:calibrations}). Rates are expressed in Kz (SI$/h$).
+No bare constants appear beyond the single calibration per sector.
+
+\medskip
+\noindent\emph{Cross–references.}
+Static screen laws: C0–C1 (\S\ref{corollary:info-gas}, \S\ref{corollary:static-screen}). 
+Dimensional flows and confinement: C8 (\S\ref{corollary:dimensional}).
+Wave envelopes (far field): C4 (Info–EM specialization; \S\ref{corollary:info-em}).
+
+\medskip
+\noindent\emph{Literature note.}
+Background on differential geometry and forms: Frankel~\cite{Frankel2011}.
+Harmonic/potential theory and Green functions: Axler–Bourdon–Ramey~\cite{Axler2001}
+and Evans~\cite{Evans2010}. These are provenance pointers; the derivations used here
+are self-contained in D1/D2 and the identities above.

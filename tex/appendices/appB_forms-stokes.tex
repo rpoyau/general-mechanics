@@ -1,105 +1,171 @@
 % ======================================================================
-% appendices/appB_forms-stokes.tex — Differential forms & Stokes (v1.0.2)
+% appB_forms-stokes.tex — Appendix B: Differential forms & generalized Stokes
 % ======================================================================
 
-\section{Differential forms and Stokes conventions}
+\section{Differential forms \& generalized Stokes}
 \label{app:forms-stokes}
 
-\paragraph{Manifold, metric, orientation.}
-Work on an oriented Lorentzian manifold \((\mathcal M^{n+1},g)\) with \emph{mostly-plus} signature \((-,+,\dots,+)\).
-Choose coordinates \((x^\mu)=(t,x^1,\dots,x^n)\) with orientation
+\subsection{Manifolds, orientation, and volume forms}
+\label{appB:manifolds}
+Let $M$ be an $(n{+}1)$–dimensional oriented manifold with local coordinates $(x^1,\dots,x^n,t)$.
+Fix a region $U\subset M$ with smooth spatial slices $V_t:=U\cap\{t=\mathrm{const}\}$ whose boundary
+is $\partial V_t$. The product region $U_{[t_0,t_1]}:=U\cap\{t\in[t_0,t_1]\}$ has oriented boundary
 \[
-\mathrm{vol}:=\sqrt{|g|}\;\mathrm dt\wedge\mathrm dx^1\wedge\cdots\wedge \mathrm dx^n.
+\partial U_{[t_0,t_1]}
+=\underbrace{V_{t_1}}_{\text{top cap}}
+\;\cup\;
+\underbrace{(-V_{t_0})}_{\text{bottom cap}}
+\;\cup\;
+\underbrace{\big(\partial V\times[t_0,t_1]\big)}_{\text{side}}.
 \]
-For a \(p\)-form \(\alpha=\tfrac1{p!}\alpha_{\mu_1\cdots\mu_p}\,\mathrm dx^{\mu_1}\!\wedge\!\cdots\!\wedge\!\mathrm dx^{\mu_p}\),
-the pointwise inner product is
-\(\langle \alpha,\beta\rangle=\tfrac1{p!}\alpha_{\mu_1\cdots\mu_p}\beta^{\mu_1\cdots\mu_p}\).
+Write $\mathrm{vol}_{n}$ for the $n$–volume form on $V_t$ and $\mathrm{vol}_{n+1}$ for the $(n{+}1)$–volume
+form on $U$ induced by the orientation.
 
-\paragraph{Hodge star \(*\).}
-The Hodge dual \(*:\Lambda^p\to\Lambda^{n+1-p}\) is defined by
-\[
-\alpha\wedge *\beta = \langle \alpha,\beta\rangle\,\mathrm{vol}\qquad(\alpha,\beta\in\Lambda^p).
-\]
-We will not need explicit \(*^2\) signs; all identities below are written without squaring \(*\).
-In \(3{+}1\) with our orientation one has, in components,
-\[
-*(\mathrm dt)=\sqrt{|g|}\,\mathrm dx^1\wedge\mathrm dx^2\wedge\mathrm dx^3,\qquad
-*(\mathrm dx^i)= -\,\sqrt{|g|}\,\mathrm dt\wedge\epsilon_{ijk}\,\mathrm dx^j\wedge\mathrm dx^k/2,
-\]
-and similarly for higher degrees (these are sufficient to recover the \(3{+}1\) split below).
+\subsection{Current 1–form, Hodge dual, and production}
+\label{appB:current}
+Let $j:=J^\mu dx_\mu$ denote the informational/entropic current $1$–form on $U$ with components
+$J^\mu=(i,\mathbf j)$ in adapted coordinates. Its Hodge dual $j^{(n)}:=\!*j$ is an $n$–form that
+integrates naturally over spatial caps and side surfaces.\footnote{Legacy sections may write
+$j^{(3)}$ for the dual $n$–form. Here we use the dimension‑agnostic $j^{(n)}:=*j$.}
+Production is the $(n{+}1)$–form $\Sigma:=\sigma\,\mathrm{vol}_{n+1}$ with nonnegative density $\sigma$
+in the sector where dissipation is present.
 
-\paragraph{Exterior derivative and Stokes.}
-The exterior derivative \(\mathrm d:\Lambda^p\to\Lambda^{p+1}\) obeys \(\mathrm d(\alpha\wedge\beta)=\mathrm d\alpha\wedge\beta+(-1)^p\alpha\wedge\mathrm d\beta\).
-For any smooth region \(\Omega\subset\mathcal M\) with smooth boundary \(\partial\Omega\),
-\[
-\boxed{\quad \displaystyle \int_{\partial\Omega}\omega = \int_{\Omega}\mathrm d\omega\qquad(\omega\in\Lambda^p). \quad}
-\]
-
-\paragraph{Worldtube cap–side decomposition.}
-Let \(\Omega=V\times[t_0,t_1]\) be a fixed worldtube with \(V\subset\mathbb R^n\).
-With the standard product orientation,
-\[
-\partial\Omega \;=\; \underbrace{(V\times\{t_1\})}_{\text{top cap}}
-\;\;\sqcup\;\; \underbrace{-(V\times\{t_0\})}_{\text{bottom cap}}
-\;\;\sqcup\;\; \underbrace{(\partial V)\times[t_0,t_1]}_{\text{lateral side}}.
-\]
-Thus any Stokes identity over \(\Omega\) splits into “cap” and “side” contributions, which we used for the Poynting‑type balance.
-
-\subsection*{Continuity as a 3‑form identity}
-Let \(J_I^\mu=(i,\mathbf j)\) be the information 4‑current and \(j:=J_{I\mu}\,\mathrm dx^\mu\) the associated \(1\)-form.
-Define the dual \(3\)-form
-\[
-j_3:=*j.
-\]
-Then the continuity equation with production \(\sigma\) is exactly
-\[
-\boxed{\quad \nabla_\mu J_I^\mu=\sigma \qquad\Longleftrightarrow\qquad \mathrm d j_3=\sigma\,\mathrm{vol}. \quad}
-\]
-Integrating over a worldtube \(\Omega=V\times[t_0,t_1]\) gives the master balance
-\[
-\int_{\partial\Omega}\!\!*j=\int_{\Omega}\sigma\,\mathrm d^{\,n+1}x
+\subsection{Global balance (generalized Stokes)}
+\label{appB:global-balance}
+The Stokes balance is the exterior–derivative statement
+\begin{equation}
+d\,j^{(n)}=\Sigma
 \quad\Longleftrightarrow\quad
-\int_{V_{t_1}}\!\!*j-\int_{V_{t_0}}\!\!*j+\int_{\partial V\times[t_0,t_1]}\!\!*j=\int_{\Omega}\sigma\,\mathrm{vol}.
-\]
-In a static snapshot (\(\partial_t i=0\)) with \(\sigma\) time‑independent, this reduces to the Gauss law used in \S\ref{sec:static-gauss-nd}.
+\partial_\mu J^\mu=\sigma .
+\label{appB:eq:stokes}
+\end{equation}
+% ---- Legacy alias for backward compatibility (no duplicate labels in the same equation)
+\begingroup
+\makeatletter
+\edef\@currentlabel{\theequation}%
+\makeatother
+\label{eq:stokes-balance}
+\endgroup
+% ----------------------------------------------------------------------
 
-\subsection*{Information electrodynamics (IED) in forms}
-Introduce the information potential \(1\)-form \(\mathcal A_I\), field \(2\)-form \(\mathcal F_I:=\mathrm d\mathcal A_I\), and excitation \(2\)-form \(\mathcal H_I:=\chi\!\cdot\!\mathcal F_I\) (linear medium map \(\chi\) in the simplest cases).
-IED is the pair
-\[
-\boxed{\quad \mathrm d\mathcal F_I=0,\qquad \mathrm d\mathcal H_I=j_3. \quad}
-\]
-In a \(3{+}1\) split with \(\mathcal A_I=-\phi_I\,\mathrm dt+\mathbf A_I\cdot\mathrm d\mathbf x\),
-\[
-\mathcal F_I=\mathbf E_I\cdot \mathrm dt\wedge\mathrm d\mathbf x
-+\mathbf B_I\cdot \tfrac12\,\epsilon_{ijk}\,\mathrm dx^i\wedge\mathrm dx^j,
-\]
-and writing \(\mathcal H_I=\mathbf D_I\cdot \mathrm d\mathbf x\wedge\mathrm dt
-+\mathbf H_I\cdot \tfrac12\,\epsilon_{ijk}\,\mathrm dx^i\wedge\mathrm dx^j\),
-the equations become the Maxwell‑type system
-\[
-\nabla\cdot \mathbf D_I=i,\qquad \nabla\cdot \mathbf B_I=0,\qquad
-\nabla\times \mathbf H_I=\mathbf j+\partial_t\mathbf D_I,\qquad
-\nabla\times \mathbf E_I=-\partial_t\mathbf B_I,
-\]
-used in \S\ref{sec:worldtube-IED}. The static limit with \(\mathbf j=0\) recovers \(\mathbf E_I=-\nabla\Phi_I\) and the Laplace/Poisson forms of \S\ref{sec:static-gauss-nd}.
+Equivalently, for any product region $U_{[t_0,t_1]}$,
+\begin{equation}
+\int_{\partial U_{[t_0,t_1]}} j^{(n)} \;=\; \int_{U_{[t_0,t_1]}} \Sigma .
+\label{appB:eq:stokes-int}
+\end{equation}
 
-\subsection*{Variation strip for the information 1‑form}
-Let \(\Theta\) be any \(1\)-form on the extended space \((q,t)\), and let \(\Sigma\) be the \emph{variation strip} swept by a 1‑parameter family of nearby curves between fixed endpoints at \(t_0,t_1\).
-Stokes on \(\Sigma\) gives
+\subsection{Cap/side decomposition and the cut balance}
+\label{appB:cap-side}
+Using the decomposition of $\partial U_{[t_0,t_1]}$,
+\begin{align}
+\int_{\partial U_{[t_0,t_1]}}\!\! j^{(n)}
+&=
+\underbrace{\int_{V_{t_1}}\! j^{(n)}}_{\text{top cap}}
+-
+\underbrace{\int_{V_{t_0}}\! j^{(n)}}_{\text{bottom cap}}
++
+\underbrace{\int_{\partial V\times[t_0,t_1]}\!\! j^{(n)}}_{\text{side}}
+\label{appB:eq:cap-side}
+\end{align}
+with
 \[
-\int_{\partial\Sigma}\Theta=\int_{\Sigma}\mathrm d\Theta.
+I_{\mathrm{enc}}(t):=\int_{V_t} i\,\mathrm{vol}_{n},\qquad
+\Phi_{\mathrm{in/out}}(t):=\int_{\partial V_t}(\mathbf j\!\cdot n)_{\mp}\,dA,
+\qquad
+\Pi(t):=\int_{V_t}\sigma\,d^n x.
 \]
-Taking \(\Theta=\Theta_{\mathcal R}=P\!\cdot\mathrm dq-\Phi\,\mathrm dt\) with \(\mathcal R(q,\dot q,t)\) convex in \(\dot q\), one finds
-\[
-\mathrm d\Theta_{\mathcal R}= \mathrm dP\wedge \mathrm dq - \mathrm d\Phi\wedge \mathrm dt
-\quad\Rightarrow\quad
-\iota_X(\mathrm d\Theta_{\mathcal R})=0 \;\;\Longleftrightarrow\;\; \dot q=\partial_P\Phi,\ \dot P=-\partial_q\Phi,
-\]
-the canonical equations of \S\ref{sec:path-rate}. Here \(X=\partial_t+\dot q^i\partial_{q^i}+\dot P_i\partial_{P_i}\) is the strip tangent.
-No action functional is assumed; the result is an immediate corollary of boundary calculus.
+Differentiating \eqref{appB:eq:stokes-int} in $t$ yields the \emph{cut balance}
+\begin{equation}
+\dot I_{\mathrm{enc}}(t)\;=\;\Phi_{\mathrm{in}}(t)-\Phi_{\mathrm{out}}(t)\;+\;\Pi(t),
+\label{appB:eq:cut}
+\end{equation}
+identical to \eqref{eq:cut-balance} in the main text.
 
-\paragraph{Remarks.}
-(1) All identities above are \((n{+}1)\)-covariant and metric‑compatible; only the choice of \(\chi\) (constitutive law) and calibrations to measured sectors are empirical.  
-(2) The worldtube cap–side split is the bookkeeping device behind our fixed‑boundary balances (e.g.\ the Poynting‑type identity).  
-(3) The same machinery applies to other conserved/distinguished currents by replacing \(j\) and \(\chi\) accordingly.
+\subsection{Local form (continuity)}
+\label{appB:local}
+In adapted coordinates $(x,t)$ the differential statement \eqref{appB:eq:stokes} becomes
+\begin{equation}
+\partial_t i(x,t)\;+\;\nabla\!\cdot \mathbf j(x,t)\;=\;\sigma(x,t),
+\label{appB:eq:local}
+\end{equation}
+the usual $(n{+}1)$–dimensional continuity law (cf.\ \eqref{eq:local-continuity}).
+
+\subsection{Static snapshot and tube/screen invariants}
+\label{appB:static}
+For a time–frozen snapshot with $\sigma=0$ in a region, $d j^{(n)}=0$ implies that the flux through any two
+homologous screens is equal. If $\mathcal T$ is a narrow tube whose side surface is tangent to $j$, then the
+directed tube flux $\Phi=\int_{\Sigma}j\!\cdot n\,dA$ is constant along the tube and cross–sectional averages obey
+\[
+\langle j_n\rangle=\frac{\Phi}{A}.
+\]
+With the static linear closure $\mathbf E_I:=-\nabla\Phi_I$ and $\mathbf j=-\kappa\,\mathbf E_I$
+(\eqref{eq:static-closure}), amplitudes follow the inverse–area rule used in C0–C1
+(see \S\ref{corollary:info-gas} and \S\ref{corollary:static-screen}).
+
+\subsection{Optional specialization: informational electrodynamics and Poynting export}
+\label{appB:poynting}
+On segments that support wave‑like transport, adopt the informational electrodynamics (Info–EM) closure
+\[
+F_I=dA_I,\qquad dF_I=0,\qquad dH_I={*}j,\qquad H_I=\chi:F_I,
+\]
+where $A_I$ is a $1$‑form potential, $F_I$ the $2$‑form field, $H_I$ the excitation $2$‑form via a (linear, local)
+constitutive map $\chi$ on the segment considered. \emph{Causality of $\chi$ implies Kramers–Kronig dispersion relations;}
+see \S\ref{appB:KK}, eq.~\eqref{appB:eq:KK}.
+
+The informational energy–rate density and Poynting vector are
+\[
+u_I=\tfrac12\,F_I\!:\!H_I,
+\qquad
+\mathbf S_I\ \text{(spatial Poynting vector)},
+\]
+and they satisfy the Poynting identity on any spatial slice $V_t$ with outward normal $n$:
+\begin{equation}
+\frac{d}{dt}\int_{V_t} u_I\,d^n x\;+\;\int_{\partial V_t}\mathbf S_I\!\cdot n\,dA
+\;=\; -\int_{V_t} \mathbf j\!\cdot\!\mathbf E_I\,d^n x .
+\label{appB:eq:poynting}
+\end{equation}
+% ---- Legacy alias for backward compatibility (avoid duplicate label in the same equation)
+\begingroup
+\makeatletter
+\edef\@currentlabel{\theequation}%
+\makeatother
+\label{eq:poynting}
+\endgroup
+% ----------------------------------------------------------------------
+
+In a source‑free subregion ($\mathbf j=0$), the surface term equals the negative time‑rate of change of field energy
+in $V_t$, so exported power across homologous screens is equal. This statement underlies the far‑field envelope laws
+used in the wave corollaries, in particular C4 (\S\ref{corollary:info-em}).
+
+\subsection{Causality note (Kramers--Kronig for $\chi$)}
+\label{appB:KK}
+For linear, time–invariant media the (temporal) Fourier transform $\chi(\omega)$ obeys Hilbert–transform relations
+when $\chi$ is causal:
+\begin{align}
+\Re\,\chi(\omega)
+&=\frac{1}{\pi}\,\mathrm{P}\!\!\int_{-\infty}^{\infty}\frac{\Im\,\chi(\omega')}{\omega'-\omega}\,d\omega',
+\qquad
+\Im\,\chi(\omega)
+=-\frac{1}{\pi}\,\mathrm{P}\!\!\int_{-\infty}^{\infty}\frac{\Re\,\chi(\omega')}{\omega'-\omega}\,d\omega' .
+\label{appB:eq:KK}
+\end{align}
+This provides a consistency check for any chosen $\chi$ in Info–EM specializations.
+
+\subsection{Sign conventions and directional split}
+\label{appB:signs}
+Reversing the orientation of $V_t$ or the time direction flips signs consistently in
+\eqref{appB:eq:cap-side}–\eqref{appB:eq:local}. The inward/outward split is defined by
+$(a)_\pm:=\tfrac12\,(a\pm|a|)$ and is independent of those choices.
+
+\subsection{Summary}
+\label{appB:summary}
+With $j$ a $1$–form and $j^{(n)}=\!*j$, the single identity $d j^{(n)}=\sigma\,\mathrm{vol}_{n+1}$ yields:
+(i) the local continuity equation \eqref{appB:eq:local}, and (ii) the cut balance \eqref{appB:eq:cut} from the
+cap/side decomposition of $\partial U_{[t_0,t_1]}$. Static inverse–area rules (C0–C1) and dynamic Poynting export (C4)
+used in the main text are direct applications once closures are specified.
+
+\medskip
+\noindent\emph{Literature note.}
+Background on differential forms/Stokes appears in Frankel~\cite{Frankel2011};
+a standard EM Poynting treatment is Jackson~\cite{Jackson1999} or Landau–Lifshitz–Pitaevskii~\cite{LandauLifshitzEDCM1984};
+dispersion/causality background is Nussenzveig~\cite{Nussenzveig1972}.

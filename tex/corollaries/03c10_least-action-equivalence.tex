@@ -1,0 +1,113 @@
+% ======================================================================
+% 03c10_least-action-equivalence.tex — C10: Least‑action equivalence (derived)
+% ======================================================================
+
+\subsection{C10: Least‑action equivalence (derived, not assumed)}
+\label{corollary:least-action}
+
+We show that the usual least‑action (Euler–Lagrange) equations are \emph{equivalent} to the
+canonical rate equations obtained from a single boundary closure on a $2$‑surface in $(q,t)$.
+No action postulate is assumed; the variational statement is a repackaging of the same closure.
+
+\paragraph{Rate $1$‑form and canonical rates.}
+Define the Poincar\'e–Cartan (rate) $1$‑form
+\begin{equation}
+\Theta_{\mathcal R}(q,P,t)\;=\;P_i\,dq^i\;-\;H(q,P,t)\,dt,
+\label{eq:c10-pc-form}
+\end{equation}
+and impose the closure $d\Theta_{\mathcal R}=0$ on admissible rectangles in $(q,t)$.
+In local coordinates this is equivalent to the canonical rate equations
+\begin{equation}
+\dot q^i=\partial_{P_i}H,
+\qquad
+\dot P_i=-\,\partial_{q^i}H ,
+\label{eq:c10-canonical}
+\end{equation}
+cf.\ the axiom‑level statement \eqref{eq:pc-form}–\eqref{eq:canonical}.
+
+\paragraph{Legendre pair and rate functional (regularity).}
+Assume standard regularity (strict convexity in $P$ on the sector of interest) so the Legendre map is well‑posed.
+Introduce the rate functional by a Legendre transform in $P$:
+\begin{equation}
+\mathcal R(q,\dot q,t)
+\;:=\;
+\sup_{P}\,\big(P_i\dot q^i-H(q,P,t)\big),
+\qquad
+H(q,P,t)=\sup_{\dot q}\,\big(P_i\dot q^i-\mathcal R(q,\dot q,t)\big).
+\label{eq:c10-Legendre}
+\end{equation}
+At the stationary pair $(\dot q,P)$ one has the first‑order relations
+\begin{equation}
+\dot q^i=\partial_{P_i}H,
+\qquad
+P_i=\frac{\partial \mathcal R}{\partial \dot q^i}.
+\label{eq:c10-R-def}
+\end{equation}
+On solutions (at the maximizing $P$) the $1$‑form becomes
+\begin{equation}
+\Theta_{\mathcal R}\;=\;\big(P_i\dot q^i-H\big)\,dt\;=\;\mathcal R(q,\dot q,t)\,dt .
+\label{eq:c10-theta-as-Rdt}
+\end{equation}
+
+\paragraph{Boundary closure $\Rightarrow$ stationarity of the rate functional.}
+Let $\Sigma$ be the rectangular $2$‑surface spanned by two nearby curves between $(t_0,t_1)$.
+By Stokes,
+\begin{equation}
+\int_{\partial\Sigma}\Theta_{\mathcal R}\;=\;\int_{\Sigma}d\Theta_{\mathcal R}\;=\;0 .
+\label{eq:c10-stokes}
+\end{equation}
+The boundary integral is the first variation of the \emph{rate functional}
+\begin{equation}
+\mathcal S[q]\;:=\;\int_{t_0}^{t_1}\!\mathcal R\big(q,\dot q,t\big)\,dt ,
+\label{eq:c10-action}
+\end{equation}
+so \eqref{eq:c10-stokes} implies
+\begin{equation}
+\delta\mathcal S[q]\;=\;0 \quad \text{for fixed endpoints } q(t_0),\,q(t_1).
+\label{eq:c10-deltaS0}
+\end{equation}
+
+\paragraph{Euler–Lagrange $\Leftrightarrow$ canonical rates.}
+Stationarity of \eqref{eq:c10-action} yields the Euler–Lagrange equations
+\begin{equation}
+\frac{d}{dt}\Big(\frac{\partial \mathcal R}{\partial \dot q^i}\Big)
+\;-\;
+\frac{\partial \mathcal R}{\partial q^i}
+\;=\;0 .
+\label{eq:c10-EL}
+\end{equation}
+Using $P_i=\partial_{\dot q^i}\mathcal R$ and $\mathcal R=P\!\cdot\dot q-H$, one obtains
+$\dot P_i=-\,\partial_{q^i}H$ and, together with $\dot q^i=\partial_{P_i}H$, recovers
+the canonical system \eqref{eq:c10-canonical}. Thus \eqref{eq:c10-canonical} are
+Hamilton’s equations for the generator $H$:
+\begin{equation}
+\dot q^i=\partial_{P_i}H, \qquad \dot P_i=-\,\partial_{q^i}H ,
+\label{eq:c10-Hamilton}
+\end{equation}
+with $\Theta_{\mathcal R}=P_i\,dq^i-H\,dt$ the Poincar\'e–Cartan form.
+
+\paragraph{Constraints, nonconvexity, and dissipation.}
+If $H$ is not strictly convex in $P$, replace the Legendre transform by a convex dual or impose
+constraints via Lagrange multipliers; the equivalence holds on the constrained submanifold.
+Nonconservative or driven channels are included by adding explicit $t$‑dependence or nonpotential
+terms to $H(q,P,t)$, leading to the corresponding generalized Euler–Lagrange equations with
+Rayleigh‑type contributions.
+
+\paragraph{Field analogue (pointer).}
+For fields $\varphi^a(x)$ with polymomenta $P_a^{\ \mu}$, the multisymplectic form
+$\Theta_{\!\mathrm{DW}}$ and the closure $d\Theta_{\!\mathrm{DW}}=0$ reproduce the covariant De Donder–Weyl
+equations; a $3{+}1$ split reduces to \eqref{eq:c10-canonical}. See App.~\ref{app:ddw}.
+
+\medskip
+\noindent\emph{Summary.}
+The least‑action principle is not an extra postulate here: it is the boundary restatement of the same
+closure that yields the canonical rate equations. Under convex duality, Euler–Lagrange, Hamilton, and
+the closure $d\Theta_{\mathcal R}=0$ are fully equivalent.
+
+\medskip
+\noindent\emph{Literature note.}
+The Poincar\'e–Cartan form and Hamilton/Euler–Lagrange equivalence are standard
+(see Arnold~\cite{Arnold1989} and Abraham–Marsden~\cite{AbrahamMarsden1978});
+convex duality and Legendre transforms are summarized in Rockafellar~\cite{Rockafellar1970}.
+The field/multisymplectic analogue is reviewed in App.~\ref{app:ddw} (cf.\ Kanatchikov~\cite{Kanatchikov1998};
+Gotay--Isenberg--Marsden~\cite{GotayIsenbergMarsden1998}; Marsden--Patrick--Shkoller~\cite{MarsdenPatrickShkoller1998}).
