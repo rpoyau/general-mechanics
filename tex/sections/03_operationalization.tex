@@ -13,6 +13,27 @@ the static linear closure \eqref{eq:static-closure}, and (when used) a
 \emph{wave transport closure} that admits a Poynting identity on
 source–free segments (App.~\ref{app:forms-stokes}, eq.~\eqref{appB:eq:poynting}).
 
+% --- Thermodynamic dictionary (boundary-first) ---
+\paragraph{Thermodynamic dictionary (boundary-first).}
+Piston face area $A$ $\to$ screen $S^{n-1}(r)$ with area $A_{n}(r)$;
+pressure $p$ $\to$ normal flux density $j_n$ on the screen;
+volume $V$ $\to$ enclosed $V_n(r)$;
+mechanical work $\delta W$ $\to$ $j_n$ times the boundary deformation $A_{n}(r)\,\delta r$;
+heat $\delta Q$ $\to$ informational bookkeeping $\Theta\,\delta S_I$ on the boundary (calibrated by one datum per sector).
+This dictionary is used operationally in C0 and C1 (\S\ref{corollary:info-gas}, \S\ref{corollary:static-screen}).
+
+% --- Geometry note for n+1 and moving screens ---
+\paragraph{Geometry in $n{+}1$ (screens and worldtubes).}
+In $n$ spatial dimensions use the spherical surface $A_{n}(r)$ (or the effective cross‑section/circumference under confinement; C8: \S\ref{corollary:dimensional}).
+For moving screens replace it by the instantaneous $A_{n}(r,t)$ and use the worldtube cap+side form with side integrand $\mathbf j\!\cdot\!\mathbf n - i\,v_n$ (App.~\ref{app:forms-stokes}).
+
+% --- Operational witnesses (local, optional) ---
+\paragraph{Operational witnesses (local, optional).}
+\emph{W-FluxConst[$\varepsilon$]}: on a static annulus $W$ with $\sigma|_W\equiv 0$ (source‑free), the directed screen flux is invariant across nested screens (C1, \S\ref{corollary:static-screen}).
+\emph{W-Narrow[$\varepsilon$]}: on a propagation segment, exported power is spectrally concentrated near a carrier (C4, \S\ref{corollary:info-em}).
+\emph{W-Lin[$\varepsilon$]}, \emph{W-Stat[$\varepsilon$]}, \emph{W-Ret[$\varepsilon$]}: local linearity, stationarity, and retardedness checks on the window (used when forming transfer functions).
+Consequences in C1--C4 are invoked on windows where the corresponding witness is observed.
+
 % ----------------------------- 3.1 -------------------------------------
 \subsection{Inputs and outputs}
 \label{subsec:op-inputs}
@@ -33,9 +54,8 @@ To make the framework predictive, the observer supplies:
   \item \textbf{Resource budgets.} Area $A$, time window $\Delta t$, power budget $P$,
         boundary temperature $T$ (Kz; App.~\ref{app:kick}), and a target reliability $\varepsilon$
         for coding/decoding.
-  \item \textbf{Noise model (optional).} If needed, a noise kernel $\mathcal N$ for
-        fluctuations (App.~\ref{app:noise-kernel}) or simply the Poisson shot–noise assumption
-        used in C6 (\S\ref{corollary:noise}).
+  \item \textbf{Noise record (optional).} If needed, a measured noise kernel $\mathcal N$ for
+        fluctuations (App.~\ref{app:noise-kernel}) or simply the shot–noise witness used in C6 (\S\ref{corollary:noise}).
 \end{enumerate}
 \emph{Outputs} are calibrated fields and bounds over the same region and window:
 static profiles $Y(r)$, wave envelopes $\langle|Y(r)|\rangle$, and operational
@@ -114,18 +134,21 @@ $\Delta t$ (C5, \S\ref{corollary:time-info}). With a reliability target $\vareps
 and a channel class choice (coding, alphabet, constraints), let
 $C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)$ denote the corresponding $\varepsilon$–reliable
 capacity (trits per time). Then the resource–limited bounds (C5) are
-\begin{align}
+\begin{equation}
 \frac{\Delta I_{\rm trits}}{\Delta t}
-&\le \min\!\left\{\frac{\overline{J}_{A}}{\ln 3},\
+\le \min\!\left\{\frac{\overline{J}_{A}}{\ln 3},\
 C_{\rm chan}^{(\mathrm{trits})}(\varepsilon),\
 \frac{P}{T\,\ln 3}\right\},
-\label{eq:op-rate}\\[4pt]
+\label{eq:op-rate}
+\end{equation}
+
+\begin{equation}
 \Delta t
-&\ge \max\!\left\{\frac{\Delta I_{\rm trits}}{\overline{J}_{A}/\ln 3},\
+\ge \max\!\left\{\frac{\Delta I_{\rm trits}}{\overline{J}_{A}/\ln 3},\
 \frac{\Delta I_{\rm trits}}{C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)},\
 \frac{\Delta I_{\rm trits}\,\ln 3\,T}{P}\right\}.
 \label{eq:op-time}
-\end{align}
+\end{equation}
 
 \paragraph{Erasures/unknowns (resolved content).}
 If a fraction $\varepsilon_{\bot}\in[0,1)$ of symbols observed on the same window are erasures $(\bot)$,
@@ -138,19 +161,27 @@ C_{\rm chan}^{(\mathrm{trits})}\ \mapsto\ (1-\varepsilon_{\bot})\,C_{\rm chan}^{
 in \eqref{eq:op-rate}–\eqref{eq:op-time}. The $P/T$ term is unchanged.
 
 % ----------------------------- 3.5 -------------------------------------
-\subsection{Noise floor and estimator width}
+\subsection{Noise floor and estimator width (operational counting witness)}
 \label{subsec:op-noise}
 
-For Poisson arrivals across $A$ over $\Delta t$ with mean inward current
-$\overline{j}_A$, the Cram\'er–Rao bound (C6, \S\ref{corollary:noise}) yields
+Let $N_A(\Delta t)$ be the inward counts on a patch $A$ over a window $\Delta t$.
+Define the \emph{measured} mean inward current
+\[
+\overline{j}_A:=\frac{\mathbb E[N_A]}{|A|\,\Delta t},
+\]
+the windowed \emph{Fano factor} \(F_A:=\mathrm{Var}(N_A)/\mathbb E[N_A]\), and an
+\emph{effective window} \(\Delta t_{\!\mathrm{eff}}\le \Delta t\) obtained from the
+count autocorrelation on the same record (App.~\ref{app:noise-kernel}).
+Any boundary estimator \(Y\) built from these counts admits the \emph{operational}
+benchmark width
 \begin{equation}
-\mathrm{Var}(\widehat{E}_I)\ \gtrsim\ \frac{\overline{j}_A}{\kappa^2\,|A|\,\Delta t}
-\quad\Rightarrow\quad
-\sigma_{Y}\ \gtrsim\ c_{\rm sec}\,\frac{1}{\kappa}\sqrt{\frac{\overline{j}_A}{|A|\,\Delta t}}.
+\sigma_{Y}\ \approx\ \frac{c_{\rm sec}}{\kappa}\,
+\sqrt{\frac{F_A\,\overline{j}_A}{|A|\,\Delta t_{\!\mathrm{eff}}}}.
 \label{eq:op-noise}
 \end{equation}
-Correlation time $\tau>0$ reduces independent samples to $\approx\Delta t/\tau$,
-rescaling the RHS by $\sqrt{\tau/\Delta t}$ (C6, App.~\ref{app:noise-kernel}).
+Shot–noise–limited records have \(F_A\!\approx\!1\) and \(\Delta t_{\!\mathrm{eff}}\!\approx\!\Delta t\);
+overdispersed or correlated arrivals are captured by the measured \((F_A,\Delta t_{\!\mathrm{eff}})\).
+This statement is \emph{windowed and data–driven}; no additional statistical postulates are assumed.
 
 % ----------------------------- 3.6 -------------------------------------
 \subsection{Procedure checklist (static and wave cases)}
@@ -159,7 +190,7 @@ rescaling the RHS by $\sqrt{\tau/\Delta t}$ (C6, App.~\ref{app:noise-kernel}).
 \noindent\emph{Static.}
 \begin{enumerate}\itemsep2pt
   \item Choose $\partial U$ (screen/sector) and, if needed, confinement geometry (C8, \S\ref{corollary:dimensional}).
-  \item Apply \eqref{eq:stokes-identity} and the cut form \eqref{eq:cut-balance} with $\sigma=0$ on the annulus to identify
+  \item Apply \eqref{eq:stokes-identity} and the cut identity \eqref{eq:cut-balance} with $\sigma=0$ on the annulus to identify
         a constant directed flux $\Phi$.
   \item Fix $c_{\rm sec}$ from one datum $Y_\star$ on $(r_\star,A_\star)$ via \eqref{eq:op-cal-const}.
   \item Predict $Y(r)$ from the ratio law \eqref{eq:op-one-datum-ratio}; apply C11 corrections if attenuation
@@ -180,22 +211,22 @@ rescaling the RHS by $\sqrt{\tau/\Delta t}$ (C6, App.~\ref{app:noise-kernel}).
 \subsection{Micro–example (3D static screen)}
 \label{subsec:op-example}
 
-A 3D screen of radius $r$ encloses a steady source. One datum for a gravitational
-readout: $(r_\star,g_\star)$ on a full screen ($A_\star=4\pi r_\star^2$). Then for any
-$r$ on the same source family,
-\[
-g(r)=g_\star\,\frac{A_\star}{A_3(r)}=g_\star\,\frac{r_\star^2}{r^2},
-\]
-with estimator width from \eqref{eq:op-noise} using the collected inward flux and
-integration window. The derivation is constant–free; flux labels (e.g.\ mass) can be
-introduced as operational names if desired (App.~\ref{app:calibrations}).
+A 3D spherical screen of radius $r$ has area $A_3(r)=4\pi r^2$.
+On a static annulus with $\sigma\approx 0$ (source‑free to measurement precision) and directed tube flux $\Phi$,
+\begin{equation}
+\langle j_n(r)\rangle=\frac{\Phi}{A_3(r)}=\frac{\Phi}{4\pi r^2} .
+\end{equation}
+With the snapshot closure \eqref{eq:static-closure}, the informational field amplitude reads
+\begin{equation}
+\big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\frac{\Phi}{A_3(r)}=\frac{1}{\kappa}\,\frac{\Phi}{4\pi r^2}.
+\end{equation}
+This furnishes the static $1/r^2$ profile used in examples.
 
 % ----------------------------- 3.8 -------------------------------------
 \subsection{Units (Kz) and trits/nats}
 \label{subsec:op-units}
 
-All rates are expressed in Kz (SI$/h$) once (App.~\ref{app:kick}). Counts recorded in
-\emph{trits} map to nats by
+Kz units are used for rates; base logs convert by $\ln 3$:
 \begin{equation}
 S_{\rm nats}=(\ln 3)\,S_{\rm trits}.
 \end{equation}
@@ -206,7 +237,7 @@ of $\ln 3$ in the time–information bounds \eqref{eq:op-rate}–\eqref{eq:op-ti
 \medskip
 \noindent\emph{Literature note.}
 Capacity and reliability follow Shannon and Gallager~\cite{Shannon1948,Gallager1968};
-erasure cost follows Landauer and Bennett~\cite{Landauer1961,Bennett2003}; estimator
-floors use Cram\'er–Rao bounds~\cite{Kay1993,VanTrees2001}. The Poynting identity is
-stated in App.~\ref{app:forms-stokes} and, for an EM realization, in standard texts
-(e.g.\ Jackson~\cite{Jackson1999}).
+erasure cost follows Landauer and Bennett~\cite{Landauer1961,Bennett2003};
+for wave transport and power export see App.~\ref{app:forms-stokes} and standard EM texts (e.g.\ Jackson~\cite{Jackson1999});
+for boundary counting statistics, the windowed Fano factor and autocorrelation–based $\Delta t_{\!\mathrm{eff}}$ are standard empirical tools
+(App.~\ref{app:noise-kernel}).

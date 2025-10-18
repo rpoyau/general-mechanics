@@ -26,9 +26,9 @@ yield the canonical system
 identical in content to \eqref{eq:pc-form}–\eqref{eq:canonical}.
 
 \paragraph{Diffusive branch (MaxCal/Onsager--Machlup).}
-Assume local fluctuations around the canonical drift admit a Gaussian kernel with positive‑definite
-diffusivity matrix $D(q,t)$ and a scalar rate field $U(q,t)$.
-Maximizing path caliber with constraints on $\int |\dot q-v|_{D^{-1}}^2\,dt$ and $\int U\,dt$
+On a window where local fluctuations around the canonical drift are modeled by a Gaussian kernel
+with positive‑definite diffusivity matrix $D(q,t)$ and a scalar rate field $U(q,t)$,
+maximizing path caliber with constraints on $\int |\dot q-v|_{D^{-1}}^2\,dt$ and $\int U\,dt$
 yields the Onsager--Machlup rate
 \begin{equation}
 \mathcal R_{\rm diff}(q,\dot q,t)
@@ -41,7 +41,7 @@ and the path weight
 \exp\!\left(-\int_{t_0}^{t_1}\mathcal R_{\rm diff}\,dt\right).
 \label{eq:c12-weight}
 \end{equation}
-The density $\rho(q,t)$ obeys a Fokker--Planck form
+The density $\rho(q,t)$ then takes a Fokker--Planck form
 \begin{equation}
 \partial_t \rho
 =
@@ -51,7 +51,7 @@ The density $\rho(q,t)$ obeys a Fokker--Planck form
 \quad \text{(as modeled)},
 \label{eq:c12-fp}
 \end{equation}
-with $D$ tied to the counting noise kernel of App.~\ref{app:noise-kernel} (see C6).
+with $D$ tied to the counting noise kernel of App.~\ref{app:noise-kernel} (see C6, \S\ref{corollary:noise}).
 
 \paragraph{Oscillatory branch (wave template).}
 Keep the same local fields but rotate the quadratic kernel to an \emph{oscillatory} weight:
@@ -66,7 +66,7 @@ H(q,P,t)=\tfrac12\,P^T M^{-1}(q,t)\,P+U(q,t),
 \label{eq:c12-quadH}
 \end{equation}
 so that stationary phase reproduces the canonical drift \eqref{eq:c12-canonical} with
-$\dot q=M^{-1}P$ and $\dot P=-\nabla U$ (cf.\ C9 for the Newtonian specialization).
+$\dot q=M^{-1}P$ and $\dot P=-\nabla U$ (cf.\ C9, \S\ref{corollary:thermo-newton} for the Newtonian specialization).
 
 \paragraph{Short‑time kernel and a Schr\"odinger‑type evolution (template).}
 Under the quadratic choice \eqref{eq:c12-quadH}, a Fourier representation of the short‑time kernel
@@ -85,7 +85,7 @@ where $\alpha$ is a positive wave scale and $M$ an inertial map (both fixed once
 No universal constant is introduced.
 
 \paragraph{Minimal coupling (Info--EM specialization).}
-If an informational 1‑form $A_I$ is present (C4), minimal coupling enters by
+If an informational 1‑form $A_I$ is present (C4, \S\ref{corollary:info-em}), minimal coupling enters by
 \begin{equation}
 P\ \mapsto\ P-A_I(q,t)
 \quad\text{in}\quad

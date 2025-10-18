@@ -5,7 +5,7 @@
 \section{Noise kernel \& stochastic response}
 \label{app:noise-kernel}
 
-We collect constant–free formulas for fluctuations about the mean on the same region
+This appendix records constant–free formulas for fluctuations about the mean on the same region
 \(U\times[t_0,t_1]\): (i) a \emph{noise kernel} for current/stress fluctuations,
 (ii) a linear stochastic response (Einstein–Langevin–type, abstracted),
 (iii) propagation of covariances via Green functions, and
@@ -41,7 +41,7 @@ use a projected flux–flux kernel \(N_{A}(t,t')\) built from \((\mathbf j\!\cdo
 \subsection{Stochastic linear response (Einstein–Langevin–type)}
 \label{appE:EL}
 Linearize the channel’s geometric/constitutive response around a background that satisfies the
-mean balance (App.~\ref{app:forms-stokes}, \eqref{appB:eq:stokes}–\eqref{appB:eq:local}). Let \(X\) denote
+mean continuity (from the Stokes identity) (App.~\ref{app:forms-stokes}, \eqref{appB:eq:stokes}–\eqref{appB:eq:local}). Let \(X\) denote
 the small response field (e.g.\ a metric–like perturbation \(h_{ab}\), or a scalar potential fluctuation).
 A constant–free stochastic equation is
 \begin{equation}
@@ -185,7 +185,7 @@ relaxation (white \(S_E\) in-band),
 If the source has a single thermal time \(\tau\), replace \(S_E\) by \(S_E/(1+\omega^2\tau^2)\) in \eqref{appE:eq:psd}.
 
 \paragraph{Assumptions.}
-(i) Far-field screen outside the source; (ii) quasistatic band: \(\omega\ll c/r\) so wave export (C4, \S\ref{corollary:info-em}) is negligible;
+(i) Far-field screen outside the source; (ii) quasistatic band: \(\omega\ll c_I/r\) so wave export (C4, \S\ref{corollary:info-em}) is negligible;
 (iii) independent subsystems add their PSDs.
 
 \medskip
@@ -197,7 +197,6 @@ identification; they are not used here.)
 \medskip
 \noindent\emph{Literature note.}
 The stochastic–response scaffold in \S\ref{appE:EL} follows the Einstein–Langevin program (see Hu–Verdaguer~\cite{HuVerdaguer2008});
-Poisson counting and renewal processes background appear in Kingman~\cite{Kingman1993}; Cramér–Rao estimator floors in
-Kay and van Trees~\cite{Kay1993,VanTrees2001}; OU/Fokker–Planck tools in Gardiner and Risken~\cite{Gardiner2004,Risken1989}.
-The balance/continuity identities used here are recalled in App.~\ref{app:forms-stokes}; geometric screen factors in App.~\ref{app:nD-screens}.
+Poisson counting and renewal processes background appear in Kingman~\cite{Kingman1993}.
+The Stokes/continuity identities used here are recalled in App.~\ref{app:forms-stokes}; geometric screen factors in App.~\ref{app:nD-screens}.
 % ======================================================================

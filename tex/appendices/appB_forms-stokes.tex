@@ -28,11 +28,11 @@ $J^\mu=(i,\mathbf j)$ in adapted coordinates. Its Hodge dual $j^{(n)}:=\!*j$ is 
 integrates naturally over spatial caps and side surfaces.\footnote{Legacy sections may write
 $j^{(3)}$ for the dual $n$–form. Here we use the dimension‑agnostic $j^{(n)}:=*j$.}
 Production is the $(n{+}1)$–form $\Sigma:=\sigma\,\mathrm{vol}_{n+1}$ with nonnegative density $\sigma$
-in the sector where dissipation is present.
+in sectors where dissipation is present.
 
-\subsection{Global balance (generalized Stokes)}
+\subsection{Global identity (generalized Stokes)}
 \label{appB:global-balance}
-The Stokes balance is the exterior–derivative statement
+The Stokes identity is the exterior–derivative statement
 \begin{equation}
 d\,j^{(n)}=\Sigma
 \quad\Longleftrightarrow\quad
@@ -54,7 +54,7 @@ Equivalently, for any product region $U_{[t_0,t_1]}$,
 \label{appB:eq:stokes-int}
 \end{equation}
 
-\subsection{Cap/side decomposition and the cut balance}
+\subsection{Cap/side decomposition and the cut identity}
 \label{appB:cap-side}
 Using the decomposition of $\partial U_{[t_0,t_1]}$,
 \begin{align}
@@ -64,22 +64,27 @@ Using the decomposition of $\partial U_{[t_0,t_1]}$,
 -
 \underbrace{\int_{V_{t_0}}\! j^{(n)}}_{\text{bottom cap}}
 +
-\underbrace{\int_{\partial V\times[t_0,t_1]}\!\! j^{(n)}}_{\text{side}}
+\underbrace{\int_{\partial V\times[t_0,t_1]}\!\! j^{(n)}}_{\text{side}} .
 \label{appB:eq:cap-side}
 \end{align}
-with
+Define
 \[
 I_{\mathrm{enc}}(t):=\int_{V_t} i\,\mathrm{vol}_{n},\qquad
 \Phi_{\mathrm{in/out}}(t):=\int_{\partial V_t}(\mathbf j\!\cdot n)_{\mp}\,dA,
 \qquad
 \Pi(t):=\int_{V_t}\sigma\,d^n x.
 \]
-Differentiating \eqref{appB:eq:stokes-int} in $t$ yields the \emph{cut balance}
+Differentiating \eqref{appB:eq:stokes-int} in $t$ yields the \emph{cut identity}
 \begin{equation}
 \dot I_{\mathrm{enc}}(t)\;=\;\Phi_{\mathrm{in}}(t)-\Phi_{\mathrm{out}}(t)\;+\;\Pi(t),
 \label{appB:eq:cut}
 \end{equation}
 identical to \eqref{eq:cut-balance} in the main text.
+
+\paragraph{Moving boundaries (worldtube note).}
+If the boundary $\partial V_t$ moves with normal speed $v_n$, the side integrand in the cap–side form acquires
+the kinematic term $\mathbf j\!\cdot n - i\,v_n$, with caps evaluated on the initial and final slices. This is the
+form used when the screen area $A_{n-1}(r,t)$ varies in time.
 
 \subsection{Local form (continuity)}
 \label{appB:local}
@@ -92,9 +97,10 @@ the usual $(n{+}1)$–dimensional continuity law (cf.\ \eqref{eq:local-continuit
 
 \subsection{Static snapshot and tube/screen invariants}
 \label{appB:static}
-For a time–frozen snapshot with $\sigma=0$ in a region, $d j^{(n)}=0$ implies that the flux through any two
-homologous screens is equal. If $\mathcal T$ is a narrow tube whose side surface is tangent to $j$, then the
-directed tube flux $\Phi=\int_{\Sigma}j\!\cdot n\,dA$ is constant along the tube and cross–sectional averages obey
+For a time–frozen snapshot, on an open set $W\subset U$ with $\sigma|_W\equiv 0$ (source‑free), $d j^{(n)}=0$ on $W$
+implies that the flux through any two homologous screens in $W$ is equal. If $\mathcal T$ is a narrow tube whose side
+surface is tangent to $j$, then the directed tube flux $\Phi=\int_{\Sigma}j\!\cdot n\,dA$ is constant along the tube
+and cross–sectional averages obey
 \[
 \langle j_n\rangle=\frac{\Phi}{A}.
 \]
@@ -109,8 +115,10 @@ On segments that support wave‑like transport, adopt the informational electrod
 F_I=dA_I,\qquad dF_I=0,\qquad dH_I={*}j,\qquad H_I=\chi:F_I,
 \]
 where $A_I$ is a $1$‑form potential, $F_I$ the $2$‑form field, $H_I$ the excitation $2$‑form via a (linear, local)
-constitutive map $\chi$ on the segment considered. \emph{Causality of $\chi$ implies Kramers–Kronig dispersion relations;}
-see \S\ref{appB:KK}, eq.~\eqref{appB:eq:KK}.
+constitutive map $\chi$ on the segment considered. \emph{When a causal model for $\chi$ is adopted, or when
+retarded response is observed on a window}, the measured/adopted transfer may be \emph{compared} against the
+Kramers--Kronig Hilbert–transform relations recorded in \S\ref{appB:KK}, eq.~\eqref{appB:eq:KK}. This is a
+diagnostic/witness for that regime, not a global postulate.
 
 The informational energy–rate density and Poynting vector are
 \[
@@ -139,8 +147,8 @@ used in the wave corollaries, in particular C4 (\S\ref{corollary:info-em}).
 
 \subsection{Causality note (Kramers--Kronig for $\chi$)}
 \label{appB:KK}
-For linear, time–invariant media the (temporal) Fourier transform $\chi(\omega)$ obeys Hilbert–transform relations
-when $\chi$ is causal:
+For linear, time–invariant media the (temporal) Fourier transform $\chi(\omega)$ satisfies the standard
+Hilbert–transform relations when $\chi$ is causal:
 \begin{align}
 \Re\,\chi(\omega)
 &=\frac{1}{\pi}\,\mathrm{P}\!\!\int_{-\infty}^{\infty}\frac{\Im\,\chi(\omega')}{\omega'-\omega}\,d\omega',
@@ -149,7 +157,8 @@ when $\chi$ is causal:
 =-\frac{1}{\pi}\,\mathrm{P}\!\!\int_{-\infty}^{\infty}\frac{\Re\,\chi(\omega')}{\omega'-\omega}\,d\omega' .
 \label{appB:eq:KK}
 \end{align}
-This provides a consistency check for any chosen $\chi$ in Info–EM specializations.
+These relations are recorded here as a comparison template: when retardedness is observed on a window, empirical
+dispersion may be checked against \eqref{appB:eq:KK} as a local witness.
 
 \subsection{Sign conventions and directional split}
 \label{appB:signs}
@@ -160,7 +169,7 @@ $(a)_\pm:=\tfrac12\,(a\pm|a|)$ and is independent of those choices.
 \subsection{Summary}
 \label{appB:summary}
 With $j$ a $1$–form and $j^{(n)}=\!*j$, the single identity $d j^{(n)}=\sigma\,\mathrm{vol}_{n+1}$ yields:
-(i) the local continuity equation \eqref{appB:eq:local}, and (ii) the cut balance \eqref{appB:eq:cut} from the
+(i) the local continuity equation \eqref{appB:eq:local}, and (ii) the cut identity \eqref{appB:eq:cut} from the
 cap/side decomposition of $\partial U_{[t_0,t_1]}$. Static inverse–area rules (C0–C1) and dynamic Poynting export (C4)
 used in the main text are direct applications once closures are specified.
 

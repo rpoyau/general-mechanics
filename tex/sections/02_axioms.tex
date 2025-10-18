@@ -17,7 +17,7 @@
   \[
   H_{\text{trits}}=\frac{H}{\ln 3}.
   \]
-  “Unknown’’ can be modeled explicitly by an alphabet symbol \(\bot\in\mathcal A\) without altering any geometric or Stokes statements. All later rate/flux formulas are invariant under the nat/trit unit choice up to factors of \(\ln 3\).
+  “Unknown’’ can be represented explicitly by an alphabet symbol \(\bot\in\mathcal A\) without altering any geometric or Stokes statements. All later rate/flux formulas are invariant under the nat/trit unit choice up to factors of \(\ln 3\).
   \label{axiom:R1}
 \end{description}
 
@@ -57,6 +57,7 @@ and the interior production \(\Pi(t):=\int_U \sigma\,d^n x\). Then
 \dot I_{\mathrm{enc}}(t)=\Phi_{\mathrm{in}}(t)-\Phi_{\mathrm{out}}(t)+\Pi(t).
 \label{eq:cut-balance}
 \end{equation}
+\label{eq:cut-identity}
 In local coordinates this is the continuity equation
 \begin{equation}
 \partial_t i(x,t)+\nabla\!\cdot \mathbf j(x,t)=\sigma(x,t).
@@ -72,7 +73,7 @@ On time-frozen snapshots in linear, isotropic, near-equilibrium regimes,
 \mathbf j=-\,\kappa\,\mathbf E_I .
 \label{eq:static-closure}
 \end{equation}
-Here \(\Phi_I\) is the informational potential, \(\mathbf E_I\) its field, and \(\kappa\) a constitutive scale of the channel. This closure is a \emph{snapshot tool} for static screen/sector laws; it is not assumed on time-extended segments (propagation closures appear only in corollaries).
+Here \(\Phi_I\) is the informational potential, \(\mathbf E_I\) its field, and \(\kappa\) a constitutive scale of the channel. This closure is a snapshot tool for static screen/sector laws; time-extended segments employ the appropriate propagation closures when used later in corollaries.
 
 \subsubsection{D3. Relational equation of state (REOS)}
 \label{axiom:reos}
@@ -83,7 +84,7 @@ d\rho \;=\; -\,\lambda_a\,dR^{(a)} .
 \end{equation}
 If \(d\lambda=0\) (integrable sector), \(\rho\) is path-independent and Maxwell-type identities hold. If \(d\lambda\neq 0\) (non-integrable sector), cyclic variations of \(R^{(a)}\) entail positive net cost that appears as nonnegative production \(\sigma\) in the identities \eqref{eq:stokes-identity}–\eqref{eq:cut-balance}.
 
-\subsubsection{D4. Canonical rates from Stokes on (q,t)}
+\subsubsection{D4. Canonical rates from Stokes on \((q,t)\)}
 \label{axiom:path-rate}
 Define the rate (Poincar\'e--Cartan) \(1\)-form on configuration-time space
 \begin{equation}
@@ -97,12 +98,12 @@ Evaluating Stokes on a rectangular \(2\)-surface spanned by two nearby paths bet
 \dot P_i=-\,\partial_{q^i}H .
 \label{eq:canonical}
 \end{equation}
-No least-action postulate is assumed; the Euler--Lagrange form follows under convex duality (see Corollary~\ref{corollary:least-action}).
+The Euler--Lagrange form follows under convex duality (see Corollary~\ref{corollary:least-action}).
 
 \medskip
 \noindent\emph{Notes.}
 (1) Trits versus nats are related by a factor \(\ln 3\); the axioms are invariant under this unit choice.\\
-(2) Propagation closures (e.g.\ Info--EM) and wave transport are \emph{specializations} introduced later (not axioms); see Corollary~\ref{corollary:info-em} for one realization.\\
+(2) Propagation closures (e.g.\ Info--EM) and wave transport are specializations introduced later; see Corollary~\ref{corollary:info-em} for one realization.\\
 (3) Operational sector mappings and units (Kz) are specified once outside this section (App.~\ref{app:kick}).
 
 \medskip

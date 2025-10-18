@@ -6,34 +6,38 @@
 \label{introduction}
 
 \subsection{Aim and stance.}
-We take \emph{General Mechanics} to mean: dynamics derived from a single \emph{geometric identity}
-(Stokes' theorem) applied to an \emph{informational current} on a chosen region of a manifold.
+This work takes \emph{General Mechanics} to mean: dynamics read from a single \emph{geometric identity}
+(the Stokes identity) applied to an \emph{informational current} on a chosen region of a manifold.
 Relations are primary; observables are relational. An observer specifies a region $U\subset M$ with
-boundary $\partial U$; all statements below are read from the boundary, not added as extra postulates.
+boundary $\partial U$; statements below are read from the boundary and its time extension.
+
+Measurements are framed in information theory (Shannon measures with Bayesian updating) over a
+ternary evidence alphabet: \emph{yes}, \emph{no}, and \emph{yesno} (unknown).
 
 \subsection{One geometric identity, two uses.}
-The generalized Stokes identity relates the exterior derivative of a current to its flux through the
-boundary. With $j:=J^\mu dx_\mu$ the informational/entropic current $1$-form and $*j$ its Hodge dual,
-the identity is $d(*j)=\sigma\,\mathrm{vol}$ (continuity).\footnote{Local form and the \emph{cut (cap–side)
-decomposition} are stated in \eqref{eq:stokes-identity}–\eqref{eq:cut-balance} once the axioms are introduced.}
-We \emph{apply} this identity in two standard ways:
-(i) on a \emph{time‑frozen} spatial region (static screens/sectors; see C0–C1:
+With $j:=J^\mu dx_\mu$ the informational/entropic current $1$-form and $*j$ its Hodge dual, the
+Stokes identity is $d(*j)=\sigma\,\mathrm{vol}$ (continuity).\footnote{Local and cut forms appear
+in \eqref{eq:stokes-identity}–\eqref{eq:cut-balance} once the axioms are stated.}
+It is used in two ways:
+
+(i) on a \emph{time‑frozen} spatial region (static screens/sectors; C0–C1:
 \S\ref{corollary:info-gas}, \S\ref{corollary:static-screen}); and
-(ii) on a \emph{product region} $U\times[t_0,t_1]$ to discuss change over a time window (C3:
-\S\ref{corollary:external-drives}).
+
+(ii) on a \emph{product region}
+$U\times[t_0,t_1]$ to discuss change over a window (C3: \S\ref{corollary:external-drives}).
 
 \bigskip
 \noindent\fbox{\begin{minipage}{0.97\linewidth}
 \textbf{Cone/Tube principle (time frozen).}
-Let $\sigma=0$ in a neighborhood, and let the side of a narrow tube be everywhere tangent to $\mathbf j$.
-Then the directed tube flux
-$\displaystyle \Phi=\int_{\Sigma} \mathbf j\!\cdot n\,dA$ is independent of the cross‑section $\Sigma$.
+On an open set $W\subset U$ with production density $\sigma|_W\equiv 0$ (source‑free), and with the side
+of a narrow tube everywhere tangent to $\mathbf j$, the directed tube flux
+$\displaystyle \Phi=\int_{\Sigma} \mathbf j\!\cdot n\,dA$ is independent of the cross‑section $\Sigma\subset W$.
 For any screen or conical sector of area $A(r)$ at radius $r$,
 \[
 \big\langle j_n\big\rangle(r)=\frac{\Phi}{A(r)}.
 \]
 With the snapshot closure $\mathbf E_I:=-\nabla\Phi_I$ and $\mathbf j=-\kappa\,\mathbf E_I$
-(see \eqref{eq:static-closure}), the informational field amplitude obeys
+(see \eqref{eq:static-closure}), the informational field amplitude is read as
 \[
 \big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\frac{\Phi}{A(r)}.
 \]
@@ -41,57 +45,54 @@ With the snapshot closure $\mathbf E_I:=-\nabla\Phi_I$ and $\mathbf j=-\kappa\,\
 \end{minipage}}
 
 \subsection{Closures (use and scope).}
-We employ two minimalist ingredients when appropriate:
+Two minimalist ingredients are employed when appropriate:
 \emph{(a) Static linear closure} for near‑equilibrium, time‑frozen statics,
-$\mathbf E_I:=-\nabla\Phi_I$ and $\mathbf j=-\kappa\,\mathbf E_I$ (Axiom D2; \eqref{eq:static-closure});
-\emph{(b) Wave‑supporting closures} when propagation/export are relevant on a source‑free segment.
-In that case the channel supplies a quadratic energy density and flux $(u,\mathbf S)$ with a
-\emph{Poynting identity}\footnote{Statement in forms: see App.~\ref{app:forms-stokes}, eq.~\eqref{appB:eq:poynting}.}
-so exported power through screens is radially constant and far‑field envelopes obey
-$\langle|\mathbf E_I|\rangle\propto A^{-1/2}$ in homogeneous media (C4: \S\ref{corollary:info-em}).
-\emph{Info–EM} is one such specialization; elastic/metric (gravitational‑wave), acoustic/hydrodynamic,
-or plasma closures are equally admissible when they supply $(u,\mathbf S)$. Only D2 is an axiom;
-wave closures are invoked \emph{only} in their regimes (C4).
+$\mathbf E_I:=-\nabla\Phi_I$ and $\mathbf j=-\kappa\,\mathbf E_I$ (D2; \eqref{eq:static-closure});
+\emph{(b) Wave‑supporting closures} when transport/export is relevant on a source‑free segment.
+In $n$ spatial dimensions, a channel with quadratic energy density and flux $(u,\mathbf S)$ satisfying a
+Poynting identity yields radius‑independent exported power across spherical screens $S^{n-1}(r)$ and
+far‑field envelopes
+\[
+\langle|\mathbf E_I|\rangle \propto [A_n(r)]^{-1/2},\qquad A_n(r)\propto r^{\,n-1}
+\]
+(C4: \S\ref{corollary:info-em}; App.~\ref{app:nD-screens}).
+Constrained geometries replace $A_n(r)$ by an effective cross‑section $A_\Delta(r)=\Delta\Omega\,r^{\,n-1}$
+(C8: \S\ref{corollary:dimensional}). Special cases: $n{=}1$ ($A_1\!\equiv\!2$; no geometric decay),
+$n{=}2$ ($A_2=2\pi r$; envelope $\propto r^{-1/2}$), $n{=}3$ ($A_3=4\pi r^2$; envelope $\propto r^{-1}$).
+For moving screens use the worldtube (cap–side) form with side integrand $\mathbf j\!\cdot\!\mathbf n - i\,v_n$
+(App.~\ref{app:forms-stokes}).
 
 \subsection{Units and calibration (once).}
-We use Kz units (see \eqref{eq:appA-kz-map}) so energies and powers are rates. The abstract informational field
-is mapped to measured sectors (gravitational, electric, thermal) by \emph{one‑datum} linear calibrations
-stated once outside the axioms (App.~\ref{app:calibrations}); no bare constants are carried through the algebra.
+Kz units are used (App.~\ref{app:kick}) so energies and powers are rates. The abstract field is mapped to
+measured sectors (gravitational, electric, thermal) by a \emph{one‑datum} linear calibration stated once
+(App.~\ref{app:calibrations}); no bare constants are carried through the algebra.
 
 \subsection{How to use the framework (recipe).}
 \begin{enumerate}\itemsep2pt
-  \item Declare the region $U\subset M$ and its boundary $\partial U$ (screen or sector).
-  \item Write the \emph{Stokes identity} $d(*j)=\sigma\,\mathrm{vol}$ and, when needed, the \emph{cut form} on $U$
-        (Axiom D1; \eqref{eq:stokes-identity}–\eqref{eq:cut-balance}).
-  \item Choose a closure suited to the regime: \textbf{static} (D2) for time‑frozen problems (C0–C1:
-        \S\ref{corollary:info-gas}, \S\ref{corollary:static-screen}); \textbf{wave‑supporting} closure for
-        transport/export on source‑free segments (e.g.\ Info–EM in C4: \S\ref{corollary:info-em}).
-  \item Count distinctions on $\partial U$ (bits or nats) and relate them to $j$ (R1; used in C5:
-        \S\ref{corollary:time-info} and C6: \S\ref{corollary:noise}).
+  \item Declare $U\subset M$ and $\partial U$ (screen or sector).
+  \item Write the Stokes identity $d(*j)=\sigma\,\mathrm{vol}$ and, when needed, the cut identity on $U$
+        (D1; \eqref{eq:stokes-identity}–\eqref{eq:cut-balance}).
+  \item Choose a closure suited to the regime: \textbf{static} (D2) for time‑frozen problems (C0–C1); or a
+        \textbf{wave‑supporting} closure for export on source‑free segments (e.g., Info–EM in C4).
+  \item Count distinctions on $\partial U$ in a ternary alphabet (\emph{yes/no/yesno}) using information‑theoretic
+        accounting, and relate them to $j$ (R1; used in C5–C6).
   \item If comparison with a measured sector is required, fix a single datum to calibrate (App.~\ref{app:calibrations}).
-  \item Read off statics from the inverse‑area rule ($\propto 1/A$; C0–C1:
-        \S\ref{corollary:info-gas}, \S\ref{corollary:static-screen}), and wave envelopes from power export
-        ($\propto 1/\sqrt{A}$ in homogeneous media; C4: \S\ref{corollary:info-em}; with confinement C8:
-        \S\ref{corollary:dimensional}).
-  \item Apply operational limits: time–information complementarity (C5: \S\ref{corollary:time-info}) and
-        the counting‑noise floor (C6: \S\ref{corollary:noise}) when finite windows/areas are relevant.
+  \item Read statics from the inverse‑area rule ($\propto 1/A$; C0–C1), and wave envelopes from power export
+        ($\propto 1/\sqrt{A}$ in homogeneous media; C4; with confinement C8).
+  \item Apply operational limits: time–information complementarity (C5) and the counting‑noise floor (C6) for
+        finite windows/areas.
 \end{enumerate}
 
-\subsection{Scope, reductions, and non‑claims.}
-The spine is manifold‑theoretic and informational. \emph{Dimensional reductions} (1D/2D confinement)
-are handled by replacing $A_n(r)$ with the effective cross‑section/circumference; the resulting static
-$r^{-(n-1)}$ and wave $r^{-(n-1)/2}$ laws appear later (C8: \S\ref{corollary:dimensional}). The
-\emph{least‑action statement} is a derived equivalence of boundary rate equations (C10:
-\S\ref{corollary:least-action}), not an assumption. A \emph{quantum path‑integral template} can be
-overlaid as a modelling choice tied to a quadratic local kernel and the same noise floor (C12:
-\S\ref{corollary:qpi-template}); it is optional. External drives, delay, and production are treated in
-C3 (\S\ref{corollary:external-drives}); calibrated static corrections (attenuation/capacity) are in
-C11 (\S\ref{corollary:entropic-corrections}); thermodynamic/Newtonian rate laws are in C9
-(\S\ref{corollary:thermo-newton}).
+\subsection{Scope and reductions.}
+Dimensional reductions (1D/2D confinement) are handled by replacing $A_n(r)$ with an effective cross‑section/circumference;
+the resulting static $r^{-(n-1)}$ and wave $r^{-(n-1)/2}$ laws appear in C8. The least‑action statement is a derived
+equivalence of boundary rate equations (C10). A quantum path‑integral template can be overlaid as a modelling choice
+tied to a quadratic local kernel and the same noise floor (C12).
 
 \subsection{Roadmap.}
-Section~\ref{axiom:root} states the axioms: continuity (D1: \eqref{eq:stokes-identity}), static closure (D2: \eqref{eq:static-closure}),
-REOS (D3: \eqref{eq:reos}), and canonical rates (D4: \eqref{eq:canonical}). The corollary ladder then develops: relational bit‑gas and static tube/screen
+Section~\ref{axiom:root} states the axioms: continuity (D1: \eqref{eq:stokes-identity}),
+static closure (D2: \eqref{eq:static-closure}), REOS (D3: \eqref{eq:reos}),
+and canonical rates (D4: \eqref{eq:canonical}). The ladder then develops: relational bit‑gas and static tube/screen
 laws (C0–C1: \S\ref{corollary:info-gas}, \S\ref{corollary:static-screen}); continuity/Clausius (C2:
 \S\ref{corollary:continuity}); external drives with delay/production (C3: \S\ref{corollary:external-drives});
 waves and exported power (C4: \S\ref{corollary:info-em}); time–information complementarity (C5:
@@ -103,3 +104,9 @@ details (App.~\ref{app:forms-stokes}), $n$‑D screen geometry (App.~\ref{app:nD
 (App.~\ref{app:jacobson}), noise kernels and stochastic response (App.~\ref{app:noise-kernel}), the calibration
 procedure (App.~\ref{app:calibrations}), the De Donder–Weyl field version (App.~\ref{app:ddw}), and a notation/unit
 sheet (App.~\ref{app:notation-units}).
+
+\medskip
+\noindent\emph{Literature note.}
+Differential forms/Stokes background: Frankel~\cite{Frankel2011}. Poynting/export in EM: Jackson~\cite{Jackson1999},
+Landau--Lifshitz--Pitaevskii~\cite{LandauLifshitzEDCM1984}. Information/capacity: Shannon~\cite{Shannon1948},
+Gallager~\cite{Gallager1968}. Erasure cost: Landauer~\cite{Landauer1961}, Bennett~\cite{Bennett2003}.

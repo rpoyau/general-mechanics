@@ -5,16 +5,15 @@
 \subsection{C3: External drives, delay \& production}
 \label{corollary:external-drives}
 
-We analyze open informational channels driven across a bounded region \(V\) along a narrow tube
-\(\mathcal T\) with inlet cross–section \(\Sigma_{\rm in}\) and outlet \(\Sigma_{\rm out}\).
-Let
+Open informational channels driven across a bounded region \(V\) along a narrow tube
+\(\mathcal T\) with inlet cross–section \(\Sigma_{\rm in}\) and outlet \(\Sigma_{\rm out}\) admit
+the inward and outward directed fluxes
 \[
 \Phi_{\rm in}(t):=\int_{\Sigma_{\rm in}}(\mathbf j\!\cdot n)_-\,dA,
 \qquad
-\Phi_{\rm out}(t):=\int_{\Sigma_{\rm out}}(\mathbf j\!\cdot n)_+\,dA
+\Phi_{\rm out}(t):=\int_{\Sigma_{\rm out}}(\mathbf j\!\cdot n)_+\,dA .
 \]
-denote the inward and outward directed fluxes of the channel. The cut balance
-\eqref{eq:cut-balance} on the tube volume reads
+The cut identity \eqref{eq:cut-identity} on the tube volume reads
 \begin{equation}
 \dot I_{\mathcal T}(t) \;=\; \Phi_{\rm in}(t)-\Phi_{\rm out}(t) \;+\; \Pi_{\mathcal T}(t),
 \qquad
@@ -23,9 +22,9 @@ denote the inward and outward directed fluxes of the channel. The cut balance
 \end{equation}
 where \(\sigma\) is the local production density.
 
-\paragraph{(i) Transparent transit (no production).}
-Assume \(\sigma=0\) in \(\mathcal T\) and a directed speed profile \(v(s)>0\) along the tube coordinate
-\(s\in[0,L]\). The transit time is
+\paragraph{(i) Transparent transit (source‑free segment).}
+On a segment with \(\sigma\equiv 0\) (source‑free) and a directed speed profile along the tube coordinate
+\(s\in[0,L]\) with \(v(s)>0\), the transit time is
 \begin{equation}
 \tau \;=\; \int_{0}^{L}\frac{ds}{v(s)} .
 \label{eq:c3-transit}
@@ -40,9 +39,9 @@ For mild dispersion of speeds, \(\Phi_{\rm out}=K*\Phi_{\rm in}\) with a causal 
 \(K(t)\) of unit mass \(\int K\,dt=1\) and mean \(\tau\).
 
 \paragraph{(ii) Collisional attenuation/production.}
-Suppose interactions remove directed flux at a local rate \(\mu(s)\ge 0\) (per unit length).
-Let \(\Phi(s,t):=\int_{\Sigma(s)}(\mathbf j\!\cdot n)_+\,dA\) be the directed tube flux and assume advection
-with speed \(v(s)\). A first–order transport model gives
+When interactions remove directed flux at a local rate \(\mu(s)\ge 0\) (per unit length),
+write the directed tube flux \(\Phi(s,t):=\int_{\Sigma(s)}(\mathbf j\!\cdot n)_+\,dA\).
+In an advective transport regime with speed \(v(s)\),
 \begin{equation}
 \partial_t \Phi(s,t) + v(s)\,\partial_s \Phi(s,t) \;=\; -\,\mu(s)\,\Phi(s,t) .
 \label{eq:c3-transport}
@@ -61,7 +60,8 @@ so that
 \label{eq:c3-attenuated-delay}
 \end{equation}
 The loss from the directed channel appears in \eqref{eq:c3-cut} as an increase of stored information
-\(I_{\mathcal T}\) and/or as nonnegative production \(\Pi_{\mathcal T}\ge 0\) (cf.\ Axiom~\ref{axiom:reos} for cyclic–cost monotonicity).
+\(I_{\mathcal T}\) and/or as nonnegative production \(\Pi_{\mathcal T}\ge 0\)
+(cf.\ Axiom~\ref{axiom:reos} for cyclic–cost monotonicity).
 
 \paragraph{Cross–sectional amplitudes.}
 Let \(A(s)\) be the cross–section area of \(\Sigma(s)\) and
@@ -93,30 +93,34 @@ Temporal kernels convolve in series; survival factors multiply.
 \paragraph{Moving tube (kinematic invariance).}
 If the tube translates as \(\Sigma(s,t)=\Sigma(s-\xi(t))\) with \(\dot\xi=U(t)\),
 the Stokes identity \eqref{eq:stokes-identity} on the \emph{product region}
-\(\mathcal T\times[t_0,t_1]\) yields the same cut form \eqref{eq:c3-cut}.
+\(\mathcal T\times[t_0,t_1]\) yields the same cut identity \eqref{eq:c3-cut}.
 A co–moving frame replaces \(\partial_t\) by a material derivative along \(U(t)\)
 but leaves \eqref{eq:c3-delay}–\eqref{eq:c3-composition} unchanged.
 
 \paragraph{Calibration and sectors.}
 Counts on \(\partial V\) may be kept in bits; the entropy flux in nats is
 \(j_S=(\ln2)\,j_{\rm bits}\). When a measured sector is calibrated to \(\mathbf E_I\)
-(see \S\ref{subsec:op-calibration}; App.~\ref{app:calibrations}), the corresponding power/time units are in Kz (App.~\ref{app:kick}).
-The static closure \(\mathbf j=-\kappa\,\mathbf E_I\) then maps \(\langle j_n\rangle\) to field amplitudes along the tube.
+(see \S\ref{subsec:op-calibration}; App.~\ref{app:calibrations}), the corresponding power/time units
+are in Kz (App.~\ref{app:kick}). The static closure \(\mathbf j=-\kappa\,\mathbf E_I\) then maps
+\(\langle j_n\rangle\) to field amplitudes along the tube.
 
 \paragraph{Remarks.}
-(i) The transparent–channel limit is a practical way to identify transit time by cross–correlating
+(i) The transparent–channel limit provides a practical way to estimate transit time by cross–correlating
 \(\Phi_{\rm in}\) and \(\Phi_{\rm out}\).
 (ii) In static applications, the survival factor \(S(r)=\exp(-\!\int \mu\,ds)\) reduces to the
 attenuation factor in C11 (\S\ref{corollary:entropic-corrections}), multiplying the inverse–area law.
-(iii) Apertures and cones are handled by replacing \(A(s)\) with the sector area \(A_\Delta(r)\) (App.~\ref{app:nD-screens}).
+(iii) Apertures and cones are handled by replacing \(A(s)\) with the sector area \(A_\Delta(r)\)
+(App.~\ref{app:nD-screens}).
 
 \medskip
 \noindent\emph{Summary.}
 A transparent channel copies the inlet flux to the outlet after a transit time \(\tau\).
 Collisions introduce a survival factor \(S\le 1\) and optional temporal blur via a causal kernel.
-Cross–sectional amplitudes always follow the \(1/A\) rule, modulated by the exponential survival
-along the tube. Series segments add delays and multiply survivals, independent of the choice of frame.
+Cross–sectional amplitudes follow the \(1/A\) rule, modulated by exponential survival along the tube.
+Series segments add delays and multiply survivals, independent of the choice of frame.
 
 \medskip
 \noindent\emph{Literature note.}
-The advection–attenuation model \eqref{eq:c3-transport} is the standard first–order transport (Beer–Lambert–type) equation; see, e.g., Evans \cite{Evans2010}. Stokes/cut forms used here are recalled in App.~\ref{app:forms-stokes}; sector geometry (areas) in App.~\ref{app:nD-screens}; units and rate conventions in App.~\ref{app:kick}.
+The advection–attenuation model \eqref{eq:c3-transport} is a standard first–order transport (Beer–Lambert–type)
+equation; see, e.g., Evans \cite{Evans2010}. Stokes/cut forms used here are recalled in App.~\ref{app:forms-stokes};
+sector geometry (areas) in App.~\ref{app:nD-screens}; units and rate conventions in App.~\ref{app:kick}.
