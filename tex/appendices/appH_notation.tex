@@ -29,14 +29,14 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
 \end{itemize}
 
 % ----------------------------- H.2 -------------------------------------
-\subsection{Informational current and balance}
+\subsection{Informational current and identity}
 \label{appH:current-balance}
 
 \begin{itemize}\itemsep2pt
 \item \textbf{Current.} $j:=J^\mu dx_\mu$ is the informational/entropic current $1$-form,
       with components $J^\mu=(i,\mathbf j)$. Its Hodge dual $j^{(n)}:=*j$ is an $n$-form.
 \item \textbf{Production.} $\Sigma:=\sigma\,\mathrm{vol}$ is the $(n{+}1)$-form production.
-\item \textbf{Balance (Stokes).} The fundamental identity is
+\item \textbf{Stokes identity.}
       \[
       d(*j)=\Sigma \quad\Longleftrightarrow\quad \partial_\mu J^\mu=\sigma,
       \]
@@ -49,7 +49,7 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
       \(
       \dot I_{\rm enc}=\Phi_{\rm in}-\Phi_{\rm out}+\Pi
       \)
-      (cut balance), see \eqref{eq:cut-identity}.
+      (cut identity), see \eqref{eq:cut-identity}.
 \item \textbf{Local continuity.} $\partial_t i+\nabla\!\cdot\mathbf j=\sigma$, see \eqref{eq:local-continuity}.
 \item \textbf{Directional split.} $(a)_\pm:=\tfrac12(a\pm|a|)$; used for inward/outward fluxes on $\partial U$.
 \end{itemize}
@@ -63,9 +63,10 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
 \item \textbf{Static closure (snapshot tool).} $\mathbf j=-\kappa\,\mathbf E_I$, see \eqref{eq:static-closure}.
 \item \textbf{Screens/sectors.} For screens of radius $r$ in $n$D,
       $A_n(r)=S_{n-1}\,r^{\,n-1}$ (Appendix~\ref{app:nD-screens}, eq.~\eqref{appC:eq:areas}).
-      Static amplitudes follow the inverse-area rule from the balance: $\langle j_n\rangle=\Phi/A$,
-      hence $|\mathbf E_I|\propto 1/A$. Sector and confinement variants appear in C0--C1 and C8
-      (Corollaries~\ref{corollary:info-gas}, \ref{corollary:static-screen}, \ref{corollary:dimensional}).
+      On source–free annuli, the mean normal current follows the inverse-area rule
+      $\langle j_n\rangle=\Phi/A$, hence $|\mathbf E_I|\propto 1/A$. Sector and confinement
+      variants appear in C0--C1 and C8 (Corollaries~\ref{corollary:info-gas},
+      \ref{corollary:static-screen}, \ref{corollary:dimensional}).
 \end{itemize}
 
 % ----------------------------- H.4 -------------------------------------
@@ -84,7 +85,10 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
       see App.~\ref{app:forms-stokes}, eq.~\eqref{appB:eq:poynting} (alias \eqref{eq:poynting}).
       In homogeneous, source-free segments, far-field envelopes scale as $A_n(r)^{-1/2}$; see
       Corollary~\ref{corollary:info-em}, eq.~\eqref{eq:c4-amp-scaling}.
-\item \textbf{Causality note.} Causality of $\chi$ implies Kramers--Kronig dispersion; see App.~\ref{appB:KK}.
+\item \textbf{Causality/dispersion (comparison witness).}
+      When a causal, time–invariant description of $\chi$ is adopted—or when retarded response is observed
+      on a window—the measured/adopted dispersion may be \emph{compared} against the Kramers--Kronig relations
+      recorded in App.~\ref{appB:KK}. This is a local witness, not a global postulate.
 \end{itemize}
 
 % ----------------------------- H.5 -------------------------------------
@@ -106,7 +110,7 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
 \item \textbf{Controls and prices.} Controls $R^{(a)}$ parameterize boundary/channel changes; the calibrated
       rate density $\rho(R)$ (informational cost) induces a price 1-form $\lambda=\lambda_a\,dR^{(a)}$.
 \item \textbf{Statement.} $d\rho=-\,\lambda_a\,dR^{(a)}$, see \eqref{eq:reos}. If $d\lambda=0$ the sector is integrable
-      (Maxwell-type identities). If $d\lambda\neq 0$, cyclic changes imply dissipation (production $\sigma\ge0$ in the balance).
+      (Maxwell-type identities). If $d\lambda\neq 0$, cyclic changes imply dissipation (production $\sigma\ge0$ in the identity).
 \end{itemize}
 
 % ----------------------------- H.7 -------------------------------------
@@ -132,7 +136,11 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
       window $\Delta t$, reliability $\varepsilon$). Bounds appear in Corollary~\ref{corollary:time-info}.
 \item \textbf{Erasure cost.} Durable record formation and erasure introduce a $P/T$ budget term in the
       time--information bounds (Corollary~\ref{corollary:time-info}).
-\item \textbf{Counting units.} Bits and nats are related by $S_{\rm nats}=(\ln 2)\,S_{\rm bits}$; fluxes likewise.
+\item \textbf{Counting units.} The default alphabet is ternary; counts are in \emph{trits} and map to nats by
+      \[
+      S_{\rm nats}=(\ln 3)\,S_{\rm trits}.
+      \]
+      (If binary units are used for comparison elsewhere, replace $\ln 3$ by $\ln 2$ only in those comparisons.)
 \end{itemize}
 
 % ----------------------------- H.9 -------------------------------------
@@ -161,7 +169,7 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
 \item[$A_\Delta(r)$] Sector area for solid angle $\Delta\Omega$: $A_\Delta=\Delta\Omega\,r^{\,n-1}$.
 \item[$A_I,\ F_I,\ H_I,\ \chi$] Info--EM potential, field, excitation, and constitutive map; $F_I=dA_I$, $dH_I={*}j$.
 \item[$u_I,\ \mathbf S_I$] Informational energy-rate density and Poynting vector (App.~\ref{app:forms-stokes}, \eqref{appB:eq:poynting}).
-\item[$H(q,P,t)$] \emph{Rate generator} in the Poincar\'e--Cartan form $\Theta_{\mathcal R}=P\,dq-H\,dt$ (no collision with $\Phi$).
+\item[$H(q,P,t)$] \emph{Rate generator} in the Poincar\'e--Cartan form $\Theta_{\mathcal R}=P\,dq-H\,dt$.
 \item[$\Theta_{\mathcal R}$] Rate (Poincar\'e--Cartan) $1$-form on $(q,t)$; $d\Theta_{\mathcal R}=0\Rightarrow$ canonical rates.
 \item[$R^{(a)},\ \rho(R),\ \lambda$] REOS controls, calibrated rate density (informational cost), and price $1$-form.
 \item[$k^a,\ \theta,\ \sigma_{ab},\ R_{ab}$] Congruence generator, expansion, shear, and Ricci tensor (geometry/focusing).

@@ -28,7 +28,7 @@ $J^\mu=(i,\mathbf j)$ in adapted coordinates. Its Hodge dual $j^{(n)}:=\!*j$ is 
 integrates naturally over spatial caps and side surfaces.\footnote{Legacy sections may write
 $j^{(3)}$ for the dual $n$–form. Here we use the dimension‑agnostic $j^{(n)}:=*j$.}
 Production is the $(n{+}1)$–form $\Sigma:=\sigma\,\mathrm{vol}_{n+1}$ with nonnegative density $\sigma$
-in sectors where dissipation is present.
+in the sector where dissipation is present.
 
 \subsection{Global identity (generalized Stokes)}
 \label{appB:global-balance}
@@ -64,10 +64,10 @@ Using the decomposition of $\partial U_{[t_0,t_1]}$,
 -
 \underbrace{\int_{V_{t_0}}\! j^{(n)}}_{\text{bottom cap}}
 +
-\underbrace{\int_{\partial V\times[t_0,t_1]}\!\! j^{(n)}}_{\text{side}} .
+\underbrace{\int_{\partial V\times[t_0,t_1]}\!\! j^{(n)}}_{\text{side}}
 \label{appB:eq:cap-side}
 \end{align}
-Define
+with
 \[
 I_{\mathrm{enc}}(t):=\int_{V_t} i\,\mathrm{vol}_{n},\qquad
 \Phi_{\mathrm{in/out}}(t):=\int_{\partial V_t}(\mathbf j\!\cdot n)_{\mp}\,dA,
@@ -79,12 +79,12 @@ Differentiating \eqref{appB:eq:stokes-int} in $t$ yields the \emph{cut identity}
 \dot I_{\mathrm{enc}}(t)\;=\;\Phi_{\mathrm{in}}(t)-\Phi_{\mathrm{out}}(t)\;+\;\Pi(t),
 \label{appB:eq:cut}
 \end{equation}
-identical to \eqref{eq:cut-balance} in the main text.
+identical to \eqref{eq:cut-identity} in the main text.
 
 \paragraph{Moving boundaries (worldtube note).}
 If the boundary $\partial V_t$ moves with normal speed $v_n$, the side integrand in the cap–side form acquires
 the kinematic term $\mathbf j\!\cdot n - i\,v_n$, with caps evaluated on the initial and final slices. This is the
-form used when the screen area $A_{n-1}(r,t)$ varies in time.
+form used when $A_{n-1}(r,t)$ varies in time.
 
 \subsection{Local form (continuity)}
 \label{appB:local}
@@ -100,7 +100,7 @@ the usual $(n{+}1)$–dimensional continuity law (cf.\ \eqref{eq:local-continuit
 For a time–frozen snapshot, on an open set $W\subset U$ with $\sigma|_W\equiv 0$ (source‑free), $d j^{(n)}=0$ on $W$
 implies that the flux through any two homologous screens in $W$ is equal. If $\mathcal T$ is a narrow tube whose side
 surface is tangent to $j$, then the directed tube flux $\Phi=\int_{\Sigma}j\!\cdot n\,dA$ is constant along the tube
-and cross–sectional averages obey
+and cross–sectional averages take the form
 \[
 \langle j_n\rangle=\frac{\Phi}{A}.
 \]
@@ -115,10 +115,10 @@ On segments that support wave‑like transport, adopt the informational electrod
 F_I=dA_I,\qquad dF_I=0,\qquad dH_I={*}j,\qquad H_I=\chi:F_I,
 \]
 where $A_I$ is a $1$‑form potential, $F_I$ the $2$‑form field, $H_I$ the excitation $2$‑form via a (linear, local)
-constitutive map $\chi$ on the segment considered. \emph{When a causal model for $\chi$ is adopted, or when
-retarded response is observed on a window}, the measured/adopted transfer may be \emph{compared} against the
-Kramers--Kronig Hilbert–transform relations recorded in \S\ref{appB:KK}, eq.~\eqref{appB:eq:KK}. This is a
-diagnostic/witness for that regime, not a global postulate.
+constitutive map $\chi$ on the segment considered. \emph{When a causal, time–invariant model for $\chi$ is adopted—or
+when retarded response is observed on a window—the measured/adopted dispersion may be \emph{compared} against the
+Kramers--Kronig Hilbert–transform relations recorded in \S\ref{appB:KK}, eq.~\eqref{appB:eq:KK}.} This is a local
+diagnostic/witness, not a global postulate.
 
 The informational energy–rate density and Poynting vector are
 \[
@@ -126,7 +126,7 @@ u_I=\tfrac12\,F_I\!:\!H_I,
 \qquad
 \mathbf S_I\ \text{(spatial Poynting vector)},
 \]
-and they satisfy the Poynting identity on any spatial slice $V_t$ with outward normal $n$:
+and the Poynting identity on any spatial slice $V_t$ with outward normal $n$ reads
 \begin{equation}
 \frac{d}{dt}\int_{V_t} u_I\,d^n x\;+\;\int_{\partial V_t}\mathbf S_I\!\cdot n\,dA
 \;=\; -\int_{V_t} \mathbf j\!\cdot\!\mathbf E_I\,d^n x .

@@ -5,12 +5,12 @@
 \section{Operationalization \& Calibration}
 \label{sec:operationalization}
 
-We record the minimal steps required to turn the Stokes identity on a region
+This section records minimal steps to turn the Stokes identity on a region
 $U\subset M$ with boundary $\partial U$ into numerical predictions for a chosen
-measured sector. The spine remains the same: generalized Stokes on $U$ and
-on $U\times[t_0,t_1]$ (see \eqref{eq:stokes-identity}–\eqref{eq:cut-balance}),
+measured sector. The spine is: generalized Stokes on $U$ and
+on $U\times[t_0,t_1]$ (see \eqref{eq:stokes-identity}–\eqref{eq:cut-identity}),
 the static linear closure \eqref{eq:static-closure}, and (when used) a
-\emph{wave transport closure} that admits a Poynting identity on
+\emph{wave transport closure} that provides a Poynting identity on
 source–free segments (App.~\ref{app:forms-stokes}, eq.~\eqref{appB:eq:poynting}).
 
 % --- Thermodynamic dictionary (boundary-first) ---
@@ -29,7 +29,7 @@ For moving screens replace it by the instantaneous $A_{n}(r,t)$ and use the worl
 
 % --- Operational witnesses (local, optional) ---
 \paragraph{Operational witnesses (local, optional).}
-\emph{W-FluxConst[$\varepsilon$]}: on a static annulus $W$ with $\sigma|_W\equiv 0$ (source‑free), the directed screen flux is invariant across nested screens (C1, \S\ref{corollary:static-screen}).
+\emph{W-FluxConst[$\varepsilon$]}: on a static annulus with negligible production, the directed screen flux is invariant across nested screens (C1, \S\ref{corollary:static-screen}).
 \emph{W-Narrow[$\varepsilon$]}: on a propagation segment, exported power is spectrally concentrated near a carrier (C4, \S\ref{corollary:info-em}).
 \emph{W-Lin[$\varepsilon$]}, \emph{W-Stat[$\varepsilon$]}, \emph{W-Ret[$\varepsilon$]}: local linearity, stationarity, and retardedness checks on the window (used when forming transfer functions).
 Consequences in C1--C4 are invoked on windows where the corresponding witness is observed.
@@ -45,7 +45,7 @@ To make the framework predictive, the observer supplies:
         (guides/sheets) produce effective lower dimensions (C8, \S\ref{corollary:dimensional}).
   \item \textbf{Channel class.} Static (use $\mathbf j=-\kappa\,\mathbf E_I$) or a \emph{wave
         segment} (use a wave transport closure with a quadratic energy density $u$ and flux
-        $\mathbf S$ obeying \eqref{appB:eq:poynting}; C4 shows one realization via Info–EM,
+        $\mathbf S$ satisfies \eqref{appB:eq:poynting}; C4 shows one realization via Info–EM,
         \S\ref{corollary:info-em}). If waves, state the constitutive description (e.g.\ $\chi$)
         on the segment where it is treated as homogeneous.
   \item \textbf{One datum (sector scale).} A single measurement $Y_\star$ on a reference
@@ -54,8 +54,9 @@ To make the framework predictive, the observer supplies:
   \item \textbf{Resource budgets.} Area $A$, time window $\Delta t$, power budget $P$,
         boundary temperature $T$ (Kz; App.~\ref{app:kick}), and a target reliability $\varepsilon$
         for coding/decoding.
-  \item \textbf{Noise record (optional).} If needed, a measured noise kernel $\mathcal N$ for
-        fluctuations (App.~\ref{app:noise-kernel}) or simply the shot–noise witness used in C6 (\S\ref{corollary:noise}).
+  \item \textbf{Noise model (optional).} If needed, a noise kernel $\mathcal N$ for
+        fluctuations (App.~\ref{app:noise-kernel}) or simply the Poisson shot–noise assumption
+        used in C6 (\S\ref{corollary:noise}).
 \end{enumerate}
 \emph{Outputs} are calibrated fields and bounds over the same region and window:
 static profiles $Y(r)$, wave envelopes $\langle|Y(r)|\rangle$, and operational
@@ -190,7 +191,7 @@ This statement is \emph{windowed and data–driven}; no additional statistical p
 \noindent\emph{Static.}
 \begin{enumerate}\itemsep2pt
   \item Choose $\partial U$ (screen/sector) and, if needed, confinement geometry (C8, \S\ref{corollary:dimensional}).
-  \item Apply \eqref{eq:stokes-identity} and the cut identity \eqref{eq:cut-balance} with $\sigma=0$ on the annulus to identify
+  \item Apply \eqref{eq:stokes-identity} and the cut identity \eqref{eq:cut-identity} with $\sigma=0$ on the annulus to identify
         a constant directed flux $\Phi$.
   \item Fix $c_{\rm sec}$ from one datum $Y_\star$ on $(r_\star,A_\star)$ via \eqref{eq:op-cal-const}.
   \item Predict $Y(r)$ from the ratio law \eqref{eq:op-one-datum-ratio}; apply C11 corrections if attenuation
@@ -211,14 +212,14 @@ This statement is \emph{windowed and data–driven}; no additional statistical p
 \subsection{Micro–example (3D static screen)}
 \label{subsec:op-example}
 
-A 3D spherical screen of radius $r$ has area $A_3(r)=4\pi r^2$.
-On a static annulus with $\sigma\approx 0$ (source‑free to measurement precision) and directed tube flux $\Phi$,
+A spherical screen of radius $r$ in $n=3$ has area $4\pi r^2$.
+If $\Phi$ is the measured tube flux on a static annulus with negligible production,
 \begin{equation}
-\langle j_n(r)\rangle=\frac{\Phi}{A_3(r)}=\frac{\Phi}{4\pi r^2} .
+\langle j_n(r)\rangle=\frac{\Phi}{4\pi r^2} .
 \end{equation}
-With the snapshot closure \eqref{eq:static-closure}, the informational field amplitude reads
+With the snapshot closure \eqref{eq:static-closure}, the informational field amplitude scales as
 \begin{equation}
-\big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\frac{\Phi}{A_3(r)}=\frac{1}{\kappa}\,\frac{\Phi}{4\pi r^2}.
+\big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\frac{\Phi}{4\pi r^2}.
 \end{equation}
 This furnishes the static $1/r^2$ profile used in examples.
 
