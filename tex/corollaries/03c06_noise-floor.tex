@@ -59,17 +59,23 @@ Shot‑noise–limited records have $F_A\!\approx\!1$ and $\Delta t_{\!\mathrm{e
 overdispersed or correlated arrivals are captured by the measured $(F_A,\Delta t_{\!\mathrm{eff}})$.
 
 \paragraph{From $\mathbf j$ to the informational field $\mathbf E_I$ (snapshot mapping).}
-Using the static closure \eqref{eq:static-closure}, $\ \mathbf j=-\kappa\,\mathbf E_I$, the snapshot
+Using the static closure \eqref{eq:static-closure}, $\ \mathbf j=-\kappa\,\mathbf E_I$, the \emph{windowed}
 (local) floor for $\mathbf E_I$ is
 \begin{equation}
 \boxed{\quad
-\mathrm{Var}(\widehat{E}_I)\ \gtrsim\ \frac{\overline{j}_A}{\kappa^{2}\,|A|\,\Delta t},
+\mathrm{Var}(\widehat{E}_I)\ \gtrsim\ \frac{F_A\,\overline{j}_A}{\kappa^{2}\,|A|\,\Delta t_{\!\mathrm{eff}}},
 \qquad
-\sigma_{E_I}(\Delta t)\ \gtrsim\ \frac{1}{\kappa}\sqrt{\frac{\overline{j}_A}{|A|\,\Delta t}} \ .
+\sigma_{E_I}(\Delta t)\ \gtrsim\ \frac{1}{\kappa}\,
+\sqrt{\frac{F_A\,\overline{j}_A}{|A|\,\Delta t_{\!\mathrm{eff}}}} \ .
 \quad}
 \label{eq:c6-var-EI}
 \end{equation}
-Thus the \emph{force estimate} has a windowed cloud whose width decreases only as $\Delta t^{-1/2}$
+In the shot‑noise limit ($F_A\!\approx\!1$, $\Delta t_{\!\mathrm{eff}}\!\approx\!\Delta t$),
+\begin{equation}
+\sigma_{E_I}(\Delta t)\ \gtrsim\ \frac{1}{\kappa}\sqrt{\frac{\overline{j}_A}{|A|\,\Delta t}} .
+\label{eq:c6-var-EI-shot}
+\end{equation}
+Thus the \emph{force estimate} has a windowed cloud whose width decreases only as $\Delta t_{\!\mathrm{eff}}^{-1/2}$
 unless $|A|$ or the collected inward flux $J_A$ is increased.
 
 \paragraph{Finite correlation time.}
@@ -81,8 +87,8 @@ of independent samples in $\Delta t$ is $\approx \Delta t/\tau$, giving
 \sigma_{E_I}\ \gtrsim\ \frac{1}{\kappa}\sqrt{\frac{\overline{j}_A}{|A|}\,\frac{\tau}{\Delta t}} .
 \label{eq:c6-corr}
 \end{equation}
-This reproduces \eqref{eq:c6-crb-jbar} (alias \eqref{eq:c6-witness-jbar}) when one identifies
-$\Delta t_{\!\mathrm{eff}}\!\sim\!\Delta t/\tau$ up to order‑one factors set by the measured autocorrelation.
+This matches \eqref{eq:c6-crb-jbar}; see also \eqref{eq:c6-witness-jbar}. The identification
+$\Delta t_{\!\mathrm{eff}}\!\sim\!\Delta t/\tau$ holds up to order‑one factors set by the measured autocorrelation.
 
 \paragraph{Spherical screen (3D, far‑field).}
 In the far field, for a full screen $A=4\pi r^2$ around a steady source with inward flux $J_{4\pi}$,
@@ -102,12 +108,13 @@ With the sector mappings (one‑datum calibration; see \S\ref{subsec:op-calibrat
 \end{equation}
 the estimator widths propagate as
 \begin{equation}
-\sigma_{g}\ \gtrsim\ \frac{c_M}{\kappa}\sqrt{\frac{\overline{j}_A}{|A|\,\Delta t}},
+\sigma_{g}\ \gtrsim\ \frac{c_M}{\kappa}\sqrt{\frac{F_A\,\overline{j}_A}{|A|\,\Delta t_{\!\mathrm{eff}}}},
 \qquad
-\sigma_{E}\ \gtrsim\ \frac{c_Q}{\kappa}\sqrt{\frac{\overline{j}_A}{|A|\,\Delta t}} .
+\sigma_{E}\ \gtrsim\ \frac{c_Q}{\kappa}\sqrt{\frac{F_A\,\overline{j}_A}{|A|\,\Delta t_{\!\mathrm{eff}}}} .
 \label{eq:c6-measured}
 \end{equation}
-An acceleration estimate $a(r)=|\mathbf g|$ inherits the same $\Delta t^{-1/2}$ floor.
+(Shot‑noise limit: replace $F_A\to1$ and $\Delta t_{\!\mathrm{eff}}\to\Delta t$.) An acceleration estimate
+$a(r)=|\mathbf g|$ inherits the same $\Delta t_{\!\mathrm{eff}}^{-1/2}$ floor.
 
 \paragraph{Trit‑density picture (screen shot‑noise).}
 For a spherical screen with \emph{trit density} $N(r)=\alpha\,4\pi r^2$ and mean per‑trit hit rate $f$ (1/time),
@@ -116,7 +123,7 @@ the mean inward count in $\Delta t$ is $\mu=f\,N(r)\,\Delta t$ and
 \frac{\sigma_{\text{counts}}}{\mu}\ \approx\ \frac{1}{\sqrt{\mu}}
 \ =\ \frac{1}{\sqrt{f\,\alpha\,4\pi r^2\,\Delta t}} .
 \]
-Mapping counts to $\mathbf E_I$ through \eqref{eq:c6-var-EI} reproduces the same $1/\sqrt{|A|\Delta t}$ scaling.
+Mapping counts to $\mathbf E_I$ through \eqref{eq:c6-var-EI-shot} reproduces the same $1/\sqrt{|A|\Delta t}$ scaling.
 
 \paragraph{Relation to time--information and capacity.}
 The counting term in the C5 rate bound (\S\ref{corollary:time-info}) is precisely
@@ -138,7 +145,7 @@ extend $\Delta t$, reduce correlation time $\tau$, or multiplex independent patc
 \medskip
 \noindent\emph{Summary.}
 Windowed counting with or without finite correlation time implies an operational floor
-\(\sigma_{E_I}\propto \sqrt{\overline{j}_A/(|A|\Delta t)}\).
+\(\sigma_{E_I}\propto \sqrt{\overline{j}_A/(|A|\Delta t_{\!\mathrm{eff}})}\).
 This sets a principled ``force cloud'' that narrows only with larger area, greater inward flux, or longer
 integration time, and it propagates to calibrated sectors by a single one‑datum mapping.
 

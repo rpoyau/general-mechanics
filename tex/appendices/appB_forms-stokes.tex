@@ -29,6 +29,9 @@ integrates naturally over spatial caps and side surfaces.\footnote{Legacy sectio
 $j^{(3)}$ for the dual $n$–form. Here we use the dimension‑agnostic $j^{(n)}:=*j$.}
 Production is the $(n{+}1)$–form $\Sigma:=\sigma\,\mathrm{vol}_{n+1}$ with nonnegative density $\sigma$
 in the sector where dissipation is present.
+\emph{Identification and units.} The informational current is the entropy current, $j\equiv j_S$
+(nats/time), and the informational density is the entropy density, $i\equiv s$ (nats/vol).
+Where a boundary temperature field $T$ is assigned, the heat flux is $q:=T\,j_S$.
 
 \subsection{Global identity (generalized Stokes)}
 \label{appB:global-balance}
@@ -84,7 +87,7 @@ identical to \eqref{eq:cut-identity} in the main text.
 \paragraph{Moving boundaries (worldtube note).}
 If the boundary $\partial V_t$ moves with normal speed $v_n$, the side integrand in the cap–side form acquires
 the kinematic term $\mathbf j\!\cdot n - i\,v_n$, with caps evaluated on the initial and final slices. This is the
-form used when $A_{n-1}(r,t)$ varies in time.
+form used when $A_{n}(r,t)$ varies in time.
 
 \subsection{Local form (continuity)}
 \label{appB:local}
@@ -116,9 +119,11 @@ F_I=dA_I,\qquad dF_I=0,\qquad dH_I={*}j,\qquad H_I=\chi:F_I,
 \]
 where $A_I$ is a $1$‑form potential, $F_I$ the $2$‑form field, $H_I$ the excitation $2$‑form via a (linear, local)
 constitutive map $\chi$ on the segment considered. \emph{When a causal, time–invariant model for $\chi$ is adopted—or
-when retarded response is observed on a window—the measured/adopted dispersion may be \emph{compared} against the
-Kramers--Kronig Hilbert–transform relations recorded in \S\ref{appB:KK}, eq.~\eqref{appB:eq:KK}.} This is a local
-diagnostic/witness, not a global postulate.
+when retarded response is observed on a window—the measured/adopted dispersion is compared with the
+Kramers--Kronig Hilbert–transform relations recorded in \S\ref{appB:KK}, eq.~\eqref{appB:eq:KK}, as a \emph{comparison witness} on that window.}
+\emph{General wave transport.} The same energy–flux balance applies to any pair $(U,V)$ with $V=\chi:U$,
+$u=\tfrac12\,U\!:\!V$, and a flux $\mathbf S$ satisfying $\partial_t u+\nabla\!\cdot\mathbf S=-\Pi$; Info–EM is one instance
+($U\!\equiv\!F_I$, $V\!\equiv\!H_I$).
 
 The informational energy–rate density and Poynting vector are
 \[

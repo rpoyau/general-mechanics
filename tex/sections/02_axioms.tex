@@ -6,6 +6,18 @@
 \label{sec:axioms}
 \label{axiom:root}
 
+\paragraph{Three pillars (thermodynamics, information/Machian, Stokes).}
+(i) \emph{Thermodynamics as content.} The informational current is identified with the entropy current
+($j\equiv j_S$, $i\equiv s$); with a boundary temperature field $T$ the heat bookkeeping is $q:=T\,j_S$.
+The piston thought–experiment generalizes to screens via Stokes; the operational \emph{thermodynamic
+dictionary} is used in C0–C1 and recorded once in \S\ref{sec:operationalization}.\\
+(ii) \emph{Information theory / Machian relationality.} Counting and priors are Shannon–based over a ternary
+alphabet (\emph{yes/no/yesno}); observables are relational (R–axioms). Trit/nat choices differ by $\ln 3$
+only and do not affect geometric statements.\\
+(iii) \emph{Geometric calculus (Stokes identity).} A single generalized Stokes identity is applied on a
+chosen region and its time extension, with cap/side (worldtube) decomposition (D1; App.~\ref{app:forms-stokes}).
+Static tube/screen invariants use open subsets with $\sigma|_W\equiv0$.
+
 % ---------------------------- R-axioms --------------------------------
 
 \subsection{R-axioms (relational and informational)}
@@ -17,7 +29,7 @@
   \[
   H_{\text{trits}}=\frac{H}{\ln 3}.
   \]
-  “Unknown’’ can be represented explicitly by an alphabet symbol \(\bot\in\mathcal A\) without altering any geometric or Stokes statements. All later rate/flux formulas are invariant under the nat/trit unit choice up to factors of \(\ln 3\).
+  ``Unknown'' can be represented explicitly by an alphabet symbol \(\bot\in\mathcal A\) without altering any geometric or Stokes statements. All later rate/flux formulas are invariant under the nat/trit unit choice up to factors of \(\ln 3\).
   \label{axiom:R1}
 \end{description}
 
@@ -27,11 +39,11 @@ The same generalized Stokes identity is applied on
   \item a time-frozen spatial region \(U\) (static screens/sectors), and
   \item the time-extended region \(U\times[t_0,t_1]\) (dynamics).
 \end{enumerate}
-Conventions for forms, orientations, and Hodge duals are summarized in App.~\ref{app:forms-stokes}.
+For static tube/screen arguments an \emph{open set} \(W\subset U\) with \(\sigma|_W\equiv0\) is used; this yields the usual tube invariants and inverse-area rules. Conventions for forms, orientations, and Hodge duals are summarized in App.~\ref{app:forms-stokes}. (Identification with entropy current and boundary heat mapping: App.~\ref{app:notation-units}, \S\ref{appH:current-balance}.)
 
 % ---------------------------- D-axioms --------------------------------
 
-\subsection{D-axioms (dynamical statements from Stokes)}
+\subsection{D-axioms}
 
 \subsubsection{D1. Generalized Stokes identity (continuity)}
 \label{axiom:stokes}
@@ -49,12 +61,13 @@ The integral identity is
 \int_{U\times[t_0,t_1]}\! \Sigma .
 \label{eq:stokes-integral}
 \end{equation}
-On a fixed \(U\) with outward unit normal \(n\), define the enclosed information
+On a \emph{fixed} \(U\) with outward unit normal \(n\), define the enclosed information
 \(I_{\mathrm{enc}}(t):=\int_U i(x,t)\,d^n x\), the inward/outward fluxes
 \(\Phi_{\mathrm{in/out}}(t):=\int_{\partial U}(\mathbf j\!\cdot n)_{\mp}\,dA\),
 and the interior production \(\Pi(t):=\int_U \sigma\,d^n x\). Then
 \begin{equation}
-\dot I_{\mathrm{enc}}(t)=\Phi_{\mathrm{in}}(t)-\Phi_{\mathrm{out}}(t)+\Pi(t).
+\dot I_{\mathrm{enc}}(t)=\Phi_{\mathrm{in}}(t)-\Phi_{\mathrm{out}}(t)+\Pi(t),
+\qquad\text{(the \emph{cut identity}).}
 \label{eq:cut-identity}
 \end{equation}
 In local coordinates this is the continuity equation
@@ -62,6 +75,20 @@ In local coordinates this is the continuity equation
 \partial_t i(x,t)+\nabla\!\cdot \mathbf j(x,t)=\sigma(x,t).
 \label{eq:local-continuity}
 \end{equation}
+
+\paragraph{Boundary identification (information $\equiv$ entropy).}
+Current refers to the \(1\)-form on \(U\times[t_0,t_1]\).
+The informational current is the entropy current, \(j\equiv j_S\) (nats/time), and the informational
+density is the entropy density, \(i\equiv s\) (nats/vol). Where a boundary temperature field \(T\) is assigned,
+the heat flux is \(q:=T\,j_S\).
+
+\paragraph{Carriers.}
+The statements hold for any carrier. Additional conserved currents (e.g., charge, mass, energy/momentum)
+admit the same Stokes formulation on the same region; tube/screen invariants apply on open subsets where the
+corresponding production vanishes.
+
+\paragraph{Worldtube note.} If the boundary moves, the side contribution uses the integrand
+\(\mathbf j\!\cdot n - i\,v_n\), and the same bookkeeping applies on the time-extended boundary; see App.~\ref{app:forms-stokes}.
 
 \subsubsection{D2. Static linear closure (snapshot limit)}
 \label{axiom:static}
@@ -74,9 +101,19 @@ On time-frozen snapshots in linear, isotropic, near-equilibrium regimes,
 \end{equation}
 Here \(\Phi_I\) is the informational potential, \(\mathbf E_I\) its field, and \(\kappa\) a constitutive scale of the channel. This closure is a snapshot tool for static screen/sector laws; time-extended segments employ the appropriate propagation closures when used later in corollaries.
 
+\medskip
+\noindent\fbox{\begin{minipage}{0.97\linewidth}
+\textbf{Wave transport (closure template).}\label{axiom:wave-closure}
+On windows where transport is wave-like, use a pair of fields $(U,V)$ related by a linear, causal constitutive
+map $V=\chi:U$ (possibly dispersive on the window). Define the quadratic energy density $u:=\tfrac12\,U\!:\!V$
+and a flux $\mathbf S$ satisfying the local balance $\partial_t u+\nabla\!\cdot\mathbf S=-\Pi$ with nonnegative
+production $\Pi$. On lossless subwindows ($\Pi=0$), exported power across screens is radius–independent and far–field
+envelopes obey $\propto [A_n(r)]^{-1/2}$. Realizations (e.g.\ Info--EM) appear in C4 and App.~\ref{app:forms-stokes}.
+\end{minipage}}
+
 \subsubsection{D3. Relational equation of state (REOS)}
 \label{axiom:reos}
-Let \(R^{(a)}\) denote admissible boundary/control variations (e.g.\ apertures, partitions, admissible alphabets, connectivity), and let \(\rho=\rho(R)\) be a \emph{calibrated rate density (informational cost)} on the control manifold; “calibrated’’ here only means that the single sector scale has been fixed once outside the axioms (see \S\ref{sec:operationalization}). Define the price one-form \(\lambda:=\lambda_a\,dR^{(a)}\) with components \(\lambda_a:=\partial\rho/\partial R^{(a)}\) when \(\rho\) is differentiable. The REOS statement is
+Let \(R^{(a)}\) denote admissible boundary/control variations (e.g.\ apertures, partitions, admissible alphabets, connectivity), and let \(\rho=\rho(R)\) be a \emph{calibrated rate density (informational cost)} on the control manifold; ``calibrated'' here only means that the single sector scale has been fixed once outside the axioms (see \S\ref{sec:operationalization}). Define the price one-form \(\lambda:=\lambda_a\,dR^{(a)}\) with components \(\lambda_a:=\partial\rho/\partial R^{(a)}\) when \(\rho\) is differentiable. The REOS statement is
 \begin{equation}
 d\rho \;=\; -\,\lambda_a\,dR^{(a)} .
 \label{eq:reos}
@@ -102,8 +139,8 @@ The Euler--Lagrange form follows under convex duality (see Corollary~\ref{coroll
 \medskip
 \noindent\emph{Notes.}
 (1) Trits versus nats are related by a factor \(\ln 3\); the axioms are invariant under this unit choice.\\
-(2) Propagation closures (e.g.\ Info--EM) and wave transport are specializations introduced later; see Corollary~\ref{corollary:info-em} for one realization.\\
-(3) Operational sector mappings and units (Kz) are specified once outside this section (App.~\ref{app:kick}).
+(2) Propagation closures and wave transport are introduced later; Info--EM and the general wave-transport template are used in Corollary~\ref{corollary:info-em}.\\
+(3) Operational sector mappings and units (Kz) are specified once outside this section (App.~\ref{app:kick}); the dictionary linking piston $\leftrightarrow$ screen appears in \S\ref{sec:operationalization}.
 
 \medskip
 \noindent\emph{Literature note (provenance).}

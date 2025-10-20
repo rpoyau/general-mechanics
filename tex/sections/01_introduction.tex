@@ -14,10 +14,14 @@ boundary $\partial U$; statements below are read from the boundary and its time 
 Measurements are framed in information theory (Shannon measures with Bayesian updating) over a
 ternary evidence alphabet: \emph{yes}, \emph{no}, and \emph{yesno} (unknown).
 
+\paragraph{Boundary identification: information $\equiv$ entropy (units).}
+$j\equiv j_S$ (entropy current, nats/time), $i\equiv s$ (entropy density, nats/vol); logs are displayed in trits (\(\text{nats}=\ln 3\times\text{trits}\)); with boundary temperature \(T\), the heat flux is \(q:=T\,j_S\).
+
+
 \subsection{One geometric identity, two uses.}
 With $j:=J^\mu dx_\mu$ the informational/entropic current $1$-form and $*j$ its Hodge dual, the
-Stokes identity is $d(*j)=\sigma\,\mathrm{vol}$ (continuity).\footnote{Local and \emph{cut identity}
-forms appear in \eqref{eq:stokes-identity}–\eqref{eq:cut-identity} once the axioms are stated.}
+Stokes identity is $d(*j)=\sigma\,\mathrm{vol}$ (continuity).\footnote{The local and cut forms appear in
+\eqref{eq:local-continuity} and \eqref{eq:cut-identity} (see D1).}
 It is used in two ways:
 
 (i) on a \emph{time‑frozen} spatial region (static screens/sectors; C0–C1:
@@ -25,6 +29,11 @@ It is used in two ways:
 
 (ii) on a \emph{product region} $U\times[t_0,t_1]$ to discuss change over a time window (C3:
 \S\ref{corollary:external-drives}).
+
+\paragraph{Moment slices (caps + side).}
+The time‑extended boundary $\partial(U\times[t_0,t_1])$ decomposes into a top cap, a bottom cap, and a side
+(worldtube). The cap–side formula is recorded in App.~\ref{app:forms-stokes}, Eq.~\eqref{appB:eq:cap-side};
+the side integrand for moving boundaries is $\mathbf j\!\cdot\!\mathbf n - i\,v_n$.
 
 \bigskip
 \noindent\fbox{\begin{minipage}{0.97\linewidth}
@@ -60,7 +69,7 @@ Constrained geometries replace $A_n(r)$ by an effective cross‑section $A_\Delt
 (C8: \S\ref{corollary:dimensional}). Special cases: $n{=}1$ ($A_1\!\equiv\!2$; no geometric decay),
 $n{=}2$ ($A_2=2\pi r$; envelope $\propto r^{-1/2}$), $n{=}3$ ($A_3=4\pi r^2$; envelope $\propto r^{-1}$).
 For moving screens use the worldtube (cap–side) form with side integrand $\mathbf j\!\cdot\!\mathbf n - i\,v_n$
-(App.~\ref{app:forms-stokes}).
+(App.~\ref{app:forms-stokes}). \emph{A closure‑agnostic template is stated in C4, where Info--EM is one realization.}
 
 \subsection{Units and calibration (once).}
 Kz units are used (App.~\ref{app:kick}) so energies and powers are rates. The abstract informational field
@@ -92,7 +101,7 @@ tied to a quadratic local kernel and the same noise floor (C12).
 \subsection{Roadmap.}
 Section~\ref{axiom:root} states the axioms: continuity (D1: \eqref{eq:stokes-identity}),
 static closure (D2: \eqref{eq:static-closure}), REOS (D3: \eqref{eq:reos}),
-and canonical rates (D4: \eqref{eq:canonical}). The ladder then develops: relational bit‑gas and static tube/screen
+and canonical rates (D4: \eqref{eq:canonical}). The ladder then develops: relational info‑gas and static tube/screen
 laws (C0–C1: \S\ref{corollary:info-gas}, \S\ref{corollary:static-screen}); continuity/Clausius (C2:
 \S\ref{corollary:continuity}); external drives with delay/production (C3: \S\ref{corollary:external-drives});
 waves and exported power (C4: \S\ref{corollary:info-em}); time–information complementarity (C5:

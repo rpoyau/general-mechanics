@@ -53,8 +53,7 @@ A constant–free stochastic equation is
 where \(\mathcal L\) is the linearized deterministic operator, \(S\) the mean source (from
 \(\langle\mathcal T\rangle\) or mean current divergence), and \(\xi\) is an auxiliary classical field
 whose two–point \(\mathcal N\) matches the physical noise kernel (e.g.\ \(\mathcal N\!\equiv\!N\) or an
-appropriate projection). No universal coupling is introduced; sector scales, if needed, are handled
-once in \S\ref{sec:operationalization}.
+appropriate projection). Sector scales, if needed, are handled once in \S\ref{sec:operationalization}.
 
 % ------------------------- E.3: Covariance propagation -----------------
 
@@ -82,13 +81,15 @@ counting variance implies the local bound used in Corollary~\ref{corollary:noise
 \begin{equation}
 \mathrm{Var}(\widehat{E}_I)
 \;\gtrsim\;
-\frac{\overline{j}_A}{\kappa^{2}\,|A|\,\Delta t},
+\frac{F_A\,\overline{j}_A}{\kappa^{2}\,|A|\,\Delta t_{\!\mathrm{eff}}},
 \qquad
 \overline{j}_A
 :=\frac{1}{|A|}\int_{A}(\mathbf j\!\cdot n)_-\,dA ,
 \label{appE:eq:EI-bound}
 \end{equation}
-identical to \eqref{eq:c6-var-EI}. Via the single readout mapping in \S\ref{sec:operationalization},
+identical to \eqref{eq:c6-var-EI}. Shot–noise specialization: \(F_A\to1\) and
+\(\Delta t_{\!\mathrm{eff}}\to\Delta t\).
+Via the single readout mapping in \S\ref{sec:operationalization},
 the same scaling transfers to measured sectors.
 
 % ------------------------- E.5: OU/Langevin toy ------------------------
@@ -126,13 +127,14 @@ number of independent samples in \(\Delta t\) is \(\approx \Delta t/\tau\), and 
 \)
 Equivalently, with a colored noise kernel \(\mathcal N\), \eqref{appE:eq:cov-prop} yields the spectral
 density of \(X\) by replacing \(\mathcal N\) with its spectrum and \(G\) with the transfer function.
+This matches \eqref{eq:c6-var-EI} upon identifying \(\Delta t_{\!\mathrm{eff}}\!\sim\!\Delta t/\tau\) up to order‑one factors set by the measured autocorrelation.
 
 % ------------------------- E.8: Energy-rate → acceleration noise --------
 
 \subsection{Energy-rate fluctuations $\Rightarrow$ acceleration noise (static, far field)}
 \label{appE:energy-to-accel}
 
-\paragraph{Scope (Stokes + static closure only).}
+\paragraph{Scope (Stokes + static closure).}
 Work on a time-frozen, source-free annulus around a compact source in $n{=}3$.
 By Stokes with \(\sigma=0\) (App.~\ref{app:forms-stokes}, \eqref{appB:eq:stokes}) and the tube/screen argument
 (Corollaries~\ref{corollary:info-gas} and \ref{corollary:static-screen}), the directed flux $\Phi$
@@ -144,7 +146,7 @@ A_3(r)=4\pi r^2 .
 \label{appE:eq:stokes-static}
 \end{equation}
 Any boundary readout $Y$ proportional to $|\mathbf E_I|$ therefore satisfies $Y(r)\propto \Phi/A_3(r)$.
-No bulk Gauss/Poisson postulate is introduced; this is a boundary statement from Stokes.
+This is read from the boundary via Stokes.
 
 \paragraph{Energy as a source label.}
 For a source family, take the screen flux to carry a linear label with the total source energy,
@@ -191,8 +193,7 @@ If the source has a single thermal time \(\tau\), replace \(S_E\) by \(S_E/(1+\o
 \medskip
 \noindent\emph{Remark.}
 The mapping \eqref{appE:eq:ratio}–\eqref{appE:eq:rms} is a direct corollary of Stokes on the region and the inverse–area rule
-(Corollaries~\ref{corollary:info-gas}–\ref{corollary:static-screen}). (If desired elsewhere, SI forms can be introduced by an external
-identification; they are not used here.)
+(Corollaries~\ref{corollary:info-gas}–\ref{corollary:static-screen}). SI forms can be introduced by an external identification if needed.
 
 \medskip
 \noindent\emph{Literature note.}

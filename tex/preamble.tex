@@ -1,5 +1,5 @@
 % ======================================================================
-% preamble.tex  (v1.0.2) — shared packages, macros, and formatting
+% preamble.tex  (v0.5.2.0) — shared packages, macros, and formatting
 % ======================================================================
 
 % --- Packages
@@ -78,6 +78,35 @@
 \newcommand{\labcor}[1]{\label{corollary:#1}}
 \newcommand{\labapp}[1]{\label{appendix:#1}}
 
-
 % --- Equation numbering per section (optional)
 \numberwithin{equation}{section}
+
+% ======================================================================
+% Focused additions (kept minimal; no renames to your existing macros)
+% ======================================================================
+
+% --- Boundary normals & worldtube side-integrand (moving boundary)
+\newcommand{\nn}{\bm{n}}                          % outward unit normal
+\newcommand{\jn}{j_n}                              % normal flux component (scalar)
+\newcommand{\vn}{v_n}                              % normal speed of the boundary
+\newcommand{\sideint}{\jj\!\cdot\!\nn - \ii\,\vn} % j·n - i v_n
+
+% --- Screens & sectors (geometry helpers)
+\newcommand{\Snm}{S_{n-1}}                         % area of unit (n-1)-sphere
+\newcommand{\An}[1]{A_{#1}}                        % A_n
+\newcommand{\Anr}[1]{A_{#1}(r)}                    % A_n(r)
+\newcommand{\Adelta}{A_{\Delta}}                   % A_Δ
+\newcommand{\Adeltar}{A_{\Delta}(r)}               % A_Δ(r)
+
+% --- Windowed counting / noise (C6 & App. E)
+\newcommand{\FA}{F_{A}}                            % Fano factor on a window
+\newcommand{\teff}{\Delta t_{\mathrm{eff}}}        % effective window from autocorrelation
+\newcommand{\JA}{J_{A}}                            % integrated flux across patch A
+\newcommand{\jA}{j_{A}}                            % mean flux density on patch A
+
+% --- Calibrated-equality adornment (consistency relations)
+\newcommand{\calibeq}{\overset{\scriptscriptstyle\mathrm{cal}}{=}}
+
+% --- Tiny prose helpers (optional; avoid "implies" phrasing)
+\newcommand{\CutIdentity}{\textit{cut identity}}
+\newcommand{\KKcompare}{\textit{may be compared to Kramers--Kronig on the chosen window}}

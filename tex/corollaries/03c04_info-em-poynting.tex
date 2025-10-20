@@ -5,6 +5,18 @@
 \subsection{C4: Informational electrodynamics — waves and Poynting export}
 \label{corollary:info-em}
 
+\paragraph{General wave transport (closure template).}
+On a segment that supports transport, take a pair of fields $U$ and cofields $V$ related by a linear,
+causal constitutive map $V=\chi:U$ (possibly dispersive on the window). Define the quadratic energy density
+$u:=\tfrac12\,U\!:\!V$ and a flux $\mathbf S$ such that the local balance
+\[
+\partial_t u+\nabla\!\cdot\mathbf S \;=\; -\,\Pi
+\]
+holds with nonnegative $\Pi$ on lossy windows. On source–free, lossless windows ($\Pi=0$) the exported power
+$P(r)=\int_{\Sigma(r)}\!\langle\mathbf S\rangle\!\cdot n\,dA$ is independent of $r$, and the far–field envelope obeys
+$\langle|U|\rangle\propto [A_n(r)]^{-1/2}$. The Info–EM realization below corresponds to $U\!\equiv\!F_I$,
+$V\!\equiv\!H_I$, $u=\tfrac12 F_I\!:\!H_I$, with $\mathbf S$ given by the Poynting vector.
+
 \paragraph{Field equations (Info--EM specialization).}
 On channels that support wave-like transport, we specialize to the informational electrodynamics
 \begin{equation}
@@ -12,7 +24,7 @@ dF_I=0,\qquad dH_I={*}j,\qquad H_I=\chi:F_I,\qquad F_I=dA_I ,
 \label{eq:c4-ied}
 \end{equation}
 where $A_I$ is a $1$-form potential, $F_I$ the $2$-form field, and $\chi$ a linear, local constitutive map on the segment considered.
-\emph{When a causal, time-invariant description is adopted—or when retarded response is observed on a window—the measured/adopted dispersion may be \emph{compared} against the Kramers--Kronig relations in App.~\ref{appB:KK} as a local witness.}
+\emph{When a causal, time-invariant description is adopted—or when retarded response is observed on a window—the measured/adopted dispersion is compared with the Kramers--Kronig relations in App.~\ref{appB:KK} as a \emph{comparison witness} on that window.}
 
 \paragraph{Energy identity and export.}
 The Poynting identity (App.~\ref{app:forms-stokes}, eq.~\eqref{appB:eq:poynting}) holds on any spatial
@@ -32,7 +44,7 @@ $\mathbf S$ satisfying a local conservation identity on source--free segments. I
 elastic/solid, acoustic/hydrodynamic, plasma, and the Isaacson effective stress of gravitational waves—
 likewise supply $(u,\mathbf S)$. In each case, exported power through screens is radially constant and the
 far--field envelope follows $\langle|\mathbf E_I|\rangle\propto A_n(r)^{-1/2}$ \emph{as stated below in}
-\eqref{eq:c4-amp-scaling}.
+\eqref{eq:c4-amp-scaling}. \emph{Pull‑only entropic‑gradient transport fits the same geometry; on lossless windows it yields the same far‑field law, with attenuation handled as below when loss is present.}
 
 \paragraph{Wave propagation (homogeneous, source-free segments).}
 If $\chi$ is spatially homogeneous and time-invariant on a segment and $\mathbf j=0$, one may choose a
@@ -48,6 +60,19 @@ Equivalently, the electric-like field $\mathbf E_I$ satisfies
 \label{eq:c4-wave-E}
 \end{equation}
 together with the usual transversality constraint in source-free regions.
+
+\paragraph{Eikonal/refraction (variational view).}
+On high‑frequency windows ($\lambda$ small against the scale of variation of $\chi$), adopt a WKB ansatz
+$U(x,t)\!\approx\!\Re\!\{A(x)\,e^{-i\omega t+i\omega S(x)}\}$. To leading order the \emph{eikonal} $S$ governs
+phase fronts; in isotropic segments with local speed $c_I(x)$ one may define an effective index
+$n_I(x):=c_{\mathrm{ref}}/c_I(x)$ (any reference speed $c_{\mathrm{ref}}$), and rays are the integral curves of
+$\nabla S$, equivalently the stationary paths of the Fermat functional $\int n_I\,ds$. Across interfaces this yields
+the Snell law $n_1\sin\theta_1=n_2\sin\theta_2$; for smooth $n_I$ the ray curvature is set by $\nabla_\perp n_I$.
+The first transport correction recovers $A\propto[A_n(r)]^{-1/2}$, consistent with \eqref{eq:c4-amp-scaling}.
+In anisotropic/dispersive windows, replace $n_I\,ds$ by the Hamiltonian norm induced by the dispersion
+$\omega(x,\mathbf k)$: rays follow $\dot x=\partial_{\mathbf k}\omega$, $\dot{\mathbf k}=-\partial_x\omega$ with
+group velocity $\mathbf v_g=\partial_{\mathbf k}\omega$. This variational picture is agnostic to GR and sits
+entirely within the same closure template ($U,V,\chi,u,\mathbf S,\Pi$).
 
 \paragraph{Far-field amplitude scaling (all spatial dimensions $n$).}
 Let $\Sigma(r)$ be a screen of radius $r$ enclosing the emitters, with area $A_n(r)$.
@@ -74,6 +99,15 @@ r^{-1} & n=3\ \text{(3D spherical)}.
 \label{eq:c4-amp-table}
 \end{equation}
 These entries match the dimensional summary in C8 (\S\ref{corollary:dimensional}).
+
+\paragraph{Loss on segments (attenuation).}
+When the segment exhibits production/loss ($\sigma>0$) with effective attenuation $\mu$ along the worldtube,
+the exported power obeys $P(r)\propto \exp\!\big(-\!\int \mu\,ds\big)$ and the envelope generalizes to
+\[
+\big\langle |\mathbf E_I(r)| \big\rangle \ \propto\ \frac{1}{\sqrt{A_n(r)}}\,
+\exp\!\Big(-\tfrac12\!\int \mu\,ds\Big).
+\]
+For $\mu=0$ on an open subsegment, the free‑export law is recovered.
 
 \paragraph{Screens, cones, and sectors (tube view).}
 For any fixed solid-angle sector $\Delta\Omega$, the exported power through the corresponding conical patch is constant:
