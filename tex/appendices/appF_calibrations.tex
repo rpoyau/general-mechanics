@@ -5,153 +5,136 @@
 \section{One‑datum calibrations (static sectors)}
 \label{app:calibrations}
 
-We record how a \emph{single} datum per sector maps the informational field
-$\mathbf E_I:=-\nabla\Phi_I$ to measured quantities, using only the static closure
-\eqref{eq:static-closure} and the screen/sector balance (via \eqref{eq:stokes-identity}).
+This appendix records how a \emph{single} datum per sector maps the informational field
+\(\mathbf E_I:=-\nabla\Phi_I\) to measured quantities, using only the \emph{frame} linear closure
+\eqref{axioms:stokes:frame:eq:closure} and the Stokes identity on the same region
+\eqref{axioms:stokes:identity:eq}. Units follow App.~\ref{app:kick}.
 
 % ------------------------- F.1 Recap -----------------------------------
-\subsection{Recap: static screen/sector law}
-\label{appF:recap}
+\subsection{Recap: frame boundary/sector law}
+\label{app:calibrations:recap}
 
-On a time‑frozen snapshot in a source‑free annulus ($\sigma=0$), the directed flux
+On a frame (time‑frozen) in a source‑free annulus (\(\sigma=0\)), the directed flux through any
+radius–\(r\) boundary \(\Sigma(r)\) is independent of \(r\):
 \[
-\Phi(r)\;:=\;\int_{\Sigma(r)} \mathbf j\!\cdot n\,dA
+\Phi(r)\;:=\;\int_{\Sigma(r)} \mathbf j\!\cdot n\,dA\quad\text{is constant.}
 \]
-is independent of $r$. With the static closure $\mathbf j=-\kappa\,\mathbf E_I$,
-the mean normal current on a radius‑$r$ screen in $n$ spatial dimensions is
+With the frame closure \(\mathbf j=-\kappa\,\mathbf E_I\), the mean normal current on a radius–\(r\)
+boundary in \(n\) spatial dimensions is
 \begin{equation}
 \big\langle j_n\big\rangle(r)=\frac{\Phi}{A_n(r)},\qquad
-|\mathbf E_I(r)|=\frac{1}{\kappa}\,\frac{\Phi}{A_n(r)},
-\qquad A_n(r)=S_{n-1}\,r^{\,n-1},
-\label{appF:eq:screen}
+\big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\frac{\Phi}{A_n(r)},
+\qquad
+A_n(r)=S_{n-1}\,r^{\,n-1}\ \ \text{(App.~\ref{app:nD-screens}, eq.~\eqref{app:nD-boundaries:eq:areas}).}
+\label{app:calibrations:eq:frame-law}
 \end{equation}
-with $S_{n-1}$ given in Appendix~\ref{app:nD-screens}, eq.~\eqref{appC:eq:areas}. For a conical sector of
-solid angle $\Delta\Omega$, replace $A_n(r)$ by $A_\Delta(r)=\Delta\Omega\,r^{\,n-1}$.
+For a conical sector of solid angle \(\Delta\Omega\), replace \(A_n(r)\) by
+\(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\).
 
 % ------------------------- F.2 Definition ------------------------------
 \subsection{Calibration definition (one datum per sector)}
-\label{appF:def}
+\label{app:calibrations:def}
 
-A measured sector is a linear readout of $\mathbf E_I$ set by a \emph{single} datum:
+A measured sector is a linear readout of \(\mathbf E_I\) set by a \emph{single} datum:
 \begin{equation}
 \boxed{\qquad
 \mathbf g=c_M\,\mathbf E_I,\qquad
 \mathbf E=c_Q\,\mathbf E_I,\qquad
 \mathbf j_{\rm th}=\kappa_T\,\mathbf E_I
 \qquad}
-\label{appF:eq:cal-def}
+\label{app:calibrations:eq:def}
 \end{equation}
-The sector scales $(c_M,c_Q,\kappa_T)$ are fixed once (units as stated in Appendix~\ref{app:kick}).
+The sector scales \((c_M,c_Q,\kappa_T)\) are fixed once (Kz conventions in App.~\ref{app:kick}).
 
 % ------------------------- F.3 One datum fixes scale -------------------
 \subsection{How one datum fixes the scale}
-\label{appF:one-datum}
+\label{app:calibrations:one-datum}
 
-Pick a reference screen $\Sigma(r_\star)$ around a source with directed flux $\Phi_\star$.
-Measure a sector field $Y_\star\in\{g_\star,E_\star,j_{{\rm th},\star}\}$ at $r_\star$.
-Using \eqref{appF:eq:screen},
+Pick a reference boundary \(\Sigma(r_\star)\) around a source with directed flux \(\Phi_\star\).
+Measure a sector field \(Y_\star\in\{g_\star,E_\star,j_{{\rm th},\star}\}\) at \(r_\star\).
+Using \eqref{app:calibrations:eq:frame-law},
 \begin{equation}
 c_{\rm sec}
 \;=\;
 \frac{Y_\star}{|\mathbf E_I(r_\star)|}
 \;=\;
 Y_\star\,\frac{\kappa\,A_n(r_\star)}{\Phi_\star},
-\qquad
-\text{(sec}\in\{M,Q,{\rm th}\}).
-\label{appF:eq:one-datum}
+\qquad \text{(sec}\in\{M,Q,{\rm th}\}).
+\label{app:calibrations:eq:one-datum}
 \end{equation}
-No further inputs are required.
+Orientation signs may be absorbed into the choice of outward normal.
 
 % ------------------------- F.4 Ratio predictions -----------------------
 \subsection{Ratio predictions (same source family)}
-\label{appF:ratios}
+\label{app:calibrations:ratios}
 
-After fixing $c_{\rm sec}$, any screen at $r$ gives
+After fixing \(c_{\rm sec}\), any boundary at \(r\) gives
 \begin{equation}
 Y(r)\;=\;c_{\rm sec}\,|\mathbf E_I(r)|
 \;=\;
 Y_\star\,
 \frac{\Phi(r)}{\Phi_\star}\,
 \frac{A_n(r_\star)}{A_n(r)}.
-\label{appF:eq:ratio}
+\label{app:calibrations:eq:ratio}
 \end{equation}
-In lossless statics ($\Phi(r)=\Phi_\star$),
+In lossless statics (\(\Phi(r)=\Phi_\star\)),
 \begin{equation}
 \boxed{\qquad
 Y(r)=Y_\star\,\frac{A_n(r_\star)}{A_n(r)}
 \;=\;
 Y_\star\left(\frac{r_\star}{r}\right)^{\!n-1}.
 \qquad}
-\label{appF:eq:one-datum-ratio}
+\label{app:calibrations:eq:frame-ratio}
 \end{equation}
-In $n{=}3$ this specializes to $Y(r)=Y_\star\,(r_\star^2/r^2)$.
+For \(n{=}3\), \(Y(r)=Y_\star\,(r_\star^2/r^2)\).
 
 % ------------------------- F.5 Operational label -----------------------
 \subsection{Operational source label (optional)}
-\label{appF:Qop}
+\label{app:calibrations:Qop}
 
 Define an operational source label by the flux ratio
 \begin{equation}
 \frac{\mathcal Q}{\mathcal Q_\star}:=\frac{\Phi}{\Phi_\star}.
-\label{appF:eq:Qop}
+\label{app:calibrations:eq:Qop}
 \end{equation}
-Then \eqref{appF:eq:ratio} becomes
+Then \eqref{app:calibrations:eq:ratio} becomes
 \begin{equation}
 Y(r)\;=\;Y_\star\,\frac{\mathcal Q}{\mathcal Q_\star}\,
 \frac{A_n(r_\star)}{A_n(r)}.
-\label{appF:eq:ratio-Q}
+\label{app:calibrations:eq:ratio-Q}
 \end{equation}
 
 % ------------------------- F.6 Sector notes ----------------------------
 \subsection{Sector notes}
-\label{appF:sectors}
+\label{app:calibrations:sectors}
 
 \begin{itemize}\itemsep2pt
-\item \textbf{Gravitational readout.} $Y\!=\!g$ with $c_{\rm sec}\!\equiv\!c_M$ yields inverse‑power profiles via \eqref{appF:eq:one-datum-ratio}.
-\item \textbf{Electrostatic readout.} $Y\!=\!E$ with $c_{\rm sec}\!\equiv\!c_Q$ uses the same $A_n(r)$ geometry; only the datum changes.
-\item \textbf{Thermal/particle channel.} $Y\!=\!j_{\rm th}$ with $c_{\rm sec}\!\equiv\!\kappa_T$ maps a measured heat/particle flux density to $\mathbf E_I$.
+\item \textbf{Gravitational readout.} \(Y=g\) with \(c_{\rm sec}\equiv c_M\) yields inverse‑power profiles via \eqref{app:calibrations:eq:frame-ratio}.
+\item \textbf{Electric readout.} \(Y=E\) with \(c_{\rm sec}\equiv c_Q\) uses the same \(A_n(r)\) geometry; only the datum changes.
+\item \textbf{Thermal/particle channel.} \(Y=j_{\rm th}\) with \(c_{\rm sec}\equiv\kappa_T\) maps a measured heat/particle flux density to \(\mathbf E_I\).
 \end{itemize}
 
 % ------------------------- F.7 Apertures & confinement -----------------
 \subsection{Cones/apertures and confinement}
-\label{appF:apertures}
+\label{app:calibrations:apertures}
 
-For a conical sector of solid angle $\Delta\Omega$, replace $A_n(r)$ by
-$A_\Delta(r)=\Delta\Omega\,r^{\,n-1}$ in \eqref{appF:eq:one-datum}--\eqref{appF:eq:ratio-Q}.
-In guides/sheets (Corollary~\ref{corollary:dimensional}), use the effective cross‑section or
-circumference in place of $A_n(r)$.
+For a conical sector of solid angle \(\Delta\Omega\), replace \(A_n(r)\) by
+\(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\) in \eqref{app:calibrations:eq:one-datum}–\eqref{app:calibrations:eq:ratio-Q}.
+In guides/sheets (§\ref{corollary:dimensional}), use the effective cross‑section or
+circumference in place of \(A_n(r)\).
 
-% ------------------------- F.8 Far‑field waves -------------------------
-\subsection{Far‑field waves (transfer of envelopes)}
-\label{appF:waves}
+% ------------------------- F.8 Far‑field waves (pointer) ---------------
+\subsection{Far‑field waves (pointer)}
+\label{app:calibrations:waves}
 
-In homogeneous, source‑free segments the exported power is constant and the far‑field envelope \emph{follows}
-$\langle|\mathbf E_I|\rangle\propto 1/\sqrt{A_n(r)}$ (Corollary~\ref{corollary:info-em}).
-Readouts inherit:
-\begin{equation}
-\langle|Y(r)|\rangle
-\;=\; c_{\rm sec}\,\langle|\mathbf E_I(r)|\rangle
-\;\propto\; \frac{1}{\sqrt{A_n(r)}}.
-\label{appF:eq:waves}
-\end{equation}
+Wave transport and envelopes are collected in §\ref{waves}. Readouts inherit wave envelopes via
+\eqref{app:calibrations:eq:def}; no additional constants are introduced.
 
-\label{appF:Tritdensity}
-
-One may write $N(r)=\alpha\,A_n(r)$ (\emph{trit} density on a screen) and a per‑trit hit rate $f(r)$ with
-$\Phi(r)=f(r)\,N(r)$. Conservation then sets $f(r)\propto 1/A_n(r)$, so only the \emph{product} $f\alpha$ matters
-and can be absorbed into the single calibration via \eqref{appF:eq:one-datum}. Hence $\alpha$ is a convenient
-parameterization, not an extra constant.
-
-% ------------------------- F.10 Dependencies ---------------------------
+% ------------------------- F.9 Dependencies ----------------------------
 \subsection{Dependencies}
-\label{appF:units}
+\label{app:calibrations:units}
 
-Equations \eqref{appF:eq:screen}--\eqref{appF:eq:waves} depend only on:
-(i) the static closure \eqref{eq:static-closure}, (ii) the balance identity \eqref{eq:stokes-identity},
-and (iii) the geometric areas $A_n(r)$ from Appendix~\ref{app:nD-screens} (eq.~\eqref{appC:eq:areas}).
+Equations \eqref{app:calibrations:eq:frame-law}–\eqref{app:calibrations:eq:ratio-Q} depend only on:
+(i) the frame linear closure \eqref{axioms:stokes:frame:eq:closure}, (ii) the Stokes identity \eqref{axioms:stokes:identity:eq},
+and (iii) the geometric areas \(A_n(r)\) from App.~\ref{app:nD-screens} (eq.~\eqref{app:nD-boundaries:eq:areas}).
 No bare constants appear beyond the single datum per sector.
-
-\medskip
-\noindent\emph{Literature note.}
-Geometry and screen areas are collected in Appendix~\ref{app:nD-screens}; a standard reference is Frankel~\cite{Frankel2011}.
-For a Poynting‑type export identity in an EM realization, see Appendix~\ref{app:forms-stokes} and e.g.\ Jackson~\cite{Jackson1999}.

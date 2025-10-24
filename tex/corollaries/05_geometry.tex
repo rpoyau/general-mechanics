@@ -1,0 +1,96 @@
+% ======================================================================
+% 03c07_geometry-equivalence.tex — Geometry as tool (flat ↔ curved)
+% ======================================================================
+
+\subsection{Geometry as tool—flat \texorpdfstring{$\leftrightarrow$}{↔} curved}
+\label{corollary:geometry}
+
+This corollary uses geometry purely as a \emph{tool} to relate boundary amplitudes to the change of
+cross–sectional area along a thin tube of trajectories on a (Lorentzian or Riemannian) manifold.
+Let \(k^a\) be a future–directed null or timelike congruence threading a narrow tube, with affine
+(or proper) parameter \(\lambda\) and cross–sectional area \(A(\lambda)\) orthogonal to \(k^a\).
+
+\paragraph{Expansion and area.}
+The congruence expansion is
+\begin{equation}
+\theta \;:=\; \nabla_a k^a,
+\qquad
+\frac{d}{d\lambda}\ln A \;=\; \theta .
+\label{corollary:geometry:eq:expansion}
+\end{equation}
+On a steady, source–free tube the directed boundary flux \(\Phi\) is constant, and the mean normal
+\emph{flux density} satisfies \(\langle j_n\rangle=\Phi/A\). Therefore
+\begin{equation}
+\frac{d}{d\lambda}\,\ln \langle j_n\rangle \;=\; -\,\theta .
+\label{corollary:geometry:eq:spread-frame}
+\end{equation}
+For wave amplitudes in homogeneous segments (see §\ref{waves}, eq.~\eqref{waves:eq:envelope}),
+\(\langle |\mathbf E_I|\rangle \propto [A(\lambda)]^{-1/2}\), hence
+\begin{equation}
+\frac{d}{d\lambda}\,\ln \langle |\mathbf E_I|\rangle \;=\; -\,\frac{1}{2}\,\theta .
+\label{corollary:geometry:eq:spread-wave}
+\end{equation}
+Equations \eqref{corollary:geometry:eq:spread-frame}–\eqref{corollary:geometry:eq:spread-wave}
+express the flat \(\leftrightarrow\) curved \emph{equivalence}: spreading in flat regions
+(\(\theta>0\)) and focusing in curved regions (\(\theta<0\)) are the same area statement, with
+amplitudes set solely by \(A(\lambda)\).
+
+\paragraph{Raychaudhuri focusing.}
+For a geodesic, hypersurface–orthogonal congruence (\(\omega_{ab}=0\)), the Raychaudhuri equation gives
+\begin{equation}
+\frac{d\theta}{d\lambda}
+\;=\;
+-\,\frac{1}{2}\,\theta^2
+\;-\;\sigma_{ab}\sigma^{ab}
+\;-\;R_{ab}\,k^a k^b ,
+\label{corollary:geometry:eq:raychaudhuri}
+\end{equation}
+where \(\sigma_{ab}\) is the shear tensor and \(R_{ab}\) the Ricci tensor.\footnote{For timelike
+congruences the numerical coefficient in front of \(\theta^2\) is dimension–dependent; the focusing
+term \(R_{ab}k^a k^b\) retains the same sign.} \emph{Positive} \(R_{ab}k^a k^b\) increases focusing
+(drives \(\theta\) downward), tightening \(A(\lambda)\) and raising amplitudes via
+\eqref{corollary:geometry:eq:spread-frame}–\eqref{corollary:geometry:eq:spread-wave}.
+
+\paragraph{Calibrated equality (consistency tool, not an axiom).}
+On the \emph{same} region used for flux measurements, a single sector calibration
+(§\ref{subsec:op-calibration}) ties the focusing term to a calibrated stress component:
+\begin{equation}
+R_{ab}\,k^a k^b
+\;\calibeq\;
+8\pi\,\mathcal T^{(\mathrm{cal})}_{ab}\,k^a k^b .
+\label{corollary:geometry:eq:info-einstein}
+\end{equation}
+The symbol \(\calibeq\) denotes equality \emph{after} one calibration (no bare coupling).
+Equation \eqref{corollary:geometry:eq:info-einstein} is used only as a \emph{consistency check}:
+the same datum that fixes statics (§\ref{corollary:frame-boundary}) fixes the focusing response
+inferred from \(A(\lambda)\).
+
+\paragraph{Flat check.}
+In flat geometry with a radial congruence in \(n\) spatial dimensions,
+\(A(\lambda)\propto r^{\,n-1}\) and \(\theta=(n{-}1)\,\dot r/r\).
+Then \eqref{corollary:geometry:eq:spread-frame} gives
+\(\langle j_n\rangle\propto r^{-(n-1)}\) and \eqref{corollary:geometry:eq:spread-wave} gives
+\(\langle |\mathbf E_I|\rangle\propto r^{-(n-1)/2}\), matching the boundary inverse–area law
+(§\ref{corollary:frame-boundary}) and the wave envelope in §\ref{waves}.
+
+\paragraph{Remarks (shear and vorticity).}
+Shear \(\sigma_{ab}\) can broaden or squeeze the tube independently of \(R_{ab}k^a k^b\);
+vorticity \(\omega_{ab}\neq 0\) would enter Raychaudhuri with a sign that counteracts focusing.
+These kinematics combine through \eqref{corollary:geometry:eq:raychaudhuri} to determine \(A(\lambda)\),
+hence amplitudes via \eqref{corollary:geometry:eq:spread-frame}–\eqref{corollary:geometry:eq:spread-wave}.
+
+\medskip
+\noindent\emph{Summary.}
+Geometry fixes how \(A(\lambda)\) evolves; Stokes fixes the conserved quantities.
+With one calibration shared with statics, the focusing term can be related to a calibrated stress
+along the tube. No new constants are introduced, and all amplitude rules reduce to the area
+relations \eqref{corollary:geometry:eq:spread-frame}–\eqref{corollary:geometry:eq:spread-wave}.
+
+\medskip
+\noindent\emph{Literature note.}
+Geodesic congruences and Raychaudhuri: Wald~\cite{Wald1984}, Raychaudhuri~\cite{Raychaudhuri1955},
+Poisson~\cite{Poisson2004}. The calibrated focusing equality
+\eqref{corollary:geometry:eq:info-einstein} follows the local‑horizon logic summarized in
+App.~\ref{app:jacobson} (cf.\ Jacobson~\cite{Jacobson1995}). Boundary geometry in \(n\)D appears
+in App.~\ref{app:nD-screens}. Static and wave amplitude scalings referenced here are established in
+§\ref{corollary:frame-boundary} and §\ref{waves}.

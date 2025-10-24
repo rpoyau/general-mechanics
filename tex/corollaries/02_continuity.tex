@@ -1,0 +1,99 @@
+% ======================================================================
+% 03c02_continuity-clausius.tex — Continuity & Clausius (boundary heat mapping)
+% ======================================================================
+
+\subsection{Continuity \& Clausius}
+\label{corollary:continuity}
+
+\paragraph{Local continuity (entropy units).}
+Let \(j=J^\mu dx_\mu\) be the informational/entropic flux \(1\)-form and \(j^{(n)}=\!*j\) its Hodge dual.
+The generalized Stokes identity \eqref{axioms:stokes:identity:eq} yields the local continuity law
+\begin{equation}
+\partial_t i + \nabla\!\cdot \mathbf j \;=\; \sigma .
+\label{eq:c2-local}
+\end{equation}
+Unless noted otherwise, quantities are in entropy units (nats); \(i\) is entropy density (nats/vol), \(\mathbf j\) is
+boundary flux density (nats/(area·time)), and \(\sigma\) is production (nats/(vol·time)).\footnote{\emph{Operational aside.} Any frame flux \(\mathbf j(\cdot,t)\) is inferred from a finite spatiotemporal window; the worldtube cut identity is the dynamical statement, and “instantaneous” laws are the \(A,\Delta t\!\to\!0\) idealization.}
+
+\paragraph{Cut identity (fixed region).}
+On a fixed spatial region \(V\) with outward unit normal \(n\),
+\begin{equation}
+\dot I_{\mathrm{enc}}
+\;=\;
+\Phi_{\mathrm{in}}-\Phi_{\mathrm{out}}+\Pi,
+\qquad
+\Phi_{\mathrm{in/out}}=\int_{\partial V}( \mathbf j\!\cdot n )_{\mp}\,dA,
+\quad
+\Pi=\int_V \sigma\,d^n x ,
+\label{eq:c2-cut}
+\end{equation}
+which is the cap–side form of the \emph{cut identity} \eqref{axioms:stokes:identity:eq:cut}. Here
+\(I_{\mathrm{enc}}=\int_V i\,d^n x\).
+
+\paragraph{Clausius mapping (heat).}
+Identify the entropy flux density across the boundary as
+\begin{equation}
+\mathbf j_S := \mathbf j \quad\text{(nats/(area·time))}.
+\label{eq:c2-jS}
+\end{equation}
+With boundary temperature \(T\) (Kz; App.~\ref{app:kick}), the measurable heat (power) flux is
+\begin{equation}
+\mathbf q := T\,\mathbf j_S .
+\label{eq:c2-q}
+\end{equation}
+Then \eqref{eq:c2-local} is the Clausius statement
+\begin{equation}
+\partial_t s + \nabla\!\cdot\!\left(\frac{\mathbf q}{T}\right) \;=\; \sigma_{\mathrm th}\ \ge\ 0 ,
+\label{eq:c2-clausius-local}
+\end{equation}
+where \(s=i\) and \(\sigma_{\mathrm th}\equiv\sigma\) is the nonnegative production density.\footnote{Nonnegativity follows
+from the cyclic–cost monotonicity in (\S\ref{axioms:reos}): for admissible control cycles,
+\(\oint \lambda_a\,dR^{(a)}\!\ge0\), which registers as \(\sigma\ge0\) under
+\eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}.}
+The cut form reads
+\begin{equation}
+\dot S_{\mathrm{enc}}
+\;=\;
+\int_{\partial V}\frac{(\mathbf q\!\cdot n)_-}{T}\,dA
+\;-\;
+\int_{\partial V}\frac{(\mathbf q\!\cdot n)_+}{T}\,dA
+\;+\;
+\Pi_{\mathrm th}
+\ \ \ge\ \ 0 .
+\label{eq:c2-clausius-cut}
+\end{equation}
+
+\paragraph{Calibration to the informational field.}
+Using the frame closure \eqref{axioms:stokes:frame:eq:closure} and the one–datum sector calibration (App.~\ref{app:calibrations}),
+\begin{equation}
+\mathbf j \;=\; -\,\kappa\,\mathbf E_I,
+\qquad
+\mathbf q \;=\; -\,T\,\kappa\,\mathbf E_I .
+\label{eq:c2-calibrated}
+\end{equation}
+Equivalently, one may define a thermal sector constant \(\kappa_T:=|\kappa|\) and absorb the sign into orientation.
+Thus the Clausius fluxes in \eqref{eq:c2-clausius-local}–\eqref{eq:c2-clausius-cut} are read directly from \(\mathbf E_I\);
+the single datum fixes \(\kappa_T\) once and is not repeated.
+
+\paragraph{Directional filtering.}
+For one–sided diaphragms or conical apertures, replace \(\mathbf q\!\cdot n\) by the inward component
+\((\mathbf q\!\cdot n)_-\) in the inflow term; the outflow uses \((\mathbf q\!\cdot n)_+\).
+
+\paragraph{Trits vs.\ nats.}
+If boundary counts are recorded in trits, convert by \(j_S=(\ln 3)\,j_{\text{trits}}\).
+Equations \eqref{eq:c2-local}–\eqref{eq:c2-calibrated} are invariant under this unit choice; only the numerical value of
+\(\kappa\) (or \(\kappa_T\)) rescales with the log‑base convention.
+
+\medskip
+\noindent\emph{Summary.}
+Continuity \eqref{eq:c2-local} with \(\mathbf j_S=\mathbf q/T\) gives Clausius in local and cut forms.
+Calibration \eqref{eq:c2-calibrated} ties these fluxes to the same informational field that governs the
+frame boundary laws (C0–C1; \S\ref{corollary:info-gas}, \S\ref{corollary:frame-boundary}), with no additional
+constants beyond the one–datum choice.
+
+\medskip
+\noindent\emph{Literature note.}
+Forms/Stokes and the cap–side identity are summarized in App.~\ref{app:forms-stokes};
+operational units appear in App.~\ref{app:kick}. Connections between information, entropy, and thermodynamic
+identities may be found in Cover–Thomas \cite{CoverThomas2006} and Jaynes \cite{Jaynes1957}; erasure
+costs and reversibility in Landauer \cite{Landauer1961} and Bennett \cite{Bennett2003}.

@@ -3,38 +3,39 @@
 % ======================================================================
 
 \section{Operationalization \& Calibration}
-\label{sec:operationalization}
+\label{operationalization}
 
 This section records minimal steps to turn the Stokes identity on a region
-$U\subset M$ with boundary $\partial U$ into numerical predictions for a chosen
-measured sector. The spine is: generalized Stokes on $U$ and
-on $U\times[t_0,t_1]$ (see \eqref{eq:stokes-identity}–\eqref{eq:cut-identity}),
-the static linear closure \eqref{eq:static-closure}, and (when used) a
-\emph{wave transport closure} recorded in \S\ref{sec:waves}
+\(U\subset M\) with boundary \(\partial U\) into numerical predictions for a chosen
+measured sector. The spine is: generalized Stokes on \(U\) and
+on \(U\times[t_0,t_1]\) (see \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}),
+the \emph{frame} linear closure \eqref{axioms:stokes:frame:eq:closure}, and (when used) a
+\emph{wave transport closure} recorded in \S\ref{waves}
 that provides a Poynting identity on source–free segments
-(App.~\ref{app:forms-stokes}, eq.~\eqref{appB:eq:poynting}).
+(App.~\ref{app:forms-stokes}, eq.~\eqref{app:forms-stokes:eq:poynting}).
 
 % --- Thermodynamic dictionary (boundary-first) ---
 \paragraph{Thermodynamic dictionary (boundary-first).}
-Piston face area $A$ $\to$ screen $S^{n-1}(r)$ with area $A_{n}(r)$;
-pressure $p$ $\to$ normal flux density $j_n$ on the screen;
-volume $V$ $\to$ enclosed $V_n(r)$;
-mechanical work $\delta W$ $\to$ $j_n$ times the boundary deformation $A_{n}(r)\,\delta r$;
-heat $\delta Q$ $\to$ boundary form $T\,\delta S_I$ (one datum per sector).
-This dictionary is used operationally in C0 and C1 (\S\ref{corollary:info-gas}, \S\ref{corollary:static-screen}).
+Piston face area \(A\) \(\to\) spherical \emph{boundary} \(S^{n-1}(r)\) with area \(A_n(r)\);
+pressure \(p\) \(\to\) normal entropic flux density \(j_n\) on the boundary;
+volume \(V\) \(\to\) enclosed \(V_n(r)\) (with \(dV_n=A_n(r)\,dr\));
+mechanical work \(\delta W\) \(\to\) \(j_n\) times boundary displacement \(A_n(r)\,\delta r\);
+heat \(\delta Q\) \(\to\) optional boundary energy mapping \(\int_A T\,\delta S_I\) (one datum per sector).
+This dictionary is used operationally in (\S\ref{corollary:info-gas}, \S\ref{corollary:frame-boundary}).
 
-% --- Geometry note for n+1 and moving screens ---
-\paragraph{Geometry in $n{+}1$ (screens and worldtubes).}
-In $n$ spatial dimensions use the spherical surface $A_{n}(r)$ (or the effective cross‑section/circumference under confinement; C8: \S\ref{corollary:dimensional}).
-For static tube/screen arguments work on an \emph{open annulus} $W\subset U$ with $\sigma|_W\equiv0$.
-For moving screens replace $A_{n}(r)$ by the instantaneous $A_{n}(r,t)$ and use the worldtube \emph{cut (cap+side) identity} with side integrand $\mathbf j\!\cdot\!\mathbf n - i\,v_n$ (App.~\ref{app:forms-stokes}).
+% --- Geometry note for n+1 and moving boundaries ---
+\paragraph{Geometry in \(n{+}1\) (boundaries and worldtubes).}
+In \(n\) spatial dimensions use the spherical boundary area \(A_{n}(r)\) (or the effective cross‑section/circumference under confinement; \S\ref{corollary:dimensional}).
+For frame tube/\emph{boundary} arguments work on an \emph{open annulus} \(W\subset U\) with \(\sigma|_W\equiv0\).
+For moving boundaries replace \(A_{n}(r)\) by the instantaneous \(A_{n}(r,t)\) and use the worldtube \emph{cap+side (cut) identity} with side integrand \(\mathbf j\!\cdot\!\mathbf n - i\,v_n\)
+(App.~\ref{app:forms-stokes}).
 
 % --- Operational witnesses (local, optional) ---
 \paragraph{Operational witnesses (local, optional).}
-\emph{W-FluxConst[$\varepsilon$]}: on a static annulus with negligible production, the directed screen flux is invariant across nested screens (C1, \S\ref{corollary:static-screen}).
-\emph{W-Narrow[$\varepsilon$]}: on a propagation segment, exported power is spectrally concentrated near a carrier (\S\ref{sec:waves}).
-\emph{W-Lin[$\varepsilon$]}, \emph{W-Stat[$\varepsilon$]}, \emph{W-Ret[$\varepsilon$]}: local linearity, stationarity, and retardedness checks on the window (used when forming transfer functions).
-Consequences in C1--C4 are invoked on windows where the corresponding witness is observed.
+\emph{W‑FluxConst[\(\varepsilon\)]}: on a frame annulus with negligible production, the directed \emph{boundary} flux is invariant across nested boundaries (C1, \S\ref{corollary:frame-boundary}).\newline
+\emph{W‑Narrow[\(\varepsilon\)]}: on a propagation segment, exported power is spectrally concentrated near a carrier (\S\ref{waves}).\newline
+\emph{W‑Lin[\(\varepsilon\)]}, \emph{W‑Stat[\(\varepsilon\)]}, \emph{W‑Ret[\(\varepsilon\)]}: local linearity, stationarity, and retardedness checks on the window (used when forming transfer functions; if satisfied, the Causality–Dispersion corollary may be invoked, \S\ref{waves:causality-dispersion}).\newline
+Consequences in (\S\ref{corollary:frame-boundary}, \S\ref{waves}) are invoked on windows where the corresponding witness is observed.
 
 % ----------------------------- 4.1 -------------------------------------
 \subsection{Inputs and outputs}
@@ -42,74 +43,74 @@ Consequences in C1--C4 are invoked on windows where the corresponding witness is
 
 To make the framework predictive, the observer supplies:
 \begin{enumerate}\itemsep2pt
-  \item \textbf{Boundary choice.} A concrete $\partial U$: closed \emph{screen} or open \emph{sector/aperture}
-        (cf.\ C0, \S\ref{corollary:info-gas}; C1, \S\ref{corollary:static-screen}). Confinement choices
+  \item \textbf{Boundary choice.} A concrete \(\partial U\): closed \emph{boundary} or open \emph{boundary sector/aperture}
+        (cf.\,\S\ref{corollary:info-gas}; \S\ref{corollary:frame-boundary}). Confinement choices
         (guides/sheets) produce effective lower dimensions (C8, \S\ref{corollary:dimensional}).
-  \item \textbf{Channel class.} Static (use $\mathbf j=-\kappa\,\mathbf E_I$) or a \emph{wave
-        segment} (use the general wave template in \S\ref{sec:waves}; % <<< updated
-        the Poynting identity \eqref{appB:eq:poynting} applies on source–free segments).
-        If waves, state the constitutive description (e.g.\ $\chi$) on the segment where it is treated as homogeneous.
-  \item \textbf{One datum (sector scale).} A single measurement $Y_\star$ on a reference
-        screen/sector (radius $r_\star$, area $A_\star$) for the chosen readout
-        $Y\in\{g,E,j_{\rm th}\}$; see \S\ref{subsec:op-calibration}.
-  \item \textbf{Resource budgets.} Area $A$, time window $\Delta t$, power budget $P$,
-        boundary temperature $T$ (\textbf{Kz}; App.~\ref{app:kick}), and a target reliability $\varepsilon$
+  \item \textbf{Channel class.} \emph{Frame} (use \(\mathbf j=-\kappa\,\mathbf E_I\)) or a \emph{wave
+        segment} (use the general wave template in \S\ref{waves};
+        the Poynting identity \eqref{app:forms-stokes:eq:poynting} applies on source–free segments).
+        If waves, state the constitutive description (e.g.\ \(\chi\)) on the segment where it is treated as homogeneous.
+  \item \textbf{One datum (sector scale).} A single measurement \(Y_\star\) on a reference
+        boundary/sector (radius \(r_\star\), area \(A_\star\)) for the chosen readout
+        \(Y\in\{g,E,j_{\rm th}\}\); see \S\ref{subsec:op-calibration}.
+  \item \textbf{Resource budgets.} Area \(A\), time window \(\Delta t\), power budget \(P\),
+        boundary temperature \(T\) (\textbf{Kz}; App.~\ref{app:kick}), and a target reliability \(\varepsilon\)
         for coding/decoding.
-  \item \textbf{Noise model (optional).} If needed, a noise kernel $\mathcal N$ for
+  \item \textbf{Noise model (optional).} If needed, a noise kernel \(\mathcal N\) for
         fluctuations (App.~\ref{app:noise-kernel}) or simply the Poisson shot–noise assumption
-        used in C6 (\S\ref{corollary:noise}).
+        used in (\S\ref{corollary:noise}).
 \end{enumerate}
-\emph{Outputs} are calibrated fields and bounds over the same region and window:
-static profiles $Y(r)$, wave envelopes $\langle|Y(r)|\rangle$, and operational
+\emph{Outputs} are calibrated fields and bounds over the same manifold:
+frame profiles \(Y(r)\), wave envelopes \(\langle|Y(r)|\rangle\), and operational
 limits from time–information and noise.
 
 % ----------------------------- 4.2 -------------------------------------
 \subsection{One–datum calibration (constant–free scale setting)}
 \label{subsec:op-calibration}
 
-On a time–frozen, source–free annulus the directed flux $\Phi$ across any screen is
+On a frame, source–free annulus the directed flux \(\Phi\) across any boundary is
 constant and
 \[
 \big\langle j_n\big\rangle(r)=\frac{\Phi}{A_n(r)},\qquad
 |\mathbf E_I(r)|=\frac{1}{\kappa}\,\frac{\Phi}{A_n(r)}
-\quad\text{(C0–C1; \S\ref{corollary:info-gas}, \S\ref{corollary:static-screen}).}
+\quad\text{(C0–C1; \S\ref{corollary:info-gas}, \S\ref{corollary:frame-boundary}).}
 \]
-A measured sector is a linear readout of $\mathbf E_I$:
+A measured sector is a linear readout of \(\mathbf E_I\):
 \[
 \mathbf g=c_M\,\mathbf E_I,\qquad
 \mathbf E=c_Q\,\mathbf E_I,\qquad
 \mathbf j_{\rm th}=\kappa_T\,\mathbf E_I.
 \]
-Fix $c_{\rm sec}$ by a single datum $Y_\star$ on a reference screen $(r_\star,A_\star)$
-with the same flux $\Phi$:
+Fix \(c_{\rm sec}\) by a single datum \(Y_\star\) on a reference boundary/sector \((r_\star,A_\star)\)
+with the same flux \(\Phi\):
 \begin{equation}
 c_{\rm sec}
 =\frac{Y_\star}{|\mathbf E_I(r_\star)|}
 =Y_\star\,\frac{\kappa\,A_\star}{\Phi}.
 \label{eq:op-cal-const}
 \end{equation}
-Thereafter, in the lossless snapshot regime,
+Thereafter, in the lossless \emph{frame} regime,
 \begin{equation}
 Y(r)=c_{\rm sec}\,|\mathbf E_I(r)|
 =Y_\star\,\frac{A_\star}{A_n(r)}.
 \label{eq:op-one-datum-ratio}
 \end{equation}
-If a flux label $\mathcal Q$ is used operationally (e.g.\ mass/charge within a source
-family) with $\Phi\propto\mathcal Q$, then $Y(r)=Y_\star(\mathcal Q/\mathcal Q_\star)\,
-[A_\star/A_n(r)]$ (App.~\ref{app:calibrations}).
+If a flux label \(\mathcal Q\) is used operationally (e.g.\ mass/charge within a source
+family) with \(\Phi\propto\mathcal Q\), then \(Y(r)=Y_\star(\mathcal Q/\mathcal Q_\star)\,
+[A_\star/A_n(r)]\) (App.~\ref{app:calibrations}).
 
 \paragraph{Cones and confinement.}
-For a conical sector of solid angle $\Delta\Omega$, replace $A_n(r)$ by
-$A_\Delta(r)=\Delta\Omega\,r^{\,n-1}$. For guides/sheets use the effective constant
+For a conical \emph{boundary sector} of solid angle \(\Delta\Omega\), replace \(A_n(r)\) by
+\(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\). For guides/sheets use the effective constant
 cross–section/circumference (C8, \S\ref{corollary:dimensional}). No new constants are introduced.
 
 % ----------------------------- 4.3 -------------------------------------
 \subsection{Wave segments: envelopes and export}
 \label{subsec:op-waves}
 
-On homogeneous source–free segments, the wave template in \S\ref{sec:waves} plus the
-Poynting identity (App.~\ref{app:forms-stokes}, \eqref{appB:eq:poynting}) implies constant exported power
-through screens. Time–averaging gives
+On homogeneous source–free segments, the wave template in \S\ref{waves} plus the
+Poynting identity (App.~\ref{app:forms-stokes}, \eqref{app:forms-stokes:eq:poynting}) implies constant exported power
+through \emph{boundaries}. Time–averaging gives
 \[
 P(r)=\int_{\Sigma(r)}\!\langle \mathbf S\rangle\!\cdot n\,dA=\text{const},\qquad
 \langle \mathbf S\rangle\propto \langle|\mathbf E_I|^2\rangle,
@@ -121,22 +122,21 @@ hence the far–field envelope
 \big\langle |Y(r)| \big\rangle = c_{\rm sec}\,\big\langle |\mathbf E_I(r)| \big\rangle .
 \label{eq:op-wave-envelope}
 \end{equation}
-In short time windows $\Delta t$, interference can suppress instantaneous export on sub‑windows,
-while the \emph{window‐integrated} export $\int_t^{t+\Delta t}\!P(\tau)\,d\tau$ remains radius‑independent
+In short windows \(\Delta t\), interference can suppress instantaneous export on sub‑windows,
+while the \emph{window‐integrated} export \(\int_t^{t+\Delta t}\!P(\tau)\,d\tau\) remains radius‑independent
 on the same segment. Resolution is bounded by \eqref{eq:op-rate}–\eqref{eq:op-time} and the noise floor
-\eqref{eq:op-noise}. Confinement replaces $A_n(r)$ by the effective cross–section/circumference (C8,
-\S\ref{corollary:dimensional}). Apply C11 corrections if attenuation or capacity ceilings are relevant
-(C11, \S\ref{corollary:entropic-corrections}).
+\eqref{eq:op-noise}. Confinement replaces \(A_n(r)\) by the effective cross–section/circumference (\S\ref{corollary:dimensional}).
+Apply \S\ref{corollary:entropic-corrections} if attenuation or capacity ceilings are relevant (C11).
 
 % ----------------------------- 4.4 -------------------------------------
 \subsection{Operational limits: time, capacity, and erasure}
 \label{subsec:op-limits}
 
-Let $\overline{J}_{A}$ be the inward counting rate over a patch $A$ in a window
-$\Delta t$ (C5, \S\ref{corollary:time-info}). With a reliability target $\varepsilon$
+Let \(\overline{J}_{A}\) be the inward \emph{counting rate} over a boundary patch \(A\) in a window
+\(\Delta t\) (\S\ref{corollary:time-info}). With a reliability target \(\varepsilon\)
 and a channel class choice (coding, alphabet, constraints), let
-$C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)$ denote the corresponding $\varepsilon$–reliable
-capacity (trits per time). Then the resource–limited bounds (C5) are
+\(C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)\) denote the corresponding \(\varepsilon\)–reliable
+capacity (trits per time). Then the resource–limited bounds are
 \begin{equation}
 \frac{\Delta I_{\rm trits}}{\Delta t}
 \le \min\!\left\{\frac{\overline{J}_{A}}{\ln 3},\
@@ -144,7 +144,6 @@ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon),\
 \frac{P}{T\,\ln 3}\right\},
 \label{eq:op-rate}
 \end{equation}
-
 \begin{equation}
 \Delta t
 \ge \max\!\left\{\frac{\Delta I_{\rm trits}}{\overline{J}_{A}/\ln 3},\
@@ -154,21 +153,21 @@ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon),\
 \end{equation}
 
 \paragraph{Erasures/unknowns (resolved content).}
-If a fraction $\varepsilon_{\bot}\in[0,1)$ of symbols observed on the same window are erasures $(\bot)$,
+If a fraction \(\varepsilon_{\bot}\in[0,1)\) of symbols observed on the same window are erasures \((\bot)\),
 and one wishes to bound \emph{resolved} content only, make the substitution
 \begin{equation}
 \overline{J}_{A}\ \mapsto\ (1-\varepsilon_{\bot})\,\overline{J}_{A},
 \qquad
 C_{\rm chan}^{(\mathrm{trits})}\ \mapsto\ (1-\varepsilon_{\bot})\,C_{\rm chan}^{(\mathrm{trits})}
 \end{equation}
-in \eqref{eq:op-rate}–\eqref{eq:op-time}. The $P/T$ term is unchanged.
+in \eqref{eq:op-rate}–\eqref{eq:op-time}. The \(P/T\) term is unchanged.
 
 % ----------------------------- 4.5 -------------------------------------
 \subsection{Noise floor and estimator width (operational counting witness)}
 \label{subsec:op-noise}
 
-Let $N_A(\Delta t)$ be the inward counts on a patch $A$ over a window $\Delta t$.
-Define the \emph{measured} mean inward current
+Let \(N_A(\Delta t)\) be the inward \emph{counts} on a boundary patch \(A\) over a window \(\Delta t\).
+Define the \emph{measured} mean inward current density
 \[
 \overline{j}_A:=\frac{\mathbb E[N_A]}{|A|\,\Delta t},
 \]
@@ -187,61 +186,61 @@ overdispersed or correlated arrivals are captured by the measured \((F_A,\Delta 
 This is a windowed, data–driven estimate.
 
 % ----------------------------- 4.6 -------------------------------------
-\subsection{Procedure checklist (static and wave cases)}
+\subsection{Procedure checklist (frame and wave cases)}
 \label{subsec:op-checklist}
 
-\noindent\emph{Static.}
+\noindent\emph{Frame.}
 \begin{enumerate}\itemsep2pt
-  \item Choose $\partial U$ (screen/sector) and, if needed, confinement geometry (C8, \S\ref{corollary:dimensional}).
-  \item Apply \eqref{eq:stokes-identity} and the \emph{cut identity} \eqref{eq:cut-identity} with $\sigma|_W\equiv0$ on an open annulus $W\subset U$ to identify
-        a constant directed flux $\Phi$.
-  \item Fix $c_{\rm sec}$ from one datum $Y_\star$ on $(r_\star,A_\star)$ via \eqref{eq:op-cal-const}.
-  \item Predict $Y(r)$ from the ratio law \eqref{eq:op-one-datum-ratio}; apply C11 corrections if attenuation
-        or capacity ceilings are relevant (C11, \S\ref{corollary:entropic-corrections}).
+  \item Choose \(\partial U\) (boundary/sector) and, if needed, confinement geometry (\S\ref{corollary:dimensional}).
+  \item Apply \eqref{axioms:stokes:identity:eq} and the \emph{cut identity} \eqref{axioms:stokes:identity:eq:cut} with \(\sigma|_W\equiv0\) on an open annulus \(W\subset U\) to identify
+        a constant directed flux \(\Phi\).
+  \item Fix \(c_{\rm sec}\) from one datum \(Y_\star\) on \((r_\star,A_\star)\) via \eqref{eq:op-cal-const}.
+  \item Predict \(Y(r)\) from the ratio law \eqref{eq:op-one-datum-ratio}; apply corrections if attenuation
+        or capacity ceilings are relevant (\S\ref{corollary:entropic-corrections}).
   \item If a finite window/area is used, report estimator width from \eqref{eq:op-noise}.
 \end{enumerate}
 
 \noindent\emph{Waves.}
 \begin{enumerate}\itemsep2pt
-  \item Specify the segment and constitutive description where it is treated homogeneous; ensure sources are excluded (\S\ref{sec:waves}).
-  \item Use the Poynting identity to obtain constant power $P(r)$ and the envelope
+  \item Specify the segment and constitutive description where it is treated homogeneous; ensure sources are excluded (\S\ref{waves}).
+  \item Use the Poynting identity to obtain constant power \(P(r)\) and the envelope
         \eqref{eq:op-wave-envelope}; apply confinement if appropriate (C8, \S\ref{corollary:dimensional}).
-  \item Calibrate with the same $c_{\rm sec}$ and quantify bounds via
-        \eqref{eq:op-rate}–\eqref{eq:op-time} for the chosen reliability $\varepsilon$.
-  \item Apply C11 corrections if attenuation or capacity ceilings are relevant (C11, \S\ref{corollary:entropic-corrections}).
+  \item Calibrate with the same \(c_{\rm sec}\) and quantify bounds via
+        \eqref{eq:op-rate}–\eqref{eq:op-time} for the chosen reliability \(\varepsilon\).
+  \item Apply corrections if attenuation or capacity ceilings are relevant (\S\ref{corollary:entropic-corrections}).
 \end{enumerate}
 
 % ----------------------------- 4.7 -------------------------------------
-\subsection{Micro–example (3D static screen)}
+\subsection{Micro–example (3D frame boundary)}
 \label{subsec:op-example}
 
-A spherical screen of radius $r$ in $n=3$ has area $4\pi r^2$.
-If $\Phi$ is the measured tube flux on a static annulus with negligible production,
+A spherical boundary of radius \(r\) in \(n=3\) has area \(4\pi r^2\).
+If \(\Phi\) is the measured tube flux on a frame annulus with negligible production,
 \begin{equation}
 \langle j_n(r)\rangle=\frac{\Phi}{4\pi r^2} .
 \end{equation}
-With the snapshot closure \eqref{eq:static-closure}, the informational field amplitude scales as
+With the frame closure \eqref{axioms:stokes:frame:eq:closure}, the informational field amplitude scales as
 \begin{equation}
 \big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\frac{\Phi}{4\pi r^2}.
 \end{equation}
-This furnishes the static $1/r^2$ profile used in examples.
+This furnishes the frame \(1/r^2\) profile used in examples.
 
 % ----------------------------- 4.8 -------------------------------------
 \subsection{Units (Kz) and trits/nats}
 \label{subsec:op-units}
 
-Kz units are used for rates; base logs convert by $\ln 3$:
+Kz units are used for rates; base logs convert by \(\ln 3\):
 \begin{equation}
 S_{\rm nats}=(\ln 3)\,S_{\rm trits}.
 \end{equation}
 Formulas above are invariant under the trit/nat choice except for the explicit factors
-of $\ln 3$ in the time–information bounds \eqref{eq:op-rate}–\eqref{eq:op-time}.
-(Recovering binary units replaces $\ln 3$ by $\ln 2$ only.)
+of \(\ln 3\) in the time–information bounds \eqref{eq:op-rate}–\eqref{eq:op-time}.
+(Recovering binary units replaces \(\ln 3\) by \(\ln 2\) only.)
 
 \medskip
 \noindent\emph{Literature note.}
 Capacity and reliability follow Shannon and Gallager~\cite{Shannon1948,Gallager1968};
 erasure cost follows Landauer and Bennett~\cite{Landauer1961,Bennett2003};
-for wave transport/export see \S\ref{sec:waves} and App.~\ref{app:forms-stokes};
-for boundary counting statistics, the windowed Fano factor and autocorrelation–based $\Delta t_{\!\mathrm{eff}}$ are standard empirical tools
+for wave transport/export see \S\ref{waves} and App.~\ref{app:forms-stokes};
+for boundary counting statistics, the windowed Fano factor and autocorrelation–based \(\Delta t_{\!\mathrm{eff}}\) are standard empirical tools
 (App.~\ref{app:noise-kernel}).

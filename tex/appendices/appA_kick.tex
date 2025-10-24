@@ -5,137 +5,152 @@
 \section{Kick (Kz) units \& Kram anchors}
 \label{app:kick}
 
-This appendix fixes the unit convention used throughout: write energy‑like quantities as \emph{rates} by dividing SI units by $h$. This keeps every balance and bound in rate form and avoids bare constants in the spine of the framework. Cross‑references to screen geometry use App.~\ref{app:nD-screens}; noise kernels and covariance propagation are in App.~\ref{app:noise-kernel}; one‑datum sector calibrations are collected in App.~\ref{app:calibrations}.
+This appendix states the unit convention used here: energy‑like quantities are expressed as \emph{rates}
+by dividing SI units by \(h\). This keeps identities and bounds in rate form and avoids introducing
+additional constants in intermediate equations. Pointers: boundary geometry (App.~\ref{app:nD-screens});
+noise kernels and covariance (App.~\ref{app:noise-kernel}); the one‑datum sector mapping within this appendix
+(§\ref{app:kick:calibrations}).
 
 % ---------------------------- A.1 --------------------------------------
 \subsection{Kz (Kick) convention}
-\label{appA:kz-conv}
+\label{app:kick:kz-conv}
 
-We define Kz (\emph{Kick}) units by dividing by Planck's constant $h$:
+Define Kz (\emph{Kick}) units by dividing by Planck’s constant \(h\):
 \begin{equation}
-\label{eq:appA-kz-map}
 E^{(\mathrm{Kz})}=\frac{E}{h},\qquad
 M^{(\mathrm{Kz})}=\frac{mc^{2}}{h},\qquad
 T^{(\mathrm{Kz})}=\frac{k_{B}T}{h},\qquad
 P^{(\mathrm{Kz})}=\frac{P_{\rm SI}}{h}.
+\label{app:kick:eq:kz-map}
 \end{equation}
-Thus $E^{(\mathrm{Kz})}$, $M^{(\mathrm{Kz})}$, $T^{(\mathrm{Kz})}$, and $P^{(\mathrm{Kz})}$ all carry units of s$^{-1}$. In these units, the \emph{erasure power divided by temperature} is a \emph{rate}, which is the form used in the time--information bounds (Corollary~\ref{corollary:time-info}).
+Thus \(E^{(\mathrm{Kz})}\), \(M^{(\mathrm{Kz})}\), \(T^{(\mathrm{Kz})}\), and \(P^{(\mathrm{Kz})}\) have units of s\(^{-1}\).
+In these units, erasure power divided by temperature is a rate, as used in the time–information bounds
+(§\ref{corollary:time-info}).
 
-\paragraph{Sanity check.}
-In Kz, the Landauer/erasure rate bound for reliable, durable records reads (bits/s)
+\paragraph{Consistency check.}
+In Kz, the Landauer/erasure rate bound for reliable, durable records (trits/s) reads
 \begin{equation}
-\label{eq:appA-erasure-rate}
-\frac{\Delta I_{\rm bits}}{\Delta t}\ \le\ \frac{P^{(\mathrm{Kz})}}{T^{(\mathrm{Kz})}\,\ln 2},
+\frac{\Delta I_{\rm trits}}{\Delta t}\ \le\ \frac{P^{(\mathrm{Kz})}}{T^{(\mathrm{Kz})}\,\ln 3}.
+\label{app:kick:eq:erasure-rate}
 \end{equation}
-and the same expression without $\ln 2$ holds in nats/s. See the rate and time forms in Corollary~\ref{corollary:time-info}.
+The same statement in nats/s drops the factor \(\ln 3\).
 
 % ---------------------------- A.2 --------------------------------------
-\subsection{Bits, nats, and entropic flux}
-\label{appA:bits-nats}
+\subsection{Trits, nats, and entropic flux}
+\label{app:kick:trits-nats}
 
-If boundary counts are recorded in bits,
+If boundary counts are recorded in trits,
 \begin{equation}
-\label{eq:appA-bits-nats}
-j_{\text{nats}}=(\ln 2)\,j_{\text{bits}},\qquad
-S_{\text{nats}}=(\ln 2)\,S_{\text{bits}}.
+j_{\text{nats}}=(\ln 3)\,j_{\text{trits}},\qquad
+S_{\text{nats}}=(\ln 3)\,S_{\text{trits}}.
+\label{app:kick:eq:trits-nats}
 \end{equation}
-All screen/tube relations (e.g.\ inverse‑area scaling on screens from C0--C1) and bounds are invariant under this change of unit; only numerical prefactors in calibrations change by $\ln 2$.
+All boundary/tube relations and bounds are invariant under this unit change; only calibration
+prefactors shift by \(\ln 3\).
 
 % ---------------------------- A.3 --------------------------------------
 \subsection{Kram anchors (optional decimal ladder)}
-\label{appA:kram}
+\label{app:kick:kram}
 
-When rough magnitudes span many decades, we optionally name logarithmic anchors for Kz rates:
+When magnitudes span many decades, it can be useful to define logarithmic anchors for Kz rates:
 \begin{equation}
-\label{eq:appA-kram}
 1\,k=10^{47}\,\mathrm{Kz},\qquad
 1\,kk=10^{50}\,\mathrm{Kz},\qquad
 1\,Mk=10^{53}\,\mathrm{Kz},\qquad
 1\,Gk=10^{56}\,\mathrm{Kz},\qquad
 1\,Tk=10^{59}\,\mathrm{Kz}.
+\label{app:kick:eq:kram}
 \end{equation}
 
 % ---------------------------- A.4 --------------------------------------
-\subsection{One--datum sector calibrations (static readouts)}
-\label{appA:calibrations}\label{axiom:calibrations} % alias for legacy refs
+\subsection{One‑datum sector calibrations (frame readouts)}
+\label{app:kick:calibrations}
 
-The informational field is $\mathbf E_I:=-\nabla\Phi_I$, with static closure $\mathbf j=-\kappa\,\mathbf E_I$ (Axiom~D2, eq.~\eqref{eq:static-closure}). Measured sectors are defined by a \emph{single} linear calibration (Kz once):
+The informational field is \(\mathbf E_I:=-\nabla\Phi_I\), with frame linear closure
+\(\mathbf j=-\kappa\,\mathbf E_I\) (see \eqref{axioms:stokes:frame:eq:closure}). Measured sectors
+use a single linear calibration (in Kz):
 \begin{equation}
-\label{eq:appA-calib-map}
 \mathbf g=c_M\,\mathbf E_I,\qquad
 \mathbf E=c_Q\,\mathbf E_I,\qquad
 \mathbf j_{\rm th}=\kappa_T\,\mathbf E_I .
+\label{app:kick:eq:calib-map}
 \end{equation}
-Each constant $(c_M,c_Q,\kappa_T)$ is fixed by one datum in that sector (see App.~\ref{app:calibrations}).
+Each constant \((c_M,c_Q,\kappa_T)\) is fixed by one datum in that sector.
 
 \paragraph{How one datum fixes the scale.}
-On a time‑frozen, source‑free annulus, the directed flux $\Phi$ through a radius‑$r$ screen is constant and
+On a frame, source‑free annulus the directed flux \(\Phi\) through a radius‑\(r\) boundary is constant and
 \begin{equation}
-\label{eq:appA-screen-law}
 \big\langle j_n\big\rangle(r)=\frac{\Phi}{A_n(r)},\qquad
 \big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\frac{\Phi}{A_n(r)},\qquad
-A_n(r)=S_{n-1}\,r^{\,n-1}\ \ \text{(App.~\ref{app:nD-screens}, eq.~\eqref{appC:eq:areas})}.
+A_n(r)=S_{n-1}\,r^{\,n-1}\ \ \text{(App.~\ref{app:nD-screens})}.
+\label{app:kick:eq:boundary-law}
 \end{equation}
-Given a reference screen $r_\star$ around a source with flux $\Phi_\star$ and a measured field $Y_\star\in\{g_\star,E_\star,j_{{\rm th},\star}\}$,
+Given a reference boundary \(r_\star\) around a source with flux \(\Phi_\star\) and a measured field
+\(Y_\star\in\{g_\star,E_\star,j_{{\rm th},\star}\}\),
 \begin{equation}
-\label{eq:appA-one-datum}
 c_{\rm sec}
 =\frac{Y_\star}{|\mathbf E_I(r_\star)|}
 =Y_\star\,\frac{\kappa\,A_n(r_\star)}{\Phi_\star},
 \qquad \text{(sec}\in\{M,Q,{\rm th}\}).
+\label{app:kick:eq:one-datum}
 \end{equation}
-No bare constants enter beyond this datum.
+No additional constants appear beyond this datum.
 
 \paragraph{Ratio predictions (constant‑free).}
-Once $c_{\rm sec}$ is fixed,
+Once \(c_{\rm sec}\) is fixed,
 \begin{equation}
-\label{eq:appA-ratio}
 Y(r)=c_{\rm sec}\,|\mathbf E_I(r)|
 =Y_\star\,\frac{\Phi(r)}{\Phi_\star}\,\frac{A_n(r_\star)}{A_n(r)}.
+\label{app:kick:eq:ratio}
 \end{equation}
-In lossless statics $\Phi(r)=\Phi_\star$, so $Y(r)=Y_\star\,(r_\star/r)^{\,n-1}$ (cf.\ C1).
+In lossless frame statics \(\Phi(r)=\Phi_\star\), so \(Y(r)=Y_\star\,(r_\star/r)^{\,n-1}\).
 
 % ---------------------------- A.5 --------------------------------------
 \subsection{Capacity and erasure in Kz (operational knobs)}
-\label{appA:capacity-erasure}
+\label{app:kick:capacity-erasure}
 
-When a channel class and budgets are specified, the reliable capacity (bits/s) is a functional
+With a channel class and budgets specified, a reliable capacity (trits/s) can be represented as
 \begin{equation}
-\label{eq:appA-capacity}
-C_{\rm chan}^{(\text{bits})}(\varepsilon)\ =\ \mathcal C\big[R^{(a)};\,\mathcal N,\,\mathcal B;\,\varepsilon\big],
+C_{\rm chan}^{(\text{trits})}(\varepsilon)\ =\ \mathcal C\big[R^{(a)};\,\mathcal N,\,\mathcal B;\,\varepsilon\big],
+\label{app:kick:eq:capacity}
 \end{equation}
-where $R^{(a)}$ are boundary controls (apertures, alphabets), $\mathcal N$ is the noise kernel (see App.~\ref{app:noise-kernel}), and $\mathcal B$ collects budgets (power $P^{(\mathrm{Kz})}$, temperature $T^{(\mathrm{Kz})}$, area $A$, time window $\Delta t$, reliability $\varepsilon$). The time--information bounds used in the body (Corollary~\ref{corollary:time-info}) combine three independent ceilings:
-\[
-\frac{\Delta I_{\text{bits}}}{\Delta t}
+where \(R^{(a)}\) are boundary controls (apertures, alphabets), \(\mathcal N\) is a noise kernel
+(App.~\ref{app:noise-kernel}), and \(\mathcal B\) collects budgets (power \(P^{(\mathrm{Kz})}\),
+temperature \(T^{(\mathrm{Kz})}\), area \(A\), time window \(\Delta t\), reliability \(\varepsilon\)).
+The time–information bounds used in the body (§\ref{corollary:time-info}) combine three independent limits:
+\begin{equation}
+\frac{\Delta I_{\text{trits}}}{\Delta t}
 \ \le\
 \min\!\left\{
-\frac{\overline{J}_{A}}{\ln 2},\quad
-C_{\rm chan}^{(\text{bits})}(\varepsilon),\quad
-\frac{P^{(\mathrm{Kz})}}{T^{(\mathrm{Kz})}\,\ln 2}
-\right\},
-\]
-with the last term originating from \eqref{eq:appA-erasure-rate} when durable records are formed and later erased.
+\frac{\overline{J}_{A}}{\ln 3},\quad
+C_{\rm chan}^{(\text{trits})}(\varepsilon),\quad
+\frac{P^{(\mathrm{Kz})}}{T^{(\mathrm{Kz})}\,\ln 3}
+\right\}.
+\label{app:kick:eq:time-info}
+\end{equation}
 
 % ---------------------------- A.6 --------------------------------------
 \subsection{Quick conversions and notes}
-\label{appA:conversions}
+\label{app:kick:conversions}
 
-For any SI quantity $X$, $X^{(\mathrm{Kz})}=X/h$.
-Examples (units shown as s$^{-1}$):
+For any SI quantity \(X\), \(X^{(\mathrm{Kz})}=X/h\).
+Examples (units shown as s\(^{-1}\)):
 \[
 E\,[\mathrm{J}]\mapsto E/h,\qquad
 E\,[\mathrm{eV}]\mapsto \frac{E\,[\mathrm{eV}]\cdot e}{h},\qquad
 T\,[\mathrm{K}]\mapsto \frac{k_B T}{h},\qquad
 P\,[\mathrm{W}]\mapsto \frac{P}{h}.
 \]
-All predictions in the main text are expressed in Kz; numerical evaluations (if any) convert back to SI at the final step.
+Predictions in the main text are expressed in Kz; numerical evaluations (if any) convert back to SI at the final step.
 
 \medskip
 \noindent\emph{Summary.}
-Kz turns energies, masses, temperatures, and powers into rates, aligning all balances and bounds with the informational viewpoint. One‑datum, sector‑specific calibrations then translate the informational field into measured readouts without introducing bare constants; capacity and erasure appear as independent, operational ceilings in the same units.
+Kz expresses energies, masses, temperatures, and powers as rates. A one‑datum, sector‑specific calibration maps
+the informational field to measured readouts without introducing additional constants; capacity and erasure appear
+as independent operational limits in the same units.
 
 \medskip
 \noindent\emph{Literature note.}
-Information measures and reliable communication: Shannon and Cover--Thomas~\cite{Shannon1948,CoverThomas2006};
-erasure cost and reversibility: Landauer and Bennett~\cite{Landauer1961,Bennett2003}.
-(Internal provenance for balances/closures is in Apps.~\ref{app:forms-stokes}, \ref{app:nD-screens}, \ref{app:noise-kernel}, and \ref{app:calibrations}.)
+Information measures and reliable communication: Shannon and Cover–Thomas~\cite{Shannon1948,CoverThomas2006};
+erasure cost and reversibility: Landauer and Bennett~\cite{Landauer1961,Bennett2003}. Pointers to internal material:
+Apps.~\ref{app:forms-stokes}, \ref{app:nD-screens}, \ref{app:noise-kernel}.

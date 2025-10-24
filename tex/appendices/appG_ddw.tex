@@ -5,52 +5,52 @@
 \section{De Donder–Weyl (multisymplectic field version)}
 \label{app:ddw}
 
-This appendix records the field analogue of the rate (Poincar\'e--Cartan) 1‑form
-used in the body for particles (cf.\ \eqref{eq:pc-form}–\eqref{eq:canonical}).
+This appendix records the field analogue of the rate (Poincar\'e–Cartan) 1‑form
+used in the body for particles (cf.\ \eqref{axioms:path-rate:eq:pc-form}–\eqref{axioms:path-rate:eq:canonical}).
 Statements are \emph{Stokes‑first}: the closure of a multisymplectic form yields
-the covariant De Donder–Weyl (DDW) Hamilton equations. \emph{No least‑action
-postulate is assumed}; sector mappings are specified outside the axioms.
+the covariant De Donder–Weyl (DDW) Hamilton equations. No least‑action premise is required;
+sector mappings appear outside the axioms.
 
 % ----------------------------- G.1 -------------------------------------
 \subsection{Fields, polymomenta, and the DW generator}
-\label{appG:fields}
+\label{app:ddw:fields}
 
-Let $\varphi^a(x)$ denote fields on a spacetime manifold $M$ with local
-coordinates $x^\mu$ ($\mu=0,\dots,n$) and volume form $d^{\,n+1}\!x$.
-Introduce \emph{polymomenta} $P_a^{\ \mu}(x)$ and a DDW ``rate generator''
-(also called a covariant Hamiltonian density)
+Let \(\varphi^a(x)\) denote fields on a spacetime manifold \(M\) with local
+coordinates \(x^\mu\) (\(\mu=0,\dots,n\)) and volume form \(d^{\,n+1}\!x\).
+Introduce \emph{polymomenta} \(P_a^{\ \mu}(x)\) and a DDW generator
+(covariant Hamilton density)
 \begin{equation}
 \mathcal H(\varphi,P,x)
 \;:=\;
 P_a^{\ \mu}\,\partial_\mu \varphi^a \;-\; \mathcal R(\varphi,\partial\varphi,x),
-\label{appG:eq:DW-H}
+\label{app:ddw:eq:H}
 \end{equation}
-where $\mathcal R$ is a convex rate density in the first derivatives
-$\partial_\mu\varphi^a$. The generalized Legendre map
-$P_a^{\ \mu}=\partial\mathcal R/\partial(\partial_\mu\varphi^a)$ is assumed
-regular on the sector considered.
+where \(\mathcal R\) is a convex rate density in the first derivatives
+\(\partial_\mu\varphi^a\).
+Assume regularity of the generalized Legendre map
+\(P_a^{\ \mu}=\partial\mathcal R/\partial(\partial_\mu\varphi^a)\) on the sector considered.
 
 % ----------------------------- G.2 -------------------------------------
-\subsection{Poincar\'e--Cartan (multisymplectic) form}
-\label{appG:pc-form}
+\subsection{Poincar\'e–Cartan (multisymplectic) form}
+\label{app:ddw:pc-form}
 
-Let $d^{\,n}x_\mu:=\iota_{\partial_\mu}d^{\,n+1}\!x$ denote the contracted
-$n$‑forms. The field Poincar\'e--Cartan $(n{+}1)$‑form is
+Let \(d^{\,n}x_\mu:=\iota_{\partial_\mu}d^{\,n+1}\!x\) denote the contracted
+\(n\)-forms. The field Poincar\'e–Cartan \((n{+}1)\)-form is
 \begin{equation}
 \Theta_{\!\mathrm{DW}}
 \;=\;
 P_a^{\ \mu}\, d\varphi^a \wedge d^{\,n}x_\mu
 \;-\;
 \mathcal H(\varphi,P,x)\, d^{\,n+1}\!x.
-\label{appG:eq:thetaDW}
+\label{app:ddw:eq:theta}
 \end{equation}
-Its exterior derivative $d\Theta_{\!\mathrm{DW}}$ encodes the dynamics.
+Its exterior derivative \(d\Theta_{\!\mathrm{DW}}\) encodes the dynamics.
 
 % ----------------------------- G.3 -------------------------------------
 \subsection{Closure and DDW equations from Stokes}
-\label{appG:closure}
+\label{app:ddw:closure}
 
-Evaluating Stokes on any $(n{+}2)$‑chain $\Sigma$ whose boundary lies on two
+Evaluating Stokes on any \((n{+}2)\)-chain \(\Sigma\) whose boundary lies on two
 nearby field histories,
 \[
 \int_{\partial\Sigma}\Theta_{\!\mathrm{DW}}
@@ -59,7 +59,7 @@ nearby field histories,
 \;=\; 0,
 \]
 and requiring the coefficients of independent variations to vanish yields the
-covariant Hamilton (De Donder--Weyl) equations:
+covariant Hamilton (De Donder–Weyl) equations:
 \begin{equation}
 \partial_\mu \varphi^a
 \;=\;
@@ -68,105 +68,106 @@ covariant Hamilton (De Donder--Weyl) equations:
 \partial_\mu P_a^{\ \mu}
 \;=\;
 -\,\frac{\partial \mathcal H}{\partial \varphi^a}.
-\label{appG:eq:DW-eqs}
+\label{app:ddw:eq:dw}
 \end{equation}
 These are the field counterpart of the canonical rate equations
-\eqref{eq:canonical} derived in the particle case.
+\eqref{axioms:path-rate:eq:canonical} derived in the particle case.
 
 % ----------------------------- G.4 -------------------------------------
 \subsection{Quadratic kinetic example}
-\label{appG:quadratic}
+\label{app:ddw:quadratic}
 
-With a positive operator $M^{-1\,ab}_{\mu\nu}(x)$ and a scalar rate
-field $U(\varphi,x)$, define
+With a positive‑definite operator \(M^{-1\,ab}_{\mu\nu}(x)\) and a scalar rate
+field \(U(\varphi,x)\), define
 \begin{equation}
 \mathcal H(\varphi,P,x)
 \;=\;
 \tfrac12\,P_a^{\ \mu}\,M^{-1\,ab}_{\mu\nu}\,P_b^{\ \nu}
 \;+\;
 U(\varphi,x).
-\label{appG:eq:quad}
+\label{app:ddw:eq:quad}
 \end{equation}
-Then \eqref{appG:eq:DW-eqs} gives
-$\partial_\mu \varphi^a = M^{-1\,ab}_{\mu\nu} P_b^{\ \nu}$ and
-$\partial_\mu P_a^{\ \mu} = -\,\partial U/\partial\varphi^a$.
-Sector scales (if any) live in $M^{-1}$ and are specified externally (see App.~\ref{app:calibrations}).
+Then \eqref{app:ddw:eq:dw} gives
+\(\partial_\mu \varphi^a = M^{-1\,ab}_{\mu\nu} P_b^{\ \nu}\) and
+\(\partial_\mu P_a^{\ \mu} = -\,\partial U/\partial\varphi^a\).
+Sector scales (if any) live in \(M^{-1}\) and are fixed once by the one‑datum mapping (App.~\ref{app:calibrations}).
 
 % ----------------------------- G.5 -------------------------------------
 \subsection{Minimal coupling to an informational 1‑form (Info–EM)}
-\label{appG:min-coupling}
+\label{app:ddw:min-coupling}
 
-When an informational 1‑form $A_I$ is specified (Info--EM specialization),
+When an informational 1‑form \(A_I\) is specified (Info–EM specialization),
 minimal coupling enters by
 \begin{equation}
 P_a^{\ \mu}
-\;\longmapsto\;
+\ \longmapsto\
 P_a^{\ \mu}
 \;-\;
 \mathcal Q_{a}{}^{b}\,A_I^{\mu}\,\varphi_b,
-\label{appG:eq:min-coupling}
+\label{app:ddw:eq:min-coupling}
 \end{equation}
-with $\mathcal Q$ an operational ``charge'' matrix (sector mapping as in App.~\ref{app:calibrations}).
-The multisymplectic form \eqref{appG:eq:thetaDW} remains first‑order; $F_I=dA_I$ appears in $d\Theta_{\!\mathrm{DW}}$.
+with \(\mathcal Q\) an operational “charge’’ matrix (sector mapping as in App.~\ref{app:calibrations}).
+The multisymplectic form \eqref{app:ddw:eq:theta} remains first‑order; \(F_I=dA_I\) appears in \(d\Theta_{\!\mathrm{DW}}\).
+Wave transport and envelopes are centralized in §\ref{waves}; this subsection only records the covariant coupling.
 
 % ----------------------------- G.6 -------------------------------------
 \subsection{Conservation law (multisymplectic current)}
-\label{appG:conservation}
+\label{app:ddw:conservation}
 
-If $\mathcal H$ carries no explicit $x^\mu$ dependence in a region, then
-$d\Theta_{\!\mathrm{DW}}=0$ implies the closure of the multisymplectic current
-there, yielding a local identity for energy–momentum‑like flow. This is the field
-analogue of the boundary \emph{cut identity} (cf.\ \eqref{eq:cut-identity}) and echoes the
-informational identity \eqref{eq:stokes-identity}.
+If \(\mathcal H\) carries no explicit \(x^\mu\) dependence in a region, then
+\(d\Theta_{\!\mathrm{DW}}=0\) implies the closure of the associated multisymplectic current,
+yielding a local balance identity for energy–momentum‑like flow. This is the field
+analogue of the boundary cut identity (cf.\ \eqref{axioms:stokes:identity:eq:cut}) and echoes
+the informational continuity \eqref{axioms:stokes:identity:eq}.
 
 % ----------------------------- G.7 -------------------------------------
 \subsection{Boundary conditions and sources}
-\label{appG:boundary-sources}
+\label{app:ddw:boundary-sources}
 
-On a fixed region $U\subset M$ over a time interval $[t_0,t_1]$, source terms
-(production) enter by adding an $(n{+}1)$‑form $\Sigma_{\rm src}$ to
-$d\Theta_{\!\mathrm{DW}}$:
+On a fixed region \(U\subset M\) over a time interval \([t_0,t_1]\), source terms
+(production) enter by adding an \((n{+}1)\)-form \(\Sigma_{\rm src}\) to \(d\Theta_{\!\mathrm{DW}}\):
 \begin{equation}
 \int_{\partial(U\times[t_0,t_1])}\!\Theta_{\!\mathrm{DW}}
 \;=\;
 \int_{U\times[t_0,t_1]}\!\Sigma_{\rm src},
-\label{appG:eq:DW-source}
+\label{app:ddw:eq:source}
 \end{equation}
-mirroring the informational identity \eqref{eq:stokes-identity}.
+mirroring the informational identity \eqref{axioms:stokes:identity:eq}.
 
 % ----------------------------- G.8 -------------------------------------
 \subsection{\texorpdfstring{$3{+}1$}{3+1} split and match to the particle case}
-\label{appG:split}
+\label{app:ddw:split}
 
-Choose $x^0=t$ and write $P_a^{\ 0}=P_a$ and $P_a^{\ i}$ ($i=1,2,3$). For
-configurations homogeneous in space, \eqref{appG:eq:DW-eqs} reduces to
+Choose \(x^0=t\) and write \(P_a^{\ 0}=P_a\) and \(P_a^{\ i}\) (\(i=1,2,3\)).
+For configurations homogeneous in space, \eqref{app:ddw:eq:dw} reduces to
 \[
 \dot\varphi^a=\frac{\partial\mathcal H}{\partial P_a},
 \qquad
 \dot P_a=-\,\frac{\partial\mathcal H}{\partial\varphi^a},
 \]
-which are the $(q,P)$ canonical rates \eqref{eq:canonical} under the
-identifications $q\!\leftrightarrow\!\varphi$, $P\!\leftrightarrow\!P_a$.
+which are the \((q,P)\) canonical rates \eqref{axioms:path-rate:eq:canonical} under the
+identifications \(q\!\leftrightarrow\!\varphi\), \(P\!\leftrightarrow\!P_a\).
 
 % ----------------------------- G.9 -------------------------------------
-\subsection{Dependencies (no unit restatement)}
-\label{appG:deps}
+\subsection{Dependencies and summary}
+\label{app:ddw:deps}
 
-The constructions above depend only on: (i) Stokes applied to $\Theta_{\!\mathrm{DW}}$,
-(ii) regularity of the Legendre map for the chosen sector, and (iii) the usual differential‑forms
+The constructions above depend only on: (i) Stokes applied to \(\Theta_{\!\mathrm{DW}}\),
+(ii) regularity of the Legendre map for the chosen sector, and (iii) the differential‑forms
 conventions summarized in App.~\ref{app:forms-stokes}. Sector‑specific scales, when used,
 are treated externally (App.~\ref{app:calibrations}); no unit policy is restated here.
 
 \medskip
 \noindent\textit{Summary.}
-The field Poincar\'e--Cartan form $\Theta_{\!\mathrm{DW}}$ closes ($d\Theta_{\!\mathrm{DW}}=0$)
-and, by Stokes, generates the covariant De Donder--Weyl equations. Minimal coupling to an
-informational 1‑form preserves the first‑order structure. A $3{+}1$ split recovers the canonical
+The field Poincar\'e–Cartan form \(\Theta_{\!\mathrm{DW}}\) closes (\(d\Theta_{\!\mathrm{DW}}=0\))
+and, by Stokes, generates the covariant De Donder–Weyl equations. Minimal coupling to an
+informational 1‑form preserves the first‑order structure. A \(3{+}1\) split recovers the canonical
 rate equations used in the body.
 
 \medskip
 \noindent\emph{Literature note.}
-Background on multisymplectic/DDW formulations appears in Kanatchikov~\cite{Kanatchikov1998},
-Gotay--Isenberg--Marsden~\cite{GotayIsenbergMarsden1998}, and Marsden--Patrick--Shkoller~\cite{MarsdenPatrickShkoller1998}.
-For the particle Poincar\'e--Cartan/Hamiltonian structure see Arnold~\cite{Arnold1989}. General differential‑forms/Stokes
-conventions are summarized in App.~\ref{app:forms-stokes}.
+Multisymplectic/DDW formulations: Kanatchikov~\cite{Kanatchikov1998};
+Gotay–Isenberg–Marsden~\cite{GotayIsenbergMarsden1998};
+Marsden–Patrick–Shkoller~\cite{MarsdenPatrickShkoller1998}.
+Particle Poincar\'e–Cartan/Hamiltonian structure: Arnold~\cite{Arnold1989}.
+Forms/Stokes conventions: App.~\ref{app:forms-stokes}.

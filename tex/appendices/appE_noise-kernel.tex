@@ -7,16 +7,17 @@
 
 This appendix records constant–free formulas for fluctuations about the mean on the same region
 \(U\times[t_0,t_1]\): (i) a \emph{noise kernel} for current/stress fluctuations,
-(ii) a linear stochastic response (Einstein–Langevin–type, abstracted),
+(ii) a linear stochastic response (Einstein–Langevin–type),
 (iii) propagation of covariances via Green functions, and
-(iv) a minimal OU/Langevin toy for a scalar readout. Readout mappings to measured sectors
-are supplied once in \S\ref{sec:operationalization} and are not repeated here.
+(iv) a minimal OU/Langevin toy for a scalar readout.
+Readout mappings to measured sectors are stated once in §\ref{operationalization} and are not repeated here.
 
 % ------------------------- E.1: Noise kernel ---------------------------
 
 \subsection{Noise kernel}
-\label{appE:noise}
-Decompose a symmetric tensor channel (e.g.\ a stress–like object on \(U\)) into mean and
+\label{app:noise-kernel:noise}
+
+Decompose a symmetric tensor channel (e.g., a stress–like object on \(U\)) into mean and
 fluctuation,
 \begin{equation}
 \mathcal T_{ab}(x)
@@ -24,14 +25,14 @@ fluctuation,
 \big\langle \mathcal T_{ab}(x) \big\rangle \;+\; \tau_{ab}(x),
 \qquad
 \langle \tau_{ab}\rangle=0 .
-\label{appE:eq:stress-split}
+\label{app:noise-kernel:eq:stress-split}
 \end{equation}
 Define the (symmetrized) two–point \emph{noise kernel}
 \begin{equation}
 N_{ab\,cd}(x,x')
 \;:=\;
 \tfrac12\,\big\langle \tau_{ab}(x)\,\tau_{cd}(x')+\tau_{cd}(x')\,\tau_{ab}(x) \big\rangle .
-\label{appE:eq:N}
+\label{app:noise-kernel:eq:N}
 \end{equation}
 On a boundary patch \(A\subset\partial U\) with outward unit normal \(n\), one may equivalently
 use a projected flux–flux kernel \(N_{A}(t,t')\) built from \((\mathbf j\!\cdot n)_-\).
@@ -39,26 +40,29 @@ use a projected flux–flux kernel \(N_{A}(t,t')\) built from \((\mathbf j\!\cdo
 % ------------------------- E.2: Stochastic response --------------------
 
 \subsection{Stochastic linear response (Einstein–Langevin–type)}
-\label{appE:EL}
+\label{app:noise-kernel:EL}
+
 Linearize the channel’s geometric/constitutive response around a background that satisfies the
-mean continuity (from the Stokes identity) (App.~\ref{app:forms-stokes}, \eqref{appB:eq:stokes}–\eqref{appB:eq:local}). Let \(X\) denote
-the small response field (e.g.\ a metric–like perturbation \(h_{ab}\), or a scalar potential fluctuation).
+mean continuity (from the Stokes identity; App.~\ref{app:forms-stokes},
+\eqref{app:forms-stokes:eq}–\eqref{app:forms-stokes:eq:local}). Let \(X\) denote
+the small response field (e.g., a metric–like perturbation \(h_{ab}\), or a scalar potential fluctuation).
 A constant–free stochastic equation is
 \begin{equation}
 \mathcal L[X](x) \;=\; S(x) \;+\; \xi(x),
 \qquad
 \big\langle \xi(x)\,\xi(x') \big\rangle \;=\; \mathcal N(x,x'),
-\label{appE:eq:EL}
+\label{app:noise-kernel:eq:EL}
 \end{equation}
 where \(\mathcal L\) is the linearized deterministic operator, \(S\) the mean source (from
 \(\langle\mathcal T\rangle\) or mean current divergence), and \(\xi\) is an auxiliary classical field
-whose two–point \(\mathcal N\) matches the physical noise kernel (e.g.\ \(\mathcal N\!\equiv\!N\) or an
-appropriate projection). Sector scales, if needed, are handled once in \S\ref{sec:operationalization}.
+whose two–point \(\mathcal N\) matches the physical noise kernel (e.g., \(\mathcal N\!\equiv\!N\) or an
+appropriate projection). Sector scales, if needed, are handled once in §\ref{operationalization}.
 
 % ------------------------- E.3: Covariance propagation -----------------
 
 \subsection{Green functions and covariance propagation}
-\label{appE:greens}
+\label{app:noise-kernel:greens}
+
 Let \(G(x,x')\) be the retarded Green function of \(\mathcal L\),
 \(\mathcal L_x\,G(x,x')=\delta(x,x')\).
 Then the two–point covariance of \(X\) is
@@ -67,17 +71,18 @@ Then the two–point covariance of \(X\) is
 \;=\;
 \int d^{n+1}x'\!\int d^{n+1}y'\;
 G(x,x')\,\mathcal N(x',y')\,G(y,y') .
-\label{appE:eq:cov-prop}
+\label{app:noise-kernel:eq:cov-prop}
 \end{equation}
-For boundary estimators built from patch integrals (e.g.\ of \(\mathbf j\!\cdot n\)),
-\eqref{appE:eq:cov-prop} reduces to patch–filtered versions with the corresponding projected kernel.
+For boundary estimators built from patch integrals (e.g., of \(\mathbf j\!\cdot n\)),
+\eqref{app:noise-kernel:eq:cov-prop} reduces to patch–filtered versions with the corresponding projected kernel.
 
-% ------------------------- E.4: Screen variance floor ------------------
+% ------------------------- E.4: Boundary variance floor ----------------
 
-\subsection{Screen/patch estimator: variance floor}
-\label{appE:screen-floor}
+\subsection{Boundary/patch estimator: variance floor}
+\label{app:noise-kernel:boundary-floor}
+
 Specializing to inward Poisson arrivals across a patch \(A\) over a window \(\Delta t\), the
-counting variance implies the local bound used in Corollary~\ref{corollary:noise} (C6),
+counting variance implies the local bound used in \ref{corollary:noise},
 \begin{equation}
 \mathrm{Var}(\widehat{E}_I)
 \;\gtrsim\;
@@ -85,25 +90,26 @@ counting variance implies the local bound used in Corollary~\ref{corollary:noise
 \qquad
 \overline{j}_A
 :=\frac{1}{|A|}\int_{A}(\mathbf j\!\cdot n)_-\,dA ,
-\label{appE:eq:EI-bound}
+\label{app:noise-kernel:eq:EI-bound}
 \end{equation}
-identical to \eqref{eq:c6-var-EI}. Shot–noise specialization: \(F_A\to1\) and
+identical to \eqref{corollary:noise:eq:var-EI}. Shot–noise specialization: \(F_A\to1\) and
 \(\Delta t_{\!\mathrm{eff}}\to\Delta t\).
-Via the single readout mapping in \S\ref{sec:operationalization},
+Via the one–datum mapping in §\ref{operationalization},
 the same scaling transfers to measured sectors.
 
 % ------------------------- E.5: OU/Langevin toy ------------------------
 
 \subsection{OU/Langevin toy for a scalar readout}
-\label{appE:OU}
-Let \(Y(t)\) denote a scalar readout along a chosen tube (e.g.\ an acceleration or field
+\label{app:noise-kernel:OU}
+
+Let \(Y(t)\) denote a scalar readout along a chosen tube (e.g., an acceleration or field
 sample). A minimal stationary model is the Ornstein–Uhlenbeck process
 \begin{equation}
 \dot Y(t) \;=\; -\gamma\big(Y(t)-\bar Y\big)\;+\;\zeta(t),
 \qquad
 \langle \zeta(t)\rangle=0,\quad
 \langle \zeta(t)\,\zeta(t')\rangle=2D_Y\,\delta(t-t').
-\label{appE:eq:OU}
+\label{app:noise-kernel:eq:OU}
 \end{equation}
 For \(t\gg\gamma^{-1}\),
 \(
@@ -114,67 +120,67 @@ and the one–sided PSD is
 S_Y(\omega)=\frac{2D_Y}{\omega^2+\gamma^2}.
 \)
 In a shot–noise regime, \(D_Y\) inherits the same \(\propto \overline{j}_A/|A|\) scaling as
-\eqref{appE:eq:EI-bound}, up to the (single) sector factor supplied in \S\ref{sec:operationalization}.
+\eqref{app:noise-kernel:eq:EI-bound}, up to the (single) sector factor supplied in §\ref{operationalization}.
 
 % ------------------------- E.6: Correlations & spectra -----------------
 
 \subsection{Correlated arrivals and spectral view}
-\label{appE:correlated}
+\label{app:noise-kernel:correlated}
+
 If arrivals exhibit an effective correlation time \(\tau>0\) (dead time, coherence, batching), the
 number of independent samples in \(\Delta t\) is \(\approx \Delta t/\tau\), and the floor becomes
 \(
 \mathrm{Var}(\widehat{E}_I)\gtrsim \frac{\overline{j}_A}{\kappa^2|A|}\,\frac{\tau}{\Delta t}.
 \)
-Equivalently, with a colored noise kernel \(\mathcal N\), \eqref{appE:eq:cov-prop} yields the spectral
+Equivalently, with a colored noise kernel \(\mathcal N\), \eqref{app:noise-kernel:eq:cov-prop} yields the spectral
 density of \(X\) by replacing \(\mathcal N\) with its spectrum and \(G\) with the transfer function.
-This matches \eqref{eq:c6-var-EI} upon identifying \(\Delta t_{\!\mathrm{eff}}\!\sim\!\Delta t/\tau\) up to order‑one factors set by the measured autocorrelation.
+This matches \eqref{corollary:noise:eq:var-EI} upon identifying \(\Delta t_{\!\mathrm{eff}}\!\sim\!\Delta t/\tau\) up to order‑one factors set by the measured autocorrelation.
 
-% ------------------------- E.8: Energy-rate → acceleration noise --------
+% ------------------------- E.7: Energy-rate → acceleration noise --------
 
-\subsection{Energy-rate fluctuations $\Rightarrow$ acceleration noise (static, far field)}
-\label{appE:energy-to-accel}
+\subsection{Energy‑rate fluctuations \(\Rightarrow\) acceleration noise (frame, far field)}
+\label{app:noise-kernel:energy-to-accel}
 
-\paragraph{Scope (Stokes + static closure).}
-Work on a time-frozen, source-free annulus around a compact source in $n{=}3$.
-By Stokes with \(\sigma=0\) (App.~\ref{app:forms-stokes}, \eqref{appB:eq:stokes}) and the tube/screen argument
-(Corollaries~\ref{corollary:info-gas} and \ref{corollary:static-screen}), the directed flux $\Phi$
-across any spherical screen of radius $r$ is constant and
+\paragraph{Scope (Stokes + frame linear closure).}
+Work on a time‑frozen, source‑free annulus around a compact source in \(n{=}3\).
+By Stokes with \(\sigma=0\) (App.~\ref{app:forms-stokes}, \eqref{app:forms-stokes:eq}) and the tube/boundary argument
+(§\ref{corollary:info-gas}, §\ref{corollary:frame-boundary}), the directed flux \(\Phi\)
+across any spherical boundary of radius \(r\) is constant and
 \begin{equation}
 \big\langle j_n\big\rangle(r)=\frac{\Phi}{A_3(r)},\qquad
 |\mathbf E_I(r)|=\frac{1}{\kappa}\,\frac{\Phi}{A_3(r)},\qquad
 A_3(r)=4\pi r^2 .
-\label{appE:eq:stokes-static}
+\label{app:noise-kernel:eq:stokes-static}
 \end{equation}
-Any boundary readout $Y$ proportional to $|\mathbf E_I|$ therefore satisfies $Y(r)\propto \Phi/A_3(r)$.
-This is read from the boundary via Stokes.
+Any boundary readout \(Y\) proportional to \(|\mathbf E_I|\) therefore satisfies \(Y(r)\propto \Phi/A_3(r)\).
 
 \paragraph{Energy as a source label.}
-For a source family, take the screen flux to carry a linear label with the total source energy,
+For a source family, take the boundary flux to carry a linear label with the total source energy,
 \begin{equation}
 \Phi\ \propto\ E_{\rm src}.
-\label{appE:eq:label}
+\label{app:noise-kernel:eq:label}
 \end{equation}
-This is a labeling convention on the family (as in \S\ref{sec:operationalization}); it introduces no new constants.
+This is a labeling convention on the family (as in §\ref{operationalization}); it introduces no new constants.
 
 \paragraph{Fractional mapping (ratio form).}
-At fixed geometry $(r,A_3)$, small changes of the source label induce proportional changes of the flux and of any readout:
+At fixed geometry \((r,A_3)\), small changes of the source label induce proportional changes of the flux and of any readout:
 \begin{equation}
 \frac{\delta Y(r,t)}{Y(r)}=\frac{\delta\Phi}{\Phi}
 =\frac{\delta E_{\rm src}(t)}{E_{\rm src}} .
-\label{appE:eq:ratio}
+\label{app:noise-kernel:eq:ratio}
 \end{equation}
-For an acceleration readout $Y\equiv g$,
+For an acceleration readout \(Y\equiv g\),
 \begin{equation}
 \boxed{\ \ \delta g(r,t)=g(r)\,\frac{\delta E_{\rm src}(t)}{E_{\rm src}}\ .\ }
-\label{appE:eq:delta-g}
+\label{app:noise-kernel:eq:delta-g}
 \end{equation}
-Because this is a ratio statement, any overall scale (including $\kappa$) cancels.
+Because this is a ratio statement, any overall scale (including \(\kappa\)) cancels.
 
 \paragraph{Spectral form.}
-With one-sided PSDs,
+With one‑sided PSDs,
 \begin{equation}
 \boxed{\ \ S_g(\omega)=\left(\frac{g(r)}{E_{\rm src}}\right)^{\!2}\,S_{E}(\omega)\ .\ }
-\label{appE:eq:psd}
+\label{app:noise-kernel:eq:psd}
 \end{equation}
 
 \paragraph{Thermal floor (canonical ensemble).}
@@ -182,22 +188,21 @@ In equilibrium, \(\mathrm{Var}(E)=k_B T^2 C\) for heat capacity \(C\). Over any 
 relaxation (white \(S_E\) in-band),
 \begin{equation}
 \boxed{\ \ g_{\mathrm{rms}}(r)\ \approx\ g(r)\,\frac{\sqrt{k_B T^2 C}}{E_{\rm src}}\ .\ }
-\label{appE:eq:rms}
+\label{app:noise-kernel:eq:rms}
 \end{equation}
-If the source has a single thermal time \(\tau\), replace \(S_E\) by \(S_E/(1+\omega^2\tau^2)\) in \eqref{appE:eq:psd}.
+If the source has a single thermal time \(\tau\), replace \(S_E\) by \(S_E/(1+\omega^2\tau^2)\) in \eqref{app:noise-kernel:eq:psd}.
 
 \paragraph{Assumptions.}
-(i) Far-field screen outside the source; (ii) quasistatic band: \(\omega\ll c_I/r\) so wave export (C4, \S\ref{corollary:info-em}) is negligible;
+(i) Far‑field boundary outside the source; (ii) quasistatic band: \(\omega\ll c_I/r\) so wave export (§\ref{waves}) is negligible;
 (iii) independent subsystems add their PSDs.
 
 \medskip
 \noindent\emph{Remark.}
-The mapping \eqref{appE:eq:ratio}–\eqref{appE:eq:rms} is a direct corollary of Stokes on the region and the inverse–area rule
-(Corollaries~\ref{corollary:info-gas}–\ref{corollary:static-screen}). SI forms can be introduced by an external identification if needed.
+The mapping \eqref{app:noise-kernel:eq:ratio}–\eqref{app:noise-kernel:eq:rms} is a direct corollary of Stokes on the region and the inverse–area rule
+(§\ref{corollary:info-gas}, §\ref{corollary:frame-boundary}). SI forms can be introduced by an external identification if needed.
 
 \medskip
 \noindent\emph{Literature note.}
-The stochastic–response scaffold in \S\ref{appE:EL} follows the Einstein–Langevin program (see Hu–Verdaguer~\cite{HuVerdaguer2008});
-Poisson counting and renewal processes background appear in Kingman~\cite{Kingman1993}.
-The Stokes/continuity identities used here are recalled in App.~\ref{app:forms-stokes}; geometric screen factors in App.~\ref{app:nD-screens}.
-% ======================================================================
+Stochastic response in the Einstein–Langevin sense: Hu–Verdaguer~\cite{HuVerdaguer2008}.
+Poisson counting and renewal processes: Kingman~\cite{Kingman1993}.
+Stokes/continuity statements used here: App.~\ref{app:forms-stokes}. Boundary geometry factors: App.~\ref{app:nD-screens}.

@@ -5,96 +5,105 @@
 \section{Local-horizon (Jacobson-style) calibrated sketch}
 \label{app:jacobson}
 
-We record a constant-free derivation that converts local geometric focusing into a calibrated
-stress--geometry relation used in the main text as a \emph{consistency tool}, not as an axiom.
+This appendix records a calibrated derivation that relates local geometric focusing to a stress–geometry
+relation used in the main text as a \emph{consistency tool}, not as an axiom.
 
+% ----------------------------- D.1 -------------------------------------
 \subsection{Setup: local wedge, generators, and kinematics}
+\label{app:jacobson:setup}
 
-At any event $p\in M$, choose a local Rindler wedge with future-directed generators $k^a$
-(null in the reversible limit, or timelike and highly boosted in practice). Let $\lambda$ be an affine
-parameter along $k^a$, $\theta:=\nabla_a k^a$ the expansion, and $A(\lambda)$ the cross-sectional
-area of a thin pencil orthogonal to $k^a$. The basic identities are
+At any event \(p\in M\), choose a local Rindler wedge with future-directed generators \(k^a\)
+(null in the reversible limit, or timelike and highly boosted in practice). Let \(\lambda\) be an affine
+parameter along \(k^a\), \(\theta:=\nabla_a k^a\) the expansion, and \(A(\lambda)\) the cross-sectional
+area of a thin pencil orthogonal to \(k^a\). The basic identities are
 \begin{equation}
 \frac{d}{d\lambda}\ln A(\lambda) \;=\; \theta(\lambda),
 \qquad
 \frac{d\theta}{d\lambda}
-\;=\; -\tfrac12\,\theta^2 - \sigma_{ab}\sigma^{ab} - R_{ab}\,k^a k^b
+\;=\; -\tfrac12\,\theta^2 \;-\; \sigma_{ab}\sigma^{ab} \;-\; R_{ab}\,k^a k^b
 \quad(\omega_{ab}=0),
-\label{appD:eq:ray}
+\label{app:jacobson:eq:ray}
 \end{equation}
-with shear $\sigma_{ab}$ and vanishing vorticity $\omega_{ab}$ for hypersurface-orthogonal
-generators. \emph{Positive} $R_{ab}k^a k^b$ increases focusing (drives $\theta$ downward).
+with shear \(\sigma_{ab}\) and vanishing vorticity \(\omega_{ab}\) for hypersurface‑orthogonal generators.
+Positive \(R_{ab}k^a k^b\) increases focusing (drives \(\theta\) downward).
 
+% ----------------------------- D.2 -------------------------------------
 \subsection{Area change in the reversible limit}
+\label{app:jacobson:area}
 
-Take $\theta(0)=0$ at $p$ (stationary cross-section) and neglect $\sigma_{ab}\sigma^{ab}$ in the
-reversible limit. Integrating \eqref{appD:eq:ray} to first nontrivial order gives
+Take \(\theta(0)=0\) at \(p\) (stationary cross‑section) and neglect \(\sigma_{ab}\sigma^{ab}\) in the
+reversible limit. Integrating \eqref{app:jacobson:eq:ray} to first nontrivial order gives
 \begin{equation}
 \delta A
 \;=\;
 -\!\int\!\!\int R_{ab}\,k^a k^b \;\lambda\; d\lambda\, dA,
-\label{appD:eq:dA}
+\label{app:jacobson:eq:dA}
 \end{equation}
-where $dA$ is the area element on the transverse slice through $p$.
+where \(dA\) is the area element on the transverse slice through \(p\).
 
+% ----------------------------- D.3 -------------------------------------
 \subsection{Energy (heat) flux across the local horizon}
+\label{app:jacobson:flux}
 
-Let $\mathcal T_{ab}^{(\mathrm{cal})}$ denote the \emph{calibrated} stress tensor of the informational
-channel (same sector calibration as in statics). The energy (heat) flux through the horizon patch is
+Let \(\mathcal T_{ab}^{(\mathrm{cal})}\) denote the \emph{calibrated} stress tensor of the informational
+channel (same one‑datum sector calibration as in statics). The energy (heat) flux through the horizon patch is
 \begin{equation}
 \delta Q
 \;=\;
 \int\!\!\int \mathcal T_{ab}^{(\mathrm{cal})}\,k^a k^b \;\lambda\; d\lambda\, dA .
-\label{appD:eq:dQ}
+\label{app:jacobson:eq:dQ}
 \end{equation}
 
+% ----------------------------- D.4 -------------------------------------
 \subsection{Clausius with calibrated densities and the focusing equality}
+\label{app:jacobson:clausius}
 
-Assign a calibrated entropy density $s_H^{(\mathrm{cal})}$ (nats per area) to the local horizon and a
-calibrated temperature $T_H^{(\mathrm{cal})}$ (Kz) for the wedge. The reversible Clausius statement reads
+Assign a calibrated entropy density \(s_H^{(\mathrm{cal})}\) (nats per area) to the local horizon and a
+calibrated temperature \(T_H^{(\mathrm{cal})}\) (Kz) for the wedge. The reversible Clausius statement reads
 \begin{equation}
 \delta Q \;=\; T_H^{(\mathrm{cal})}\,\delta S,
 \qquad
 \delta S \;=\; s_H^{(\mathrm{cal})}\,\delta A.
-\label{appD:eq:clausius}
+\label{app:jacobson:eq:clausius}
 \end{equation}
-Combining \eqref{appD:eq:dA}--\eqref{appD:eq:clausius} and requiring equality for all patches and for all
-generators $k^a$ through $p$ yields the local calibrated relation
+Combining \eqref{app:jacobson:eq:dA}–\eqref{app:jacobson:eq:clausius} and requiring equality for all patches and for all
+generators \(k^a\) through \(p\) yields the local calibrated relation
 \begin{equation}
 R_{ab}\,k^a k^b
-\;\overset{\mathrm{cal}}{=}\;
+\;\calibeq\;
 8\pi\,\mathcal T^{(\mathrm{cal})}_{ab}\,k^a k^b ,
 \qquad
-\text{(same single-sector calibration as in statics).}
-\label{appD:eq:calibrated}
+\text{(same one‑datum sector calibration as in statics).}
+\label{app:jacobson:eq:calibrated}
 \end{equation}
-The numerical factor is a dimensionless normalization absorbed by the single calibration (choice of
-$s_H^{(\mathrm{cal})}$ and $T_H^{(\mathrm{cal})}$). Equation \eqref{appD:eq:calibrated} is precisely the
-focusing consistency used in the body (see eq.~\eqref{eq:info-einstein}); no separate coupling constant is introduced.
+The numerical factor is a dimensionless normalization absorbed by the one‑datum calibration (choice of
+\(s_H^{(\mathrm{cal})}\) and \(T_H^{(\mathrm{cal})}\)).
+Equation \eqref{app:jacobson:eq:calibrated} is the focusing consistency used in the body
+(see \eqref{corollary:geometry:eq:info-einstein}); no separate coupling constant is introduced.
 
+% ----------------------------- D.5 -------------------------------------
 \subsection{Remarks and scope}
+\label{app:jacobson:remarks}
 
 \begin{itemize}\itemsep2pt
 \item \textbf{Dissipation.} Away from the reversible limit, shear contributes via
-$-\sigma_{ab}\sigma^{ab}$ in \eqref{appD:eq:ray}; the corresponding inequality appears as positive
-production $\sigma\ge 0$ in the Stokes identity of the main text (cf.\ \eqref{eq:stokes-identity}--\eqref{eq:cut-identity} and App.~\ref{app:forms-stokes}, eqs.~\eqref{appB:eq:stokes}--\eqref{appB:eq:cut}).
-\item \textbf{Calibration unity.} The \emph{same} one--datum calibration that ties static screen
-amplitudes to the informational field is used here to fix $(s_H^{(\mathrm{cal})},T_H^{(\mathrm{cal})})$,
-ensuring constant-free equality in \eqref{appD:eq:calibrated}.
-\item \textbf{Non-claim.} Relation \eqref{appD:eq:calibrated} is employed as a \emph{consistency tool}
-on the same manifold region and boundary; it is not elevated to an axiom of the framework (see Corollary~\ref{corollary:geometry} for the operational use of focusing and area evolution).
+\(-\sigma_{ab}\sigma^{ab}\) in \eqref{app:jacobson:eq:ray}; the corresponding inequality appears as positive
+production \(\sigma\ge 0\) in the Stokes identity of the main text (cf. \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}
+and App.~\ref{app:forms-stokes}, eqs.~\eqref{app:forms-stokes:eq:cap-side}–\eqref{app:forms-stokes:eq:cut}).
+\item \textbf{Calibration unity.} The same one‑datum calibration that ties frame boundary amplitudes to the informational field
+is used here to fix \((s_H^{(\mathrm{cal})},T_H^{(\mathrm{cal})})\), ensuring the equality \eqref{app:jacobson:eq:calibrated} carries no additional constants.
+\item \textbf{Use.} Relation \eqref{app:jacobson:eq:calibrated} is employed as a \emph{consistency tool}
+on the same manifold region and boundary; it is not taken as an axiom (see §\ref{corollary:geometry} for the operational use of focusing and area evolution).
 \end{itemize}
 
 \medskip
 \noindent\emph{Summary.}
-Local Clausius, together with Raychaudhuri focusing, yields a constant-free, calibrated equality
-between $R_{ab}k^a k^b$ and $\mathcal T^{(\mathrm{cal})}_{ab}k^a k^b$. This mirrors the static
-screen laws on the same boundary and completes the geometry-as-tool perspective (see \S\ref{corollary:geometry}).
+Local Clausius, together with Raychaudhuri focusing, yields a calibrated equality between
+\(R_{ab}k^a k^b\) and \(\mathcal T^{(\mathrm{cal})}_{ab}k^a k^b\). This mirrors the frame boundary laws on the
+same region and supports the geometry‑as‑tool perspective (see §\ref{corollary:geometry}).
 
 \medskip
 \noindent\emph{Literature note.}
-The Raychaudhuri equation \eqref{appD:eq:ray} and focusing background follow standard presentations
-(Raychaudhuri~\cite{Raychaudhuri1955}; Wald~\cite{Wald1984}; Poisson~\cite{Poisson2004}). The local-horizon
-Clausius equality underlying \eqref{appD:eq:calibrated} traces to Jacobson~\cite{Jacobson1995}; the Unruh
-temperature for accelerated frames is \cite{Unruh1976}. These are provenance pointers only; our equality is
-calibrated and used as a consistency tool on the same region.
+Raychaudhuri equation and focusing background: Raychaudhuri~\cite{Raychaudhuri1955}; Wald~\cite{Wald1984}; Poisson~\cite{Poisson2004}.
+Local‑horizon Clausius picture: Jacobson~\cite{Jacobson1995}. Unruh temperature for accelerated frames: \cite{Unruh1976}.
+These are provenance pointers; the equality here is calibrated and used as a consistency tool on the same region.

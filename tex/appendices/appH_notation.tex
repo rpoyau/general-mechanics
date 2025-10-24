@@ -9,7 +9,7 @@
 This appendix collects the notational conventions and unit choices
 used throughout. Cross-references point back to the axioms and core
 corollaries where the symbols first appear. Calibrations and operational
-usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operationalization}.
+usage belong in Appendix~\ref{app:calibrations} and Section~\ref{operationalization}.
 
 % ----------------------------- H.1 -------------------------------------
 \subsection{Indices, operators, manifolds}
@@ -40,7 +40,7 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
       \[
       d(*j)=\Sigma \quad\Longleftrightarrow\quad \partial_\mu J^\mu=\sigma,
       \]
-      see \eqref{eq:stokes-identity} and App.~\ref{app:forms-stokes}, eq.~\eqref{appB:eq:stokes}.
+      see \eqref{axioms:stokes:identity:eq} and App.~\ref{app:forms-stokes}, eq.~\eqref{app:forms-stokes:eq}.
 \item \textbf{Integral and cut forms.} For $U\times[t_0,t_1]$,
       \[
       \int_{\partial(U\times[t_0,t_1])} j^{(n)} \;=\; \int_{U\times[t_0,t_1]} \Sigma,
@@ -49,8 +49,8 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
       \(
       \dot I_{\rm enc}=\Phi_{\rm in}-\Phi_{\rm out}+\Pi
       \)
-      (cut identity), see \eqref{eq:cut-identity}.
-\item \textbf{Local continuity.} $\partial_t i+\nabla\!\cdot\mathbf j=\sigma$, see \eqref{eq:local-continuity}.
+      (cut identity), see \eqref{axioms:stokes:identity:eq:cut}.
+\item \textbf{Local continuity.} $\partial_t i+\nabla\!\cdot\mathbf j=\sigma$, see \eqref{axioms:stokes:identity:eq:local-continuity}.
 \item \textbf{Directional split.} $(a)_\pm:=\tfrac12(a\pm|a|)$; used for inward/outward fluxes on $\partial U$.
 \item \textbf{Entropy identification (boundary heat).} $j\equiv j_S$ (entropy current, nats/time),
       $i\equiv s$ (entropy density, nats/vol). With boundary temperature $T$, the heat flux is $q:=T\,j_S$.
@@ -62,13 +62,13 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
 
 \begin{itemize}\itemsep2pt
 \item \textbf{Informational potential/field.} $\Phi_I$ is the potential; $\mathbf E_I:=-\nabla\Phi_I$.
-\item \textbf{Static closure (snapshot tool).} $\mathbf j=-\kappa\,\mathbf E_I$, see \eqref{eq:static-closure}.
+\item \textbf{Static closure (snapshot tool).} $\mathbf j=-\kappa\,\mathbf E_I$, see \eqref{axioms:stokes:frame:eq:closure}.
 \item \textbf{Screens/sectors.} For screens of radius $r$ in $n$D,
-      $A_n(r)=S_{n-1}\,r^{\,n-1}$ (Appendix~\ref{app:nD-screens}, eq.~\eqref{appC:eq:areas}).
+      $A_n(r)=S_{n-1}\,r^{\,n-1}$ (Appendix~\ref{app:nD-screens}, eq.~\eqref{app:nD-boundaries:eq:areas}).
       On source–free annuli, the mean normal current follows the inverse-area rule
       $\langle j_n\rangle=\Phi/A$, hence $|\mathbf E_I|\propto 1/A$. Sector and confinement
       variants appear in C0--C1 and C8 (Corollaries~\ref{corollary:info-gas},
-      \ref{corollary:static-screen}, \ref{corollary:dimensional}).
+      \ref{corollary:frame-boundary}, \ref{corollary:dimensional}).
 \end{itemize}
 
 % ----------------------------- H.4 -------------------------------------
@@ -84,13 +84,13 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
       \partial_t\!\int_V u_I\,d^n x + \int_{\partial V}\mathbf S_I\!\cdot n\,dA
       \;=\; -\int_V \mathbf j\!\cdot\mathbf E_I\,d^n x,
       \]
-      see App.~\ref{app:forms-stokes}, eq.~\eqref{appB:eq:poynting} (alias \eqref{eq:poynting}).
+      see App.~\ref{app:forms-stokes}, eq.~\eqref{app:forms-stokes:eq:poynting}).
       In homogeneous, source-free segments, far-field envelopes scale as $A_n(r)^{-1/2}$; see
-      Corollary~\ref{corollary:info-em}, eq.~\eqref{eq:c4-amp-scaling}.
+      Corollary~\ref{waves}, eq.~\eqref{waves:eq:envelope}.
 \item \textbf{Causality/dispersion (comparison witness).}
       When a causal, time–invariant description of $\chi$ is adopted—or when retarded response is observed
       on a window—the measured/adopted dispersion may be compared with the Kramers--Kronig relations
-      in App.~\ref{appB:KK}.
+      in App.~\ref{app:kick}.
 \item \textbf{General wave transport (template).}
       A pair $(U,V)$ with $V=\chi:U$ defines $u=\tfrac12\,U\!:\!V$ and a flux $\mathbf S$ satisfying
       $\partial_t u+\nabla\!\cdot\mathbf S=-\Pi$. On source‑free, lossless windows ($\Pi=0$) exported power
@@ -105,9 +105,9 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
 \label{appH:rate}
 
 \begin{itemize}\itemsep2pt
-\item \textbf{Poincar\'e--Cartan 1-form.} $\Theta_{\mathcal R}=P_i\,dq^i - H(q,P,t)\,dt$, see \eqref{eq:pc-form}.
+\item \textbf{Poincar\'e--Cartan 1-form.} $\Theta_{\mathcal R}=P_i\,dq^i - H(q,P,t)\,dt$, see \eqref{axioms:path-rate:eq:pc-form}.
 \item \textbf{Canonical rates.} $d\Theta_{\mathcal R}=0$ on admissible evolution yields
-      $\dot q^i=\partial_{P_i}H,\ \dot P_i=-\partial_{q^i}H$, see \eqref{eq:canonical}.
+      $\dot q^i=\partial_{P_i}H,\ \dot P_i=-\partial_{q^i}H$, see \eqref{axioms:path-rate:eq:canonical}.
 \item \textbf{Least-action equivalence.} Euler--Lagrange form follows by convex duality; cf. Corollary~\ref{corollary:least-action}.
 \end{itemize}
 
@@ -118,7 +118,7 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
 \begin{itemize}\itemsep2pt
 \item \textbf{Controls and prices.} Controls $R^{(a)}$ parameterize boundary/channel changes; the calibrated
       rate density $\rho(R)$ (informational cost) induces a price 1-form $\lambda=\lambda_a\,dR^{(a)}$.
-\item \textbf{Statement.} $d\rho=-\,\lambda_a\,dR^{(a)}$, see \eqref{eq:reos}. If $d\lambda=0$ the sector is integrable
+\item \textbf{Statement.} $d\rho=-\,\lambda_a\,dR^{(a)}$, see \eqref{axioms:reos:eq}. If $d\lambda=0$ the sector is integrable
       (Maxwell-type identities). If $d\lambda\neq 0$, cyclic changes imply dissipation (production $\sigma\ge0$ in the identity).
 \end{itemize}
 
@@ -132,7 +132,7 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
 \item \textbf{Raychaudhuri (zero vorticity).} $\tfrac{d\theta}{d\lambda}=-\tfrac12\theta^2-\sigma_{ab}\sigma^{ab}-R_{ab}k^a k^b$.
 \item \textbf{Calibrated focusing (consistency).} On the same tube, a single sector calibration gives
       $R_{ab}k^a k^b\ \overset{\mathrm{cal}}{=}\ 8\pi\,\mathcal T^{(\mathrm{cal})}_{ab}k^a k^b$,
-      see \eqref{eq:info-einstein} and Appendix~\ref{app:jacobson}. This is a \emph{consistency tool}, not an axiom.
+      see \eqref{corollary:geometry:eq:info-einstein} and Appendix~\ref{app:jacobson}. This is a \emph{consistency tool}, not an axiom.
 \end{itemize}
 
 % ----------------------------- H.8 -------------------------------------
@@ -152,7 +152,7 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
       (If binary units are used for comparison elsewhere, replace $\ln 3$ by $\ln 2$ only in those comparisons.)
 \item \textbf{Windowed Fano factor and effective window.}
       $F_A:=\mathrm{Var}(N_A)/\mathbb E[N_A]$ on a patch $A$; $\Delta t_{\!\mathrm{eff}}$ is derived from the
-      count autocorrelation on the same record. See C6 \eqref{eq:c6-crb-jbar}, \eqref{eq:c6-var-EI} and §\ref{subsec:op-noise} \eqref{eq:op-noise}.
+      count autocorrelation on the same record. See C6 \eqref{corollary:noise:eq:crb-jbar}, \eqref{corollary:noise:eq:var-EI} and §\ref{subsec:op-noise} \eqref{eq:op-noise}.
 \end{itemize}
 
 % ----------------------------- H.9 -------------------------------------
@@ -178,13 +178,13 @@ usage belong in Appendix~\ref{app:calibrations} and Section~\ref{sec:operational
 \item[$\mathbf j,\ i$] Spatial current and density components of $j$; $j=J^\mu dx_\mu$.
 \item[$j_S,\ s,\ q$] Entropy current and density ($j_S\equiv j$, $s\equiv i$); boundary heat flux $q:=T\,j_S$.
 \item[$\kappa$] Static constitutive scale in $\mathbf j=-\kappa\,\mathbf E_I$.
-\item[$A_n(r),\ S_{n-1}$] Screen area and unit-sphere area; App.~\ref{app:nD-screens}, eq.~\eqref{appC:eq:areas}.
+\item[$A_n(r),\ S_{n-1}$] Screen area and unit-sphere area; App.~\ref{app:nD-screens}, eq.~\eqref{app:nD-boundaries:eq:areas}.
 \item[$A_\Delta(r)$] Sector area for solid angle $\Delta\Omega$: $A_\Delta=\Delta\Omega\,r^{\,n-1}$.
 \item[$A_I,\ F_I,\ H_I,\ \chi$] Info--EM potential, field, excitation, and constitutive map; $F_I=dA_I$, $dH_I={*}j$.
 \item[$U,\ V,\ \chi,\ u,\ \mathbf S,\ \Pi,\ \mu$] General wave transport: $V=\chi:U$, $u=\tfrac12 U\!:\!V$,
       flux $\mathbf S$, production $\Pi$, attenuation $\mu$ (C4).
-\item[$u_I,\ \mathbf S_I$] Informational energy-rate density and Poynting vector (App.~\ref{app:forms-stokes}, \eqref{appB:eq:poynting}).
-\item[$F_A,\ \Delta t_{\!\mathrm{eff}}$] Windowed Fano factor and effective window (C6 \eqref{eq:c6-crb-jbar}, \eqref{eq:c6-var-EI}; §\ref{subsec:op-noise} \eqref{eq:op-noise}).
+\item[$u_I,\ \mathbf S_I$] Informational energy-rate density and Poynting vector (App.~\ref{app:forms-stokes}, \eqref{app:forms-stokes:eq:poynting}).
+\item[$F_A,\ \Delta t_{\!\mathrm{eff}}$] Windowed Fano factor and effective window (C6 \eqref{corollary:noise:eq:crb-jbar}, \eqref{corollary:noise:eq:var-EI}; §\ref{subsec:op-noise} \eqref{eq:op-noise}).
 \item[$H(q,P,t)$] \emph{Rate generator} in the Poincar\'e--Cartan form $\Theta_{\mathcal R}=P\,dq-H\,dt$.
 \item[$\Theta_{\mathcal R}$] Rate (Poincar\'e--Cartan) $1$-form on $(q,t)$; $d\Theta_{\mathcal R}=0\Rightarrow$ canonical rates.
 \item[$R^{(a)},\ \rho(R),\ \lambda$] REOS controls, calibrated rate density (informational cost), and price $1$-form.
