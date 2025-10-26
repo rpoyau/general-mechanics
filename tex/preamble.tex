@@ -1,5 +1,5 @@
 % ======================================================================
-% preamble.tex  (v0.5.2.0) — shared packages, macros, and formatting
+% preamble.tex  (v0.9.1.1) — shared packages, macros, and formatting
 % ======================================================================
 
 % --- Packages
@@ -14,15 +14,16 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 \usepackage[nameinlink,capitalise]{cleveref}
+\usepackage[section]{placeins} % auto-places a FloatBarrier at each \section
 
-% --- Hyperref setup
+% --- Hyperref setup (make metadata match the manuscript title)
 \hypersetup{
   colorlinks=true,
   linkcolor=blue!50!black,
   citecolor=blue!50!black,
   urlcolor=blue!50!black,
-  pdfauthor={},
-  pdftitle={Boundary Information Mechanics (v1.0.2)}
+  pdfauthor={Reginald Poyau},
+  pdftitle={General Mechanics}
 }
 
 % --- Theorem-like envs
@@ -33,8 +34,6 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{corollary}{Corollary}
 
-\usepackage[section]{placeins} % auto-places a FloatBarrier at each \section
-
 % --- siunitx
 \sisetup{
   separate-uncertainty = true,
@@ -42,7 +41,7 @@
   detect-all = true
 }
 
-% --- Cleveref names
+% --- Cleveref names (consistent \cref/\Cref usage)
 \crefname{equation}{eq.}{eqs.}
 \Crefname{equation}{Eq.}{Eqs.}
 \crefname{figure}{fig.}{figs.}
@@ -51,39 +50,52 @@
 \Crefname{table}{Table}{Tables}
 \crefname{section}{\S}{\S\S}
 \Crefname{section}{Section}{Sections}
+\crefname{axiom}{axiom}{axioms}
+\Crefname{axiom}{Axiom}{Axioms}
+\crefname{definition}{definition}{definitions}
+\Crefname{definition}{Definition}{Definitions}
+\crefname{theorem}{theorem}{theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{proposition}{proposition}{propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{lemma}{lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{corollary}{corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
 
 % --- Lists
 \setlist{itemsep=0.25em, topsep=0.25em}
-
-% --- Shortcuts & notation
-\newcommand{\Kk}{\mathrm{Kk}}                    % Kick unit (Hz)
-\newcommand{\Ekk}{E_{\mathrm{Kk}}}               % E/h
-\newcommand{\Mkk}{m_{\mathrm{Kk}}}               % mc^2/h
-\newcommand{\Tkk}{T_{\mathrm{Kk}}}               % k_B T / h
-\newcommand{\Pkk}{P_{\mathrm{Kk}}}               % P / h
-
-\newcommand{\JJ}{J^{\mu}_I}                      % info 4-current
-\newcommand{\jj}{\bm{j}}                         % spatial info flux
-\newcommand{\ii}{i}                              % info density
-\newcommand{\sig}{\sigma}                        % production
-
-\newcommand{\Ainfo}{\mathcal{A}_I}               % info potential 1-form
-\newcommand{\Finfo}{\mathcal{F}_I}               % info field 2-form
-\newcommand{\Hinfo}{\mathcal{H}_I}               % info excitation
-
-% Semantic label helpers (optional)
-\newcommand{\labtitle}{\label{title:root}}
-\newcommand{\labintro}[1][]{\label{introduction\if\relax\detokenize{#1}\relax\else:#1\fi}}
-\newcommand{\labaxiom}[1]{\label{axiom:#1}}
-\newcommand{\labcor}[1]{\label{corollary:#1}}
-\newcommand{\labapp}[1]{\label{appendix:#1}}
 
 % --- Equation numbering per section (optional)
 \numberwithin{equation}{section}
 
 % ======================================================================
-% Focused additions (kept minimal; no renames to your existing macros)
+% Shortcuts & notation
 % ======================================================================
+
+% --- Kick (Kz) units (canonical) + backward-compatible Kk macros
+\newcommand{\Kz}{\mathrm{Kz}}                    % Kick unit (s^{-1})
+\newcommand{\Ekz}{E_{\mathrm{Kz}}}               % E/h
+\newcommand{\Mkz}{m_{\mathrm{Kz}}}               % mc^2/h
+\newcommand{\Tkz}{T_{\mathrm{Kz}}}               % k_B T / h
+\newcommand{\Pkz}{P_{\mathrm{Kz}}}               % P / h
+% Back-compat: define Kk macros to point to Kz versions (harmless if unused)
+\newcommand{\Kk}{\Kz}
+\newcommand{\Ekk}{\Ekz}
+\newcommand{\Mkk}{\Mkz}
+\newcommand{\Tkk}{\Tkz}
+\newcommand{\Pkk}{\Pkz}
+
+% --- Informational current/density and production
+\newcommand{\JJ}{J^{\mu}_I}                      % informational 4-current
+\newcommand{\jj}{\bm{j}}                         % spatial information flux
+\newcommand{\ii}{i}                              % information/entropy density
+\newcommand{\sig}{\sigma}                        % production
+
+% --- Informational potential/fields (form language)
+\newcommand{\Ainfo}{\mathcal{A}_I}               % info potential 1-form
+\newcommand{\Finfo}{\mathcal{F}_I}               % info field 2-form
+\newcommand{\Hinfo}{\mathcal{H}_I}               % info excitation
 
 % --- Boundary normals & worldtube side-integrand (moving boundary)
 \newcommand{\nn}{\bm{n}}                          % outward unit normal
@@ -91,22 +103,30 @@
 \newcommand{\vn}{v_n}                              % normal speed of the boundary
 \newcommand{\sideint}{\jj\!\cdot\!\nn - \ii\,\vn} % j·n - i v_n
 
-% --- Screens & sectors (geometry helpers)
+% --- Boundaries & sectors (geometry helpers)
 \newcommand{\Snm}{S_{n-1}}                         % area of unit (n-1)-sphere
 \newcommand{\An}[1]{A_{#1}}                        % A_n
 \newcommand{\Anr}[1]{A_{#1}(r)}                    % A_n(r)
 \newcommand{\Adelta}{A_{\Delta}}                   % A_Δ
 \newcommand{\Adeltar}{A_{\Delta}(r)}               % A_Δ(r)
 
-% --- Windowed counting / noise (C6 & App. E)
+% --- Windowed counting / noise (operational; used in main text and App. E)
 \newcommand{\FA}{F_{A}}                            % Fano factor on a window
 \newcommand{\teff}{\Delta t_{\mathrm{eff}}}        % effective window from autocorrelation
-\newcommand{\JA}{J_{A}}                            % integrated flux across patch A
-\newcommand{\jA}{j_{A}}                            % mean flux density on patch A
+\newcommand{\JA}{J_{A}}                            % integrated inward counts across patch A
+\newcommand{\jA}{j_{A}}                            % mean inward current density on patch A
 
-% --- Calibrated-equality adornment (consistency relations)
-\newcommand{\calibeq}{\overset{\scriptscriptstyle\mathrm{cal}}{=}}
+% --- Semantic label helpers (optional)
+\newcommand{\labtitle}{\label{title:root}}
+\newcommand{\labintro}[1][]{\label{introduction\if\relax\detokenize{#1}\relax\else:#1\fi}}
+\newcommand{\labaxiom}[1]{\label{axiom:#1}}
+\newcommand{\labcor}[1]{\label{corollary:#1}}
+\newcommand{\labapp}[1]{\label{appendix:#1}}
 
-% --- Tiny prose helpers (optional; avoid "implies" phrasing)
+% --- Project helpers (worldtube tag, calibrated-equality mark)
+\newcommand{\worldtube}{worldtube}
+\newcommand{\calibeq}{\overset{\scriptsize\mathrm{cal}}{=}}
+
+% --- Tiny prose helpers (comparison-only phrasing; never as premises)
 \newcommand{\CutIdentity}{\textit{cut identity}}
 \newcommand{\KKcompare}{\textit{may be compared to Kramers--Kronig on the chosen window}}

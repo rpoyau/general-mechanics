@@ -1,12 +1,12 @@
 % ======================================================================
-% 03c06_noise-floor.tex — Noise floor ("force cloud")
+% 05_noise.tex — Noise floor ("force cloud")
 % ======================================================================
 
 \subsection{Noise floor (``force cloud'')}
 \label{corollary:noise}
 
 This corollary quantifies the estimator floor on the informational field from boundary counting
-and shows how it propagates to calibrated sectors. Let \(A\) be a readout patch with outward unit
+and shows how it propagates to calibrated sectors. Let \(A\) be a \emph{boundary patch} with outward unit
 normal \(n\), observed over a window \([t,t{+}\Delta t]\). Define the inward flux and the patch‑mean
 normal flux density as
 \begin{equation}
@@ -38,7 +38,7 @@ patch‑mean flux density admits the operational benchmark
 Shot‑noise–limited records have \(F_A\!\approx\!1\) and \(\Delta t_{\!\mathrm{eff}}\!\approx\!\Delta t\);
 overdispersed or correlated arrivals are captured by the measured \((F_A,\Delta t_{\!\mathrm{eff}})\).
 
-\paragraph{From \(\mathbf j\) to the informational field \(\mathbf E_I\) (snapshot mapping).}
+\paragraph{From \(\mathbf j\) to the informational field \(\mathbf E_I\) (frame mapping).}
 Using the frame closure \eqref{axioms:stokes:frame:eq:closure}, \(\mathbf j=-\kappa\,\mathbf E_I\),
 the \emph{windowed} floor for \(\mathbf E_I\) is
 \begin{equation}
@@ -81,7 +81,7 @@ In the far field, for a full boundary \(A=4\pi r^2\) around a steady source with
 Directional diaphragms use the aperture area for \(|A|\) and replace \(J_{4\pi}\) by the collected inward flux.
 
 \paragraph{Measured sectors (one‑datum calibration).}
-With the sector mappings (one‑datum calibration; see \S\ref{subsec:op-calibration} and App.~\ref{app:calibrations})
+With the sector mappings (one‑datum calibration; see \S\ref{operationalization:calibration} and App.~\ref{app:calibrations})
 \begin{equation}
 \mathbf g=c_M\,\mathbf E_I,\qquad \mathbf E=c_Q\,\mathbf E_I,
 \label{corollary:noise:eq:sector-maps}
@@ -114,13 +114,13 @@ width for \(\mathbf E_I\), showing that shorter windows both require more inform
 force cloud. In applications that form durable records and later erase/compress them, the \(P/T\) resource in
 \S\ref{corollary:time-info} provides an additional operational limit; the variance floor here arises from counting statistics.
 
-\paragraph{Noise kernel link (App.\ E).}
+\paragraph{Noise kernel link (App.~\ref{app:noise-kernel}).}
 The local bounds above define a minimal \emph{noise kernel} for flux fluctuations on the boundary.
 App.~\ref{app:noise-kernel} uses such kernels \(\mathcal{N}\) to propagate covariances through linear response
-(Einstein–Langevin–type) and to connect static shot noise to dynamical spectra.
+(Einstein–Langevin–type) and to connect windowed shot noise to dynamical spectra.
 
 \paragraph{Units and practical levers.}
-Fluxes are in nats/time (or trits/time via \(1/\ln 3\)).
+Fluxes are in \emph{trits/time} by default (nats/time via a factor of \(\ln 3\)).
 To tighten the cloud: enlarge \(|A|\), increase the inward flux \(J_A\) (e.g., via wider apertures or focusing),
 extend \(\Delta t\), reduce correlation time \(\tau\), or multiplex independent patches and average.
 
@@ -135,4 +135,4 @@ integration time, and it propagates to calibrated sectors by a one‑datum mappi
 \noindent\emph{Literature note.}
 Background on Poisson/renewal counting and shot noise: Kingman~\cite{Kingman1993}.
 Stochastic/Langevin and spectral viewpoints: Gardiner~\cite{Gardiner2004}.
-Appendix~\ref{app:noise-kernel} records the windowed noise‑kernel and covariance‑propagation formulas.
+App.~\ref{app:noise-kernel} records the windowed noise‑kernel and covariance‑propagation formulas.

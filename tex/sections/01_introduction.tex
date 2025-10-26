@@ -29,7 +29,8 @@ alphabet: \emph{yes}, \emph{no}, and \emph{unknown}.
 We identify \(j\) with the \emph{entropy flux} on the boundary (\(j\equiv j_S\)); its normal component \(j_n\) has units
 \([\text{count}]/(\text{area}\cdot\text{time})\), with the log base fixing the count unit (nats or trits;
 \(\text{nats}=\ln 3\times\text{trits}\)). The corresponding density is \(i\equiv s\) (nats/vol).
-A heat mapping is optional: on a boundary, \(q_n = T\,j_n\) and over a window \(Q=\int T\,j_n\) (introduced formally in C2).
+A heat mapping is optional: on a boundary, \(q_n = T\,j_n\) and over a window \(Q=\int T\,j_n\)
+(introduced formally in Corollary~\ref{corollary:continuity:eq:clausius-local}).
 
 \subsection{One geometric identity, two uses}
 With \(j:=J^\mu dx_\mu\) the informational/entropic \(1\)-form and \(*j\) its Hodge dual, the Stokes identity is
@@ -54,7 +55,7 @@ the side integrand for moving boundaries is \(\mathbf j\!\cdot\!\mathbf n - i\,v
 On an open set \(W\subset U\) with \(\sigma|_W\equiv 0\) (source‑free), and with the side of a narrow tube everywhere
 tangent to \(\mathbf j\), the directed tube flux
 \[
-\Phi=\int_{\Sigma} \mathbf j\!\cdot n\,dA
+\Phi=\int_{\Sigma} \mathbf j\!\cdot\!\mathbf n\,\mathrm dA
 \]
 is independent of the cross‑section \(\Sigma\subset W\).
 For any boundary (or conical sector) of area \(A(r)\) at radius \(r\),
@@ -75,8 +76,8 @@ Two minimalist ingredients are employed when appropriate:
 eq.~\eqref{axioms:stokes:frame:eq:closure}); and
 \emph{(b) wave‑supporting closures} when transport/export is relevant on a source‑free segment.
 \emph{Wave transport and envelopes—see \S\ref{waves}.}
-On windows that are linear, time‑invariant, and causal, we also use the \emph{Causality–Dispersion}
-(KK‑window) corollary as a local comparison witness (§\ref{waves:causality-dispersion}).
+On windows that are linear, time‑invariant, and causal, measured dispersion \emph{may be compared}
+to a Causality–Dispersion (KK‑window) relation \emph{as a local witness} (\S\ref{waves:causality-dispersion}).
 
 \subsection{Units and calibration (once)}
 Kz units are used (App.~\ref{app:kick}) so energies and powers are rates. The abstract informational field is mapped
@@ -90,12 +91,12 @@ no bare constants are carried through the algebra.
         (\eqref{axioms:stokes:identity:eq:local-continuity}–\eqref{axioms:stokes:identity:eq:cut}).
   \item Choose a closure suited to the regime: \textbf{frame} (\S\ref{axioms:stokes:frame}) for frame problems
         (\S\ref{corollary:info-gas}–\S\ref{corollary:frame-boundary}); or a \textbf{wave‑supporting} closure for export on
-        source‑free segments (see §\ref{waves}). If the window is LTI and causal, the Causality–Dispersion corollary may be
-        applied locally (§\ref{waves:causality-dispersion}).
+        source‑free segments (see \S\ref{waves}). If the window is LTI and causal, the Causality–Dispersion comparison may be
+        used locally (\S\ref{waves:causality-dispersion}).
   \item Count distinctions on \(\partial U\) in a ternary alphabet (\emph{yes/no/unknown}) using information‑theoretic
         bookkeeping, and relate them to \(j\) (\S\ref{axioms:relational}; used in \S\ref{corollary:frame-boundary}–\S\ref{corollary:noise}).
   \item If comparison with a measured sector is required, fix a single datum to calibrate (App.~\ref{app:calibrations}).
-  \item Read statics from the inverse‑area rule (\(\propto 1/A\); \S\ref{corollary:info-gas}–\S\ref{corollary:frame-boundary});
+  \item Read \textbf{frame laws} from the inverse‑area rule (\(\propto 1/A\); \S\ref{corollary:info-gas}–\S\ref{corollary:frame-boundary});
         for wave export and far‑field envelopes, follow \S\ref{waves} (with confinement summarized in \S\ref{corollary:dimensional}).
   \item Apply operational limits: time–information complementarity (\S\ref{corollary:time-info}) and the counting‑noise floor
         (\S\ref{corollary:noise}) for finite windows/areas.
@@ -103,7 +104,7 @@ no bare constants are carried through the algebra.
 
 \subsection{Scope and reductions}
 Dimensional reductions (1D/2D confinement) are handled by replacing \(A_n(r)\) with an effective
-cross‑section/circumference; the resulting static and wave summaries appear in \S\ref{corollary:dimensional}.
+cross‑section/circumference; the resulting \textbf{frame} and wave summaries appear in \S\ref{corollary:dimensional}.
 Detailed wave envelopes and exported‑power statements are collected in \S\ref{waves}.
 
 \medskip

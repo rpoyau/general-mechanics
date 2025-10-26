@@ -21,20 +21,20 @@ Let \(A_n(r)\) be the area of a radius–\(r\) \emph{boundary} in \(n\) spatial 
 \begin{equation}
 \big\langle j_n\big\rangle(r)=\frac{\Phi}{A_n(r)},\qquad
 \big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\frac{\Phi}{A_n(r)} .
-\label{eq:c8-static}
+\label{corollary:dimensional:eq:frame-scale}
 \end{equation}
 For spherical or conical boundaries with \(A_n(r)=S_{n-1}\,r^{\,n-1}\) this gives \(|\mathbf E_I|\propto r^{-(n-1)}\).
 For \textbf{wave} segments in homogeneous media, time‑averaging the local balance on a source‑free annulus yields
 radius‑independent exported power (see §\ref{waves}),
 \begin{equation}
 P(r):=\int_{\Sigma(r)}\!\big\langle \mathbf S_I\big\rangle\!\cdot n\,dA=\text{const in }r ,
-\label{eq:c8-power}
+\label{corollary:dimensional:eq:power-const}
 \end{equation}
 and with \(\langle \mathbf S_I\rangle\propto \langle|\mathbf E_I|^2\rangle\) the far‑field envelope scales as
 \begin{equation}
 \big\langle |\mathbf E_I(r)| \big\rangle \;\propto\; \frac{1}{\sqrt{A_n(r)}}
 \quad\text{(cf.\ §\ref{waves}, eq.~\eqref{waves:eq:envelope})}.
-\label{eq:c8-waves}
+\label{corollary:dimensional:eq:wave-envelope}
 \end{equation}
 For spherical/conical boundaries this gives \(\langle|\mathbf E_I|\rangle\propto r^{-(n-1)/2}\).
 
@@ -44,9 +44,9 @@ For spherical/conical boundaries this gives \(\langle|\mathbf E_I|\rangle\propto
 \begin{table}[t]
 \centering
 \caption{Geometric scaling of \textbf{frame amplitudes} and \textbf{wave envelopes} by effective spatial dimension.
-Here \(A_n(r)\) is the \(n\)D boundary area (App.~\ref{app:nD-boundaries}). Frame scaling follows \eqref{eq:c8-static};
-wave envelopes follow \eqref{eq:c8-power}–\eqref{eq:c8-waves}.}
-\label{tab:c8-dim}
+Here \(A_n(r)\) is the \(n\)D boundary area (App.~\ref{app:nD-boundaries}). Frame scaling follows \eqref{corollary:dimensional:eq:frame-scale};
+wave envelopes follow \eqref{corollary:dimensional:eq:power-const}–\eqref{corollary:dimensional:eq:wave-envelope}.}
+\label{corollary:dimensional:tab:scaling}
 \begin{tabular}{lccc}
 \hline
 \textbf{Effective dimension} & \textbf{Area \(A_n(r)\)} & \textbf{Frame \(|\mathbf E_I|\)} & \textbf{Wave \(\langle|\mathbf E_I|\rangle\)} \\
@@ -68,7 +68,7 @@ Boundaries that constrain propagation reduce the accessible dimension \(n_{\rm e
 \begin{itemize}\itemsep2pt
   \item \textbf{Waveguides (effective 1D).} Cross–section \(A_\perp\) fixed along the axis. \textbf{Frame:}
   \(\langle j_n\rangle=\Phi/A_\perp\) and \( |\mathbf E_I|=\Phi/(\kappa A_\perp)\) are independent of \(r\).
-  \textbf{Waves:} \(\langle|\mathbf E_I|\rangle\sim r^0\) along the guide; mode power is exported with \eqref{eq:c8-power}.
+  \textbf{Waves:} \(\langle|\mathbf E_I|\rangle\sim r^0\) along the guide; mode power is exported with \eqref{corollary:dimensional:eq:power-const}.
   \item \textbf{Sheets / interfaces (effective 2D).} Fixed thickness \(\Rightarrow A_2(r)\propto r\).
   \textbf{Frame:} \( |\mathbf E_I|\propto 1/r\). \textbf{Waves:} \( \langle|\mathbf E_I|\rangle\propto 1/\sqrt{r}\).
 \end{itemize}
@@ -78,8 +78,8 @@ Mode spectra and group velocities are set by boundary conditions and any adopted
 
 \paragraph{Directional sectors and apertures.}
 For an aperture subtending \(\Delta\Omega\) (in \(n\)D), use \(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\) in
-\eqref{eq:c8-static}–\eqref{eq:c8-waves}. This is the sector (tube) form of the same conservation rule
-(§\ref{corollary:info-gas}).
+\eqref{corollary:dimensional:eq:frame-scale}–\eqref{corollary:dimensional:eq:wave-envelope}. This is the sector (tube) form
+of the same conservation rule (§\ref{corollary:info-gas}).
 
 % ------------------------- Remarks & scope -----------------------------
 

@@ -1,5 +1,5 @@
 % ======================================================================
-% appC_nd-boundariess.tex — Appendix C: Boundaries in n dimensions
+% appC_nd-boundaries.tex — Appendix C: Boundaries in n dimensions
 % ======================================================================
 
 \section{Boundaries in \(n\) dimensions: areas, harmonics, Green functions}
@@ -15,7 +15,11 @@ informational; measured sectors follow from a one‑datum calibration (App.~\ref
 \label{app:nD-boundaries:areas}
 
 Let \(S_{n-1}\) denote the area of the unit \((n{-}1)\)-sphere in \(\mathbb R^{n}\) and
-\(B_n(r)\) the ball of radius \(r\). Then
+\(B_n(r)\) the ball of radius \(r\). Let
+\[
+A_n(r)=S_{n-1}\,r^{\,n-1}
+\]
+denote the area of a radius‑\(r\) \emph{boundary} in \(n\) spatial dimensions. Then
 \begin{equation}
 S_{n-1}=\frac{2\,\pi^{n/2}}{\Gamma(n/2)}, 
 \qquad
@@ -129,5 +133,6 @@ Wave transport \& envelopes (far field): §\ref{waves}.
 \medskip
 \noindent\emph{Literature note.}
 Background on differential geometry and forms: Frankel~\cite{Frankel2011}.
-Harmonic/potential theory and Green functions: Axler–Bourdon–Ramey~\cite{Axler2001} and Evans~\cite{Evans2010}.
-These are provenance pointers; the identities used here follow directly from \eqref{axioms:stokes:identity:eq} / \eqref{axioms:stokes:frame} and the formulas above.
+Harmonic/potential theory and Green functions: Axler--Bourdon--Ramey~\cite{Axler2001} and Evans~\cite{Evans2010}.
+These are provenance pointers; the identities used here follow directly from
+\eqref{axioms:stokes:identity:eq} and \eqref{axioms:stokes:frame:eq:closure}, together with the formulas above.

@@ -23,18 +23,13 @@ form on \(U\) induced by the orientation.
 
 \subsection{Current 1‑form, Hodge dual, and production}
 \label{app:forms-stokes:current}
-Let \(j:=J^\mu dx_\mu\) denote the informational/entropic current \(1\)-form on \(U\) with components
-\(J^\mu=(i,\mathbf j)\) in adapted coordinates. Its Hodge dual \(j^{(n)}:=\!*j\) is an \(n\)-form that
-integrates over spatial caps and side surfaces. Production is the \((n{+}1)\)-form
-\(\Sigma:=\sigma\,\mathrm{vol}_{n+1}\) with nonnegative density \(\sigma\) in sectors where dissipation is present.
-
-\emph{Identification and units.} The informational current is the entropy current, \(j\equiv j_S\) (nats/time),
-and the informational density is the entropy density, \(i\equiv s\) (nats/vol). Where a boundary temperature field
-\(T\) is assigned, the heat flux is \(q:=T\,j_S\).
+Let \(j:=J^\mu dx_\mu\) denote a current \(1\)-form on \(U\) with components \(J^\mu=(i,\mathbf j)\) in adapted
+coordinates. Its Hodge dual \(j^{(n)}:=\!*j\) is an \(n\)-form that integrates over spatial caps and side surfaces.
+Production is the \((n{+}1)\)-form \(\Sigma:=\sigma\,\mathrm{vol}_{n+1}\) with density \(\sigma\).
 
 \subsection{Global identity (generalized Stokes)}
 \label{app:forms-stokes:global}
-The Stokes identity is the exterior–derivative statement
+The Stokes identity is
 \begin{equation}
 d\,j^{(n)}=\Sigma
 \quad\Longleftrightarrow\quad
@@ -63,9 +58,9 @@ Using the decomposition of \(\partial U_{[t_0,t_1]}\),
 Define
 \[
 I_{\mathrm{enc}}(t):=\int_{V_t} i\,\mathrm{vol}_{n},\qquad
-\Phi_{\mathrm{in/out}}(t):=\int_{\partial V_t}(\mathbf j\!\cdot n)_{\mp}\,dA,
+\Phi_{\mathrm{in/out}}(t):=\int_{\partial V_t}\!\big(\mathbf j\!\cdot\!\mathbf n\big)_{\mp}\,\mathrm dA,
 \qquad
-\Pi(t):=\int_{V_t}\sigma\,d^n x .
+\Pi(t):=\int_{V_t}\sigma\,\mathrm d^{n}x .
 \]
 Differentiating \eqref{app:forms-stokes:eq:int} in \(t\) yields the cut identity
 \begin{equation}
@@ -74,9 +69,8 @@ Differentiating \eqref{app:forms-stokes:eq:int} in \(t\) yields the cut identity
 \end{equation}
 
 \paragraph{Moving boundaries (worldtube note).}
-If the boundary \(\partial V_t\) moves with normal speed \(v_n\), the side integrand in the cap–side form acquires
-the kinematic term \(\mathbf j\!\cdot n - i\,v_n\), with caps evaluated on the initial and final slices.
-This is the form used when \(A_{n}(r,t)\) varies in time.
+\textit{Moving boundaries:} the side integrand is \(\mathbf j\!\cdot\!\mathbf n - i\,v_n\);
+caps are evaluated on the initial/final \emph{frames}. This is the form used when \(A_{n}(r,t)\) varies in time.
 
 \subsection{Local form (continuity)}
 \label{app:forms-stokes:local}
@@ -87,64 +81,19 @@ In adapted coordinates \((x,t)\) the differential statement \eqref{app:forms-sto
 \end{equation}
 the usual \((n{+}1)\)-dimensional continuity law (cf.\ \eqref{axioms:stokes:identity:eq:local-continuity}).
 
-\subsection{Frame (snapshot) and tube/boundary invariants}
+\subsection{Frame and tube/boundary invariants}
 \label{app:forms-stokes:frame}
 On a frame (time‑frozen), on an open set \(W\subset U\) with \(\sigma|_W\equiv 0\) (source‑free),
 \(d j^{(n)}=0\) on \(W\) implies that the flux through any two homologous \emph{boundaries} in \(W\) is equal.
 If \(\mathcal T\) is a narrow tube whose side surface is tangent to \(\mathbf j\), then the directed tube flux
-\(\Phi=\int_{\Sigma}\mathbf j\!\cdot n\,dA\) is constant along the tube and cross–sectional averages take the form
+\(\Phi=\int_{\Sigma}\mathbf j\!\cdot\!\mathbf n\,\mathrm dA\) is constant along the tube and cross–sectional averages take the form
 \[
 \langle j_n\rangle=\frac{\Phi}{A}.
 \]
 With the frame linear closure \(\mathbf E_I:=-\nabla\Phi_I\) and \(\mathbf j=-\kappa\,\mathbf E_I\)
-(\eqref{axioms:stokes:frame:eq:closure}), amplitudes follow the inverse‑area rule used in §\ref{corollary:info-gas}
-and §\ref{corollary:frame-boundary}.
+(\eqref{axioms:stokes:frame:eq:closure}), amplitudes follow the inverse‑area rule used in \S\ref{corollary:info-gas}
+and \S\ref{corollary:frame-boundary}.
 
-\subsection{Optional specialization: informational electrodynamics and Poynting export}
-\label{app:forms-stokes:poynting}
-On segments that support wave‑like transport, adopt the informational electrodynamics (Info–EM) closure
-\[
-F_I=dA_I,\qquad dF_I=0,\qquad dH_I={*}j,\qquad H_I=\chi:F_I,
-\]
-where \(A_I\) is a \(1\)-form potential, \(F_I\) the \(2\)-form field, \(H_I\) the excitation \(2\)-form via a
-(linear, local) constitutive map \(\chi\) on the segment considered.
-\emph{When a causal, time–invariant model for \(\chi\) is adopted—or when retarded response is observed on a window—
-the measured/adopted dispersion can be compared with the Kramers–Kronig Hilbert–transform relations recorded in
-§\ref{app:forms-stokes:kk}, eq.~\eqref{app:forms-stokes:eq:kk}, as a local comparison witness on that window.}
-
-\emph{General wave transport.} The same energy–flux identity applies to any pair \((U,V)\) with \(V=\chi:U\),
-\(u=\tfrac12\,U\!:\!V\), and a flux \(\mathbf S\) satisfying \(\partial_t u+\nabla\!\cdot\mathbf S=-\Pi\); Info–EM is one instance
-(\(U\!\equiv\!F_I\), \(V\!\equiv\!H_I\)).
-
-The informational energy–rate density and Poynting vector are
-\[
-u_I=\tfrac12\,F_I\!:\!H_I,
-\qquad
-\mathbf S_I\ \text{(spatial Poynting vector)},
-\]
-and the Poynting identity on any spatial slice \(V_t\) with outward normal \(n\) reads
-\begin{equation}
-\frac{d}{dt}\int_{V_t} u_I\,d^n x\;+\;\int_{\partial V_t}\mathbf S_I\!\cdot n\,dA
-\;=\; -\int_{V_t} \mathbf j\!\cdot\!\mathbf E_I\,d^n x .
-\label{app:forms-stokes:eq:poynting}
-\end{equation}
-In a source‑free subregion (\(\mathbf j=0\)), the surface term equals minus the time derivative of field energy
-in \(V_t\), so exported power is equal across homologous \emph{boundaries}. This is the export statement used in §\ref{waves}.
-
-\subsection{Causality–dispersion note (Kramers–Kronig for \(\chi\))}
-\label{app:forms-stokes:kk}
-For linear, time–invariant media the (temporal) Fourier transform \(\chi(\omega)\) satisfies the
-Hilbert–transform relations when \(\chi\) is causal:
-\begin{align}
-\Re\,\chi(\omega)
-&=\frac{1}{\pi}\,\mathrm{P}\!\!\int_{-\infty}^{\infty}\frac{\Im\,\chi(\omega')}{\omega'-\omega}\,d\omega',
-\qquad
-\Im\,\chi(\omega)
-=-\frac{1}{\pi}\,\mathrm{P}\!\!\int_{-\infty}^{\infty}\frac{\Re\,\chi(\omega')}{\omega'-\omega}\,d\omega' .
-\label{app:forms-stokes:eq:kk}
-\end{align}
-These relations are recorded as a comparison template: when retardedness is observed on a window,
-empirical dispersion may be checked against \eqref{app:forms-stokes:eq:kk} as a local witness.
 
 \subsection{Sign conventions and directional split}
 \label{app:forms-stokes:signs}
@@ -157,8 +106,8 @@ Reversing the orientation of \(V_t\) or the time direction flips signs consisten
 With \(j\) a \(1\)-form and \(j^{(n)}=\!*j\), the single identity \(d j^{(n)}=\sigma\,\mathrm{vol}_{n+1}\) yields:
 (i) the local continuity equation \eqref{app:forms-stokes:eq:local}, and (ii) the cut identity
 \eqref{app:forms-stokes:eq:cut} from the cap/side decomposition of \(\partial U_{[t_0,t_1]}\).
-Frame inverse‑area rules (§\ref{corollary:info-gas}, §\ref{corollary:frame-boundary}) and wave exported–power statements
-(§\ref{waves}) are direct applications once closures are specified.
+Frame inverse‑area rules (\S\ref{corollary:info-gas}, \S\ref{corollary:frame-boundary}) and wave exported–power statements
+(\S\ref{waves}) are direct applications once closures are specified.
 
 \medskip
 \noindent\emph{Literature note.}

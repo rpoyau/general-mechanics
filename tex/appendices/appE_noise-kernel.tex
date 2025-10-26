@@ -10,7 +10,7 @@ This appendix records constant–free formulas for fluctuations about the mean o
 (ii) a linear stochastic response (Einstein–Langevin–type),
 (iii) propagation of covariances via Green functions, and
 (iv) a minimal OU/Langevin toy for a scalar readout.
-Readout mappings to measured sectors are stated once in §\ref{operationalization} and are not repeated here.
+Readout mappings to measured sectors are stated once in \S\ref{operationalization} and are not repeated here.
 
 % ------------------------- E.1: Noise kernel ---------------------------
 
@@ -34,7 +34,7 @@ N_{ab\,cd}(x,x')
 \tfrac12\,\big\langle \tau_{ab}(x)\,\tau_{cd}(x')+\tau_{cd}(x')\,\tau_{ab}(x) \big\rangle .
 \label{app:noise-kernel:eq:N}
 \end{equation}
-On a boundary patch \(A\subset\partial U\) with outward unit normal \(n\), one may equivalently
+On a \emph{boundary block} \(A\subset\partial U\) with outward unit normal \(n\), one may equivalently
 use a projected flux–flux kernel \(N_{A}(t,t')\) built from \((\mathbf j\!\cdot n)_-\).
 
 % ------------------------- E.2: Stochastic response --------------------
@@ -56,7 +56,7 @@ A constant–free stochastic equation is
 where \(\mathcal L\) is the linearized deterministic operator, \(S\) the mean source (from
 \(\langle\mathcal T\rangle\) or mean current divergence), and \(\xi\) is an auxiliary classical field
 whose two–point \(\mathcal N\) matches the physical noise kernel (e.g., \(\mathcal N\!\equiv\!N\) or an
-appropriate projection). Sector scales, if needed, are handled once in §\ref{operationalization}.
+appropriate projection). Sector scales, if needed, are handled once in \S\ref{operationalization}.
 
 % ------------------------- E.3: Covariance propagation -----------------
 
@@ -73,16 +73,16 @@ Then the two–point covariance of \(X\) is
 G(x,x')\,\mathcal N(x',y')\,G(y,y') .
 \label{app:noise-kernel:eq:cov-prop}
 \end{equation}
-For boundary estimators built from patch integrals (e.g., of \(\mathbf j\!\cdot n\)),
-\eqref{app:noise-kernel:eq:cov-prop} reduces to patch–filtered versions with the corresponding projected kernel.
+For \emph{boundary‑block} estimators built from integrals over \(A\subset\partial U\) (e.g., of \(\mathbf j\!\cdot n\)),
+\eqref{app:noise-kernel:eq:cov-prop} reduces to block–filtered versions with the corresponding projected kernel.
 
 % ------------------------- E.4: Boundary variance floor ----------------
 
-\subsection{Boundary/patch estimator: variance floor}
+\subsection{Boundary estimator (block): variance floor}
 \label{app:noise-kernel:boundary-floor}
 
-Specializing to inward Poisson arrivals across a patch \(A\) over a window \(\Delta t\), the
-counting variance implies the local bound used in \ref{corollary:noise},
+Specializing to inward Poisson arrivals across a \emph{boundary block} \(A\) over a window \(\Delta t\), the
+counting variance implies the local bound used in \S\ref{corollary:noise},
 \begin{equation}
 \mathrm{Var}(\widehat{E}_I)
 \;\gtrsim\;
@@ -94,7 +94,7 @@ counting variance implies the local bound used in \ref{corollary:noise},
 \end{equation}
 identical to \eqref{corollary:noise:eq:var-EI}. Shot–noise specialization: \(F_A\to1\) and
 \(\Delta t_{\!\mathrm{eff}}\to\Delta t\).
-Via the one–datum mapping in §\ref{operationalization},
+Via the one–datum mapping in \S\ref{operationalization},
 the same scaling transfers to measured sectors.
 
 % ------------------------- E.5: OU/Langevin toy ------------------------
@@ -120,7 +120,7 @@ and the one–sided PSD is
 S_Y(\omega)=\frac{2D_Y}{\omega^2+\gamma^2}.
 \)
 In a shot–noise regime, \(D_Y\) inherits the same \(\propto \overline{j}_A/|A|\) scaling as
-\eqref{app:noise-kernel:eq:EI-bound}, up to the (single) sector factor supplied in §\ref{operationalization}.
+\eqref{app:noise-kernel:eq:EI-bound}, up to the (single) sector factor supplied in \S\ref{operationalization}.
 
 % ------------------------- E.6: Correlations & spectra -----------------
 
@@ -144,13 +144,13 @@ This matches \eqref{corollary:noise:eq:var-EI} upon identifying \(\Delta t_{\!\m
 \paragraph{Scope (Stokes + frame linear closure).}
 Work on a time‑frozen, source‑free annulus around a compact source in \(n{=}3\).
 By Stokes with \(\sigma=0\) (App.~\ref{app:forms-stokes}, \eqref{app:forms-stokes:eq}) and the tube/boundary argument
-(§\ref{corollary:info-gas}, §\ref{corollary:frame-boundary}), the directed flux \(\Phi\)
+(\S\ref{corollary:info-gas}, \S\ref{corollary:frame-boundary}), the directed flux \(\Phi\)
 across any spherical boundary of radius \(r\) is constant and
 \begin{equation}
 \big\langle j_n\big\rangle(r)=\frac{\Phi}{A_3(r)},\qquad
 |\mathbf E_I(r)|=\frac{1}{\kappa}\,\frac{\Phi}{A_3(r)},\qquad
 A_3(r)=4\pi r^2 .
-\label{app:noise-kernel:eq:stokes-static}
+\label{app:noise-kernel:eq:stokes-frame}
 \end{equation}
 Any boundary readout \(Y\) proportional to \(|\mathbf E_I|\) therefore satisfies \(Y(r)\propto \Phi/A_3(r)\).
 
@@ -160,7 +160,7 @@ For a source family, take the boundary flux to carry a linear label with the tot
 \Phi\ \propto\ E_{\rm src}.
 \label{app:noise-kernel:eq:label}
 \end{equation}
-This is a labeling convention on the family (as in §\ref{operationalization}); it introduces no new constants.
+This is a labeling convention on the family (as in \S\ref{operationalization}); it introduces no new constants.
 
 \paragraph{Fractional mapping (ratio form).}
 At fixed geometry \((r,A_3)\), small changes of the source label induce proportional changes of the flux and of any readout:
@@ -193,13 +193,12 @@ relaxation (white \(S_E\) in-band),
 If the source has a single thermal time \(\tau\), replace \(S_E\) by \(S_E/(1+\omega^2\tau^2)\) in \eqref{app:noise-kernel:eq:psd}.
 
 \paragraph{Assumptions.}
-(i) Far‑field boundary outside the source; (ii) quasistatic band: \(\omega\ll c_I/r\) so wave export (§\ref{waves}) is negligible;
-(iii) independent subsystems add their PSDs.
+(i) Full boundary surrounding the source; (ii) a \emph{frame window} where the W‑FluxConst witness holds (no significant export on the window; cf.\ \S\ref{operationalization}); (iii) independent subsystems add their PSDs.
 
 \medskip
 \noindent\emph{Remark.}
 The mapping \eqref{app:noise-kernel:eq:ratio}–\eqref{app:noise-kernel:eq:rms} is a direct corollary of Stokes on the region and the inverse–area rule
-(§\ref{corollary:info-gas}, §\ref{corollary:frame-boundary}). SI forms can be introduced by an external identification if needed.
+(\S\ref{corollary:info-gas}, \S\ref{corollary:frame-boundary}). SI forms can be introduced by an external identification if needed.
 
 \medskip
 \noindent\emph{Literature note.}

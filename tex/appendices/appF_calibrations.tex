@@ -1,8 +1,8 @@
 % ======================================================================
-% appF_calibrations.tex — Appendix F: One‑datum calibrations (static sectors)
+% appF_calibrations.tex — Appendix F: One‑datum calibrations (frame readouts)
 % ======================================================================
 
-\section{One‑datum calibrations (static sectors)}
+\section{One‑datum calibrations (frame readouts)}
 \label{app:calibrations}
 
 This appendix records how a \emph{single} datum per sector maps the informational field
@@ -11,13 +11,12 @@ This appendix records how a \emph{single} datum per sector maps the informationa
 \eqref{axioms:stokes:identity:eq}. Units follow App.~\ref{app:kick}.
 
 % ------------------------- F.1 Recap -----------------------------------
-\subsection{Recap: frame boundary/sector law}
+\subsection{Recap: frame boundary law}
 \label{app:calibrations:recap}
 
-On a frame (time‑frozen) in a source‑free annulus (\(\sigma=0\)), the directed flux through any
-radius–\(r\) boundary \(\Sigma(r)\) is independent of \(r\):
+On a frame, in a source‑free annulus (\(\sigma=0\)), the \emph{directed boundary flux} is constant:
 \[
-\Phi(r)\;:=\;\int_{\Sigma(r)} \mathbf j\!\cdot n\,dA\quad\text{is constant.}
+\Phi(r)\;:=\;\int_{\Sigma(r)} \mathbf j\!\cdot n\,dA\quad\text{is independent of }r.
 \]
 With the frame closure \(\mathbf j=-\kappa\,\mathbf E_I\), the mean normal current on a radius–\(r\)
 boundary in \(n\) spatial dimensions is
@@ -28,7 +27,7 @@ boundary in \(n\) spatial dimensions is
 A_n(r)=S_{n-1}\,r^{\,n-1}\ \ \text{(App.~\ref{app:nD-boundaries}, eq.~\eqref{app:nD-boundaries:eq:areas}).}
 \label{app:calibrations:eq:frame-law}
 \end{equation}
-For a conical sector of solid angle \(\Delta\Omega\), replace \(A_n(r)\) by
+For a conical \emph{boundary sector} of solid angle \(\Delta\Omega\), replace \(A_n(r)\) by
 \(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\).
 
 % ------------------------- F.2 Definition ------------------------------
@@ -77,7 +76,7 @@ Y_\star\,
 \frac{A_n(r_\star)}{A_n(r)}.
 \label{app:calibrations:eq:ratio}
 \end{equation}
-In lossless statics (\(\Phi(r)=\Phi_\star\)),
+In the lossless frame case (\(\Phi(r)=\Phi_\star\)),
 \begin{equation}
 \boxed{\qquad
 Y(r)=Y_\star\,\frac{A_n(r_\star)}{A_n(r)}
@@ -114,11 +113,11 @@ Y(r)\;=\;Y_\star\,\frac{\mathcal Q}{\mathcal Q_\star}\,
 \item \textbf{Thermal/particle channel.} \(Y=j_{\rm th}\) with \(c_{\rm sec}\equiv\kappa_T\) maps a measured heat/particle flux density to \(\mathbf E_I\).
 \end{itemize}
 
-% ------------------------- F.7 Apertures & confinement -----------------
+% ------------------------- F.7 Cones/apertures and confinement ---------
 \subsection{Cones/apertures and confinement}
 \label{app:calibrations:apertures}
 
-For a conical sector of solid angle \(\Delta\Omega\), replace \(A_n(r)\) by
+For a conical \emph{boundary sector} of solid angle \(\Delta\Omega\), replace \(A_n(r)\) by
 \(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\) in \eqref{app:calibrations:eq:one-datum}–\eqref{app:calibrations:eq:ratio-Q}.
 In guides/sheets (§\ref{corollary:dimensional}), use the effective cross‑section or
 circumference in place of \(A_n(r)\).

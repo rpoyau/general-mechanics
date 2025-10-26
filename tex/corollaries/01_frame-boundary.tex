@@ -2,28 +2,28 @@
 % 01_frame-boundary.tex 
 % ======================================================================
 
-\subsection{Frame Boundary (Inverse-Power Fields)}
+\subsection{Frame boundary (inverse-power fields)}
 \label{corollary:frame-boundary}
 
-\paragraph{Setup (Frame, Source-Free Annulus).}
-Work on a single frame (time-frozen) with $\partial_t i=0$. On an open annulus $W\subset U$ with $\sigma|_{W}\equiv 0$
-(source-free on $W$), define the directed flux through a closed screen $\Sigma(r)\subset W$ of radius $r$ by
+\paragraph{Setup (frame, source-free annulus).}
+Work on a frame (time-frozen) with $\partial_t i=0$. On an open annulus $W\subset U$ with $\sigma|_{W}\equiv 0$
+(source-free on $W$), define the directed flux through a closed boundary $\Sigma(r)\subset W$ of radius $r$ by
 \[
 \Phi(r):=\int_{\Sigma(r)} \mathbf j\!\cdot n\,dA.
 \]
 By the Stokes identity on $W$ (App.~\ref{app:forms-stokes})—equivalently, by the cut identity with $\partial_t i=0$ and $\Pi=0$
-(see \eqref{axioms:stokes:identity:eq:cut})—$\Phi(r)$ is independent of $r$ across nested screens in $W$.
+(see \eqref{axioms:stokes:identity:eq:cut})—$\Phi(r)$ is independent of $r$ across nested boundaries in $W$.
 
-\paragraph{Single-frame linear closure.}
-Using the static closure \eqref{axioms:stokes:frame:eq:closure},
+\paragraph{Frame linear closure.}
+Using the frame closure \eqref{axioms:stokes:frame:eq:closure},
 \[
 \mathbf E_I:=-\,\nabla\Phi_I,
 \qquad
 \mathbf j=-\,\kappa\,\mathbf E_I .
 \]
 
-\paragraph{Screen area in $n$ spatial dimensions.}
-For a spherically symmetric screen in $n$ spatial dimensions (App.~\ref{app:nD-boundaries}),
+\paragraph{Boundary area in $n$ spatial dimensions.}
+For a spherical boundary in $n$ spatial dimensions (App.~\ref{app:nD-boundaries}),
 \[
 A_n(r)=S_{n-1}\,r^{\,n-1}\quad\text{(see eq.~\eqref{app:nD-boundaries:eq:areas})},
 \]
@@ -33,39 +33,39 @@ hence the cross–sectional mean of the normal current is
 \qquad
 \bigl|\mathbf E_I(r)\bigr|=\frac{1}{\kappa}\,\bigl\langle j_n\bigr\rangle(r)
 =\frac{\Phi}{\kappa\,S_{n-1}}\,\frac{1}{r^{\,n-1}} .
-\label{eq:c1-screen-law}
+\label{corollary:frame-boundary:eq:boundary-law}
 \end{equation}
-Thus single-frame informational-field amplitudes scale as $r^{-(n-1)}$.
+Thus frame informational‑field amplitudes scale as $r^{-(n-1)}$.
 
 \paragraph{3D specialization.}
-For $n=3$, $A_3(r)=4\pi r^2$ and \eqref{eq:c1-screen-law} reduces to
+For $n=3$, $A_3(r)=4\pi r^2$ and \eqref{corollary:frame-boundary:eq:boundary-law} reduces to
 \begin{equation}
 \bigl|\mathbf E_I(r)\bigr|=\frac{\Phi}{4\pi\kappa}\,\frac{1}{r^{2}} .
-\label{eq:c1-3d}
+\label{corollary:frame-boundary:eq:3d}
 \end{equation}
 
 \paragraph{Calibrated sectors (constant–free predictions).}
 Using the one–datum calibrations of App.~\ref{app:calibrations} (eq.~\eqref{app:calibrations:eq:def}),
 \begin{equation}
 \mathbf g=c_M\,\mathbf E_I,\qquad \mathbf E=c_Q\,\mathbf E_I,\qquad \mathbf j_{\rm th}=\kappa_T\,\mathbf E_I ,
-\label{eq:c1-calibrations}
+\label{corollary:frame-boundary:eq:calibrations}
 \end{equation}
 the measured $3$D fields follow immediately:
 \begin{equation}
 g(r)=\frac{c_M\,\Phi}{4\pi\kappa}\,\frac{1}{r^{2}},\qquad
 E(r)=\frac{c_Q\,\Phi}{4\pi\kappa}\,\frac{1}{r^{2}} .
-\label{eq:c1-measured-3d}
+\label{corollary:frame-boundary:eq:measured-3d}
 \end{equation}
 Fixing a single datum $(r_\star, g_\star)$ (or $(r_\star, E_\star)$) for a given source family yields the
 constant–free ratio form
 \begin{equation}
 g(r)=g_\star\left(\frac{\Phi}{\Phi_\star}\right)\left(\frac{r_\star}{r}\right)^{\!2},\qquad
 E(r)=E_\star\left(\frac{\Phi}{\Phi_\star}\right)\left(\frac{r_\star}{r}\right)^{\!2}.
-\label{eq:c1-ratio-MQ}
+\label{corollary:frame-boundary:eq:ratio-MQ}
 \end{equation}
 Directional filters/apertures use the inward flux
 $\Phi_-=\int_{\Sigma}( \mathbf j\!\cdot n)_-\,dA$; formulas
-\eqref{eq:c1-screen-law}–\eqref{eq:c1-ratio-MQ} hold with $\Phi\mapsto\Phi_-$.
+\eqref{corollary:frame-boundary:eq:boundary-law}–\eqref{corollary:frame-boundary:eq:ratio-MQ} hold with $\Phi\mapsto\Phi_-$.
 For a fixed solid angle $\Delta\Omega$ in $n$D, use $A_\Delta(r)=\Delta\Omega\,r^{\,n-1}$ (App.~\ref{app:nD-boundaries}).
 
 \paragraph{Units and trits/nats.}
@@ -73,19 +73,19 @@ The default alphabet is ternary; counts are in \emph{trits} and map to nats by
 \[
 S_{\rm nats}=(\ln 3)\,S_{\rm trits}.
 \]
-The law \eqref{eq:c1-screen-law} is unit–agnostic; only the numerical value of $\kappa$ changes with the
+The law \eqref{corollary:frame-boundary:eq:boundary-law} is unit–agnostic; only the numerical value of $\kappa$ changes with the
 trit/nat convention (global unit policy is stated once elsewhere).
 
 \medskip
 \noindent\textit{Remark.}
-The conical/tube argument in Corollary~\ref{corollary:info-gas} (C0) gives the same
+The conical/tube argument in Corollary~\ref{corollary:info-gas} gives the same
 $1/A_n(r)$ amplitude rule on sectors of fixed solid angle;
-\eqref{eq:c1-screen-law} is the full–screen specialization.
+\eqref{corollary:frame-boundary:eq:boundary-law} is the full–boundary specialization.
 Confinement (guides/sheets) replaces $A_n(r)$ by an effective cross–section or
-circumference; see Corollary~\ref{corollary:dimensional} (C8).
+circumference; see Corollary~\ref{corollary:dimensional}.
 
 \medskip
 \noindent\emph{Literature note.}
-Screen areas and Green–function normalizations appear in App.~\ref{app:nD-boundaries};
+Boundary areas and Green–function normalizations appear in App.~\ref{app:nD-boundaries};
 see also Frankel~\cite{Frankel2011} and Jackson~\cite{Jackson1999}, and the
-dimension–dependence summarized in Corollary~\ref{corollary:dimensional} (C8).
+dimension–dependence summarized in Corollary~\ref{corollary:dimensional}.
