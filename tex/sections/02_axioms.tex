@@ -8,12 +8,12 @@
 \paragraph{Three pillars (thermodynamics, information–relational, Stokes).}
 (i) \emph{Thermodynamics as content.} The piston thought–experiment generalizes via Stokes; the operational
 \emph{thermodynamic dictionary} is used in \S\ref{corollary:info-gas}–\S\ref{corollary:frame-boundary} and recorded once
-in \S\ref{operationalization}. Identification of informational and entropic quantities is stated once below.\\
+in \S\ref{operationalization}. Identification of informational and entropic quantities is stated below.\\
 (ii) \emph{Information theory / relational.} Counting and priors are Shannon‑based over a \emph{ternary}
 alphabet (\emph{yes/no/unknown}); observables are \emph{relational}. Trit/nat choices differ by a factor of
 \(\ln 3\) and do not affect geometric statements.\\
 (iii) \emph{Geometric calculus (Stokes identity).} A single generalized Stokes identity is applied on a chosen region
-and its time extension, with cap/side (\emph{worldtube}) decomposition (\S\ref{axioms:stokes:identity};
+and its time extension, with \worldtube\ decomposition (\S\ref{axioms:stokes:identity};
 App.~\ref{app:forms-stokes}). Frame \emph{boundary} invariants use open subsets with \(\sigma|_W\equiv0\).
 
 % ---------------------------- Relational -------------------------------
@@ -41,12 +41,11 @@ statements. All later flux/current formulas are invariant under nat/trit choice 
 The same generalized Stokes identity is applied on
 \begin{enumerate}\itemsep0.25em
   \item a \emph{frame} spatial region \(U\) (boundaries/sectors), and
-  \item the time‑extended region \(U\times[t_0,t_1]\) (\emph{worldtube}, dynamics).
+  \item the time‑extended region \(U\times[t_0,t_1]\) (\emph{\worldtube}, dynamics).
 \end{enumerate}
 For frame \emph{boundary} arguments an \emph{open set} \(W\subset U\) with \(\sigma|_W\equiv0\) is used; this yields
 tube invariants and inverse‑area rules. Conventions for forms, orientations, and Hodge duals are summarized
-in App.~\ref{app:forms-stokes}. (Identification with entropy flux and the optional boundary heat mapping appear where
-cited; see \S\ref{corollary:info-gas} and Corollary~\ref{corollary:continuity}.)
+in App.~\ref{app:forms-stokes}.
 
 % ---------------------------- Generalized Stokes -----------------------
 
@@ -85,25 +84,25 @@ In local coordinates this is the continuity equation
 \label{axioms:stokes:identity:eq:local-continuity}
 \end{equation}
 
-\paragraph{Boundary identification (information \(\equiv\) entropy; thermal mapping).}
-We use \emph{entropic flux} as the primitive: \(j\equiv j_S\) (entropy current), with normal component
-\(j_n=\mathbf j\!\cdot\!\mathbf n\) (units: count/(area·time); log‑base fixes count unit—nats or trits). The corresponding
-density is \(i\equiv s\) (nats/vol). Where a boundary temperature field \(T\) is assigned, the heat flux is
-\(\mathbf q := T\,\mathbf j_S\) (Kz). Operational window integrals (counts and window‑averaged currents) are defined
-once in \S\ref{operationalization}. The axioms themselves are temperature‑free.
+\paragraph{Boundary Identification: Information, Entropy, and Units.}
+On boundaries, the information current is identified with the entropy current: \(j \equiv j_S\).
+The normal component is \(j_n = \mathbf{j} \cdot \mathbf{n}\). Units are counts per unit area per unit time, with the
+specific count unit (e.g., nats, trits) fixed by the choice of logarithm base. The corresponding volume
+densities are also identified, \(i \equiv s\), with units of nats per unit volume. Window integrals, which provide
+total counts and window‑averaged currents, are defined in \S\ref{operationalization}.
 
 \paragraph{Carriers.}
-The statements hold for any carrier. Additional informational/entropic sources (e.g., charge, mass, energy/momentum)
+The statements hold for any carrier. Additional informational/entropic sources (e.g.\ charge, mass, energy/momentum)
 admit the same Stokes formulation on the same manifold; \emph{boundary} invariants apply on open subsets where the
 corresponding production vanishes.
 
-\paragraph{Worldtube note.}
-If the boundary moves, the side contribution uses the integrand \(\mathbf j\!\cdot\!\mathbf n - i\,v_n\), and the same
+\paragraph{\worldtube\ note.}
+If the boundary moves, the side contribution uses the integrand \(\mathbf j\!\cdot\!\mathbf n - i\,v_n\); the same
 decomposition applies on the time‑extended boundary; see App.~\ref{app:forms-stokes}.
 
 \subsubsection{Frame closure}
 \label{axioms:stokes:frame}
-On a \emph{frame} (time‑frozen) in linear, isotropic, near‑equilibrium regimes,
+On a \emph{frame} in linear, isotropic, near‑equilibrium regimes,
 \begin{equation}
 \mathbf E_I:=-\,\nabla\Phi_I,
 \qquad
@@ -111,23 +110,40 @@ On a \emph{frame} (time‑frozen) in linear, isotropic, near‑equilibrium regim
 \label{axioms:stokes:frame:eq:closure}
 \end{equation}
 Here \(\Phi_I\) is the informational potential, \(\mathbf E_I\) its field, and \(\kappa\) a constitutive scale of the
-channel. This closure is used on frames to derive boundary/sector relations; time‑extended segments and \emph{wave} transport are
-treated separately (see \S\ref{waves}); no wave equations are part of the axioms.
+channel. This frame closure is used to derive boundary/sector relations; time‑extended segments and
+wave transport are treated separately (see \S\ref{waves}).
 
 \subsubsection{Relational Equation of State (REOS)}
 \label{axioms:reos}
 Let \(R^{(a)}\) denote admissible boundary/control variations (e.g., apertures, partitions, admissible alphabets,
 connectivity), and let \(\rho=\rho(R)\) be a \emph{calibrated rate density (informational cost)} on the control manifold;
 “calibrated’’ here only means that a single sector scale has been fixed once outside the axioms
-(see \S\ref{operationalization}). Define the conjugate one‑form \(\lambda:=\lambda_a\,dR^{(a)}\) with components
-\(\lambda_a:=\partial\rho/\partial R^{(a)}\) when \(\rho\) is differentiable. The REOS statement is
+(see \S\ref{operationalization}). Define the price one‑form \(\lambda:=\lambda_a\,dR^{(a)}\) with components
+\[
+\lambda_a:=-\,\frac{\partial\rho}{\partial R^{(a)}}
+\]
+when \(\rho\) is differentiable. The REOS statement is
 \begin{equation}
 d\rho \;=\; -\,\lambda_a\,dR^{(a)} .
 \label{axioms:reos:eq}
 \end{equation}
 If \(d\lambda=0\) (integrable sector), \(\rho\) is path‑independent and Maxwell‑type identities hold.
-If \(d\lambda\neq 0\) (non‑integrable sector), cyclic variations of \(R^{(a)}\) entail positive net cost that appears
-as nonnegative production \(\sigma\) in the identities \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}.
+If \(d\lambda\neq 0\) (non‑integrable sector), cyclic variations of \(R^{(a)}\) entail nonnegative production \(\sigma\)
+in the identities \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}.
+
+\paragraph{Boundary heat mapping (windows and frames).}
+With the identification \(j\equiv j_S\) on boundaries, define the \emph{total-heat} on a boundary patch
+\(A\subset\partial U\) over a window \([t_0,t_1]\) by
+\begin{equation}
+Q_A\big([t_0,t_1]\big)\;:=\;\int_{t_0}^{t_1}\!\!\int_A T\,j_S\,\mathrm dA\,\mathrm dt .
+\label{axioms:reos:eq:total-heat}
+\end{equation}
+On a \emph{frame}, this reduces to the instantaneous \emph{heat‑flux} density
+\begin{equation}
+q_n \;:=\; T\,j_n .
+\label{axioms:reos:eq:flux-heat}
+\end{equation}
+Units (Kz): see App.~\ref{app:kick}.
 
 \subsubsection{Canonical rates from Stokes on \((q,t)\)}
 \label{axioms:path-rate}
@@ -136,8 +152,11 @@ Define the rate (Poincaré–Cartan) \(1\)-form on configuration–time space
 \Theta_{\mathcal R}=P_i\,dq^i- H(q,P,t)\,dt .
 \label{axioms:path-rate:eq:pc-form}
 \end{equation}
-Evaluating Stokes on a rectangular \(2\)-surface spanned by two nearby paths between \(t\) and \(t+dt\) and imposing
-\(d\Theta_{\mathcal R}=0\) yields the canonical rate equations
+Evaluating Stokes on a rectangular \(2\)-surface \(\Sigma\) spanned by two nearby paths between \(t\) and \(t+dt\) gives
+\[
+\int_{\partial\Sigma}\Theta_{\mathcal R}\;=\;\int_{\Sigma} d\Theta_{\mathcal R}\;=\;0,
+\]
+which is equivalent to the canonical rate equations
 \begin{equation}
 \dot q^i=\partial_{P_i}H,
 \qquad
@@ -149,8 +168,8 @@ The Euler–Lagrange form follows under convex duality (see \S\ref{corollary:lea
 \medskip
 \noindent\emph{Notes.}
 (1) Trits versus nats are related by a factor \(\ln 3\); the axioms are invariant under this unit choice.\\
-(2) Propagation closures and wave transport are introduced and used in \S\ref{waves} (with dimension/confinement
-summarized in \S\ref{corollary:dimensional}); they are \emph{not} additional axioms.\\
+(2) Propagation closures and wave transport are in \S\ref{waves} (with dimension/confinement
+summarized in \S\ref{corollary:dimensional}).\\
 (3) Operational sector mappings and units (Kz) are specified once outside this section (App.~\ref{app:kick});
 the boundary dictionary appears in \S\ref{operationalization}.
 

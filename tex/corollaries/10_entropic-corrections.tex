@@ -1,5 +1,5 @@
 % ======================================================================
-% 03c11_entropic-gravity-corrections.tex — Entropic–gravity corrections
+% corollaries/10_entropic-gravity-corrections.tex — Entropic–gravity corrections
 % ======================================================================
 
 \subsection{Entropic–gravity corrections (attenuation, production, capacity)}
@@ -25,50 +25,52 @@ With the frame closure \(j_r=-\kappa\,E(r)\), where \(E(r):=|\mathbf E_I(r)|\),
 \end{equation}
 
 \paragraph{Attenuation model (collisional sink).}
-Suppose interactions remove directed flux at a local rate \(\lambda(r)\ge 0\) per unit length.
-The sink is \(\sigma_{\rm sink}(r)=-\lambda(r)\,j_r(r)\), hence \(A_n\sigma_{\rm sink}=-\lambda\,\Phi\).
+Suppose interactions remove directed flux at a local rate \(\mu(r)\ge 0\) per unit length.
+The sink is \(\sigma_{\rm sink}(r)=-\mu(r)\,j_r(r)\), hence \(A_n\sigma_{\rm sink}=-\mu\,\Phi\).
 Using \(j_r=-\kappa E\) in \eqref{corollary:entropic-corrections:eq:core} yields the linear ODE
 \begin{equation}
-\boxed{\quad \frac{d}{dr}\Bigl(A_n E\Bigr) + \lambda(r)\,A_n\,E\;=\;0 \quad}
+\boxed{\quad \frac{d}{dr}\Bigl(A_n E\Bigr) + \mu(r)\,A_n\,E\;=\;0 \quad}
 \label{corollary:entropic-corrections:eq:ode-atten}
 \end{equation}
 with solution
 \begin{equation}
 E(r)\;=\;\frac{C}{A_n(r)}\,
-\exp\!\Bigl(\!-\,\int_{r_0}^{r}\!\lambda(u)\,du\Bigr),
+\exp\!\Bigl(\!-\,\int_{r_0}^{r}\!\mu(u)\,du\Bigr),
 \qquad C=\frac{\Phi(r_0)}{\kappa}.
 \label{corollary:entropic-corrections:eq:sol-atten}
 \end{equation}
+Equivalently, along a tube coordinate \(s\) one has the survival factor \(S=\exp\!\bigl[-\int\mu(s)\,ds\bigr]\);
+for radial frames \(ds=dr\).
 
 \paragraph{Examples (3D).}
 For \(n=3\), \(A_3(r)=4\pi r^2\):
 \begin{equation}
-E(r)=\frac{C}{4\pi r^2}\,\exp\!\Bigl(-\!\int_{r_0}^{r}\lambda(u)\,du\Bigr).
+E(r)=\frac{C}{4\pi r^2}\,\exp\!\Bigl(-\!\int_{r_0}^{r}\mu(u)\,du\Bigr).
 \label{corollary:entropic-corrections:eq:3d-general}
 \end{equation}
 Special cases:
 \[
-\lambda(r)=0 \Rightarrow E=\frac{C}{4\pi r^2};\qquad
-\lambda(r)=\lambda_0 \Rightarrow E=\frac{C}{4\pi r^2}\,e^{-\lambda_0(r-r_0)};
+\mu(r)=0 \Rightarrow E=\frac{C}{4\pi r^2};\qquad
+\mu(r)=\mu_0 \Rightarrow E=\frac{C}{4\pi r^2}\,e^{-\mu_0(r-r_0)};
 \qquad
-\lambda(r)=\frac{a}{r} \Rightarrow E=\frac{C}{4\pi}\,\frac{r_0^{a}}{r^{2+a}}.
+\mu(r)=\frac{a}{r} \Rightarrow E=\frac{C}{4\pi}\,\frac{r_0^{a}}{r^{2+a}}.
 \]
 
 \paragraph{Volumetric source/sink (general forcing).}
 If, in addition, there is a bounded source density \(\sigma_{\rm src}(r)\), then
-\(\sigma=\sigma_{\rm src}-\lambda\,j_r\) and \eqref{corollary:entropic-corrections:eq:core} becomes
+\(\sigma=\sigma_{\rm src}-\mu\,j_r\) and \eqref{corollary:entropic-corrections:eq:core} becomes
 \begin{equation}
-\frac{d}{dr}\bigl(A_n E\bigr)+\lambda(r)\,A_n\,E
+\frac{d}{dr}\bigl(A_n E\bigr)+\mu(r)\,A_n\,E
 \;=\;-\frac{1}{\kappa}\,A_n(r)\,\sigma_{\rm src}(r).
 \label{corollary:entropic-corrections:eq:ode-forced}
 \end{equation}
 The solution is the integrating–factor form
 \begin{equation}
-E(r)=\frac{1}{A_n(r)}\,e^{-\!\int_{r_0}^{r}\lambda}\!
+E(r)=\frac{1}{A_n(r)}\,e^{-\!\int_{r_0}^{r}\mu}\!
 \left[
 C - \frac{1}{\kappa}\!
 \int_{r_0}^{r}\! A_n(\rho)\,\sigma_{\rm src}(\rho)\,
-e^{\int_{r_0}^{\rho}\lambda}\, d\rho
+e^{\int_{r_0}^{\rho}\mu}\, d\rho
 \right].
 \label{corollary:entropic-corrections:eq:sol-forced}
 \end{equation}
@@ -86,14 +88,14 @@ In \(n=3\) the unattenuated form \(E=C/(4\pi r^2)\) intersects the ceiling at
 \begin{equation}
 r_{\rm flat}\;=\;\sqrt{\frac{C}{4\pi\,E_{\max}}}\,,
 \qquad
-E(r)\;=\;\min\!\left\{\ \frac{C}{4\pi r^2}\,e^{-\!\int_{r_0}^{r}\lambda},\ \ E_{\max}\ \right\}.
+E(r)\;=\;\min\!\left\{\ \frac{C}{4\pi r^2}\,e^{-\!\int_{r_0}^{r}\mu},\ \ E_{\max}\ \right\}.
 \label{corollary:entropic-corrections:eq:rflat}
 \end{equation}
 Inside \(r_{\rm flat}\) the profile flattens; outside, it follows the (possibly attenuated) inverse–square law.
 
 \paragraph{Piecewise media and composition.}
-For piecewise–constant segments \(\{(\lambda_k,\sigma_{{\rm src},k},r_k\!\to\!r_{k+1})\}\), multiply survival
-factors \(e^{-\lambda_k \Delta r_k}\) and add forced contributions segment by segment using
+For piecewise–constant segments \(\{(\mu_k,\sigma_{{\rm src},k},r_k\!\to\!r_{k+1})\}\), multiply survival
+factors \(e^{-\mu_k \Delta r_k}\) and add forced contributions segment by segment using
 \eqref{corollary:entropic-corrections:eq:sol-forced}. The ceiling \eqref{corollary:entropic-corrections:eq:emax}
 may be imposed per segment if \(N(r)\) or \(f_{\max}\) changes.
 
@@ -104,7 +106,7 @@ Since \(\mathbf E_I=-\nabla\Phi_I\), the potential difference between radii \(r_
 \label{corollary:entropic-corrections:eq:potential}
 \end{equation}
 With \eqref{corollary:entropic-corrections:eq:3d-general} this integrates to elementary functions for constant
-or power–law \(\lambda(r)\).
+or power–law \(\mu(r)\).
 
 \paragraph{Remarks and limits.}
 \begin{itemize}\itemsep2pt
@@ -122,7 +124,7 @@ time–information bounds in \S\ref{corollary:time-info} are complementary const
 \medskip
 \noindent\emph{Summary.}
 \emph{Frame} fields on boundaries satisfy a first–order linear ODE for \(A_n(r)E(r)\).
-Attenuation multiplies the inverse–power law by a survival factor \(e^{-\!\int\lambda}\); volumetric sources
+Attenuation multiplies the inverse–power law by a survival factor \(e^{-\!\int\mu}\); volumetric sources
 superpose through \eqref{corollary:entropic-corrections:eq:sol-forced}; and finite counting capacity (in trits)
 imposes an inner ceiling \(E_{\max}\), producing a flattening radius \(r_{\rm flat}\). These results are constant–free.
 

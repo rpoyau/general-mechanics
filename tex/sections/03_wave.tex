@@ -1,5 +1,5 @@
 % ======================================================================
-% 03_wave.tex — Universal wave transport & refraction (Stokes + closure)
+% 03_wave.tex — Universal wave transport & refraction (+ aperture witness)
 % ======================================================================
 
 \section{Universal wave transport \& refraction}
@@ -7,30 +7,31 @@
 
 \subsection{From Stokes to waves: closure on a window}
 \label{waves:closure}
-On any \emph{window} where there is a pair $(U,V)$ related by a linear, causal constitutive relation
-$V=\chi:U$ (possibly dispersive on that window) and a quadratic stored energy
+Let fields $(U,V)$ be related on a window by a linear, causal constitutive map
+$V=\chi:U$ (possibly dispersive on that window). Define the quadratic stored energy
 \begin{equation}
 u \;:=\; \tfrac12\,U\!:\!V ,
 \label{waves:eq:potential-energy}
 \end{equation}
-together with a spatial flux $\mathbf S$ satisfying
+and a spatial flux $\mathbf S$ such that
 \begin{equation}
 \partial_t u \;+\; \nabla\!\cdot\mathbf S \;=\; -\,\Pi,
-\qquad \Pi\ge 0,
+\qquad \Pi\ge 0.
 \label{waves:eq:local-balance}
 \end{equation}
-Stokes on the window yields \emph{radius‑independent export} on any source‑free, lossless subwindow $(\Pi=0)$:
+Integrate \eqref{waves:eq:local-balance} on a source‑free, lossless
+subregion $W$ and apply Stokes on its spatial boundary $\Sigma(r)$: the exported power
 \begin{equation}
 P(r):=\int_{\Sigma(r)}\!\langle \mathbf S\rangle\!\cdot \mathbf n\,\mathrm dA \;=\; \text{const in } r,
 \label{waves:eq:const-power}
 \end{equation}
-and therefore the far‑field envelope \emph{scales as}
+hence the far‑field envelope scales as
 \begin{equation}
 \big\langle |U(r)| \big\rangle \;\propto\; [A_n(r)]^{-1/2},
 \qquad A_n(r)=S_{n-1}\,r^{\,n-1}.
 \label{waves:eq:envelope}
 \end{equation}
-With attenuation $\mu$ along a worldtube, $P(r)\propto \exp\!\big[-\int\mu\,\mathrm ds\big]$ and the envelope acquires
+With attenuation $\mu$ along a \worldtube, $P(r)\propto \exp\!\big[-\int\mu\,\mathrm ds\big]$ and the envelope acquires
 \begin{equation}
 \big\langle |U(r)| \big\rangle \;\propto\; [A_n(r)]^{-1/2}\,
 \exp\!\left[-\tfrac12\!\int \mu\,\mathrm ds\right].
@@ -46,32 +47,41 @@ A_\Delta(r)=\Delta\Omega\,r^{\,n-1},
 
 \paragraph{Remark (generality and Info–EM example).}
 Equation \eqref{waves:eq:local-balance} is a window‑closure template. Info–EM is one realization with
-$U\!\equiv\!F_I$, $V\!\equiv\!H_I$, $H_I=\chi:F_I$, and the same relation \eqref{waves:eq:local-balance}. Under this
-realization, the informational field amplitude $E_I$ follows the envelope law \eqref{waves:eq:envelope} and loss factor
-\eqref{waves:eq:envelope-loss}.
+$U\!\equiv\!F_I$, $V\!\equiv\!H_I$, $H_I=\chi:F_I$, satisfying the same local identity; then the informational
+field amplitude $E_I$ follows \eqref{waves:eq:envelope} and \eqref{waves:eq:envelope-loss}.
 
 \subsection{Eikonal limit, Fermat principle, and tube transport}
 \label{waves:eikonal}
-Assume a high‑frequency ansatz on a homogeneous or slowly varying window,
+Assume a high‑frequency limit on a homogeneous or slowly varying window: the amplitude and index vary slowly
+relative to the carrier,
+\[
+\|\nabla A\|/|A| \ll \omega, \qquad \|\nabla n\|/n \ll \omega/c_I .
+\]
+Use the ansatz
 \begin{equation}
 U(x,t)\;\sim\; \Re\!\Big\{ A(x)\,e^{i\omega S(x)-i\omega t}\Big\},
-\qquad
-\omega\gg\text{(variation scales)},
 \label{waves:eikonal:eq:ansatz}
 \end{equation}
 with slowly varying amplitude $A$ and phase $S$ (eikonal).
-The constitutive description defines an \emph{effective index} $n(x)$ (equivalently, a local speed $c_{\rm eff}=c_I/n$)
-from the dispersion implied by $V=\chi:U$. At leading order, $S$ satisfies the Hamilton–Jacobi equation
+The constitutive description $V=\chi:U$ defines an \emph{effective index} $n(x)$ from dispersion and a local speed
+$c_{\mathrm{eff}}:=c_I/n(x)$. In locally isotropic media (or for an effectively isotropic eigenmode), $n$ is a scalar; otherwise
+$n$ denotes the scalar slowness along the ray. At leading order, $S$ satisfies the Hamilton–Jacobi equation
 \begin{equation}
 |\nabla S(x)|^2 \;=\; n^2(x)\,\frac{\omega^2}{c_I^2},
 \label{waves:eikonal:eq}
 \end{equation}
-and rays are the integral curves of $\mathbf k:=\nabla S$; they extremize the optical time
+and rays are the integral curves of $\mathbf k:=\nabla S$ with unit tangent $\hat{\mathbf s}:=\mathbf k/|\mathbf k|$; they extremize the optical time
 \begin{equation}
 \delta\,\int_\gamma \frac{n(x)}{c_I}\,\mathrm ds \;=\; 0,
 \label{waves:eikonal:eq:fermat}
 \end{equation}
-yielding Snell’s law at interfaces.
+yielding Snell’s law at interfaces. The ray equation is, equivalently,
+\begin{equation}
+\frac{\mathrm d}{\mathrm ds}\!\big(n\,\hat{\mathbf s}\big)\;=\;\nabla n,
+\qquad\Longleftrightarrow\qquad
+\frac{\mathrm d\hat{\mathbf s}}{\mathrm ds}\;=\;\nabla_{\!\perp}\big(\ln n\big).
+\label{waves:eikonal:eq:ray}
+\end{equation}
 Tube transport for the slowly varying amplitude gives
 \begin{equation}
 \frac{\mathrm d}{\mathrm ds}\!\Big(|A|^2 A_\perp\Big) \;=\; -\,|A|^2 A_\perp\,\mu(s),
@@ -80,6 +90,14 @@ Tube transport for the slowly varying amplitude gives
 \label{waves:eikonal:eq:tube-transport}
 \end{equation}
 so $|A|\propto A_\perp^{-1/2}$ (lossless), consistent with \eqref{waves:eq:envelope}.
+
+\paragraph{Diffraction (aperture witness).}
+On a homogeneous, source‑free window supporting carrier wavenumber $k_0:=\omega n/c_I$, the far‑field pattern from a bounded aperture
+$a(\mathbf x_\perp)$ scales as the Fourier transform of the aperture:
+\[
+U(\mathbf r)\;\propto\;\frac{e^{ik_0 r}}{r}\,\widehat{a}\!\big(k_0\,\hat{\mathbf r}_\perp\big)
+\quad\text{(witness; no derivation here).}
+\]
 
 \subsection{Nonlinear refraction from constitutive feedback}
 \label{waves:nonlinear}
@@ -92,11 +110,11 @@ n\;=\;n_0 \;+\; \alpha\,u \;+\; \mathcal O(u^2) \qquad (\text{weak feedback}).
 Using \eqref{waves:eikonal:eq:tube-transport}, $u\propto |A|^2\propto A_\perp^{-1}$ (lossless), so the ray equation acquires a
 self‑consistent bending term:
 \begin{equation}
-\frac{\mathrm d}{\mathrm ds}\!\left(\frac{\nabla S}{n}\right)
+\frac{\mathrm d}{\mathrm ds}\!\big(n\,\hat{\mathbf s}\big)
 \;=\;
-\nabla\!\big(\ln n(u)\big)
-\;\;\Rightarrow\;\;
-\text{\emph{focusing/defocusing} driven by}\;\ \nabla u,
+\nabla n\!\big(u(x)\big)
+\quad\Longleftrightarrow\quad
+\frac{\mathrm d\hat{\mathbf s}}{\mathrm ds} \;=\; \nabla_{\!\perp}\!\big(\ln n(u)\big),
 \label{waves:nonlinear:eq:ray-bending}
 \end{equation}
 closing the loop \(\text{geometry}\to |A|\to u\to n(u)\to \text{geometry}\).
@@ -109,7 +127,8 @@ Raychaudhuri‑type identity
 \;+\; \text{attenuation terms},
 \label{waves:nonlinear:eq:raychaudhuri-analogue}
 \end{equation}
-where $\varsigma$ denotes the shear magnitude and $\mathcal R_{\rm eff}[n(u)]$ encodes inhomogeneity of $n(u)$.
+where $\varsigma$ denotes the shear magnitude and $\mathcal R_{\rm eff}[n(u)]$ collects the transverse curvature induced by
+gradients of $\ln n(u)$ along the congruence (vanishes for uniform $n$).
 No gravitational postulate is invoked: \eqref{waves:nonlinear:eq:raychaudhuri-analogue} is the refractive focusing identity
 induced by the feedback \(n\!\circ\!u\!\circ\!A_\perp\).
 
@@ -117,19 +136,20 @@ induced by the feedback \(n\!\circ\!u\!\circ\!A_\perp\).
 \label{waves:causality-dispersion}
 On a window that is linear, time‑invariant, and causal (retarded, stationary $\chi(\omega)$ on that window),
 the measured dispersion on that window \emph{may be compared} with the Kramers–Kronig Hilbert–pair relation.
-We use this only as a \emph{local comparison witness} (not a premise).
+This is used as a \emph{local comparison witness} (not a premise).
 
-\subsection{Worldtubes, moving boundaries, and boundary sectors}
+\subsection{\worldtube s, moving boundaries, and boundary sectors}
 \label{waves:worldtube}
-When boundaries move, use the cap–side (worldtube) form with side integrand
+When boundaries move, use the \worldtube\ form with side integrand
 $\mathbf j\!\cdot\! \mathbf n - i\,v_n$ (App.~\ref{app:forms-stokes}).
 Export is constant for fixed solid‑angle boundary sectors $\Delta\Omega$; envelopes
 follow \([A_\Delta(r)]^{-1/2}\) with $A_\Delta(r)=\Delta\Omega\,r^{\,n-1}$.
 
 \subsection{Summary}
 \label{waves:summary}
-Waves are a consequence of Stokes plus a window closure: lossless segments carry constant exported power
-\eqref{waves:eq:const-power}, far‑field envelopes scale as $[A_n(r)]^{-1/2}$ \eqref{waves:eq:envelope}, with the weak‑loss
-factor \eqref{waves:eq:envelope-loss}, and confinement follows \eqref{waves:eq:confinement}. Eikonal windows yield
-Fermat/Snell \eqref{waves:eikonal:eq}–\eqref{waves:eikonal:eq:fermat}; constitutive feedback produces nonlinear refraction
-\eqref{waves:eq:nonlinear}–\eqref{waves:nonlinear:eq:raychaudhuri-analogue}.
+Waves follow from Stokes on a window plus a linear, causal closure: lossless segments carry constant exported power
+\eqref{waves:eq:const-power}; far‑field envelopes scale as $[A_n(r)]^{-1/2}$ \eqref{waves:eq:envelope}, with the weak‑loss
+factor \eqref{waves:eq:envelope-loss}; confinement follows \eqref{waves:eq:confinement}. Eikonal windows yield
+Fermat/Snell \eqref{waves:eikonal:eq}–\eqref{waves:eikonal:eq:fermat} with the ray law \eqref{waves:eikonal:eq:ray};
+constitutive feedback produces nonlinear refraction \eqref{waves:eq:nonlinear}–\eqref{waves:nonlinear:eq:raychaudhuri-analogue};
+and apertures admit a far‑field \emph{aperture witness} (pattern $\propto$ Fourier transform) while preserving the same $[A_n(r)]^{-1/2}$ envelope.

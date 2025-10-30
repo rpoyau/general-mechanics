@@ -26,17 +26,24 @@ Measurements are phrased in information theory (Shannon measures with Bayesian u
 alphabet: \emph{yes}, \emph{no}, and \emph{unknown}.
 
 \paragraph{Boundary identification (information \(\equiv\) entropy; units).}
-We identify \(j\) with the \emph{entropy flux} on the boundary (\(j\equiv j_S\)); its normal component \(j_n\) has units
+Here \(j\) is identified with the \emph{entropy flux} on the boundary (\(j\equiv j_S\)); its normal component \(j_n\) has units
 \([\text{count}]/(\text{area}\cdot\text{time})\), with the log base fixing the count unit (nats or trits;
 \(\text{nats}=\ln 3\times\text{trits}\)). The corresponding density is \(i\equiv s\) (nats/vol).
 A heat mapping is optional: on a boundary, \(q_n = T\,j_n\) and over a window \(Q=\int T\,j_n\)
 (introduced formally in Corollary~\ref{corollary:continuity:eq:clausius-local}).
 
+\paragraph{Thermodynamics and gravity (same source family).}
+Thermodynamics and gravity are read from the \emph{same} informational spine: the boundary entropy current \(j\)
+(fixed by the frame inverse‑area rule) and its wave export on windows (fixed by conserved export). After a single
+calibration datum, \emph{mass} and \emph{kinetic/radiation energy} label the same source family in predictions
+(\S\ref{corollary:info-gas}–\S\ref{corollary:frame-boundary}, \S5.9). No extra constants are carried through the algebra; all
+sector readouts follow from the same \(j\) on the same manifold.
+
 \subsection{One geometric identity, two uses}
 With \(j:=J^\mu dx_\mu\) the informational/entropic \(1\)-form and \(*j\) its Hodge dual, the Stokes identity is
 \(d(*j)=\sigma\,\mathrm{vol}\) (continuity).\footnote{Local and cut forms:
 \eqref{axioms:stokes:identity:eq:local-continuity} and \eqref{axioms:stokes:identity:eq:cut}.}
-It is used in two complementary ways:
+This identity is applied in two complementary ways:
 \begin{enumerate}\itemsep2pt
   \item on a \emph{frame} to read boundary/tube relations and sector amplitudes
         (\S\ref{corollary:info-gas}, \S\ref{corollary:frame-boundary}); and
@@ -63,7 +70,7 @@ For any boundary (or conical sector) of area \(A(r)\) at radius \(r\),
 \big\langle j_n\big\rangle(r)=\frac{\Phi}{A(r)}.
 \]
 With the \emph{frame linear closure} (\S\ref{axioms:stokes:frame}, eq.~\eqref{axioms:stokes:frame:eq:closure}),
-\(\mathbf E_I:=-\nabla\Phi_I\) and \(\mathbf j=-\kappa\,\mathbf E_I\), the informational field amplitude reads
+\(\mathbf E_I:=-\,\nabla\Phi_I\) and \(\mathbf j=-\,\kappa\,\mathbf E_I\), the informational field amplitude reads
 \[
 \big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\frac{\Phi}{A(r)}.
 \]
@@ -75,7 +82,7 @@ Two minimalist ingredients are employed when appropriate:
 \emph{(a) frame linear closure} for near‑equilibrium (\S\ref{axioms:stokes:frame};
 eq.~\eqref{axioms:stokes:frame:eq:closure}); and
 \emph{(b) wave‑supporting closures} when transport/export is relevant on a source‑free segment.
-\emph{Wave transport and envelopes—see \S\ref{waves}.}
+\emph{Wave export/envelopes—see \S\ref{waves}.}
 On windows that are linear, time‑invariant, and causal, measured dispersion \emph{may be compared}
 to a Causality–Dispersion (KK‑window) relation \emph{as a local witness} (\S\ref{waves:causality-dispersion}).
 

@@ -150,8 +150,9 @@ usage belong in App.~\ref{app:calibrations} and \S\ref{operationalization}.
       \]
       (If binary units are used for comparison elsewhere, replace $\ln 3$ by $\ln 2$ only in those comparisons.)
 \item \textbf{Windowed Fano factor and effective window.}
-      $F_A:=\mathrm{Var}(N_A)/\mathbb E[N_A]$ on a boundary patch $A$; $\Delta t_{\!\mathrm{eff}}$ is derived from the
-      count autocorrelation on the same record. See \eqref{corollary:noise:eq:crb-jbar}, \eqref{corollary:noise:eq:var-EI} and \S\ref{operationalization:noise} \eqref{operationalization:noise:eq}.
+      $F_A:=\mathrm{Var}(N_A)/\mathbb E[N_A]$ on the \emph{same} patch and window;
+      $\Delta t_{\!\mathrm{eff}}$ is derived from the \emph{count autocorrelation} on the \emph{same} record ($\le \Delta t$).
+      See \eqref{corollary:noise:eq:crb-jbar}, \eqref{corollary:noise:eq:var-EI} and \S\ref{operationalization:noise} \eqref{operationalization:noise:eq}.
 \end{itemize}
 
 % ----------------------------- H.9 -------------------------------------
@@ -183,14 +184,23 @@ usage belong in App.~\ref{app:calibrations} and \S\ref{operationalization}.
 \item[$U,\ V,\ \chi,\ u,\ \mathbf S,\ \Pi,\ \mu$] General wave transport: $V=\chi:U$, $u=\tfrac12 U\!:\!V$,
       flux $\mathbf S$, production $\Pi$, attenuation $\mu$ (see \S\ref{waves}).
 \item[$u_I,\ \mathbf S_I$] Informational energy-rate density and Poynting vector (see \S\ref{waves:closure}, \eqref{waves:eq:local-balance}).
-\item[$F_A,\ \Delta t_{\!\mathrm{eff}}$] Windowed Fano factor and effective window (\eqref{corollary:noise:eq:crb-jbar}, \eqref{corollary:noise:eq:var-EI}; \S\ref{operationalization:noise} \eqref{operationalization:noise:eq}).
+\item[$F_A$] Windowed Fano factor on the \emph{same} boundary patch/window:
+      $F_A:=\mathrm{Var}(N_A)/\mathbb E[N_A]$ (counts on $A$ over the same $\Delta t$).
+\item[$j_A$] Mean inward current density on patch $A$ over window $\Delta t$:
+      $j_A:=\mathbb E[N_A]/(|A|\,\Delta t)$, where $N_A$ are inward counts
+      (equivalently $|A|^{-1}\!\int_A (\mathbf j\!\cdot n)_-\,dA$ when $\mathbf j$ is time-averaged on the same window).
+      See \S\ref{operationalization:noise}.
+\item[$\Delta t_{\!\mathrm{eff}}$] Effective window derived from the \emph{count autocorrelation} on the \emph{same} record ($\le \Delta t$);
+      see App.~\ref{app:noise-kernel} and \S\ref{operationalization:noise}.
+\item[$\mu$] Attenuation (per-length) along a \worldtube; survival factor $S=\exp\!\big(-\int \mu\,ds\big)$.
+      In wave envelopes this enters as $\exp[-\tfrac12\!\int \mu\,ds]$; see \S\ref{waves}, eq.~\eqref{waves:eq:envelope-loss}.
 \item[$H(q,P,t)$] \emph{Rate generator} in the Poincar\'e--Cartan form $\Theta_{\mathcal R}=P\,dq-H\,dt$.
 \item[$\Theta_{\mathcal R}$] Rate (Poincar\'e--Cartan) $1$-form on $(q,t)$; $d\Theta_{\mathcal R}=0\Rightarrow$ canonical rates.
 \item[$R^{(a)},\ \rho(R),\ \lambda$] REOS controls, calibrated rate density (informational cost), and price $1$-form.
 \item[$k^a,\ \theta,\ \sigma_{ab},\ R_{ab}$] Congruence generator, expansion, shear, and Ricci tensor (geometry/focusing).
 \item[$\mathcal T^{(\mathrm{cal})}_{ab}$] Calibrated stress used only for focusing consistency (not an axiom).
 \item[$c_M,\ c_Q,\ \kappa_T$] One-datum sector scales for gravitational, electric, and thermal readouts (App.~\ref{app:calibrations}).
-\item[$C_{\rm chan},\ \mathcal N$] Reliable capacity functional and noise kernel (App.~\ref{app:noise-kernel}); used in Corollary~\ref{corollary:time-info} and \S\ref{operationalization:noise}.
+\item[$C_{\rm chan},\ \mathcal N$] Reliable capacity functional and noise kernel (App.~\ref{app:noise-kernel}); used in Corollary~\ref{corollary:time-info}.
 \end{description}
 
 \medskip

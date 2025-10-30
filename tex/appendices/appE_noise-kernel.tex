@@ -34,7 +34,7 @@ N_{ab\,cd}(x,x')
 \tfrac12\,\big\langle \tau_{ab}(x)\,\tau_{cd}(x')+\tau_{cd}(x')\,\tau_{ab}(x) \big\rangle .
 \label{app:noise-kernel:eq:N}
 \end{equation}
-On a \emph{boundary block} \(A\subset\partial U\) with outward unit normal \(n\), one may equivalently
+On a \emph{boundary patch} \(A\subset\partial U\) with outward unit normal \(n\), one may equivalently
 use a projected flux–flux kernel \(N_{A}(t,t')\) built from \((\mathbf j\!\cdot n)_-\).
 
 % ------------------------- E.2: Stochastic response --------------------
@@ -42,8 +42,8 @@ use a projected flux–flux kernel \(N_{A}(t,t')\) built from \((\mathbf j\!\cdo
 \subsection{Stochastic linear response (Einstein–Langevin–type)}
 \label{app:noise-kernel:EL}
 
-Linearize the channel’s geometric/constitutive response around a background that satisfies the
-mean continuity (from the Stokes identity; App.~\ref{app:forms-stokes},
+Linearize the channel’s geometric/constitutive response around a background that \emph{follows} the
+mean continuity relation (from the Stokes identity; App.~\ref{app:forms-stokes},
 \eqref{app:forms-stokes:eq}–\eqref{app:forms-stokes:eq:local}). Let \(X\) denote
 the small response field (e.g., a metric–like perturbation \(h_{ab}\), or a scalar potential fluctuation).
 A constant–free stochastic equation is
@@ -73,29 +73,35 @@ Then the two–point covariance of \(X\) is
 G(x,x')\,\mathcal N(x',y')\,G(y,y') .
 \label{app:noise-kernel:eq:cov-prop}
 \end{equation}
-For \emph{boundary‑block} estimators built from integrals over \(A\subset\partial U\) (e.g., of \(\mathbf j\!\cdot n\)),
-\eqref{app:noise-kernel:eq:cov-prop} reduces to block–filtered versions with the corresponding projected kernel.
+For \emph{boundary‑patch} estimators built from integrals over \(A\subset\partial U\) (e.g., of \(\mathbf j\!\cdot n\)),
+\eqref{app:noise-kernel:eq:cov-prop} reduces to patch–filtered versions with the corresponding projected kernel.
 
 % ------------------------- E.4: Boundary variance floor ----------------
 
-\subsection{Boundary estimator (block): variance floor}
+\subsection{Boundary/patch estimator: variance floor (windowed)}
 \label{app:noise-kernel:boundary-floor}
 
-Specializing to inward Poisson arrivals across a \emph{boundary block} \(A\) over a window \(\Delta t\), the
-counting variance implies the local bound used in \S\ref{corollary:noise},
+Let \(N_A(\Delta t)\) be the inward \emph{counts} on a boundary patch \(A\) over a window \(\Delta t\).
+Define the \emph{measured} mean inward current density
+\[
+j_A:=\frac{\mathbb E[N_A]}{|A|\,\Delta t},
+\]
+the windowed \emph{Fano factor}
+\[
+F_A:=\frac{\mathrm{Var}(N_A)}{\mathbb E[N_A]}\quad\text{(same patch and window)},
+\]
+and an \emph{effective window} \(\Delta t_{\!\mathrm{eff}}\le \Delta t\) obtained from the
+\emph{count autocorrelation} on the same record (App.~\ref{app:noise-kernel}).
+Then the informational–field estimator admits the windowed benchmark
 \begin{equation}
 \mathrm{Var}(\widehat{E}_I)
 \;\gtrsim\;
-\frac{F_A\,\overline{j}_A}{\kappa^{2}\,|A|\,\Delta t_{\!\mathrm{eff}}},
-\qquad
-\overline{j}_A
-:=\frac{1}{|A|}\int_{A}(\mathbf j\!\cdot n)_-\,dA ,
+\frac{F_A\,j_A}{\kappa^{2}\,|A|\,\Delta t_{\!\mathrm{eff}}}.
 \label{app:noise-kernel:eq:EI-bound}
 \end{equation}
-identical to \eqref{corollary:noise:eq:var-EI}. Shot–noise specialization: \(F_A\to1\) and
-\(\Delta t_{\!\mathrm{eff}}\to\Delta t\).
+Shot–noise specialization: \(F_A\!\to\!1\) and \(\Delta t_{\!\mathrm{eff}}\!\to\!\Delta t\).
 Via the one–datum mapping in \S\ref{operationalization},
-the same scaling transfers to measured sectors.
+the same scaling transfers to measured sectors. (This matches the estimator floor in \S\ref{operationalization:noise}.)
 
 % ------------------------- E.5: OU/Langevin toy ------------------------
 
@@ -119,7 +125,7 @@ and the one–sided PSD is
 \(
 S_Y(\omega)=\frac{2D_Y}{\omega^2+\gamma^2}.
 \)
-In a shot–noise regime, \(D_Y\) inherits the same \(\propto \overline{j}_A/|A|\) scaling as
+In a shot–noise regime, \(D_Y\) inherits the same \(\propto j_A/|A|\) scaling as
 \eqref{app:noise-kernel:eq:EI-bound}, up to the (single) sector factor supplied in \S\ref{operationalization}.
 
 % ------------------------- E.6: Correlations & spectra -----------------
@@ -130,19 +136,19 @@ In a shot–noise regime, \(D_Y\) inherits the same \(\propto \overline{j}_A/|A|
 If arrivals exhibit an effective correlation time \(\tau>0\) (dead time, coherence, batching), the
 number of independent samples in \(\Delta t\) is \(\approx \Delta t/\tau\), and the floor becomes
 \(
-\mathrm{Var}(\widehat{E}_I)\gtrsim \frac{\overline{j}_A}{\kappa^2|A|}\,\frac{\tau}{\Delta t}.
+\mathrm{Var}(\widehat{E}_I)\gtrsim \frac{j_A}{\kappa^2|A|}\,\frac{\tau}{\Delta t}.
 \)
 Equivalently, with a colored noise kernel \(\mathcal N\), \eqref{app:noise-kernel:eq:cov-prop} yields the spectral
 density of \(X\) by replacing \(\mathcal N\) with its spectrum and \(G\) with the transfer function.
-This matches \eqref{corollary:noise:eq:var-EI} upon identifying \(\Delta t_{\!\mathrm{eff}}\!\sim\!\Delta t/\tau\) up to order‑one factors set by the measured autocorrelation.
+This matches \eqref{app:noise-kernel:eq:EI-bound} upon identifying \(\Delta t_{\!\mathrm{eff}}\!\sim\!\Delta t/\tau\) up to order‑one factors set by the measured autocorrelation.
 
 % ------------------------- E.7: Energy-rate → acceleration noise --------
 
 \subsection{Energy‑rate fluctuations \(\Rightarrow\) acceleration noise (frame, far field)}
 \label{app:noise-kernel:energy-to-accel}
 
-\paragraph{Scope (Stokes + frame linear closure).}
-Work on a time‑frozen, source‑free annulus around a compact source in \(n{=}3\).
+\paragraph{Scope (Stokes and frame closure).}
+Work on a \frame, source‑free annulus around a compact source in \(n{=}3\).
 By Stokes with \(\sigma=0\) (App.~\ref{app:forms-stokes}, \eqref{app:forms-stokes:eq}) and the tube/boundary argument
 (\S\ref{corollary:info-gas}, \S\ref{corollary:frame-boundary}), the directed flux \(\Phi\)
 across any spherical boundary of radius \(r\) is constant and
@@ -185,7 +191,7 @@ With one‑sided PSDs,
 
 \paragraph{Thermal floor (canonical ensemble).}
 In equilibrium, \(\mathrm{Var}(E)=k_B T^2 C\) for heat capacity \(C\). Over any band slower than the source’s thermal
-relaxation (white \(S_E\) in-band),
+relaxation (white \(S_E\) in‑band),
 \begin{equation}
 \boxed{\ \ g_{\mathrm{rms}}(r)\ \approx\ g(r)\,\frac{\sqrt{k_B T^2 C}}{E_{\rm src}}\ .\ }
 \label{app:noise-kernel:eq:rms}
@@ -193,7 +199,8 @@ relaxation (white \(S_E\) in-band),
 If the source has a single thermal time \(\tau\), replace \(S_E\) by \(S_E/(1+\omega^2\tau^2)\) in \eqref{app:noise-kernel:eq:psd}.
 
 \paragraph{Assumptions.}
-(i) Full boundary surrounding the source; (ii) a \emph{frame window} where the W‑FluxConst witness holds (no significant export on the window; cf.\ \S\ref{operationalization}); (iii) independent subsystems add their PSDs.
+(i) Far‑field boundary outside the source; (ii) \emph{low‑frequency window}: \(\omega r\ll c_I\) so wave export (\S\ref{waves}) is negligible;
+(iii) independent subsystems add their PSDs.
 
 \medskip
 \noindent\emph{Remark.}

@@ -8,31 +8,28 @@
 This corollary quantifies the estimator floor on the informational field from boundary counting
 and shows how it propagates to calibrated sectors. Let \(A\) be a \emph{boundary patch} with outward unit
 normal \(n\), observed over a window \([t,t{+}\Delta t]\). Define the inward flux and the patch‑mean
-normal flux density as
+normal \emph{current density} as
 \begin{equation}
 J_A \;:=\; \int_A \big(\mathbf j\!\cdot n\big)_{-}\, dA,
 \qquad
-\overline{j}_A \;:=\; \frac{J_A}{|A|}.
+j_A \;:=\; \frac{\mathbb E[N_A]}{|A|\,\Delta t}\;=\;\frac{J_A}{|A|}.
 \label{corollary:noise:eq:flux}
 \end{equation}
 
 \paragraph{Windowed counting witness (definitions and operational bound).}
-Let \(N_A(\Delta t)\) be the inward counts on \(A\) over the window \(\Delta t\). The mean count and
-windowed Fano factor are
+Let \(N_A(\Delta t)\) be the inward \emph{counts} on \(A\) over the window \(\Delta t\).
+Define the windowed Fano factor
 \begin{equation}
-\mu \;:=\; \mathbb E[N_A]\;=\; J_A\,\Delta t,
-\qquad
-\mathrm{Var}\!\big(N_A\big)\;=\;F_A\,\mu .
+F_A \;:=\; \frac{\mathrm{Var}(N_A)}{\mathbb E[N_A]},
 \label{corollary:noise:eq:mean-fano}
 \end{equation}
-If arrivals exhibit temporal correlation with effective correlation time \(\tau>0\),
-define an \emph{effective window} \(\Delta t_{\!\mathrm{eff}}\le \Delta t\) from the count
-autocorrelation on the same record (App.~\ref{app:noise-kernel}). Any boundary estimator of the
-patch‑mean flux density admits the operational benchmark
+and an \emph{effective window} \(\Delta t_{\!\mathrm{eff}}\le \Delta t\) obtained from the
+count autocorrelation on the same record (App.~\ref{app:noise-kernel}). Any boundary estimator of the
+patch‑mean current density admits the operational benchmark
 \begin{equation}
-\mathrm{Std}\!\big(\widehat{\overline{j}}_A\big)
+\mathrm{Std}\!\big(\widehat{j}_A\big)
 \;\approx\;
-\sqrt{\frac{F_A\,\overline{j}_A}{|A|\,\Delta t_{\!\mathrm{eff}}}} .
+\sqrt{\frac{F_A\,j_A}{|A|\,\Delta t_{\!\mathrm{eff}}}} .
 \label{corollary:noise:eq:crb-jbar}
 \end{equation}
 Shot‑noise–limited records have \(F_A\!\approx\!1\) and \(\Delta t_{\!\mathrm{eff}}\!\approx\!\Delta t\);
@@ -43,16 +40,16 @@ Using the frame closure \eqref{axioms:stokes:frame:eq:closure}, \(\mathbf j=-\ka
 the \emph{windowed} floor for \(\mathbf E_I\) is
 \begin{equation}
 \boxed{\quad
-\mathrm{Var}(\widehat{E}_I)\ \gtrsim\ \frac{F_A\,\overline{j}_A}{\kappa^{2}\,|A|\,\Delta t_{\!\mathrm{eff}}},
+\mathrm{Var}(\widehat{E}_I)\ \gtrsim\ \frac{F_A\,j_A}{\kappa^{2}\,|A|\,\Delta t_{\!\mathrm{eff}}},
 \qquad
 \sigma_{E_I}(\Delta t)\ \gtrsim\ \frac{1}{\kappa}\,
-\sqrt{\frac{F_A\,\overline{j}_A}{|A|\,\Delta t_{\!\mathrm{eff}}}} \ .
+\sqrt{\frac{F_A\,j_A}{|A|\,\Delta t_{\!\mathrm{eff}}}} \ .
 \quad}
 \label{corollary:noise:eq:var-EI}
 \end{equation}
 In the shot‑noise limit \((F_A\!\approx\!1,\ \Delta t_{\!\mathrm{eff}}\!\approx\!\Delta t)\),
 \begin{equation}
-\sigma_{E_I}(\Delta t)\ \gtrsim\ \frac{1}{\kappa}\sqrt{\frac{\overline{j}_A}{|A|\,\Delta t}} .
+\sigma_{E_I}(\Delta t)\ \gtrsim\ \frac{1}{\kappa}\sqrt{\frac{j_A}{|A|\,\Delta t}} .
 \label{corollary:noise:eq:var-EI-shot}
 \end{equation}
 Thus the \emph{force estimate} has a windowed cloud whose width decreases as \(\Delta t_{\!\mathrm{eff}}^{-1/2}\)
@@ -62,9 +59,9 @@ unless \(|A|\) or the collected inward flux \(J_A\) is increased.
 If arrivals have an effective correlation time \(\tau>0\) (dead time, coherence, batching), the number
 of independent samples in \(\Delta t\) is \(\approx \Delta t/\tau\), giving
 \begin{equation}
-\mathrm{Var}(\widehat{\overline{j}}_A)\ \gtrsim\ \frac{\overline{j}_A}{|A|}\,\frac{\tau}{\Delta t},
+\mathrm{Var}(\widehat{j}_A)\ \gtrsim\ \frac{j_A}{|A|}\,\frac{\tau}{\Delta t},
 \qquad
-\sigma_{E_I}\ \gtrsim\ \frac{1}{\kappa}\sqrt{\frac{\overline{j}_A}{|A|}\,\frac{\tau}{\Delta t}} .
+\sigma_{E_I}\ \gtrsim\ \frac{1}{\kappa}\sqrt{\frac{j_A}{|A|}\,\frac{\tau}{\Delta t}} .
 \label{corollary:noise:eq:corr}
 \end{equation}
 This matches \eqref{corollary:noise:eq:crb-jbar} upon identifying
@@ -73,7 +70,7 @@ This matches \eqref{corollary:noise:eq:crb-jbar} upon identifying
 \paragraph{Spherical boundary (3D, far‑field).}
 In the far field, for a full boundary \(A=4\pi r^2\) around a steady source with inward flux \(J_{4\pi}\),
 \begin{equation}
-\overline{j}_A=\frac{J_{4\pi}}{4\pi r^2},
+j_A=\frac{J_{4\pi}}{4\pi r^2},
 \qquad
 \sigma_{E_I}\ \gtrsim\ \frac{1}{\kappa}\,\frac{1}{4\pi r^2}\,\sqrt{\frac{J_{4\pi}}{\Delta t}} .
 \label{corollary:noise:eq:spherical}
@@ -88,9 +85,9 @@ With the sector mappings (one‑datum calibration; see \S\ref{operationalization
 \end{equation}
 the estimator widths propagate as
 \begin{equation}
-\sigma_{g}\ \gtrsim\ \frac{c_M}{\kappa}\sqrt{\frac{F_A\,\overline{j}_A}{|A|\,\Delta t_{\!\mathrm{eff}}}},
+\sigma_{g}\ \gtrsim\ \frac{c_M}{\kappa}\sqrt{\frac{F_A\,j_A}{|A|\,\Delta t_{\!\mathrm{eff}}}},
 \qquad
-\sigma_{E}\ \gtrsim\ \frac{c_Q}{\kappa}\sqrt{\frac{F_A\,\overline{j}_A}{|A|\,\Delta t_{\!\mathrm{eff}}}} .
+\sigma_{E}\ \gtrsim\ \frac{c_Q}{\kappa}\sqrt{\frac{F_A\,j_A}{|A|\,\Delta t_{\!\mathrm{eff}}}} .
 \label{corollary:noise:eq:measured}
 \end{equation}
 (Shot‑noise limit: replace \(F_A\to1\) and \(\Delta t_{\!\mathrm{eff}}\to\Delta t\).)
@@ -127,7 +124,7 @@ extend \(\Delta t\), reduce correlation time \(\tau\), or multiplex independent 
 \medskip
 \noindent\emph{Summary.}
 Windowed counting with or without finite correlation time implies an operational floor
-\(\sigma_{E_I}\propto \sqrt{\overline{j}_A/(|A|\Delta t_{\!\mathrm{eff}})}\).
+\(\sigma_{E_I}\propto \sqrt{j_A/(|A|\Delta t_{\!\mathrm{eff}})}\).
 This sets a principled ``force cloud'' that narrows only with larger area, greater inward flux, or longer
 integration time, and it propagates to calibrated sectors by a one‑datum mapping.
 

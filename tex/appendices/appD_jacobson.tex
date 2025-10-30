@@ -6,7 +6,7 @@
 \label{app:jacobson}
 
 This appendix records a calibrated derivation that relates local geometric focusing to a stress–geometry
-relation used in the main text as a \emph{consistency tool}, not as an axiom.
+relation used in the main text.
 
 % ----------------------------- D.1 -------------------------------------
 \subsection{Setup: local wedge, generators, and kinematics}
@@ -46,7 +46,7 @@ where \(dA\) is the area element on the transverse slice through \(p\).
 \label{app:jacobson:flux}
 
 Let \(\mathcal T_{ab}^{(\mathrm{cal})}\) denote the \emph{calibrated} stress tensor of the informational
-channel (same one‑datum sector calibration as in the \emph{frame} setting). The energy (heat) flux through the horizon patch is
+channel (same one‑datum sector calibration as in the \emph{frame} setting). The energy/heat flux through the horizon patch is
 \begin{equation}
 \delta Q
 \;=\;
@@ -78,8 +78,8 @@ R_{ab}\,k^a k^b
 \end{equation}
 The numerical factor is a dimensionless normalization absorbed by the one‑datum calibration (choice of
 \(s_H^{(\mathrm{cal})}\) and \(T_H^{(\mathrm{cal})}\)).
-Equation \eqref{app:jacobson:eq:calibrated} is the focusing consistency used in the body
-(see \eqref{corollary:geometry:eq:info-einstein}); no separate coupling constant is introduced.
+Equation \eqref{app:jacobson:eq:calibrated} is the focusing equality used in the body
+(see \eqref{corollary:geometry:eq:info-einstein}).
 
 % ----------------------------- D.5 -------------------------------------
 \subsection{Remarks and scope}
@@ -89,21 +89,20 @@ Equation \eqref{app:jacobson:eq:calibrated} is the focusing consistency used in 
 \item \textbf{Dissipation.} Away from the reversible limit, shear contributes via
 \(-\sigma_{ab}\sigma^{ab}\) in \eqref{app:jacobson:eq:ray}; the corresponding inequality appears as positive
 production \(\sigma\ge 0\) in the Stokes identity of the main text (cf. \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}
-and App.~\ref{app:forms-stokes}, eqs.~\eqref{app:forms-stokes:eq:cap-side}–\eqref{app:forms-stokes:eq:cut}).
+and App.~\ref{app:forms-stokes}, worldtube equations \eqref{app:forms-stokes:eq:cap-side}–\eqref{app:forms-stokes:eq:cut}).
 \item \textbf{Calibration unity.} The same one‑datum calibration that ties \emph{frame} boundary amplitudes to the informational field
-is used here to fix \((s_H^{(\mathrm{cal})},T_H^{(\mathrm{cal})})\), ensuring the equality \eqref{app:jacobson:eq:calibrated} carries no additional constants.
-\item \textbf{Use.} Relation \eqref{app:jacobson:eq:calibrated} is employed as a \emph{consistency tool}
-on the same manifold region and boundary; it is not taken as an axiom (see \S\ref{corollary:geometry} for the operational use of focusing and area evolution).
+is used here to fix \((s_H^{(\mathrm{cal})},T_H^{(\mathrm{cal})})\), so \eqref{app:jacobson:eq:calibrated} introduces no additional constants.
+\item \textbf{Use.} The equality \eqref{app:jacobson:eq:calibrated} is applied in \S\ref{corollary:geometry} on the same region and boundary.
 \end{itemize}
 
 \medskip
 \noindent\emph{Summary.}
 Local Clausius, together with Raychaudhuri focusing, yields a calibrated equality between
 \(R_{ab}k^a k^b\) and \(\mathcal T^{(\mathrm{cal})}_{ab}k^a k^b\). This mirrors the \emph{frame} boundary laws on the
-same region and supports the geometry‑as‑tool perspective (see \S\ref{corollary:geometry}).
+same region and supports the geometry tools used in \S\ref{corollary:geometry}.
 
 \medskip
 \noindent\emph{Literature note.}
 Raychaudhuri equation and focusing background: Raychaudhuri~\cite{Raychaudhuri1955}; Wald~\cite{Wald1984}; Poisson~\cite{Poisson2004}.
 Local‑horizon Clausius picture: Jacobson~\cite{Jacobson1995}. Unruh temperature for accelerated frames: \cite{Unruh1976}.
-These are provenance pointers; the equality here is calibrated and used as a consistency tool on the same region.
+These are provenance pointers.

@@ -10,7 +10,7 @@ This section records minimal steps to turn the Stokes identity on a region
 measured sector. The spine is: generalized Stokes on \(U\) and
 on \(U\times[t_0,t_1]\) (see \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}),
 and the \emph{frame} linear closure \eqref{axioms:stokes:frame:eq:closure}.
-Wave statements are centralized in \S\ref{waves}. \emph{No wave equations appear here.}
+Wave segments are referenced in \S\ref{waves}.
 
 % --- Thermodynamic dictionary (boundary-first) ---
 \paragraph{Thermodynamic dictionary (boundary-first).}
@@ -32,7 +32,7 @@ For moving boundaries replace \(A_{n}(r)\) by the instantaneous \(A_{n}(r,t)\) a
 \paragraph{Operational witnesses (local, optional).}
 \emph{W‑FluxConst[\(\varepsilon\)]}: on a frame annulus with negligible production, the directed \emph{boundary} flux is invariant across nested boundaries (\S\ref{corollary:frame-boundary}).\newline
 \emph{W‑Narrow[\(\varepsilon\)]}: on a propagation window, exported power is spectrally concentrated near a carrier (\S\ref{waves}).\newline
-\emph{W‑Lin[\(\varepsilon\)]}, \emph{W‑Stat[\(\varepsilon\)]}, \emph{W‑Ret[\(\varepsilon\)]}: local linearity, stationarity, and retardedness checks on the window (used when forming transfer functions; if satisfied, the Causality–Dispersion comparison may be invoked, \S\ref{waves:causality-dispersion}).\newline
+\emph{W‑Lin[\(\varepsilon\)]}, \emph{W‑Stat[\(\varepsilon\)]}, \emph{W‑Ret[\(\varepsilon\)]}: local linearity, stationarity, and retardedness checks on the window (used when forming transfer functions; when the witness holds, the Causality–Dispersion comparison may be invoked, \S\ref{waves:causality-dispersion}).\newline
 Consequences in (\S\ref{corollary:frame-boundary}, \S\ref{waves}) are invoked on windows where the corresponding witness is observed.
 
 % ----------------------------- 4.1 -------------------------------------
@@ -101,7 +101,7 @@ For a conical \emph{boundary sector} of solid angle \(\Delta\Omega\), replace \(
 cross–section/circumference (\S\ref{corollary:dimensional}). No new constants are introduced.
 
 % ----------------------------- 4.3 -------------------------------------
-\subsection{Wave windows (pointer only; no equations here)}
+\subsection{Wave segments (pointer to \texorpdfstring{\S\ref{waves}}{§\ref{waves}})}
 \label{operationalization:waves}
 
 For homogeneous source–free \emph{wave windows}, read exported‑power constancy and far‑field envelope statements
@@ -111,38 +111,43 @@ Confinement replaces \(A_n(r)\) by the effective cross–section/circumference (
 If attenuation or capacity ceilings are relevant, apply \S\ref{corollary:entropic-corrections}.
 
 % ----------------------------- 4.4 -------------------------------------
-\subsection{Operational limits: time, capacity, and erasure}
+\subsection{Operational limits: time–information bound}
 \label{operationalization:limits}
 
-Let \(\overline{J}_{A}\) be the inward \emph{counting rate} over a boundary patch \(A\) in a window
+Let \(\overline{J}_{A}\) be the inward \emph{counting rate} (nats/time) over a boundary patch \(A\) in a window
 \(\Delta t\) (\S\ref{corollary:time-info}). With a reliability target \(\varepsilon\)
 and a channel class choice (coding, alphabet, constraints), let
-\(C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)\) denote the corresponding \(\varepsilon\)–reliable
-capacity (\textbf{trits per time; trits are the default}). Then the resource–limited bounds are
+\(C_{\rm chan}^{(\mathrm{nats})}(\varepsilon)\) denote the corresponding \(\varepsilon\)–reliable
+capacity (nats/time). Then
+\begin{equation}
+\frac{\Delta I_{\rm nats}}{\Delta t}
+\le \min\!\left\{\overline{J}_{A},\ C_{\rm chan}^{(\mathrm{nats})}(\varepsilon),\ \frac{P}{T}\right\},
+\qquad
+\Delta t
+\ge \max\!\left\{\frac{\Delta I_{\rm nats}}{\overline{J}_{A}},\ \frac{\Delta I_{\rm nats}}{C_{\rm chan}^{(\mathrm{nats})}(\varepsilon)},\ \frac{\Delta I_{\rm nats}\,T}{P}\right\}.
+\label{operationalization:limits:eq:nats}
+\end{equation}
+If information is accounted in trits (default), use \(j_{\rm nats}=(\ln3)\,j_{\rm trits}\) and \(C_{\rm chan}^{(\mathrm{trits})}=(1/\ln3)\,C_{\rm chan}^{(\mathrm{nats})}\) to obtain
 \begin{equation}
 \frac{\Delta I_{\rm trits}}{\Delta t}
-\le \min\!\left\{\frac{\overline{J}_{A}}{\ln 3},\
-C_{\rm chan}^{(\mathrm{trits})}(\varepsilon),\
-\frac{P}{T\,\ln 3}\right\},
+\le \min\!\left\{\frac{\overline{J}_{A}}{\ln 3},\ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon),\ \frac{P}{T\,\ln 3}\right\},
 \label{operationalization:limits:eq:rate}
 \end{equation}
 \begin{equation}
 \Delta t
-\ge \max\!\left\{\frac{\Delta I_{\rm trits}}{\overline{J}_{A}/\ln 3},\
-\frac{\Delta I_{\rm trits}}{C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)},\
-\frac{\Delta I_{\rm trits}\,\ln 3\,T}{P}\right\}.
+\ge \max\!\left\{\frac{\Delta I_{\rm trits}}{\overline{J}_{A}/\ln 3},\ \frac{\Delta I_{\rm trits}}{C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)},\ \frac{\Delta I_{\rm trits}\,\ln 3\,T}{P}\right\}.
 \label{operationalization:limits:eq:time}
 \end{equation}
 
 \paragraph{Erasures/unknowns (resolved content).}
 If a fraction \(\varepsilon_{\bot}\in[0,1)\) of symbols observed on the same window are erasures \((\bot)\),
 and one wishes to bound \emph{resolved} content only, make the substitution
-\begin{equation}
+\[
 \overline{J}_{A}\ \mapsto\ (1-\varepsilon_{\bot})\,\overline{J}_{A},
 \qquad
-C_{\rm chan}^{(\mathrm{trits})}\ \mapsto\ (1-\varepsilon_{\bot})\,C_{\rm chan}^{(\mathrm{trits})}
-\end{equation}
-in \eqref{operationalization:limits:eq:rate}–\eqref{operationalization:limits:eq:time}. The \(P/T\) term is unchanged.
+C_{\rm chan}^{(\cdot)}\ \mapsto\ (1-\varepsilon_{\bot})\,C_{\rm chan}^{(\cdot)}
+\]
+in \eqref{operationalization:limits:eq:nats}–\eqref{operationalization:limits:eq:time}. The \(P/T\) term is unchanged.
 
 % ----------------------------- 4.5 -------------------------------------
 \subsection{Noise floor and estimator width (windowed counting witness)}
@@ -151,20 +156,25 @@ in \eqref{operationalization:limits:eq:rate}–\eqref{operationalization:limits:
 Let \(N_A(\Delta t)\) be the inward \emph{counts} on a boundary patch \(A\) over a window \(\Delta t\).
 Define the \emph{measured} mean inward current density
 \[
-\overline{j}_A:=\frac{\mathbb E[N_A]}{|A|\,\Delta t},
+j_A:=\frac{\mathbb E[N_A]}{|A|\,\Delta t}\quad (\text{nats}/(\text{area}\cdot\text{time})),
 \]
 the windowed \emph{Fano factor} \(F_A:=\mathrm{Var}(N_A)/\mathbb E[N_A]\), and an
-\emph{effective window} \(\Delta t_{\!\mathrm{eff}}\le \Delta t\) obtained from the
+\emph{effective window} \(\Delta t_{\mathrm{eff}}\le \Delta t\) obtained from the
 count autocorrelation on the same record (App.~\ref{app:noise-kernel}).
-Any boundary estimator \(Y\) built from these counts admits the \emph{operational}
-benchmark width
+The \emph{informational field} estimator admits the windowed benchmark
+\begin{equation}
+\sigma_{E_I} \;\approx\; \frac{1}{\kappa}\,
+\sqrt{\frac{F_A\,j_A}{|A|\,\Delta t_{\mathrm{eff}}}}.
+\label{operationalization:noise:eq:EI}
+\end{equation}
+For any calibrated sector \(Y=c_{\rm sec}E_I\),
 \begin{equation}
 \sigma_{Y}\ \approx\ \frac{c_{\rm sec}}{\kappa}\,
-\sqrt{\frac{F_A\,\overline{j}_A}{|A|\,\Delta t_{\!\mathrm{eff}}}}.
+\sqrt{\frac{F_A\,j_A}{|A|\,\Delta t_{\mathrm{eff}}}}.
 \label{operationalization:noise:eq}
 \end{equation}
-Shot–noise–limited records have \(F_A\!\approx\!1\) and \(\Delta t_{\!\mathrm{eff}}\!\approx\!\Delta t\);
-overdispersed or correlated arrivals are captured by the measured \((F_A,\Delta t_{\!\mathrm{eff}})\).
+Shot–noise–limited records have \(F_A\!\approx\!1\) and \(\Delta t_{\mathrm{eff}}\!\approx\!\Delta t\);
+overdispersed or correlated arrivals are captured by the measured \((F_A,\Delta t_{\mathrm{eff}})\).
 This is a windowed, data–driven estimate.
 
 % ----------------------------- 4.6 -------------------------------------
@@ -187,7 +197,7 @@ This is a windowed, data–driven estimate.
   \item Specify the segment and constitutive description where it is treated as homogeneous; ensure sources are excluded (\S\ref{waves}).
   \item Read constant‑export and envelope statements from \S\ref{waves}; apply confinement if appropriate (\S\ref{corollary:dimensional}).
   \item Calibrate with the same \(c_{\rm sec}\) and quantify bounds via
-        \eqref{operationalization:limits:eq:rate}–\eqref{operationalization:limits:eq:time} for the chosen reliability \(\varepsilon\).
+        \eqref{operationalization:limits:eq:nats}–\eqref{operationalization:limits:eq:time} for the chosen reliability \(\varepsilon\).
   \item Apply corrections if attenuation or capacity ceilings are relevant (\S\ref{corollary:entropic-corrections}).
 \end{enumerate}
 
@@ -222,6 +232,6 @@ of \(\ln 3\) in the time–information bounds \eqref{operationalization:limits:e
 \noindent\emph{Literature note.}
 Capacity and reliability follow Shannon and Gallager~\cite{Shannon1948,Gallager1968};
 erasure cost follows Landauer and Bennett~\cite{Landauer1961,Bennett2003};
-for wave transport/export see \S\ref{waves} (no equations here) and App.~\ref{app:forms-stokes};
-for boundary counting statistics, the windowed Fano factor and autocorrelation–based \(\Delta t_{\!\mathrm{eff}}\) are standard empirical tools
+for wave transport/export see \S\ref{waves} and App.~\ref{app:forms-stokes};
+for boundary counting statistics, the windowed Fano factor and autocorrelation–based \(\Delta t_{\mathrm{eff}}\) are standard empirical tools
 (App.~\ref{app:noise-kernel}).

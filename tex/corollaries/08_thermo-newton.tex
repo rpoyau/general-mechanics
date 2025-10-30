@@ -1,5 +1,5 @@
 % ======================================================================
-% 03c09_thermo-newton-laws.tex — Thermodynamics → Newtonian rate laws
+% corollaries/09_thermo-newton.tex — Thermodynamics → Newtonian rate laws
 % ======================================================================
 
 \subsection{Thermodynamics to Newtonian rate laws (constant‑free)}
@@ -16,14 +16,18 @@ From the rate \(1\)-form (\eqref{axioms:path-rate:eq:pc-form}),
 \Theta_{\mathcal R}(q,P,t)=P\!\cdot dq - H(q,P,t)\,dt,
 \label{corollary:thermo-newton:eq:theta}
 \end{equation}
-Stokes on a rectangular \(2\)-surface spanned by two nearby paths yields the canonical rate equations
+evaluating Stokes on a rectangular \(2\)-surface \(\Sigma\) spanned by two nearby paths between \(t\) and \(t{+}dt\)
+\[
+\oint_{\partial\Sigma}\Theta_{\mathcal R}\;=\;\int_{\Sigma} d\Theta_{\mathcal R}\;=\;0,
+\]
+gives the canonical rate equations
 \begin{equation}
 \dot q = \partial_{P}H,
 \qquad
-\dot P = -\,\partial_{q}H ,
+\dot P = -\,\partial_{q}H .
 \label{corollary:thermo-newton:eq:canonical}
 \end{equation}
-matching \eqref{axioms:path-rate:eq:pc-form}–\eqref{axioms:path-rate:eq:canonical}.
+These match \eqref{axioms:path-rate:eq:pc-form}–\eqref{axioms:path-rate:eq:canonical}.
 
 \paragraph{Minimal kinetic choice and Newton’s update.}
 Choose a quadratic kinetic term and an external driving potential,
@@ -59,9 +63,9 @@ If \(U\) has explicit time dependence, \(\dot H=\partial_t U\) with \(H:=K+U\); 
 \(\dot H=0\) and \(\mathbf f\!\cdot\mathbf v=-\,\dot U\).
 
 \paragraph{Entropic/operational reading (via REOS).}
-In the REOS language \S\ref{axioms:reos}, boundary/control variations \(R^{(a)}\) with price \(\lambda_a\) satisfy
+In the REOS language \S\ref{axioms:reos}, boundary/control variations \(R^{(a)}\) with price \(\lambda_a\) read
 \(d\rho=-\lambda_a\,dR^{(a)}\). When a control field induces a spatial price gradient, the force on a probe
-reads as the \(q\)-gradient of a potential, i.e.\ \(\mathbf f=-\partial_q U\) in
+is the \(q\)-gradient of a potential, i.e.\ \(\mathbf f=-\partial_q U\) in
 \eqref{corollary:thermo-newton:eq:newton}. Non‑integrable control cycles (\(d\lambda\neq0\)) incur nonnegative
 production \(\sigma\ge0\), which registers via \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}.
 

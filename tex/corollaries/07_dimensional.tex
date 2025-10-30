@@ -1,5 +1,5 @@
 % ======================================================================
-% 03c08_dimensional-flows-confinement.tex — Dimensional flows & confinement
+% corollaries/07_dimensional.tex — Dimensional flows & confinement
 % ======================================================================
 
 \subsection{Dimensional flows \& confinement}
@@ -7,9 +7,8 @@
 
 This corollary makes explicit how \emph{frame} and \emph{wave} amplitudes scale with the number of accessible spatial
 dimensions and how boundaries reduce the \emph{effective} dimension. All statements follow from the Stokes
-identity \eqref{axioms:stokes:identity:eq}, the frame linear closure \eqref{axioms:stokes:frame:eq:closure}, and
-(for waves) the local balance (Poynting) identity \eqref{waves:eq:local-balance} (see \S\ref{waves}; App.~\ref{app:forms-stokes}).
-No new constants are introduced.
+identity \eqref{axioms:stokes:identity:eq}, the frame linear closure \eqref{axioms:stokes:frame:eq:closure}, and,
+for waves, the exported‑power/envelope statements collected once in \S\ref{waves}.
 
 % ------------------------- Summary (frame vs waves) --------------------
 
@@ -24,19 +23,9 @@ Let \(A_n(r)\) be the area of a radius–\(r\) \emph{boundary} in \(n\) spatial 
 \label{corollary:dimensional:eq:frame-scale}
 \end{equation}
 For spherical or conical boundaries with \(A_n(r)=S_{n-1}\,r^{\,n-1}\) this gives \(|\mathbf E_I|\propto r^{-(n-1)}\).
-For \textbf{wave} segments in homogeneous media, time‑averaging the local balance on a source‑free annulus yields
-radius‑independent exported power (see \S\ref{waves}),
-\begin{equation}
-P(r):=\int_{\Sigma(r)}\!\big\langle \mathbf S_I\big\rangle\!\cdot n\,dA=\text{const in }r ,
-\label{corollary:dimensional:eq:power-const}
-\end{equation}
-and with \(\langle \mathbf S_I\rangle\propto \langle|\mathbf E_I|^2\rangle\) the far‑field envelope scales as
-\begin{equation}
-\big\langle |\mathbf E_I(r)| \big\rangle \;\propto\; \frac{1}{\sqrt{A_n(r)}}
-\quad\text{(cf.\ \S\ref{waves}, eq.~\eqref{waves:eq:envelope})}.
-\label{corollary:dimensional:eq:wave-envelope}
-\end{equation}
-For spherical/conical boundaries this gives \(\langle|\mathbf E_I|\rangle\propto r^{-(n-1)/2}\).
+For \textbf{wave} segments in homogeneous media, \emph{exported power is radius‑independent on source‑free windows
+and the far‑field envelope scales as} \(\langle|\mathbf E_I(r)|\rangle \propto [A_n(r)]^{-1/2}\) (see \S\ref{waves}).
+For spherical/conical boundaries this yields \(\langle|\mathbf E_I|\rangle\propto r^{-(n-1)/2}\).
 
 % ------------------------- Dimensional table ---------------------------
 
@@ -45,7 +34,7 @@ For spherical/conical boundaries this gives \(\langle|\mathbf E_I|\rangle\propto
 \centering
 \caption{Geometric scaling of \textbf{frame amplitudes} and \textbf{wave envelopes} by effective spatial dimension.
 Here \(A_n(r)\) is the \(n\)D boundary area (App.~\ref{app:nD-boundaries}). Frame scaling follows \eqref{corollary:dimensional:eq:frame-scale};
-wave envelopes follow \eqref{corollary:dimensional:eq:power-const}–\eqref{corollary:dimensional:eq:wave-envelope}.}
+wave envelope exponents are summarized from \S\ref{waves}.}
 \label{corollary:dimensional:tab:scaling}
 \begin{tabular}{lccc}
 \hline
@@ -68,7 +57,7 @@ Boundaries that constrain propagation reduce the accessible dimension \(n_{\rm e
 \begin{itemize}\itemsep2pt
   \item \textbf{Waveguides (effective 1D).} Cross–section \(A_\perp\) fixed along the axis. \textbf{Frame:}
   \(\langle j_n\rangle=\Phi/A_\perp\) and \( |\mathbf E_I|=\Phi/(\kappa A_\perp)\) are independent of \(r\).
-  \textbf{Waves:} \(\langle|\mathbf E_I|\rangle\sim r^0\) along the guide; mode power is exported with \eqref{corollary:dimensional:eq:power-const}.
+  \textbf{Waves:} \(\langle|\mathbf E_I|\rangle\sim r^0\) along the guide; mode power is exported as in \S\ref{waves}.
   \item \textbf{Sheets / interfaces (effective 2D).} Fixed thickness \(\Rightarrow A_2(r)\propto r\).
   \textbf{Frame:} \( |\mathbf E_I|\propto 1/r\). \textbf{Waves:} \( \langle|\mathbf E_I|\rangle\propto 1/\sqrt{r}\).
 \end{itemize}
@@ -78,7 +67,7 @@ Mode spectra and group velocities are set by boundary conditions and any adopted
 
 \paragraph{Directional sectors and apertures.}
 For an aperture subtending \(\Delta\Omega\) (in \(n\)D), use \(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\) in
-\eqref{corollary:dimensional:eq:frame-scale}–\eqref{corollary:dimensional:eq:wave-envelope}. This is the sector (tube) form
+\eqref{corollary:dimensional:eq:frame-scale}. This is the sector (tube) form
 of the same conservation rule (\S\ref{corollary:info-gas}).
 
 % ------------------------- Remarks & scope -----------------------------
@@ -92,12 +81,11 @@ of the same conservation rule (\S\ref{corollary:info-gas}).
 \noindent\emph{Summary.}
 Frame amplitudes fall as \(1/A_n(r)\); wave envelopes fall as \(1/\sqrt{A_n(r)}\).
 Confinement replaces \(A_n(r)\) by the appropriate effective cross‑section or circumference.
-These follow directly from the Stokes identity, the frame linear closure, and constant exported power,
-with no additional postulates.
+These follow directly from the Stokes identity, the frame linear closure, and the wave export/envelope statements in \S\ref{waves}, with no additional postulates.
 
 \medskip
 \noindent\emph{Literature note.}
 Background geometry/areas and cone/tube forms are summarized in App.~\ref{app:nD-boundaries}; the exported‑power
-statement is recalled in \S\ref{waves} and App.~\ref{app:forms-stokes}. For standard expositions, see
+and envelope statements are recalled in \S\ref{waves} and App.~\ref{app:forms-stokes}. For standard expositions, see
 Frankel~\cite{Frankel2011} (geometry) and Jackson~\cite{Jackson1999} or
-Landau–Lifshitz–Pitaevskii~\cite{LandauLifshitzEDCM1984}.
+Landau--Lifshitz--Pitaevskii~\cite{LandauLifshitzEDCM1984}.
