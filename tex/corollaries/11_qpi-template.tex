@@ -5,72 +5,53 @@
 \subsection{Quantum path–integral template (from informational fluctuations)}
 \label{corollary:qpi-template}
 
-\paragraph{Scope and stance.}
-This records a \emph{template} for wave–like evolution that can be overlaid on the framework
-when one models small fluctuations of boundary counting by a quadratic local kernel.
-It is \emph{not} an axiom. The canonical drift remains fixed by the rate \(1\)-form and its closure.
+\paragraph{Setup.}
+On configuration–time space \((q,t)\) as in \S\ref{axioms:path-rate}, the canonical drift is determined by
+the Hamiltonian generator through \eqref{axioms:path-rate:eq:canonical}.
+On a window \([t_0,t_1]\), fluctuations around this drift are modelled by local quadratic data:
+a drift field \(v(q,t)\) (canonically linked via \eqref{axioms:path-rate:eq:canonical}),
+a positive–definite diffusivity \(D(q,t)\), a scalar rate field \(U(q,t)\),
+an inertial map \(M(q,t)\!>\!0\) for quadratic generators, and a wave scale \(\alpha>0\) used in the oscillatory branch.
 
-\paragraph{Canonical rates (recap).}
-From Axiom \S\ref{axioms:path-rate}, the Poincar\'e--Cartan (rate) \(1\)-form and closure,
-\begin{equation}
-\Theta_{\mathcal R}(q,P,t)=P_i\,dq^i-H(q,P,t)\,dt,
-\qquad
-d\Theta_{\mathcal R}=0,
-\label{corollary:qpi-template:eq:pc-form}
-\end{equation}
-yield the canonical system
-\begin{equation}
-\dot q^i=\partial_{P_i}H,
-\qquad
-\dot P_i=-\,\partial_{q^i}H ,
-\label{corollary:qpi-template:eq:canonical}
-\end{equation}
-identical in content to \eqref{axioms:path-rate:eq:pc-form}–\eqref{axioms:path-rate:eq:canonical}.
-
-\paragraph{Diffusive branch (MaxCal/Onsager--Machlup).}
-On a window where local fluctuations around the canonical drift are modeled by a Gaussian kernel
-with positive‑definite diffusivity matrix \(D(q,t)\) and a scalar rate field \(U(q,t)\),
-maximizing path caliber with constraints on \(\int |\dot q-v|_{D^{-1}}^{2}\,dt\) and \(\int U\,dt\)
-yields the Onsager--Machlup rate
+\paragraph{Diffusive branch.}
+A quadratic rate functional
 \begin{equation}
 \mathcal R_{\rm diff}(q,\dot q,t)
 \;=\;
 \frac{1}{2}\,(\dot q-v)^{\!T} D^{-1}(\dot q-v)\;+\;U(q,t),
 \label{corollary:qpi-template:eq:OM}
 \end{equation}
-and the path weight
+yields the path weight
 \begin{equation}
 \mathbb P[\gamma]\ \propto\
-\exp\!\left(-\int_{t_0}^{t_1}\mathcal R_{\rm diff}\,dt\right).
+\exp\!\left(-\int_{t_0}^{t_1}\mathcal R_{\rm diff}\,dt\right),
 \label{corollary:qpi-template:eq:weight}
 \end{equation}
-The state density \(\rho(q,t)\) satisfies a Fokker--Planck form
+and the state density \(\rho(q,t)\) satisfies
 \begin{equation}
 \partial_t \rho
 \;=\;
--\nabla\!\cdot(v\,\rho)\;+\;\tfrac12\,\nabla^{\!T}\!\bigl(D\,\nabla\rho\bigr),
+-\nabla\!\cdot(v\,\rho)\;+\;\tfrac12\,\nabla^{\!T}\!\bigl(D\,\nabla\rho\bigr).
 \label{corollary:qpi-template:eq:fp}
 \end{equation}
-with \(D\) tied to the counting noise kernel of App.~\ref{app:noise-kernel} (see \S\ref{corollary:noise}).
 
-\paragraph{Oscillatory branch (wave template).}
-Keep the same local fields but rotate the quadratic kernel to an \emph{oscillatory} weight:
+\paragraph{Oscillatory branch.}
+An oscillatory kernel with action density \(P\!\cdot\!\dot q - H(q,P,t)\) defines the path amplitude
 \begin{equation}
 \mathcal A[\gamma]\ \propto\
 \exp\!\left(i\,2\pi\!\int_{t_0}^{t_1}\!\big[P\!\cdot\!\dot q-H(q,P,t)\big]\,dt\right).
 \label{corollary:qpi-template:eq:amp}
 \end{equation}
-Choose a quadratic generator with an inertial map \(M(q,t)\):
+For a quadratic generator
 \begin{equation}
 H(q,P,t)=\tfrac12\,P^{\!T} M^{-1}(q,t)\,P\;+\;U(q,t),
 \label{corollary:qpi-template:eq:quadH}
 \end{equation}
-so that stationary phase reproduces the canonical drift \eqref{corollary:qpi-template:eq:canonical} with
-\(\dot q=M^{-1}P\) and \(\dot P=-\nabla U\) (cf.\ \S\ref{corollary:thermo-newton}).
+stationary phase reproduces the canonical drift in \eqref{axioms:path-rate:eq:canonical}.
 
-\paragraph{Short‑time kernel and a Schr\"odinger‑type evolution (template).}
-Under the quadratic choice \eqref{corollary:qpi-template:eq:quadH}, a Fourier representation of the short‑time kernel
-for \eqref{corollary:qpi-template:eq:amp} yields a linear evolution for a complex amplitude \(\psi(q,t)\):
+\paragraph{Short–time kernel and Schr\"odinger–type evolution.}
+Under \eqref{corollary:qpi-template:eq:quadH}, a Fourier representation of the short–time kernel gives a linear
+evolution for a complex amplitude \(\psi(q,t)\):
 \begin{equation}
 i\,\partial_t \psi
 \;=\;
@@ -78,41 +59,21 @@ i\,\partial_t \psi
 -\frac{\alpha^{2}}{2}\,\nabla^{\!T}\!\bigl(M^{-1}\nabla\bigr)
 \;+\;U(q,t)
 \right]\psi,
-\qquad \alpha>0,
+\qquad \alpha>0 .
 \label{corollary:qpi-template:eq:schro}
 \end{equation}
-where \(\alpha\) is a positive wave scale and \(M\) an inertial map (both fixed once per sector when used).
-No universal constant is introduced.
 
-\paragraph{Minimal coupling (Info--EM specialization).}
-If an informational \(1\)-form \(A_I\) is present (\S\ref{waves}), minimal coupling enters by
+\paragraph{Minimal coupling.}
+With an informational \(1\)-form \(A_I\), minimal coupling is
 \begin{equation}
 P\ \mapsto\ P-A_I(q,t)
 \quad\text{in}\quad
-\eqref{corollary:qpi-template:eq:amp}–\eqref{corollary:qpi-template:eq:schro},
+\eqref{corollary:qpi-template:eq:amp}–\eqref{corollary:qpi-template:eq:schro}.
 \label{corollary:qpi-template:eq:min-coupling}
 \end{equation}
-preserving the Poincar\'e--Cartan structure and producing gauge‑covariant drift and waves.
-(A sector charge matrix may be included as a modeling choice.)
-
-\paragraph{Relations between the branches.}
-Both closures reduce to the same canonical drift \eqref{corollary:qpi-template:eq:canonical} under stationary phase.
-Heuristically, larger counting noise (larger \(D\) in \S\ref{corollary:noise}/App.~\ref{app:noise-kernel})
-narrows resolvable interference, effectively restricting admissible \(\alpha\) in
-\eqref{corollary:qpi-template:eq:schro}. The branch choice is empirical and boundary‑/channel‑dependent.
-
-\paragraph{Units.}
-Rates follow the global convention in App.~\ref{app:notation-units} (Kz).
-Any sector‑specific scales (\(M,\alpha\)) are fixed once when this template is used; no bare constants are carried by the algebra.
-
-\medskip
-\noindent\emph{Summary.}
-The Stokes identity on \((q,t)\) fixes the canonical drift. Adding a quadratic local kernel yields two
-consistent fluctuation closures: a diffusive (Fokker--Planck) branch and, by oscillatory continuation,
-a Schr\"odinger‑type template. Both sit on the same manifold‑first principles and introduce no bare constants.
 
 \medskip
 \noindent\emph{Literature note.}
-Diffusive (Onsager--Machlup) and Fokker--Planck treatments are standard \cite{OnsagerMachlup1953,Risken1989,Gardiner2004}.
-The oscillatory path--integral template follows the classic construction \cite{Feynman1948,FeynmanHibbs1965}.
-The stochastic/noise‑kernel connection is summarized in App.~\ref{app:noise-kernel}; see also \cite{HuVerdaguer2008}.
+Diffusive (Onsager–Machlup) and Fokker–Planck treatments: Onsager–Machlup~\cite{OnsagerMachlup1953},
+Risken~\cite{Risken1989}, Gardiner~\cite{Gardiner2004}.
+Oscillatory path–integral constructions: Feynman~\cite{Feynman1948}, Feynman–Hibbs~\cite{FeynmanHibbs1965}.

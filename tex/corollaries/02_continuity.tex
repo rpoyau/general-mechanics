@@ -5,59 +5,35 @@
 \subsection{Continuity \& Clausius}
 \label{corollary:continuity}
 
-\paragraph{Local continuity (entropy units).}
-Let \(j=J^\mu dx_\mu\) be the informational/entropic flux \(1\)-form and \(j^{(n)}=\!*j\) its Hodge dual.
-The generalized Stokes identity \eqref{axioms:stokes:identity:eq} yields the local continuity law
-\begin{equation}
-\partial_t i + \nabla\!\cdot \mathbf j \;=\; \sigma .
-\label{corollary:continuity:eq:local}
-\end{equation}
-Unless noted otherwise, quantities are in entropy units (nats): \(i\) is entropy density (nats/vol), \(\mathbf j\) is
-boundary flux density (nats/(area·time)), and \(\sigma\) is production (nats/(vol·time)).\footnote{\emph{Operational note.} Any frame flux \(\mathbf j(\cdot,t)\) is inferred from a finite window; the \worldtube\ cut identity is the dynamical statement, and “instantaneous’’ laws are the \(A,\Delta t\!\to\!0\) idealization.}
+\paragraph{Setup.}
+Let \(V\subset U\) be a fixed region with outward unit normal \(\mathbf n\).
+On a boundary patch \(A\subset\partial V\) over a \emph{window} (\S\ref{axioms:window}),
+denote the boundary entropy flux density by \(\mathbf j_S\).
 
-\paragraph{Cut identity (fixed region).}
-On a fixed spatial region \(V\) with outward unit normal \(\mathbf n\),
+\paragraph{Boundary heat.}
+On \([t_0,t_1]\),
 \begin{equation}
-\dot I_{\mathrm{enc}}
+Q_A\!\left([t_0,t_1]\right)
 \;=\;
-\Phi_{\mathrm{in}}-\Phi_{\mathrm{out}}+\Pi,
-\qquad
-\Phi_{\mathrm{in/out}}=\int_{\partial V}\!\big( \mathbf j\!\cdot\!\mathbf n \big)_{\mp}\,\mathrm dA,
-\quad
-\Pi=\int_V \sigma\,\mathrm d^n x ,
-\label{corollary:continuity:eq:cut-identity}
+\int_{t_0}^{t_1}\!\!\int_A T\,\mathbf j_S\!\cdot\!\mathbf n\,\mathrm dA\,\mathrm dt,
+\label{corollary:continuity:eq:total-heat}
 \end{equation}
-which is the \worldtube\ form of \eqref{axioms:stokes:identity:eq:cut}. Here
-\(I_{\mathrm{enc}}=\int_V i\,\mathrm d^n x\).
-
-\paragraph{Boundary heat (windows and frames).}
-Identify the boundary entropy flux density as
+and the frame heat‑flux density is
 \begin{equation}
-\mathbf j_S := \mathbf j \quad\text{(nats/(area·time))}.
-\label{corollary:continuity:eq:flux-density}
-\end{equation}
-On a boundary patch \(A\subset\partial U\) over a window \([t_0,t_1]\), the window heat is
-\begin{equation}
-Q_A\big([t_0,t_1]\big)
-\;=\;
-\int_{t_0}^{t_1}\!\!\int_A T\,\mathbf j_S\!\cdot\!\mathbf n\,\mathrm dA\,\mathrm dt .
-\label{corollary:continuity:eq:window-heat}
-\end{equation}
-When \(T\) is uniform on \(A\times[t_0,t_1]\), this reduces to \(Q_A=T\,N_A\) with
-\(N_A:=\int_{t_0}^{t_1}\!\!\int_A \mathbf j_S\!\cdot\!\mathbf n\,\mathrm dA\,\mathrm dt\).
-The corresponding local (frame) heat–flux density is
-\begin{equation}
-\mathbf q := T\,\mathbf j_S .
+\mathbf q \;=\; T\,\mathbf j_S .
 \label{corollary:continuity:eq:heat-flux}
 \end{equation}
 
-\paragraph{Clausius form.}
-With \(s=i\) and \(\sigma_{\mathrm th}\equiv\sigma\),
+\paragraph{Clausius form (local).}
+With \(s=i\) and \(\mathbf j_S=\mathbf q/T\) (from \S\ref{axioms:boundary-heat}), the continuity law
+\eqref{axioms:stokes:identity:eq:local-continuity} gives
 \begin{equation}
-\partial_t s + \nabla\!\cdot\!\left(\frac{\mathbf q}{T}\right) \;=\; \sigma_{\mathrm th}\ \ge\ 0 .
+\partial_t s \;+\; \nabla\!\cdot\!\left(\frac{\mathbf q}{T}\right) \;=\; \sigma \ \ge\ 0 .
 \label{corollary:continuity:eq:clausius-local}
 \end{equation}
-The cut form reads
+
+\paragraph{Clausius form (cut).}
+From \eqref{axioms:stokes:identity:eq:cut}, using the directional split \S\ref{axioms:directional-split},
 \begin{equation}
 \dot S_{\mathrm{enc}}
 \;=\;
@@ -66,36 +42,22 @@ The cut form reads
 \int_{\partial V}\frac{\big(\mathbf q\!\cdot\!\mathbf n\big)_+}{T}\,\mathrm dA
 \;+\;
 \Pi_{\mathrm th}
-\ \ \ge\ \ 0 .
+\ \ \ge\ 0 ,
 \label{corollary:continuity:eq:clausius-cut}
 \end{equation}
+with \(\Pi_{\mathrm th}:=\int_V \sigma\,\mathrm d^n x\).
 
 \paragraph{Calibration to the informational field.}
-Using the frame closure \eqref{axioms:stokes:frame:eq:closure} and one–datum sector calibration (App.~\ref{app:calibrations}),
+With the Linear Channel Closure \eqref{axioms:linear-closure:eq} and the one–datum sector calibration,
 \begin{equation}
 \mathbf j \;=\; -\,\kappa\,\mathbf E_I,
 \qquad
 \mathbf q \;=\; -\,T\,\kappa\,\mathbf E_I .
 \label{corollary:continuity:eq:calibrated}
 \end{equation}
-Equivalently, one may define \(\kappa_T:=|\kappa|\) and absorb the sign into orientation. Thus the fluxes in
-\eqref{corollary:continuity:eq:clausius-local}–\eqref{corollary:continuity:eq:clausius-cut} are read directly from \(\mathbf E_I\) once per sector.
-
-\paragraph{Directional filtering.}
-For one–sided diaphragms or conical apertures, replace \(\mathbf q\!\cdot\!\mathbf n\) by \((\mathbf q\!\cdot\!\mathbf n)_-\) in the inflow term; the outflow uses \((\mathbf q\!\cdot\!\mathbf n)_+\).
-
-\paragraph{Trits vs.\ nats.}
-If boundary counts are recorded in trits, convert by \(j_S=(\ln 3)\,j_{\text{trits}}\).
-Equations \eqref{corollary:continuity:eq:local}–\eqref{corollary:continuity:eq:calibrated} are invariant under this log‑base choice; only the numerical value of
-\(\kappa\) (or \(\kappa_T\)) rescales.
-
-\medskip
-\noindent\emph{Summary.}
-Continuity \eqref{corollary:continuity:eq:local} with \(\mathbf j_S=\mathbf q/T\) gives Clausius in local and cut forms.
-The window definition \eqref{corollary:continuity:eq:window-heat} fixes heat on patches; the frame closure
-\eqref{corollary:continuity:eq:calibrated} ties these fluxes to \(\mathbf E_I\) via a single calibration.
 
 \medskip
 \noindent\emph{Literature note.}
-Forms/Stokes and the \worldtube\ cut identity appear in App.~\ref{app:forms-stokes};
-units and rate conventions in App.~\ref{app:kick}.
+Continuity in differential‑form language and Stokes’ theorem: Frankel~\cite{Frankel2011}.
+Clausius inequality in macroscopic thermodynamics: Callen~\cite{Callen1985};
+nonequilibrium balance form: de~Groot \& Mazur~\cite{deGrootMazur1962}.

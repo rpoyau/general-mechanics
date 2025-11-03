@@ -5,78 +5,34 @@
 \subsection{Info–Gas \& Stokes}
 \label{corollary:info-gas}
 
-\paragraph{Literature scope.}
-All corollaries below follow from the generalized Stokes identity \(d(*j)=\sigma\,\mathrm{vol}\) and the
-\emph{frame} linear closure \(\mathbf j=-\kappa\,\mathbf E_I\), with optional Info--EM specialization where stated.
-Standard identities (e.g., Poynting) are recalled in Apps.~\ref{app:forms-stokes}--\ref{app:jacobson} and used only
-when explicitly invoked in the relevant corollary.
+\paragraph{Setup.}
+A narrow tube \(\mathcal T\) has side tangent to \(\mathbf j\) and cross‑sections \(\Sigma(r)\) orthogonal to its axis.
+On a \frame (\S\ref{axioms:frame}) \(\partial_t i=0\) and on an open set \(W\subset U\) with \(\sigma|_W=0\), the tube lies in \(W\).
 
-\paragraph{Entropic Flux.}
-Boundary counting at an instant is represented by the \emph{entropic flux} \(1\)-form \(j\) on \(\partial U\).
-On a \emph{frame}, its normal component \(j_n:=\mathbf j\!\cdot n\) is the boundary flux density
-(units: count\,/\,area\,/\,time; the log base fixes the count unit, e.g.\ nats or trits).
-The instantaneous flux through a boundary patch \(A\subset\partial U\) is
-\[
-\Phi_A(t):=\int_A j_n(\cdot,t)\,dA .
-\]
-All tube/boundary invariants in this section are \emph{frame} statements.
-
-\paragraph{Entropic Current.}
-Over a time window \([t,t+\Delta t]\) on a boundary patch \(A\), define the time–integrated boundary
-\emph{counts}
-\[
-N_A(\Delta t):=\int_t^{t+\Delta t}\!\!\int_A j_n\,dA\,dt,
-\]
-the window–average \emph{current} (rate) \(I_A:=N_A(\Delta t)/\Delta t\), and the window–average \emph{current density}
-\(\bar j_n:=\frac{1}{\Delta t}\!\int_t^{t+\Delta t} j_n\,dt\).
-Window fluctuations are summarized by the Fano factor \(F_A:=\mathrm{Var}[N_A]/\mathbb E[N_A]\) and an effective
-integration time \(\Delta t_{\!\mathrm{eff}}\le\Delta t\) (from the count autocorrelation). These window notions support
-the time–information bounds and the estimator floor (\S\ref{corollary:time-info}, \S\ref{corollary:noise}).
-
-\paragraph{Boundary bookkeeping (frame vs.\ window).}
-\emph{Assumption (open set).} Work on \(W\subset U\) with \(\sigma|_W\equiv 0\) (source–free on \(W\)).
-On a \emph{fixed region} \(U\) (a frame), the cut identity is
+\paragraph{Tube invariance.}
+For
 \begin{equation}
-\dot I_{\mathrm{enc}}=\Phi_{\mathrm{in}}-\Phi_{\mathrm{out}}+\Pi,
-\qquad
-\Phi_{\mathrm{in/out}}=\int_{\partial U}(\mathbf j\!\cdot n)_{\mp}\,dA,
-\qquad
-\Pi=\int_{U}\sigma\,d^n x ,
-\label{corollary:info-gas:eq:cut}
+\Phi(r):=\int_{\Sigma(r)} \mathbf j\!\cdot \mathbf n\,\mathrm dA ,
+\label{corollary:info-gas:eq:flux}
 \end{equation}
-which is \eqref{axioms:stokes:identity:eq:cut} in the axioms. The \emph{frame} linear closure is
+the local continuity law \eqref{axioms:stokes:identity:eq:local-continuity} on \(W\) implies
 \begin{equation}
-\mathbf E_I:=-\nabla\Phi_I,
+\Phi(r)=\mathrm{const},
 \qquad
-\mathbf j=-\kappa\,\mathbf E_I ,
-\label{corollary:info-gas:eq:frame-closure}
-\end{equation}
-identical to \eqref{axioms:stokes:frame:eq:closure}.
-
-\paragraph{Tube invariance (frame, source–free open set).}
-Consider a narrow tube \(\mathcal T\) whose side is everywhere tangent to \(\mathbf j\).
-For any cross–section \(\Sigma(r)\) orthogonal to the tube axis, define the directed flux
-\begin{equation}
-\Phi(r):=\int_{\Sigma(r)}\mathbf j\!\cdot n\,dA .
-\label{eq:c0-flux}
-\end{equation}
-If \(\partial_t i=0\) on the frame and if \(\mathcal T\subset W\subset U\) with \(\sigma|_W\equiv 0\),
-then \(d j^{(n)}=0\) implies constant tube flux,
-\begin{equation}
-\Phi(r)=\mathrm{const},\qquad
 \big\langle j_n\big\rangle(r)=\frac{\Phi}{A(r)},
 \label{corollary:info-gas:eq:tube}
 \end{equation}
-where \(A(r):=\int_{\Sigma(r)}dA\) and \(\langle j_n\rangle\) is the cross–sectional mean of the normal component.
+with \(A(r):=\int_{\Sigma(r)}\mathrm dA\) and \(\langle j_n\rangle\) the cross‑sectional mean of the normal component.
 
-\paragraph{Cones \& boundary sectors (dimension–dependent scaling).}
-For a conical boundary sector of fixed solid angle \(\Delta\Omega\) in \(n\) spatial dimensions,
+\paragraph{Cones \& boundary sectors.}
+For a conical sector of fixed solid angle \(\Delta\Omega\) in \(n\) spatial dimensions,
 \begin{equation}
-A_n(r)=\Delta\Omega\,r^{\,n-1}\quad\Rightarrow\quad
+A_n(r)=\Delta\Omega\,r^{\,n-1}
+\;\Rightarrow\;
 \big\langle j_n\big\rangle(r)=\frac{\Phi}{\Delta\Omega}\,\frac{1}{r^{\,n-1}} .
 \label{corollary:info-gas:eq:cone}
 \end{equation}
-With \eqref{corollary:info-gas:eq:frame-closure},
+With the Linear Channel Closure \eqref{axioms:linear-closure:eq},
 \begin{equation}
 \big|\mathbf E_I(r)\big|
 =\frac{1}{\kappa}\,\big\langle j_n\big\rangle(r)
@@ -84,40 +40,24 @@ With \eqref{corollary:info-gas:eq:frame-closure},
 \ \propto\ r^{-(n-1)} .
 \label{corollary:info-gas:eq:sphere}
 \end{equation}
-\[
-n=1:\ \big|\mathbf E_I\big|\propto r^{0}\ (\text{no geometric decay}),\qquad
-n=2:\ \big|\mathbf E_I\big|\propto r^{-1},\qquad
-n=3:\ \big|\mathbf E_I\big|\propto r^{-2}.
-\]
-The \(n{=}1\) case captures confinement in tubes/guides (constant cross–section), while \(n{=}2\) captures
-sheet/cylindrical spreading. These are revisited and generalized with waves in \S\ref{corollary:dimensional};
-for wave export and envelopes, see \S\ref{waves}.
 
 \paragraph{Directional filtering.}
-For apertures or one–sided diaphragms, replace the total flux by the inward component
-\(\Phi_-(r)=\int_{\Sigma(r)}(\mathbf j\!\cdot n)_-\,dA\).
-Formulas \eqref{corollary:info-gas:eq:tube}–\eqref{corollary:info-gas:eq:sphere} hold with \(\Phi\mapsto\Phi_-\).
-
-\paragraph{Heat (sector mapping).}
-Temperature is not part of the geometric law. If energy accounting is desired, map entropic quantities to heat:
-on a frame, the heat–flux density is \(q_n(t)=T(t)\,j_n(t)\); over a window,
+For apertures or one‑sided diaphragms, the inward component is
 \[
-Q_A=\int_t^{t+\Delta t}\!\!\int_A T\,j_n\,dA\,dt
-\quad(\text{if }T\text{ is uniform on the window/patch, }Q_A\approx T\,N_A).
+\Phi_-(r):=\int_{\Sigma(r)}\!\big(\mathbf j\!\cdot \mathbf n\big)_-\,\mathrm dA .
 \]
-If \(T\) varies, one may use the entropy–weighted temperature
-\(T^\ast := \frac{\int\!\!\int T\,j_n}{\int\!\!\int j_n}\) so \(Q_A=T^\ast N_A\).
-This Clausius mapping is recorded in \S\ref{corollary:continuity} \S\ref{corollary:info-gas} remains temperature–free.
+Equations \eqref{corollary:info-gas:eq:tube}–\eqref{corollary:info-gas:eq:sphere} are valid under the substitution \(\Phi\mapsto\Phi_-\).
 
-\paragraph{Trits, nats, and units.}
-Recording counts in \emph{trits} maps to nats via \(j_{\rm nats}=(\ln 3)\,j_{\rm trits}\).
-Equations \eqref{corollary:info-gas:eq:tube}–\eqref{corollary:info-gas:eq:sphere} are invariant under log–base choice;
-only the numerical value of \(\kappa\) rescales accordingly. When a measured sector is desired, a single datum in
-Kz (SI$/h$) fixes the linear calibration (App.~\ref{app:calibrations}).
+\paragraph{Window counts \& statistics.}
+On a boundary patch \(A\) over \([t,t+\Delta t]\),
+\[
+N_A(\Delta t):=\int_t^{t+\Delta t}\!\!\int_A j_n\,\mathrm dA\,\mathrm dt,\quad
+I_A:=\frac{N_A(\Delta t)}{\Delta t},\quad
+\bar j_n:=\Delta t^{-1}\!\int_t^{t+\Delta t} j_n\,\mathrm dt .
+\]
+The Fano factor \(F_A:=\mathrm{Var}[N_A]/\mathbb E[N_A]\) and an effective window \(\Delta t_{\!\mathrm{eff}}\le\Delta t\) (from the count autocorrelation) summarize fluctuations.
 
-\paragraph{What this establishes.}
-C0 isolates the \emph{surface (area), not line} nature of conservation on boundaries:
-\emph{flux} \(\Phi\) is invariant along tubes, while \emph{amplitudes} scale as \(1/A\).
-Use \emph{Entropic Flux} for frame relations (inverse–area laws, tube invariants) and \emph{Entropic Current}
-for window relations (counts, rates, and their statistics). Heat appears only via the optional boundary Clausius
-map when energy units are required.
+\medskip
+\noindent\emph{Literature note.}
+Flux conservation from divergence‑free fields: Frankel~\cite{Frankel2011}.
+Inverse‑power radial profiles and solid‑angle sectors: Jackson~\cite{Jackson1999};

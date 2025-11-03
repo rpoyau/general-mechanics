@@ -1,0 +1,56 @@
+% ======================================================================
+% _template_pure.tex — Corollary template (AF‑Pure, no label magic)
+% ======================================================================
+
+% ------------------------ Editor-only guidance (comments) --------------
+% How to instantiate this template:
+% 1) Replace [TITLE] and [LABEL] below.
+% 2) In "Setup.", state initial conditions and geometric context DE-CLAR-A-TIVE-LY
+%    (e.g., frame/window regime, source-free set, regularity). No instructions.
+% 3) In "Derivation.", INSERT your governing identity and any closure by LABEL
+%    inline (e.g., "... from \eqref{<your-identity>} and \eqref{<your-closure>} ...").
+%    Do NOT restate axioms; only cite them. Keep the statement neutral (“From…, … obeys …”).
+% 4) Insert the primary relation in the equation block. No motivational prose.
+% 5) Optional: add a concise specialization (geometry/regime) and its equation.
+% 6) Optional: add a calibration paragraph if the note defines a one-datum scale elsewhere.
+% 7) Literature note: EXTERNAL references only (textbooks/papers). No self-citations.
+% ----------------------------------------------------------------------
+
+\subsection{[TITLE]}
+\label{corollary:[LABEL]}
+
+\paragraph{Setup.}
+% State initial conditions and geometric context in one or two sentences.
+% Example: Frame form with \(\partial_t i=0\) on an open \(W\subset U\) and \(\sigma|_W=0\).
+% Example: Wave window with homogeneous constitutive map on the segment; sources excluded.
+
+\paragraph{Derivation.}
+% Cite identities/closures INLINE here (insert your labels); do not restate them.
+% Example: From \eqref{<identity-label>} and, when linear response is assumed, \eqref{<closure-label>},
+% the quantity satisfies:
+\begin{equation}
+% [Insert primary relation here, e.g., \langle j_n\rangle(r)=\Phi/A_n(r)]
+\end{equation}
+
+% ------------------------- Optional specialization ---------------------
+\paragraph{Specialization.}
+% One neutral sentence indicating the regime/geometry specialization.
+% Example: For a spherical boundary in \(n\) spatial dimensions with area \(A_n(r)\),
+% \eqref{corollary:[LABEL]:eq:primary} reduces to:
+\begin{equation}
+% [Insert specialized relation, e.g., |\mathbf E_I(r)|=\Phi/(\kappa S_{n-1})\,r^{-(n-1)}]
+\end{equation}
+
+% --------------------------- Optional calibration ----------------------
+\paragraph{Calibration.}
+% One neutral sentence tying measured readouts to the primary amplitude by a one-datum scale
+% already defined elsewhere in the note (cite that label inline; do not repeat formulas).
+% Example: With the one–datum calibration (cite label), measured sector readouts satisfy:
+\begin{equation}
+% [Insert calibrated/measured relation(s), e.g., g(r)=g_\star(A_\star/A_n(r))]
+\end{equation}
+
+\medskip
+\noindent\emph{Literature note.}
+% External sources only (no self-citations). Keep terse; provenance, not premises.
+% Example: Frankel~[forms/Stokes]; Jackson~[inverse-power fields]; Callen~[macroscopic thermodynamics].

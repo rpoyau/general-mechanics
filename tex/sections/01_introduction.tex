@@ -1,121 +1,16 @@
 % ======================================================================
-% 01_introduction.tex — Introduction
+% 01_introduction.tex — Introduction (AF‑Pure)
 % ======================================================================
 
 \section{Introduction}
 \label{introduction}
 
 \subsection{Aim and stance}
-This work takes \emph{General Mechanics} to mean: familiar mechanics appear as \emph{relational motifs}
-read from a single geometric identity (the generalized Stokes identity) on a chosen \emph{informational} manifold.
-Relations are primary; observables are relational motifs. An observer specifies a region \(U\subset M\) with
-boundary \(\partial U\); motifs are read from the boundary and its \emph{frame(s)}.
-
-\paragraph{Backbone (identity and open-set clause).}
-Generalized Stokes’ theorem together with its \emph{cut identity} (cap\,+\,side) and production density \(\sigma\)
-is the bookkeeping spine. Tube/boundary invariants are read only on an \emph{open set} \(W\subset U\) with
-\(\sigma|_W\equiv 0\) (source‑free); no global premise is assumed.
-
-\paragraph{Terminology.}
-A \emph{frame} is a time‑frozen spatial slice at label \(t_0\).
-A \emph{window} is a finite time interval \([t_0,t_1]\).
-A \emph{worldtube} is the product region \(U\times[t_0,t_1]\) whose boundary decomposes into a top cap, a bottom cap,
-and a side; for moving boundaries the side integrand is \(\mathbf j\!\cdot\!\mathbf n - i\,v_n\).
-
-Measurements are phrased in information theory (Shannon measures with Bayesian updating) over a ternary evidence
-alphabet: \emph{yes}, \emph{no}, and \emph{unknown}.
-
-\paragraph{Boundary identification (information \(\equiv\) entropy; units).}
-Here \(j\) is identified with the \emph{entropy flux} on the boundary (\(j\equiv j_S\)); its normal component \(j_n\) has units
-\([\text{count}]/(\text{area}\cdot\text{time})\), with the log base fixing the count unit (nats or trits;
-\(\text{nats}=\ln 3\times\text{trits}\)). The corresponding density is \(i\equiv s\) (nats/vol).
-A heat mapping is optional: on a boundary, \(q_n = T\,j_n\) and over a window \(Q=\int T\,j_n\)
-(introduced formally in Corollary~\ref{corollary:continuity:eq:clausius-local}).
-
-\paragraph{Thermodynamics and gravity (same source family).}
-Thermodynamics and gravity are read from the \emph{same} informational spine: the boundary entropy current \(j\)
-(fixed by the frame inverse‑area rule) and its wave export on windows (fixed by conserved export). After a single
-calibration datum, \emph{mass} and \emph{kinetic/radiation energy} label the same source family in predictions
-(\S\ref{corollary:info-gas}–\S\ref{corollary:frame-boundary}, \S5.9). No extra constants are carried through the algebra; all
-sector readouts follow from the same \(j\) on the same manifold.
-
-\subsection{One geometric identity, two uses}
-With \(j:=J^\mu dx_\mu\) the informational/entropic \(1\)-form and \(*j\) its Hodge dual, the Stokes identity is
-\(d(*j)=\sigma\,\mathrm{vol}\) (continuity).\footnote{Local and cut forms:
-\eqref{axioms:stokes:identity:eq:local-continuity} and \eqref{axioms:stokes:identity:eq:cut}.}
-This identity is applied in two complementary ways:
-\begin{enumerate}\itemsep2pt
-  \item on a \emph{frame} to read boundary/tube relations and sector amplitudes
-        (\S\ref{corollary:info-gas}, \S\ref{corollary:frame-boundary}); and
-  \item on a \emph{worldtube} \(U\times[t_0,t_1]\) to record change across a time window
-        (\S\ref{corollary:external-drives}).
-\end{enumerate}
-
-\paragraph{Caps and side (worldtube).}
-The time‑extended boundary \(\partial(U\times[t_0,t_1])\) decomposes into a top cap, a bottom cap, and a side.
-The cap–side statement is recorded in App.~\ref{app:forms-stokes}, Eq.~\eqref{app:forms-stokes:eq:cap-side};
-the side integrand for moving boundaries is \(\mathbf j\!\cdot\!\mathbf n - i\,v_n\).
-
-\bigskip
-\noindent\fbox{\begin{minipage}{0.97\linewidth}
-\textbf{Cone/Tube principle (frame).}
-On an open set \(W\subset U\) with \(\sigma|_W\equiv 0\) (source‑free), and with the side of a narrow tube everywhere
-tangent to \(\mathbf j\), the directed tube flux
-\[
-\Phi=\int_{\Sigma} \mathbf j\!\cdot\!\mathbf n\,\mathrm dA
-\]
-is independent of the cross‑section \(\Sigma\subset W\).
-For any boundary (or conical sector) of area \(A(r)\) at radius \(r\),
-\[
-\big\langle j_n\big\rangle(r)=\frac{\Phi}{A(r)}.
-\]
-With the \emph{frame linear closure} (\S\ref{axioms:stokes:frame}, eq.~\eqref{axioms:stokes:frame:eq:closure}),
-\(\mathbf E_I:=-\,\nabla\Phi_I\) and \(\mathbf j=-\,\kappa\,\mathbf E_I\), the informational field amplitude reads
-\[
-\big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\frac{\Phi}{A(r)}.
-\]
-\emph{Conservation is a boundary statement:} the flux \(\Phi\) is constant; amplitudes scale as \(1/A\).
-\end{minipage}}
-
-\subsection{Closures (use and scope)}
-Two minimalist ingredients are employed when appropriate:
-\emph{(a) frame linear closure} for near‑equilibrium (\S\ref{axioms:stokes:frame};
-eq.~\eqref{axioms:stokes:frame:eq:closure}); and
-\emph{(b) wave‑supporting closures} when transport/export is relevant on a source‑free segment.
-\emph{Wave export/envelopes—see \S\ref{waves}.}
-On windows that are linear, time‑invariant, and causal, measured dispersion \emph{may be compared}
-to a Causality–Dispersion (KK‑window) relation \emph{as a local witness} (\S\ref{waves:causality-dispersion}).
-
-\subsection{Units and calibration (once)}
-Kz units are used (App.~\ref{app:kick}) so energies and powers are rates. The abstract informational field is mapped
-to measured sectors (gravitational, electric, thermal) by a \emph{one‑datum} linear calibration (App.~\ref{app:calibrations});
-no bare constants are carried through the algebra.
-
-\subsection{How to use the framework (recipe)}
-\begin{enumerate}\itemsep2pt
-  \item Declare \(U\subset M\) and \(\partial U\) (boundary or sector).
-  \item Write the Stokes identity \(d(*j)=\sigma\,\mathrm{vol}\) and, when needed, the \emph{cut identity} on \(U\)
-        (\eqref{axioms:stokes:identity:eq:local-continuity}–\eqref{axioms:stokes:identity:eq:cut}).
-  \item Choose a closure suited to the regime: \textbf{frame} (\S\ref{axioms:stokes:frame}) for frame problems
-        (\S\ref{corollary:info-gas}–\S\ref{corollary:frame-boundary}); or a \textbf{wave‑supporting} closure for export on
-        source‑free segments (see \S\ref{waves}). If the window is LTI and causal, the Causality–Dispersion comparison may be
-        used locally (\S\ref{waves:causality-dispersion}).
-  \item Count distinctions on \(\partial U\) in a ternary alphabet (\emph{yes/no/unknown}) using information‑theoretic
-        bookkeeping, and relate them to \(j\) (\S\ref{axioms:relational}; used in \S\ref{corollary:frame-boundary}–\S\ref{corollary:noise}).
-  \item If comparison with a measured sector is required, fix a single datum to calibrate (App.~\ref{app:calibrations}).
-  \item Read \textbf{frame laws} from the inverse‑area rule (\(\propto 1/A\); \S\ref{corollary:info-gas}–\S\ref{corollary:frame-boundary});
-        for wave export and far‑field envelopes, follow \S\ref{waves} (with confinement summarized in \S\ref{corollary:dimensional}).
-  \item Apply operational limits: time–information complementarity (\S\ref{corollary:time-info}) and the counting‑noise floor
-        (\S\ref{corollary:noise}) for finite windows/areas.
-\end{enumerate}
-
-\subsection{Scope and reductions}
-Dimensional reductions (1D/2D confinement) are handled by replacing \(A_n(r)\) with an effective
-cross‑section/circumference; the resulting \textbf{frame} and wave summaries appear in \S\ref{corollary:dimensional}.
-Detailed wave envelopes and exported‑power statements are collected in \S\ref{waves}.
+\label{introduction:aim-stance}
+The Relational Equation of State (REOS) treats observed mechanics as relational statements extracted from a single geometric identity on an informational manifold: the generalized Stokes/continuity statement \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:local-continuity}. An observer specifies a region \(U\subset M\) with boundary \(\partial U\); quantities are read from boundaries.
 
 \medskip
 \noindent\emph{Literature note.}
-Differential forms/Stokes background: Frankel~\cite{Frankel2011}. Poynting/export in EM: Jackson~\cite{Jackson1999},
-Landau--Lifshitz--Pitaevskii~\cite{LandauLifshitzEDCM1984}. Information/capacity: Shannon~\cite{Shannon1948},
-Gallager~\cite{Gallager1968}. Erasure cost: Landauer~\cite{Landauer1961}, Bennett~\cite{Bennett2003}.
+Frankel~\cite{Frankel2011}; Jackson~\cite{Jackson1999}; Landau--Lifshitz--Pitaevskii~\cite{LandauLifshitzEDCM1984};
+Shannon~\cite{Shannon1948}; Gallager~\cite{Gallager1968}; Landauer~\cite{Landauer1961}; Bennett~\cite{Bennett2003}.
+

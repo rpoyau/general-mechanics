@@ -1,12 +1,12 @@
-% ======================================================================
-% 04_time-info.tex — Time–information complementarity (AF–Pure)
+\61;8004;1c% ======================================================================
+% 04_time-info.tex — Time–information complementarity
 % ======================================================================
 
 \subsection{Time–information complementarity}
 \label{corollary:time-info}
 
 \paragraph{Setup.}
-A boundary patch \(A\subset\partial U\) is observed over a window \([t,t+\Delta t]\) (\S\ref{axioms:window}).
+Let \(A\subset\partial U\) be a boundary patch observed over a \window \([t,t+\Delta t]\) (\S\ref{axioms:window}).
 With the directional split (\S\ref{axioms:directional-split}), the inward, window‑averaged counting rate is
 \begin{equation}
 \overline{J}_{A}
@@ -15,12 +15,11 @@ With the directional split (\S\ref{axioms:directional-split}), the inward, windo
 \qquad\text{(nats/time)}.
 \label{corollary:time-info:eq:JA}
 \end{equation}
-The \(\varepsilon\)‑reliable channel capacities are denoted \(C_{\rm chan}^{(\mathrm{nats})}(\varepsilon)\) (nats/time) and
-\(C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)\) (trits/time).
-The thermodynamic erasure budget uses the boundary mapping \(q=T\,j_S\) (\S\ref{axioms:boundary-heat});
-available erasure power \(P\) at boundary temperature \(T\) yields an erasure‑limited rate bound measured in nats/time.
+Let \(C_{\rm chan}^{(\cdot)}(\varepsilon)\) denote the \(\varepsilon\)‑reliable channel capacity (units indicated),
+\(T\) the boundary temperature, and \(P\) the available erasure power.
 
 \paragraph{Bounds (nats).}
+From the operational limits in \S\ref{operationalization:limits},
 \begin{equation}
 \frac{\Delta I_{\rm nats}}{\Delta t}
 \;\le\;
@@ -29,14 +28,13 @@ available erasure power \(P\) at boundary temperature \(T\) yields an erasure‑
 \end{equation}
 
 \paragraph{Bounds (trits).}
-Using the trit/nat relation in \S\ref{axioms:relational:counting},
+With the trit/nat conversion used in \S\ref{operationalization:units},
 \begin{equation}
 \frac{\Delta I_{\rm trits}}{\Delta t}
 \;\le\;
-\min\!\Big\{\,\frac{\overline{J}_{A}}{\ln 3},\ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon),\ \frac{P}{T\,\ln 3}\,\Big\}.
+\min\!\Big\{\,\frac{\overline{J}_{A}}{\ln 3},\ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon),\ \frac{P}{T\,\ln 3}\,\Big\},
 \label{corollary:time-info:eq:rate-trits}
 \end{equation}
-Equivalently,
 \begin{equation}
 \Delta t
 \;\ge\;

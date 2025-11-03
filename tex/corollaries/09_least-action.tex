@@ -1,33 +1,17 @@
 % ======================================================================
-% corollaries/09_least-action.tex — Least‑action equivalence (derived)
+% corollaries/09_least-action.tex — Least‑action equivalence
 % ======================================================================
 
-\subsection{Least‑action equivalence (derived, not assumed)}
+\subsection{Least‑action equivalence}
 \label{corollary:least-action}
 
-This corollary shows that the usual least‑action (Euler–Lagrange) equations are \emph{equivalent} to the
-canonical rate equations obtained from a single boundary closure on a $2$‑surface in $(q,t)$.
-No action postulate is assumed; the variational statement is a repackaging of the same closure.
+\paragraph{Setup.}
+On configuration–time space \((q,t)\) as in \S\ref{axioms:path-rate}, the canonical rate equations
+\eqref{axioms:path-rate:eq:canonical} hold. Legendre regularity is assumed on the sector of interest
+(strict convexity in \(P\)).
 
-\paragraph{Rate $1$‑form and canonical rates.}
-Define the Poincar\'e--Cartan (rate) $1$‑form
-\begin{equation}
-\Theta_{\mathcal R}(q,P,t)\;=\;P_i\,dq^i\;-\;H(q,P,t)\,dt,
-\label{corollary:least-action:eq:pc-form}
-\end{equation}
-and use the closure $d\Theta_{\mathcal R}=0$ on admissible rectangles in $(q,t)$.
-In local coordinates this is equivalent to the canonical rate equations
-\begin{equation}
-\dot q^i=\partial_{P_i}H,
-\qquad
-\dot P_i=-\,\partial_{q^i}H ,
-\label{corollary:least-action:eq:canonical}
-\end{equation}
-cf.\ the axiom‑level statement \eqref{axioms:path-rate:eq:pc-form}–\eqref{axioms:path-rate:eq:canonical}.
-
-\paragraph{Legendre pair and rate functional (regularity).}
-Assume standard regularity (strict convexity in $P$ on the sector of interest) so the Legendre map is well‑posed.
-Introduce the rate functional by a Legendre transform in $P$:
+\paragraph{Legendre pair and rate functional.}
+The rate functional \(\mathcal R\) is defined by the Legendre transform in \(P\):
 \begin{equation}
 \mathcal R(q,\dot q,t)
 \;:=\;
@@ -36,39 +20,39 @@ Introduce the rate functional by a Legendre transform in $P$:
 H(q,P,t)=\sup_{\dot q}\,\big(P_i\dot q^i-\mathcal R(q,\dot q,t)\big).
 \label{corollary:least-action:eq:Legendre}
 \end{equation}
-At the stationary pair $(\dot q,P)$ one has the first‑order relations
+At the stationary pair,
 \begin{equation}
 \dot q^i=\partial_{P_i}H,
 \qquad
 P_i=\frac{\partial \mathcal R}{\partial \dot q^i}.
 \label{corollary:least-action:eq:R-def}
 \end{equation}
-On solutions (at the maximizing $P$) the $1$‑form becomes
+Using the Poincaré–Cartan form \(\Theta_{\mathcal R}\) from \eqref{axioms:path-rate:eq:pc-form}, \(\Theta_{\mathcal R}\) on solutions becomes
 \begin{equation}
-\Theta_{\mathcal R}\;=\;\big(P_i\dot q^i-H\big)\,dt\;=\;\mathcal R(q,\dot q,t)\,dt .
+\Theta_{\mathcal R}
+\;=\;
+\big(P_i\dot q^i-H\big)\,dt
+\;=\;
+\mathcal R(q,\dot q,t)\,dt .
 \label{corollary:least-action:eq:theta-as-Rdt}
 \end{equation}
 
-\paragraph{Boundary closure $\Rightarrow$ stationarity of the rate functional.}
-Let $\Sigma$ be the rectangular $2$‑surface spanned by two nearby curves between $(t_0,t_1)$.
-By Stokes,
-\begin{equation}
-\int_{\partial\Sigma}\Theta_{\mathcal R}\;=\;\int_{\Sigma}d\Theta_{\mathcal R}\;=\;0 .
-\label{corollary:least-action:eq:stokes}
-\end{equation}
-The boundary integral is the first variation of the \emph{rate functional}
+\paragraph{Boundary closure implies stationarity.}
+Evaluating Stokes on a rectangular \(2\)-surface \(\Sigma\) spanned by two nearby curves between \(t_0\) and \(t_1\)
+(as in \S\ref{axioms:path-rate}) yields \(\int_{\partial\Sigma}\Theta_{\mathcal R}=0\).
+With \eqref{corollary:least-action:eq:theta-as-Rdt}, the boundary integral is the first variation of
 \begin{equation}
 \mathcal S[q]\;:=\;\int_{t_0}^{t_1}\!\mathcal R\big(q,\dot q,t\big)\,dt ,
 \label{corollary:least-action:eq:action}
 \end{equation}
-so \eqref{corollary:least-action:eq:stokes} implies
+hence
 \begin{equation}
 \delta\mathcal S[q]\;=\;0 \quad \text{for fixed endpoints } q(t_0),\,q(t_1).
 \label{corollary:least-action:eq:deltaS0}
 \end{equation}
 
-\paragraph{Euler--Lagrange $\Leftrightarrow$ canonical rates.}
-Stationarity of \eqref{corollary:least-action:eq:action} yields the Euler--Lagrange equations
+\paragraph{Euler–Lagrange \(\Leftrightarrow\) canonical rates.}
+Stationarity of \eqref{corollary:least-action:eq:action} gives
 \begin{equation}
 \frac{d}{dt}\Big(\frac{\partial \mathcal R}{\partial \dot q^i}\Big)
 \;-\;
@@ -76,38 +60,19 @@ Stationarity of \eqref{corollary:least-action:eq:action} yields the Euler--Lagra
 \;=\;0 .
 \label{corollary:least-action:eq:EL}
 \end{equation}
-Using $P_i=\partial_{\dot q^i}\mathcal R$ and $\mathcal R=P\!\cdot\dot q-H$, one obtains
-$\dot P_i=-\,\partial_{q^i}H$ and, together with $\dot q^i=\partial_{P_i}H$, recovers
-the canonical system \eqref{corollary:least-action:eq:canonical}. Thus these are
-Hamilton’s equations for the generator $H$:
-\begin{equation}
-\dot q^i=\partial_{P_i}H, \qquad \dot P_i=-\,\partial_{q^i}H ,
-\label{corollary:least-action:eq:Hamilton}
-\end{equation}
-with $\Theta_{\mathcal R}=P_i\,dq^i-H\,dt$ the Poincar\'e--Cartan form.
+With \(P_i=\partial_{\dot q^i}\mathcal R\) and \(\mathcal R=P\!\cdot\dot q-H\), this yields
+\(\dot P_i=-\,\partial_{q^i}H\); together with \(\dot q^i=\partial_{P_i}H\) one recovers
+\eqref{axioms:path-rate:eq:canonical}. Thus the Euler–Lagrange equations and Hamilton’s equations are equivalent,
+with \(\Theta_{\mathcal R}\) given by \eqref{axioms:path-rate:eq:pc-form}.
 
 \paragraph{Constraints, nonconvexity, and dissipation.}
-If $H$ is not strictly convex in $P$, replace the Legendre transform by a convex dual or impose
-constraints via Lagrange multipliers; the equivalence holds on the constrained submanifold.
-Nonconservative or driven channels are included by adding explicit $t$‑dependence or nonpotential
-terms to $H(q,P,t)$, leading to the corresponding generalized Euler--Lagrange equations with
+If \(H\) is not strictly convex in \(P\), the Legendre transform is replaced by a convex dual or constraints
+are imposed with Lagrange multipliers; the equivalence holds on the constrained submanifold. Nonconservative or driven channels
+arise from explicit \(t\)-dependence or nonpotential terms in \(H(q,P,t)\), producing the corresponding
 Rayleigh‑type contributions.
-
-\paragraph{Field analogue (pointer).}
-For fields $\varphi^a(x)$ with polymomenta $P_a^{\ \mu}$, the multisymplectic form
-$\Theta_{\!\mathrm{DW}}$ and the closure $d\Theta_{\!\mathrm{DW}}=0$ reproduce the covariant De Donder--Weyl
-equations; a $3{+}1$ split reduces to \eqref{corollary:least-action:eq:canonical}. See App.~\ref{app:ddw}.
-
-\medskip
-\noindent\emph{Summary.}
-The least‑action principle is not an extra postulate here: it is the boundary restatement of the same
-closure that yields the canonical rate equations. Under convex duality, Euler--Lagrange, Hamilton, and
-the closure $d\Theta_{\mathcal R}=0$ are fully equivalent.
 
 \medskip
 \noindent\emph{Literature note.}
-The Poincar\'e--Cartan form and Hamilton/Euler--Lagrange equivalence are standard
-(see Arnold~\cite{Arnold1989} and Abraham--Marsden~\cite{AbrahamMarsden1978});
-convex duality and Legendre transforms are summarized in Rockafellar~\cite{Rockafellar1970}.
-The field/multisymplectic analogue is reviewed in App.~\ref{app:ddw} (cf.\ Kanatchikov~\cite{Kanatchikov1998};
-Gotay--Isenberg--Marsden~\cite{GotayIsenbergMarsden1998}; Marsden--Patrick--Shkoller~\cite{MarsdenPatrickShkoller1998}).
+Equivalence of Hamilton/Euler–Lagrange via the Poincaré–Cartan form: Arnold~\cite{Arnold1989};
+geometric mechanics (Abraham–Marsden)~\cite{AbrahamMarsden1978}; convex duality and Legendre transforms:
+Rockafellar~\cite{Rockafellar1970}.

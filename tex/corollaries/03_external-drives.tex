@@ -5,82 +5,75 @@
 \subsection{External drives, delay \& production}
 \label{corollary:external-drives}
 
-Open informational transport across a bounded region \(V\) along a narrow tube
-\(\mathcal T\) with inlet cross–section \(\Sigma_{\rm in}\) and outlet \(\Sigma_{\rm out}\) admits
-the inward and outward directed fluxes
+\paragraph{Setup.}
+A narrow tube \(\mathcal T\) connects an inlet cross–section \(\Sigma_{\rm in}\) to an outlet \(\Sigma_{\rm out}\).
+The directed inlet/outlet fluxes (using \S\ref{axioms:directional-split}) are
 \[
-\Phi_{\rm in}(t):=\int_{\Sigma_{\rm in}}(\mathbf j\!\cdot n)_-\,dA,
+\Phi_{\rm in}(t):=\int_{\Sigma_{\rm in}}(\mathbf j\!\cdot \mathbf n)_-\,\mathrm dA,
 \qquad
-\Phi_{\rm out}(t):=\int_{\Sigma_{\rm out}}(\mathbf j\!\cdot n)_+\,dA .
+\Phi_{\rm out}(t):=\int_{\Sigma_{\rm out}}(\mathbf j\!\cdot \mathbf n)_+\,\mathrm dA .
 \]
-The cut identity \eqref{axioms:stokes:identity:eq:cut} on the tube volume reads
+Let \(I_{\mathcal T}(t):=\int_{\mathcal T} i\,\mathrm d^n x\),
+\(\Pi_{\mathcal T}(t):=\int_{\mathcal T}\sigma\,\mathrm d^n x\),
+and \(A(s)\) the cross–section area at coordinate \(s\).
+
+\paragraph{Derivation.}
+From the cut identity \eqref{axioms:stokes:identity:eq:cut} applied to \(\mathcal T\),
 \begin{equation}
-\dot I_{\mathcal T}(t) \;=\; \Phi_{\rm in}(t)-\Phi_{\rm out}(t) \;+\; \Pi_{\mathcal T}(t),
-\qquad
-\Pi_{\mathcal T}(t):=\int_{\mathcal T}\sigma\,d^n x ,
+\dot I_{\mathcal T}(t) \;=\; \Phi_{\rm in}(t)-\Phi_{\rm out}(t) \;+\; \Pi_{\mathcal T}(t) .
 \label{eq:c3-cut}
 \end{equation}
-where \(\sigma\) is the local production density.
 
-\paragraph{(i) Transparent transit (source‑free segment).}
-On an open subsegment \(W\subset\mathcal T\) with \(\sigma|_W\equiv 0\) and directed speed profile
-\(v(s)>0\) along the tube coordinate \(s\in[0,L]\), the transit time is
+\paragraph{Transit and delay (transparent segment).}
+On a source–free open subsegment \(W\subset\mathcal T\) with \(\sigma|_{W}=0\) and directed speed profile
+\(v(s)>0\) along tube coordinate \(s\in[0,L]\), the transit time is
 \begin{equation}
-\tau \;=\; \int_{0}^{L}\frac{ds}{v(s)} .
+\tau \;=\; \int_{0}^{L}\frac{\mathrm ds}{v(s)} .
 \label{corollary:external-drives:eq:transit}
 \end{equation}
-With negligible dispersion, the outlet flux is a delayed copy of the inlet flux,
+With negligible dispersion,
 \begin{equation}
-\Phi_{\rm out}(t)\;=\;\Phi_{\rm in}(t-\tau)
-\qquad\text{(transparent transit)}.
+\Phi_{\rm out}(t)\;=\;\Phi_{\rm in}(t-\tau).
 \label{corollary:external-drives:eq:delay}
 \end{equation}
-For mild dispersion of speeds, \(\Phi_{\rm out}=K*\Phi_{\rm in}\) with a causal kernel
-\(K(t)\) of unit mass \(\int K\,dt=1\) and mean \(\tau\).
+For mild dispersion, \(\Phi_{\rm out}=K*\Phi_{\rm in}\) with a causal kernel \(K\) of unit mass and mean \(\tau\).
 
-\paragraph{(ii) Collisional attenuation/production.}
-When interactions remove directed flux at a local rate \(\mu(s)\ge 0\) (per unit length),
-write the directed tube flux \(\Phi(s,t):=\int_{\Sigma(s)}(\mathbf j\!\cdot n)_+\,dA\).
-In an advective transport regime with speed \(v(s)\),
+\paragraph{Attenuation and production.}
+In an advective regime with speed \(v(s)\) and local removal rate \(\mu(s)\ge 0\) (per unit length), the directed tube flux
+\(\Phi(s,t):=\int_{\Sigma(s)}(\mathbf j\!\cdot \mathbf n)_+\,\mathrm dA\) satisfies
 \begin{equation}
 \partial_t \Phi(s,t) + v(s)\,\partial_s \Phi(s,t) \;=\; -\,\mu(s)\,\Phi(s,t) .
 \label{corollary:external-drives:eq:transport}
 \end{equation}
-Along characteristics, \(\Phi\) decays exponentially with survival factor
+Along characteristics,
 \begin{equation}
-S \;=\; \exp\!\Bigl(-\int_{0}^{L}\mu(s)\,ds\Bigr),
+S \;=\; \exp\!\Bigl(-\int_{0}^{L}\mu(s)\,\mathrm ds\Bigr),
 \qquad
-\tau \;=\; \int_{0}^{L}\frac{ds}{v(s)},
+\tau \;=\; \int_{0}^{L}\frac{\mathrm ds}{v(s)},
 \label{corollary:external-drives:eq:survival}
 \end{equation}
-so that
+and
 \begin{equation}
-\Phi_{\rm out}(t)\;=\; S\,\Phi_{\rm in}(t-\tau)
-\qquad\text{(attenuated transit)}.
+\Phi_{\rm out}(t)\;=\; S\,\Phi_{\rm in}(t-\tau).
 \label{corollary:external-drives:eq:attenuated-delay}
 \end{equation}
-The loss from the directed export appears in \eqref{eq:c3-cut} as increased stored content
-\(I_{\mathcal T}\) and/or as nonnegative production \(\Pi_{\mathcal T}\ge 0\)
-(cf.\ Axiom~\ref{axioms:reos} for cyclic–cost monotonicity).
 
-\paragraph{Cross–sectional amplitudes.}
-Let \(A(s)\) be the cross–section area of \(\Sigma(s)\) and
-\(\langle j_n\rangle(s,t):=\Phi(s,t)/A(s)\) the mean normal \emph{flux density}.
-In regime (i) (\(S=1\)), \(\Phi\) is constant along \(s\) and amplitudes follow the inverse–area rule
-(\S\ref{corollary:info-gas}): \(\langle j_n\rangle\propto 1/A(s)\).
-In regime (ii), \(\partial_s\Phi=-\mu\Phi\) so
+\paragraph{Amplitude profile.}
+With \(\langle j_n\rangle(s,t):=\Phi(s,t)/A(s)\) the mean normal flux density, the transparent case (\(S=1\))
+gives \(\langle j_n\rangle\propto 1/A(s)\).
+With attenuation,
 \begin{equation}
 \langle j_n\rangle(s,t)
 \;=\;
 \frac{\Phi(0,t-\tau_s)}{A(s)}\,
-\exp\!\Bigl(-\int_{0}^{s}\mu(u)\,du\Bigr),
+\exp\!\Bigl(-\int_{0}^{s}\mu(u)\,\mathrm du\Bigr),
 \qquad
-\tau_s=\int_{0}^{s}\frac{du}{v(u)} .
+\tau_s=\int_{0}^{s}\frac{\mathrm du}{v(u)} .
 \label{corollary:external-drives:eq:amplitude}
 \end{equation}
 
-\paragraph{Composition rules (series segments).}
-For piecewise constant segments \(\{(L_k,v_k,\mu_k)\}\),
+\paragraph{Series composition.}
+For piecewise‑constant segments \(\{(L_k,v_k,\mu_k)\}\),
 \begin{equation}
 \tau \;=\; \sum_k \frac{L_k}{v_k},
 \qquad
@@ -88,41 +81,19 @@ S \;=\; \prod_k e^{-\mu_k L_k}
 \;=\;\exp\!\Bigl(-\sum_k \mu_k L_k\Bigr).
 \label{corollary:external-drives:eq:composition}
 \end{equation}
-Temporal kernels convolve in series; survival factors multiply.
 
-\paragraph{Moving tube (kinematic invariance).}
-If the tube translates as \(\Sigma(s,t)=\Sigma(s-\xi(t))\) with \(\dot\xi=U(t)\),
-the Stokes identity \eqref{axioms:stokes:identity:eq} on the \emph{product region}
-\(\mathcal T\times[t_0,t_1]\) yields the same cut identity \eqref{eq:c3-cut}.
-A co–moving frame replaces \(\partial_t\) by a material derivative along \(U(t)\)
-but leaves \eqref{corollary:external-drives:eq:delay}–\eqref{corollary:external-drives:eq:composition} unchanged.
+\paragraph{Kinematic invariance.}
+If \(\Sigma(s,t)=\Sigma(s-\xi(t))\) with \(\dot\xi=U(t)\), the Stokes identity \eqref{axioms:stokes:identity:eq:integral}
+on \(\mathcal T\times[t_0,t_1]\) yields the same balance \eqref{eq:c3-cut}. A co‑moving frame replaces \(\partial_t\) by
+the material derivative along \(U(t)\) without altering
+\eqref{corollary:external-drives:eq:delay}–\eqref{corollary:external-drives:eq:composition}.
 
-\paragraph{Calibration and sectors.}
-Counts on \(\partial V\) may be kept in \emph{trits}; the entropy flux in nats is
-\(j_S=(\ln 3)\,j_{\rm trits}\).
-When a measured sector is calibrated to \(\mathbf E_I\)
-(see \S\ref{operationalization}; App.~\ref{app:calibrations}), the corresponding power/time units
-are in Kz (App.~\ref{app:kick}). The frame closure \(\mathbf j=-\kappa\,\mathbf E_I\) then maps
-\(\langle j_n\rangle\) to field amplitudes along the tube.
-
-\paragraph{Remarks.}
-(i) The transparent‑transit limit provides a practical way to estimate \(\tau\) by cross‑correlating
-\(\Phi_{\rm in}\) and \(\Phi_{\rm out}\).
-(ii) In frame applications, the survival factor \(S(r)=\exp(-\!\int \mu\,ds)\) reduces to the
-attenuation factor multiplying the inverse–area rule (\S\ref{corollary:entropic-corrections}).
-(iii) Apertures and cones are handled by replacing \(A(s)\) with the sector area \(A_\Delta(r)\)
-(App.~\ref{app:nD-boundaries}).
-
-\medskip
-\noindent\emph{Summary.}
-A transparent transit copies the inlet flux to the outlet after a transit time \(\tau\).
-Collisions introduce a survival factor \(S\le 1\) and optional temporal blur via a causal kernel.
-Cross–sectional amplitudes follow the \(1/A\) rule, modulated by exponential survival along the tube.
-Series segments add delays and multiply survivals, independent of the choice of frame.
+\paragraph{Calibration.}
+With the Linear Channel Closure \eqref{axioms:linear-closure:eq} and the one–datum sector calibration, measured sector readouts \(Y\) satisfy
+\[
+Y(s,t)=\frac{c_{\rm sec}}{\kappa}\,\langle j_n\rangle(s,t).
+\]
 
 \medskip
 \noindent\emph{Literature note.}
-The advection–attenuation model \eqref{corollary:external-drives:eq:transport} is a standard first‑order transport
-(Beer–Lambert–type) equation; see, e.g., Evans \cite{Evans2010}. Stokes/cut forms used here are recalled in
-App.~\ref{app:forms-stokes}; sector geometry (areas) in App.~\ref{app:nD-boundaries}; units and rate conventions in
-App.~\ref{app:kick}.
+Advection–attenuation (first‑order transport, Beer–Lambert type) and characteristic methods: Evans~\cite{Evans2010}.

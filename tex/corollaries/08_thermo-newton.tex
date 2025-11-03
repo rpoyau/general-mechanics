@@ -1,94 +1,57 @@
 % ======================================================================
-% corollaries/09_thermo-newton.tex — Thermodynamics → Newtonian rate laws
+% corollaries/08_thermo-newton.tex — Thermodynamics → Newtonian rate laws
 % ======================================================================
 
 \subsection{Thermodynamics to Newtonian rate laws (constant‑free)}
 \label{corollary:thermo-newton}
 
-This corollary shows that the Newtonian update \(\dot{\mathbf p}=\mathbf f\) and the work–power identity
-follow from: (i) the canonical rate equations obtained by evaluating Stokes on a rectangular \(2\)-surface
-in \((q,t)\) (\S\ref{axioms:path-rate}), (ii) the \emph{frame} linear closure when relating forces to boundary fields,
-and (iii) a single, sector‑specific calibration (App.~\ref{app:calibrations}). No bare constants are introduced.
-
-\paragraph{Setup: canonical rates from Stokes.}
-From the rate \(1\)-form (\eqref{axioms:path-rate:eq:pc-form}),
-\begin{equation}
-\Theta_{\mathcal R}(q,P,t)=P\!\cdot dq - H(q,P,t)\,dt,
-\label{corollary:thermo-newton:eq:theta}
-\end{equation}
-evaluating Stokes on a rectangular \(2\)-surface \(\Sigma\) spanned by two nearby paths between \(t\) and \(t{+}dt\)
-\[
-\oint_{\partial\Sigma}\Theta_{\mathcal R}\;=\;\int_{\Sigma} d\Theta_{\mathcal R}\;=\;0,
-\]
-gives the canonical rate equations
-\begin{equation}
-\dot q = \partial_{P}H,
-\qquad
-\dot P = -\,\partial_{q}H .
-\label{corollary:thermo-newton:eq:canonical}
-\end{equation}
-These match \eqref{axioms:path-rate:eq:pc-form}–\eqref{axioms:path-rate:eq:canonical}.
-
-\paragraph{Minimal kinetic choice and Newton’s update.}
-Choose a quadratic kinetic term and an external driving potential,
+\paragraph{Setup.}
+On configuration–time space \((q,t)\) (\S\ref{axioms:path-rate}), a Hamiltonian with quadratic kinetic term and external potential is adopted:
 \begin{equation}
 H(q,P,t)=\tfrac12\,P\!\cdot M^{-1}P \;+\; U(q,t),
+\qquad M>0 .
 \label{corollary:thermo-newton:eq:kinetic}
 \end{equation}
-with \(M\) a constant (or slowly varying) positive‑definite inertia matrix. Then
-\eqref{corollary:thermo-newton:eq:canonical} gives
+
+\paragraph{Newtonian update.}
+From the canonical rate equations \eqref{axioms:path-rate:eq:canonical} applied to \eqref{corollary:thermo-newton:eq:kinetic},
+\[
+\dot q = M^{-1}P,\qquad \dot P = -\,\partial_q U .
+\]
+With \(\mathbf p:=M\dot q\) and \(\mathbf f:=-\,\partial_q U\), this gives
 \begin{equation}
-\dot q = M^{-1}P \quad\Rightarrow\quad P=M\,\dot q \;(:=\mathbf p),
-\qquad
-\dot P = -\,\partial_q U \;(:=\mathbf f),
+\dot{\mathbf p} \;=\; \mathbf f.
 \label{corollary:thermo-newton:eq:newton}
 \end{equation}
-i.e.\ the Newtonian rate law \(\dot{\mathbf p}=\mathbf f\).
-If \(M=M(q)\), geometric terms appear in \(\dot{\mathbf p}\) via
-\(-\partial_q\!\bigl(\tfrac12 P\!\cdot M^{-1}P\bigr)\).
+If \(M=M(q)\), additional geometric terms arise from \(\partial_q\!\bigl(P\!\cdot M^{-1}P/2\bigr)\).
 
 \paragraph{Work–power identity.}
-Let \(K(P):=\tfrac12 P\!\cdot M^{-1}P=\tfrac12\,\dot q\!\cdot M\dot q\).
-Then, using \eqref{corollary:thermo-newton:eq:newton},
+For \(K(P):=\tfrac12\,P\!\cdot M^{-1}P=\tfrac12\,\dot q\!\cdot M\dot q\),
 \begin{equation}
 \frac{dK}{dt}
 = \dot q\!\cdot \dot P
 = \dot q\!\cdot \mathbf f
 = \mathbf f\!\cdot \mathbf v ,
-\qquad \mathbf v:=\dot q ,
+\qquad \mathbf v:=\dot q .
 \label{corollary:thermo-newton:eq:power}
 \end{equation}
-so the instantaneous power delivered by the driving equals the kinetic‑energy rate.
-If \(U\) has explicit time dependence, \(\dot H=\partial_t U\) with \(H:=K+U\); for time‑independent \(U\),
-\(\dot H=0\) and \(\mathbf f\!\cdot\mathbf v=-\,\dot U\).
+If \(U=U(q,t)\) has explicit time dependence, \(\dot H=\partial_t U\) with \(H:=K+U\); otherwise \(\dot H=0\).
 
-\paragraph{Entropic/operational reading (via REOS).}
-In the REOS language \S\ref{axioms:reos}, boundary/control variations \(R^{(a)}\) with price \(\lambda_a\) read
-\(d\rho=-\lambda_a\,dR^{(a)}\). When a control field induces a spatial price gradient, the force on a probe
-is the \(q\)-gradient of a potential, i.e.\ \(\mathbf f=-\partial_q U\) in
-\eqref{corollary:thermo-newton:eq:newton}. Non‑integrable control cycles (\(d\lambda\neq0\)) incur nonnegative
-production \(\sigma\ge0\), which registers via \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}.
+\paragraph{REOS reading.}
+With the Relational Equation of State \eqref{axioms:reos:eq}, a control field that induces a spatial price gradient produces a force \(\mathbf f=-\partial_q U\), matching \eqref{corollary:thermo-newton:eq:newton}. Non‑integrable cycles \(d\lambda\neq0\) entail nonnegative production \(\sigma\) as recorded by \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}.
 
-\paragraph{Notes and variants.}
+\paragraph{Variants.}
 \begin{itemize}\itemsep2pt
-\item \emph{Vector/tensor inertia.} For anisotropic agents, \(M\) is a matrix; \eqref{corollary:thermo-newton:eq:newton}
-gives \(\mathbf p:=M\,\dot q\) and \(\dot{\mathbf p}=\mathbf f\) unchanged (with the usual Christoffel‑type terms if \(M(q)\)).
-\item \emph{Other sectors.} The same construction carries to other sectors: replace \(U(q,t)\) with the sectoral
-potential appropriate to the chosen readout (gravitational, electric, thermal) and read off \(\mathbf f=-\partial_q U\).
-\item \emph{Dissipation.} Adding a Rayleigh term \(\mathcal R(\dot q)\) to the rate generator replaces
-\(\dot P=-\partial_q U\) by \(\dot P=-\partial_q U-\partial_{\dot q}\mathcal R\), producing a drag consistent with
-nonnegative production \(\sigma\) in \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}.
+\item \textbf{Anisotropic inertia.} For matrix \(M\), \(\mathbf p=M\dot q\) and \eqref{corollary:thermo-newton:eq:newton} hold; if \(M(q)\), Christoffel‑type terms appear in \(\dot{\mathbf p}\).
+\item \textbf{Dissipation.} A Rayleigh term \(\mathcal R(\dot q)\) modifies the second canonical equation to
+\(\dot P=-\partial_q U-\partial_{\dot q}\mathcal R\), introducing drag consistent with nonnegative production in \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}.
 \end{itemize}
 
-\medskip
-\noindent\emph{Summary.}
-A minimal kinetic choice in the Stokes‑evaluated canonical system yields \(\dot{\mathbf p}=\mathbf f\) and the
-work–power identity in a constant‑free form. Sectoral forces arise as \(-\partial_q U\); dissipative additions
-match the production term captured by \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}. The same pattern
-transfers to other frame sectors by changing only the sectoral potential \(U\).
+\paragraph{Calibration (sector readouts).}
+With the Linear Channel Closure \eqref{axioms:linear-closure:eq} and the one–datum sector calibration,
+measured sector fields satisfy \(\mathbf g=c_M\,\mathbf E_I\) and \(\mathbf E=c_Q\,\mathbf E_I\).
 
 \medskip
 \noindent\emph{Literature note.}
-The Poincar\'e–Cartan form and Hamiltonian rates are standard (see Arnold~\cite{Arnold1989}); convex duality
-and Legendre regularity are summarized in Rockafellar~\cite{Rockafellar1970}. This derivation uses only the
-Stokes evaluation on \((q,t)\) (\S\ref{axioms:path-rate}) and one‑datum sector calibration (App.~\ref{app:calibrations}).
+Poincaré–Cartan form and Hamiltonian rates: Arnold~\cite{Arnold1989}. Convex duality and Legendre regularity:
+Rockafellar~\cite{Rockafellar1970}.

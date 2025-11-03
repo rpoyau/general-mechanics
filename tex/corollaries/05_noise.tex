@@ -1,135 +1,73 @@
 % ======================================================================
-% 05_noise.tex — Noise floor ("force cloud")
+% 05_noise.tex — Corollary: Boundary-window estimator floors & spectral forms (AF–Pure)
 % ======================================================================
 
-\subsection{Noise floor (``force cloud'')}
+\subsection{Noise on boundary windows}
 \label{corollary:noise}
 
-This corollary quantifies the estimator floor on the informational field from boundary counting
-and shows how it propagates to calibrated sectors. Let \(A\) be a \emph{boundary patch} with outward unit
-normal \(n\), observed over a window \([t,t{+}\Delta t]\). Define the inward flux and the patch‑mean
-normal \emph{current density} as
+\paragraph{Setup.}
+A boundary patch \(A\subset\partial U\) is observed over a window \([t,t+\Delta t]\) (\S\ref{axioms:window}).
+Window counts are denoted \(N_A(\Delta t)\).
+The windowed Fano factor is \(F_A:=\mathrm{Var}(N_A)/\mathbb E[N_A]\).
+An effective duration \(\Delta t_{\!\mathrm{eff}}\le\Delta t\) is obtained from the count autocorrelation on the same record.
+A far‑field, low‑frequency regime is assumed (\(\omega r\ll c_I\)) outside the source.
+Arrivals may be characterized by a correlation time \(\tau>0\).
+For a source family labeled by total energy \(E_{\rm src}\), the boundary flux satisfies
 \begin{equation}
-J_A \;:=\; \int_A \big(\mathbf j\!\cdot n\big)_{-}\, dA,
-\qquad
-j_A \;:=\; \frac{\mathbb E[N_A]}{|A|\,\Delta t}\;=\;\frac{J_A}{|A|}.
-\label{corollary:noise:eq:flux}
+\Phi\ \propto\ E_{\rm src}.
+\label{corollary:noise:eq:label}
 \end{equation}
 
-\paragraph{Windowed counting witness (definitions and operational bound).}
-Let \(N_A(\Delta t)\) be the inward \emph{counts} on \(A\) over the window \(\Delta t\).
-Define the windowed Fano factor
-\begin{equation}
-F_A \;:=\; \frac{\mathrm{Var}(N_A)}{\mathbb E[N_A]},
-\label{corollary:noise:eq:mean-fano}
-\end{equation}
-and an \emph{effective window} \(\Delta t_{\!\mathrm{eff}}\le \Delta t\) obtained from the
-count autocorrelation on the same record (App.~\ref{app:noise-kernel}). Any boundary estimator of the
-patch‑mean current density admits the operational benchmark
-\begin{equation}
-\mathrm{Std}\!\big(\widehat{j}_A\big)
-\;\approx\;
-\sqrt{\frac{F_A\,j_A}{|A|\,\Delta t_{\!\mathrm{eff}}}} .
-\label{corollary:noise:eq:crb-jbar}
-\end{equation}
-Shot‑noise–limited records have \(F_A\!\approx\!1\) and \(\Delta t_{\!\mathrm{eff}}\!\approx\!\Delta t\);
-overdispersed or correlated arrivals are captured by the measured \((F_A,\Delta t_{\!\mathrm{eff}})\).
-
-\paragraph{From \(\mathbf j\) to the informational field \(\mathbf E_I\) (frame mapping).}
-Using the frame closure \eqref{axioms:stokes:frame:eq:closure}, \(\mathbf j=-\kappa\,\mathbf E_I\),
-the \emph{windowed} floor for \(\mathbf E_I\) is
-\begin{equation}
-\boxed{\quad
-\mathrm{Var}(\widehat{E}_I)\ \gtrsim\ \frac{F_A\,j_A}{\kappa^{2}\,|A|\,\Delta t_{\!\mathrm{eff}}},
-\qquad
-\sigma_{E_I}(\Delta t)\ \gtrsim\ \frac{1}{\kappa}\,
-\sqrt{\frac{F_A\,j_A}{|A|\,\Delta t_{\!\mathrm{eff}}}} \ .
-\quad}
-\label{corollary:noise:eq:var-EI}
-\end{equation}
-In the shot‑noise limit \((F_A\!\approx\!1,\ \Delta t_{\!\mathrm{eff}}\!\approx\!\Delta t)\),
-\begin{equation}
-\sigma_{E_I}(\Delta t)\ \gtrsim\ \frac{1}{\kappa}\sqrt{\frac{j_A}{|A|\,\Delta t}} .
-\label{corollary:noise:eq:var-EI-shot}
-\end{equation}
-Thus the \emph{force estimate} has a windowed cloud whose width decreases as \(\Delta t_{\!\mathrm{eff}}^{-1/2}\)
-unless \(|A|\) or the collected inward flux \(J_A\) is increased.
-
-\paragraph{Finite correlation time.}
-If arrivals have an effective correlation time \(\tau>0\) (dead time, coherence, batching), the number
-of independent samples in \(\Delta t\) is \(\approx \Delta t/\tau\), giving
-\begin{equation}
-\mathrm{Var}(\widehat{j}_A)\ \gtrsim\ \frac{j_A}{|A|}\,\frac{\tau}{\Delta t},
-\qquad
-\sigma_{E_I}\ \gtrsim\ \frac{1}{\kappa}\sqrt{\frac{j_A}{|A|}\,\frac{\tau}{\Delta t}} .
-\label{corollary:noise:eq:corr}
-\end{equation}
-This matches \eqref{corollary:noise:eq:crb-jbar} upon identifying
-\(\Delta t_{\!\mathrm{eff}}\!\sim\!\Delta t/\tau\) up to order‑one factors set by the measured autocorrelation.
-
-\paragraph{Spherical boundary (3D, far‑field).}
-In the far field, for a full boundary \(A=4\pi r^2\) around a steady source with inward flux \(J_{4\pi}\),
-\begin{equation}
-j_A=\frac{J_{4\pi}}{4\pi r^2},
-\qquad
-\sigma_{E_I}\ \gtrsim\ \frac{1}{\kappa}\,\frac{1}{4\pi r^2}\,\sqrt{\frac{J_{4\pi}}{\Delta t}} .
-\label{corollary:noise:eq:spherical}
-\end{equation}
-Directional diaphragms use the aperture area for \(|A|\) and replace \(J_{4\pi}\) by the collected inward flux.
-
-\paragraph{Measured sectors (one‑datum calibration).}
-With the sector mappings (one‑datum calibration; see \S\ref{operationalization:calibration} and App.~\ref{app:calibrations})
-\begin{equation}
-\mathbf g=c_M\,\mathbf E_I,\qquad \mathbf E=c_Q\,\mathbf E_I,
-\label{corollary:noise:eq:sector-maps}
-\end{equation}
-the estimator widths propagate as
-\begin{equation}
-\sigma_{g}\ \gtrsim\ \frac{c_M}{\kappa}\sqrt{\frac{F_A\,j_A}{|A|\,\Delta t_{\!\mathrm{eff}}}},
-\qquad
-\sigma_{E}\ \gtrsim\ \frac{c_Q}{\kappa}\sqrt{\frac{F_A\,j_A}{|A|\,\Delta t_{\!\mathrm{eff}}}} .
-\label{corollary:noise:eq:measured}
-\end{equation}
-(Shot‑noise limit: replace \(F_A\to1\) and \(\Delta t_{\!\mathrm{eff}}\to\Delta t\).)
-An acceleration estimate \(a(r)=|\mathbf g|\) inherits the same \(\Delta t_{\!\mathrm{eff}}^{-1/2}\) floor.
-
-\paragraph{Trit‑density picture (boundary shot noise).}
-For a spherical boundary with \emph{trit density} \(N(r)=\alpha\,4\pi r^2\) and mean per‑trit hit rate \(f\) (1/time),
-the mean inward count in \(\Delta t\) is \(\mu=f\,N(r)\,\Delta t\) and
+\paragraph{Estimator floor (boundary window).}
+Using the directional split \S\ref{axioms:directional-split}, the inward patch integral and patch‑mean density are
 \[
-\frac{\sigma_{\text{counts}}}{\mu}\ \approx\ \frac{1}{\sqrt{\mu}}
-\ =\ \frac{1}{\sqrt{f\,\alpha\,4\pi r^2\,\Delta t}} .
+J_A:=\int_A \big(\mathbf j\!\cdot \mathbf n\big)_{-}\,\mathrm dA,
+\qquad
+j_A:=\frac{\mathbb E[N_A]}{|A|\,\Delta t}=\frac{J_A}{|A|}.
 \]
-Mapping counts to \(\mathbf E_I\) through \eqref{corollary:noise:eq:var-EI-shot} reproduces the same
-\(1/\sqrt{|A|\,\Delta t}\) scaling.
+With the Linear Channel Closure \eqref{axioms:linear-closure:eq},
+\begin{equation}
+\mathrm{Var}(\widehat{E}_I)
+\;\gtrsim\;
+\frac{F_A\,j_A}{\kappa^{2}\,|A|\,\Delta t_{\!\mathrm{eff}}}.
+\label{corollary:noise:eq:estimator-floor}
+\end{equation}
+Shot‑noise specialization: \(F_A\to 1\) and \(\Delta t_{\!\mathrm{eff}}\to \Delta t\).
 
-\paragraph{Relation to time–information and capacity.}
-The counting term in the rate bound (\S\ref{corollary:time-info}) is precisely
-\(\overline{J}_{A}=\int_A(\mathbf j\!\cdot n)_-\,dA/\Delta t\).
-Equations \eqref{corollary:noise:eq:var-EI}–\eqref{corollary:noise:eq:corr} give the corresponding estimator
-width for \(\mathbf E_I\), showing that shorter windows both require more informational flux and enlarge the
-force cloud. In applications that form durable records and later erase/compress them, the \(P/T\) resource in
-\S\ref{corollary:time-info} provides an additional operational limit; the variance floor here arises from counting statistics.
+\paragraph{Correlated arrivals (time constant \(\tau\)).}
+If arrivals exhibit a correlation time \(\tau>0\), the variance bound \eqref{corollary:noise:eq:estimator-floor} is
+\begin{equation}
+\mathrm{Var}(\widehat{E}_I)
+\;\gtrsim\;
+\frac{j_A}{\kappa^{2}\,|A|}\,\frac{\tau}{\Delta t}.
+\label{corollary:noise:eq:tau-floor}
+\end{equation}
 
-\paragraph{Noise kernel link (App.~\ref{app:noise-kernel}).}
-The local bounds above define a minimal \emph{noise kernel} for flux fluctuations on the boundary.
-App.~\ref{app:noise-kernel} uses such kernels \(\mathcal{N}\) to propagate covariances through linear response
-(Einstein–Langevin–type) and to connect windowed shot noise to dynamical spectra.
-
-\paragraph{Units and practical levers.}
-Fluxes are in \emph{trits/time} by default (nats/time via a factor of \(\ln 3\)).
-To tighten the cloud: enlarge \(|A|\), increase the inward flux \(J_A\) (e.g., via wider apertures or focusing),
-extend \(\Delta t\), reduce correlation time \(\tau\), or multiplex independent patches and average.
-
-\medskip
-\noindent\emph{Summary.}
-Windowed counting with or without finite correlation time implies an operational floor
-\(\sigma_{E_I}\propto \sqrt{j_A/(|A|\Delta t_{\!\mathrm{eff}})}\).
-This sets a principled ``force cloud'' that narrows only with larger area, greater inward flux, or longer
-integration time, and it propagates to calibrated sectors by a one‑datum mapping.
+\paragraph{Energy‑rate fluctuations \(\Rightarrow\) acceleration noise (far field, frame).}
+On a frame in a source‑free annulus, the inverse‑area law \eqref{corollary:info-gas:eq:sphere} implies
+\(|\mathbf E_I(r)|=\frac{1}{\kappa}\,\frac{\Phi}{A(r)}\).
+At fixed geometry \((r,A)\), \eqref{corollary:noise:eq:label} yields
+\begin{equation}
+\frac{\delta Y(r,t)}{Y(r)}=\frac{\delta\Phi}{\Phi}
+=\frac{\delta E_{\rm src}(t)}{E_{\rm src}} .
+\label{corollary:noise:eq:ratio}
+\end{equation}
+For an acceleration readout \(Y\equiv g\),
+\begin{equation}
+\boxed{\ \ \delta g(r,t)=g(r)\,\frac{\delta E_{\rm src}(t)}{E_{\rm src}}\ .\ }
+\label{corollary:noise:eq:delta-g}
+\end{equation}
+In one‑sided PSD form,
+\begin{equation}
+\boxed{\ \ S_g(\omega)=\left(\frac{g(r)}{E_{\rm src}}\right)^{\!2}\,S_{E}(\omega)\ .\ }
+\label{corollary:noise:eq:psd}
+\end{equation}
+For a canonical ensemble with heat capacity \(C\) within band (white \(S_E\)),
+\begin{equation}
+\boxed{\ \ g_{\mathrm{rms}}(r)\ \approx\ g(r)\,\frac{\sqrt{k_B T^2 C}}{E_{\rm src}}\ .\ }
+\label{corollary:noise:eq:rms}
+\end{equation}
 
 \medskip
 \noindent\emph{Literature note.}
-Background on Poisson/renewal counting and shot noise: Kingman~\cite{Kingman1993}.
-Stochastic/Langevin and spectral viewpoints: Gardiner~\cite{Gardiner2004}.
-App.~\ref{app:noise-kernel} records the windowed noise‑kernel and covariance‑propagation formulas.
+Hu–Verdaguer~\cite{HuVerdaguer2008}; Kingman~\cite{Kingman1993}.
