@@ -1,0 +1,82 @@
+% ======================================================================
+% 02_confinement.tex — Confinement potentials (AF–Pure)
+% ======================================================================
+
+\subsection{Confinement potentials}
+\label{corollary:conf}
+
+\paragraph{Setup.}
+Frame form with \(\partial_t i=0\) on an open annulus \(W\subset U\) where \(\sigma|_W=0\).
+Let \(A_n(r)\) be the area of a radius–\(r\) boundary in \(n\) spatial dimensions. Linear channel
+closure holds by \eqref{axioms:linear-closure:eq}.
+
+\paragraph{Derivation.}
+From the frame‑boundary relation \eqref{corollary:frame-boundary:eq:boundary-law} and
+\eqref{axioms:linear-closure:eq},
+\begin{equation}
+\big|E_I(r)\big|
+\;=\;\frac{1}{\kappa}\,\frac{\Phi}{A_n(r)} .
+\label{corollary:conf:eq:primary}
+\end{equation}
+The potential drop along a radial segment satisfies
+\begin{equation}
+\Phi_I(r_2)-\Phi_I(r_1)
+\;=\;
+-\int_{r_1}^{r_2}\!E(\rho)\,d\rho ,
+\label{corollary:conf:eq:drop}
+\end{equation}
+by \eqref{corollary:entropic-corrections:eq:potential}.
+
+\paragraph{Specialization.}
+\emph{(1D tube)} If \(A_1(r)=A_\perp\) is constant,
+\begin{equation}
+E(r)=E_{\mathrm{tube}}:=\frac{\Phi}{\kappa\,A_\perp}.
+\label{corollary:conf:eq:1d}
+\end{equation}
+\emph{(3D spherical, unsaturated)} If \(A_3(r)=4\pi r^2\),
+\begin{equation}
+E(r)=\frac{\Phi}{4\pi\kappa}\,\frac{1}{r^{2}} .
+\label{corollary:conf:eq:3d}
+\end{equation}
+\emph{(Ceiling and flattening)} With the capacity ceiling \eqref{corollary:entropic-corrections:eq:emax},
+the intersection radius in \(n=3\) is
+\begin{equation}
+r_{\mathrm{flat}}=\sqrt{\frac{\Phi/\kappa}{4\pi\,E_{\max}}}\,,
+\quad
+E(r)=\min\!\left\{\frac{\Phi}{4\pi\kappa r^{2}},\ E_{\max}\right\}.
+\label{corollary:conf:eq:ceiling}
+\end{equation}
+
+\paragraph{Calibration.}
+With a one‑datum sector calibration \(U=c_{\mathrm{conf}}\Phi_I\),
+\emph{(1D)} the separation potential is
+\begin{equation}
+U(r)=U_0+\sigma r,\qquad \sigma=c_{\mathrm{conf}}\,E_{\mathrm{tube}} .
+\label{corollary:conf:eq:cal1d}
+\end{equation}
+\emph{(3D + ceiling)} using \eqref{corollary:conf:eq:ceiling} and \eqref{corollary:conf:eq:drop},
+\begin{equation}
+U(r)=U_0+c_{\mathrm{conf}}
+\begin{cases}
+E_{\max}\,r, & r\le r_{\mathrm{flat}},\\[4pt]
+E_{\max}\,r_{\mathrm{flat}}+\dfrac{\Phi}{4\pi\kappa}
+\!\left(\dfrac{1}{r_{\mathrm{flat}}}-\dfrac{1}{r}\right), & r>r_{\mathrm{flat}}.
+\end{cases}
+\label{corollary:conf:eq:3d-sat}
+\end{equation}
+
+\paragraph{Falsification.}
+(1D) In a declared guide, if \(U(r)\) departs from linearity by \(>10^{-4}\) over \(10^3\) wavelengths
+(on the same segment), the 1D specialization is falsified.
+(3D) If the calibrated \(E(r)\) fails the \(1/r^2\) law outside the declared production region,
+either \(\sigma\neq0\) on \(W\) or the ceiling assumption is violated.
+
+\medskip
+\noindent\emph{Provenance.}
+\eqref{corollary:frame-boundary:eq:boundary-law}, \eqref{axioms:linear-closure:eq},
+\eqref{corollary:entropic-corrections:eq:potential},
+\eqref{corollary:entropic-corrections:eq:emax}.
+
+\medskip
+\noindent\emph{Literature note.}
+Inverse‑power radial fields and sector areas: Jackson. Geometric flux/Stokes: Frankel.

@@ -9,10 +9,14 @@
 A radial boundary in \(n\) spatial dimensions has area \(A_n(r)=S_{n-1}r^{\,n-1}\).
 The radial flux density is \(j_r(r)\); the directed flux is \(\Phi(r):=A_n(r)\,j_r(r)\);
 the informational field amplitude is \(E(r):=|\mathbf E_I(r)|\).
-Inward/outward components follow the directional split (\S\ref{axioms:directional-split}).
-Windows and frames are as in \S\ref{axioms:window} and \S\ref{axioms:frame}.
+Inward/outward components use the directional split.
+Window and frame notions are as defined in the axioms.
 The boundary capacity is defined by \(N(r)\) addressable trits, a per‑trit reliable rate \(f_{\max}\),
 and the relation \(N(r)=\alpha\,A_n(r)\).
+
+\paragraph{Derivation.}
+From the local continuity identity \eqref{axioms:stokes:identity:eq:local-continuity} and the Linear Channel Closure
+\eqref{axioms:linear-closure:eq} (\(j_r=-\kappa E\)), one obtains the spatial balance and its radial reductions below.
 
 \paragraph{Window balance (cut form).}
 On a window \([t_0,t_1]\) over the worldtube between two nested spheres \(S(r_1)\subset S(r_2)\),
@@ -34,12 +38,13 @@ S=\exp\!\Bigl(-\!\int\mu\,\mathrm ds\Bigr).
 \end{equation}
 
 \paragraph{Frame reduction (steady limit).}
-On a frame with \(\partial_t i=0\) (\S\ref{axioms:frame}) and radially symmetric data, the local continuity law \eqref{axioms:stokes:identity:eq:local-continuity} gives the spatial balance
+On a frame with \(\partial_t i=0\) and radially symmetric data, the local form
+\eqref{axioms:stokes:identity:eq:local-continuity} gives
 \begin{equation}
 \frac{\mathrm d}{\mathrm dr}\,\Phi(r)\;=\;A_n(r)\,\sigma(r).
 \label{corollary:entropic-corrections:eq:dphi}
 \end{equation}
-With the Linear Channel Closure \eqref{axioms:linear-closure:eq} (\(j_r=-\kappa\,E\)),
+With \(j_r=-\kappa E\),
 \begin{equation}
 \frac{\mathrm d}{\mathrm dr}\Big(A_n(r)\,E(r)\Big)\;=\;-\frac{1}{\kappa}\,A_n(r)\,\sigma(r).
 \label{corollary:entropic-corrections:eq:core}
@@ -114,7 +119,7 @@ survival factors multiply as \(e^{-\mu_k\Delta r_k}\) and forced contributions a
 is applied per segment when \(N(r)\) or \(f_{\max}\) changes.
 
 \paragraph{Potential drop (frame).}
-From the definition \(\mathbf E_I=-\nabla\Phi_I\) in \eqref{axioms:linear-closure:eq},
+From \(\mathbf E_I=-\nabla\Phi_I\) in \eqref{axioms:linear-closure:eq},
 \begin{equation}
 \Phi_I(r_2)-\Phi_I(r_1) \;=\; -\int_{r_1}^{r_2} E(\rho)\, \mathrm d\rho .
 \label{corollary:entropic-corrections:eq:potential}
@@ -125,6 +130,19 @@ For a boundary sector of solid angle \(\Delta\Omega\), the sector area is \(A_\D
 relations \eqref{corollary:entropic-corrections:eq:ode-atten}–\eqref{corollary:entropic-corrections:eq:potential}
 hold with \(A_n\mapsto A_\Delta\).
 In effective \(1\)D (guides) or \(2\)D (sheets), the same relations hold with the constant cross‑section or circumference.
+
+\paragraph{Falsification.}
+(i) In a source‑free annulus with \(\mu=0\), measured \(E(r)\) must follow \(r^{-(n-1)}\); persistent departures falsify
+\eqref{corollary:entropic-corrections:eq:3d-general} (specialized). (ii) With known \(\mu(r)\), the ratio
+\(E(r)A_n(r)\,e^{\int\mu}\) must be constant (from \eqref{corollary:entropic-corrections:eq:ode-atten}); deviations falsify the attenuation premise.
+(iii) In a sector with fixed \(\alpha,f_{\max}\), failure to observe a plateau at \(r_{\rm flat}\) computed from
+\eqref{corollary:entropic-corrections:eq:rflat} falsifies the ceiling assumption on that window.
+
+\medskip
+\noindent\emph{Provenance.}
+\eqref{axioms:stokes:identity:eq:local-continuity}, \eqref{axioms:linear-closure:eq},
+\eqref{corollary:external-drives:eq:attenuated-delay},
+\eqref{corollary:entropic-corrections:eq:dphi}–\eqref{corollary:entropic-corrections:eq:rflat}.
 
 \medskip
 \noindent\emph{Literature note.}

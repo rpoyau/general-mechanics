@@ -1,28 +1,90 @@
 % ======================================================================
-% 05_corollaries.tex — Corollaries (Aggregator)
+% 05_corollaries.tex — Corollaries (AF ladder: Section → Subsection → Subsubsection)
+% Structural-only: groups + local demotion. No edits to included files.
 % ======================================================================
 
 \section{Corollaries}
 \label{corollaries}
 
+% Ensure subsubsections are numbered and appear in the ToC
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
 \noindent
 Consequences of \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}
 (and, where invoked, \eqref{axioms:stokes:identity:eq:local-continuity}).
-Wave transport references (when present) follow \S\ref{waves}
-(e.g., \eqref{waves:eq:const-power}, \eqref{waves:eq:envelope}).
+Wave-window items cite the wave closure and balance
+\eqref{axioms:waves:eq:chi}–\eqref{axioms:waves:eq:balance}. % AF single-anchors
 
-% ---- Core -------------------------------------------------------------
-\input{corollaries/00_info-gas}                         % 00
-\input{corollaries/01_frame-boundary}                   % 01
-\input{corollaries/02_continuity}                       % 02
-\input{corollaries/03_external-drives}                  % 03
-\input{corollaries/04_time-info}                        % 04
-\input{corollaries/05_noise}                            % 05
-\input{corollaries/06_geometry}                         % 06
+% ---- 00 Continuity ----------------------------------------------------
+\subsection{00 — Continuity}
+\label{cor:grp:continuity}
 
-% ---- Extensions -------------------------------------------------------
-\input{corollaries/07_dimensional}                      % 07
-\input{corollaries/08_thermo-newton}                    % 08
-\input{corollaries/09_least-action}                     % 09
-\input{corollaries/10_entropic-corrections}             % 10
-\input{corollaries/11_qpi-template}                     % 11
+\begingroup
+\renewcommand{\subsection}{\subsubsection} % local demotion
+\input{corollaries/00_info-gas}                       % tube invariance (C4.1–4.2)
+\input{corollaries/01_frame-boundary}                 % inverse-area frame law
+\endgroup
+
+% ---- 01 Time–Information ----------------------------------------------
+\subsection{Time–Information}
+\label{cor:grp:time-info}
+
+\begingroup
+\renewcommand{\subsection}{\subsubsection}
+\input{corollaries/04_time-info}                      % time–information bound
+\input{corollaries/05_noise}                          % noise & estimator floor
+\endgroup
+
+% ---- 02 Thermodynamics -------------------------------------------------
+\subsection{Thermodynamics}
+\label{cor:grp:thermo}
+
+\begingroup
+\renewcommand{\subsection}{\subsubsection}
+\input{corollaries/02_continuity}                     % Continuity & Clausius
+\input{corollaries/03_external-drives}                % drives, delay, production
+\input{corollaries/10_entropic-corrections}           % attenuation/capacity corrections
+\endgroup
+
+% ---- 03 Mechanics ------------------------------------------------------
+\subsection{Mechanics}
+\label{cor:grp:mechanics}
+
+\begingroup
+\renewcommand{\subsection}{\subsubsection}
+\input{corollaries/08_thermo-newton}                  % thermo → Newton rate laws
+\input{corollaries/09_least-action}                   % least-action equivalence
+\endgroup
+
+% ---- 04 Electrodynamics (Info–EM) -------------------------------------
+\subsection{Electrodynamics}
+\label{cor:grp:info-em}
+
+\begingroup
+\renewcommand{\subsection}{\subsubsection}
+\input{corollaries/01_maxwell}                        % Info–EM amplitude from wave closure
+% If you enable the AF‑pure replacement, swap the line above for:
+% \input{corollaries/04_info_em_amplitude}
+\endgroup
+
+% ---- 05 Geometry & dimensional tools ----------------------------------
+\subsection{Geometry \& Dimensional Tools}
+\label{cor:grp:geometry}
+
+\begingroup
+\renewcommand{\subsection}{\subsubsection}
+\input{corollaries/06_geometry}                       % flat ↔ curved; Raychaudhuri linkage
+\input{corollaries/07_dimensional}                    % dimensional flows & confinement
+\endgroup
+
+% ---- 06 Extensions -----------------------------------------------------
+\subsection{Extensions}
+\label{cor:grp:extensions}
+
+\begingroup
+\renewcommand{\subsection}{\subsubsection}
+\input{corollaries/11_qpi-template}                   % quantum path–integral template
+\input{corollaries/02_confinement}                    % 1d 3d tube
+\input{corollaries/13_quark_tube}                     % QCD string / flux tube (declared 1D)
+\endgroup

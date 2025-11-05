@@ -1,71 +1,65 @@
 % ======================================================================
-% 01_frame-boundary.tex — Frame boundary (inverse-power fields)
+% 01_frame-boundary.tex — Frame boundary (inverse-power fields, AF‑Pure)
 % ======================================================================
 
 \subsection{Frame boundary (inverse-power fields)}
 \label{corollary:frame-boundary}
 
-\paragraph{Setup (frame form; source-free annulus).}
-Work on a \frame (\S\ref{axioms:frame}) with \(\partial_t i=0\).
-On an open annulus \(W\subset U\) with \(\sigma|_{W}\equiv 0\) (source-free on \(W\)),
-define the directed flux through a closed boundary \(\Sigma(r)\subset W\) of radius \(r\) by
-\[
-\Phi(r):=\int_{\Sigma(r)} \mathbf j\!\cdot \mathbf n\,\mathrm dA.
-\]
-By the generalized Stokes identity on \(W\)
-\eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}
-(and equivalently by the \emph{cap/side (cut) identity}, \S\ref{axioms:worldtube}),
-\(\Phi(r)\) is independent of \(r\) across nested boundaries in \(W\).
+\paragraph{Setup.}
+Work on a frame with \(\partial_t i=0\) on an open annulus \(W\subset U\) where \(\sigma|_W=0\).
+Let \(\Sigma(r)\subset W\) be nested spherical boundaries of radius \(r\) with area \(A_n(r)\).
+Define the directed flux \(\Phi(r):=\int_{\Sigma(r)} \mathbf j\!\cdot\!\mathbf n\,\mathrm dA\).
 
-\paragraph{Boundary area in \(n\) spatial dimensions.}
-For a spherical boundary in \(n\) spatial dimensions,
-\[
-A_n(r)=S_{n-1}\,r^{\,n-1},
-\]
-hence the cross‑sectional mean of the normal current and the frame amplitude are
+\paragraph{Derivation.}
+From the Stokes identity in integral/cut form
+\(\eqref{axioms:stokes:identity:eq:integral}\)–\(\eqref{axioms:stokes:identity:eq:cut}\) on \(W\),
+\(\Phi(r)\) is independent of \(r\).
+Therefore
 \begin{equation}
-\bigl\langle j_n\bigr\rangle(r)=\frac{\Phi}{A_n(r)}=\frac{\Phi}{S_{n-1}\,r^{\,n-1}},
-\qquad
-\bigl|\mathbf E_I(r)\bigr|=\frac{1}{\kappa}\,\bigl\langle j_n\bigr\rangle(r).
-\label{corollary:frame-boundary:eq:boundary-law}
+\big\langle j_n\big\rangle(r)=\frac{\Phi}{A_n(r)}.
+\label{corollary:frame-boundary:eq:primary}
+\end{equation}\label{corollary:frame-boundary:eq:boundary-law}
+With the Linear Channel Closure \(\eqref{axioms:linear-closure:eq}\), the frame amplitude satisfies
+\begin{equation}
+\big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\frac{\Phi}{A_n(r)}.
+\label{corollary:frame-boundary:eq:calib}
 \end{equation}
-Thus \(\bigl|\mathbf E_I(r)\bigr|\propto r^{-(n-1)}\).
+Directional filtering: with the inward component
+\(\Phi_-:=\int_{\Sigma}(\mathbf j\!\cdot\!\mathbf n)_-\,\mathrm dA\),
+relations \eqref{corollary:frame-boundary:eq:primary}–\eqref{corollary:frame-boundary:eq:calib}
+hold under the substitution \(\Phi\mapsto\Phi_-\).
 
-\paragraph{3D specialization.}
-For \(n=3\), \(A_3(r)=4\pi r^2\) and \eqref{corollary:frame-boundary:eq:boundary-law} reduces to
+\paragraph{Specialization.}
+In \(n=3\), \(A_3(r)=4\pi r^{2}\), giving
 \begin{equation}
-\bigl|\mathbf E_I(r)\bigr|=\frac{\Phi}{4\pi\kappa}\,\frac{1}{r^{2}} .
-\label{corollary:frame-boundary:eq:3d}
-\end{equation}
+\big|\mathbf E_I(r)\big|=\frac{\Phi}{4\pi\,\kappa}\,\frac{1}{r^{2}}.
+\label{corollary:frame-boundary:eq:special}
+\end{equation}\label{corollary:frame-boundary:eq:3d}
 
-\paragraph{Calibrated sectors (constant–free predictions).}
-Adopt linear sector mappings \(g=c_M\,|\mathbf E_I|\) and \(E=c_Q\,|\mathbf E_I|\).
-Then the measured \(3\)D fields are
+\paragraph{Calibration.}
+With linear sector mappings \(g=c_M\,|\mathbf E_I|\) and \(E=c_Q\,|\mathbf E_I|\),
 \begin{equation}
-g(r)=\frac{c_M\,\Phi}{4\pi\kappa}\,\frac{1}{r^{2}},\qquad
-E(r)=\frac{c_Q\,\Phi}{4\pi\kappa}\,\frac{1}{r^{2}} .
+g(r)=\frac{c_M\,\Phi}{4\pi\,\kappa}\,\frac{1}{r^{2}},\qquad
+E(r)=\frac{c_Q\,\Phi}{4\pi\,\kappa}\,\frac{1}{r^{2}}.
 \label{corollary:frame-boundary:eq:measured-3d}
 \end{equation}
-A single datum \((r_\star, g_\star)\) (or \((r_\star, E_\star)\)) for a given source family yields the
-constant–free ratio form
+A single datum \((r_\star,Y_\star)\) in a given sector yields the constant–free ratio
 \begin{equation}
-g(r)=g_\star\left(\frac{\Phi}{\Phi_\star}\right)\left(\frac{r_\star}{r}\right)^{\!2},\qquad
-E(r)=E_\star\left(\frac{\Phi}{\Phi_\star}\right)\left(\frac{r_\star}{r}\right)^{\!2}.
+Y(r)=Y_\star\left(\frac{\Phi}{\Phi_\star}\right)\left(\frac{r_\star}{r}\right)^{\!2},\qquad Y\in\{g,E\}.
 \label{corollary:frame-boundary:eq:ratio-MQ}
 \end{equation}
 
-\paragraph{Directional filtering and sectors.}
-For apertures or diaphragms, the inward component
-\[
-\Phi_- \;:=\; \int_{\Sigma} (\mathbf j\!\cdot \mathbf n)_-\,\mathrm dA
-\]
-(using the directional split in \S\ref{axioms:directional-split}) specifies the flux.
-Equations \eqref{corollary:frame-boundary:eq:boundary-law}–\eqref{corollary:frame-boundary:eq:ratio-MQ}
-are valid under the substitution \(\Phi \mapsto \Phi_-\).
-For a fixed solid angle \(\Delta\Omega\) in \(n\) spatial dimensions, the sector area is
-\(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\).
+\paragraph{Falsification.}
+On a source‑free frame, if \(r^{2}\big|\mathbf E_I(r)\big|\) departs from a constant by more than a declared tolerance
+over a stated \(r\)-range, the premises of this corollary are contradicted.
+
+\medskip
+\noindent\emph{Provenance.}
+\(\eqref{axioms:stokes:identity:eq:integral}\),
+\(\eqref{axioms:stokes:identity:eq:cut}\),
+\(\eqref{axioms:linear-closure:eq}\),
+\(\eqref{corollary:frame-boundary:eq:primary}\).
 
 \medskip
 \noindent\emph{Literature note.}
-Frankel~\cite{Frankel2011} and Jackson~\cite{Jackson1999}, and the
-dimension–dependence summarized in Corollary~\ref{corollary:dimensional}.
+Frankel~\cite{Frankel2011}; Jackson~\cite{Jackson1999}.

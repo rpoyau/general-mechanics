@@ -6,68 +6,76 @@
 \label{corollary:noise}
 
 \paragraph{Setup.}
-A boundary patch \(A\subset\partial U\) is observed over a window \([t,t+\Delta t]\) (\S\ref{axioms:window}).
-Window counts are denoted \(N_A(\Delta t)\).
-The windowed Fano factor is \(F_A:=\mathrm{Var}(N_A)/\mathbb E[N_A]\).
-An effective duration \(\Delta t_{\!\mathrm{eff}}\le\Delta t\) is obtained from the count autocorrelation on the same record.
-A far‑field, low‑frequency regime is assumed (\(\omega r\ll c_I\)) outside the source.
-Arrivals may be characterized by a correlation time \(\tau>0\).
-For a source family labeled by total energy \(E_{\rm src}\), the boundary flux satisfies
-\begin{equation}
-\Phi\ \propto\ E_{\rm src}.
-\label{corollary:noise:eq:label}
-\end{equation}
-
-\paragraph{Estimator floor (boundary window).}
-Using the directional split \S\ref{axioms:directional-split}, the inward patch integral and patch‑mean density are
+A boundary patch \(A\subset\partial U\) is observed over a window \([t,t+\Delta t]\).
+Window counts are \(N_A(\Delta t)\) with windowed Fano factor \(F_A:=\mathrm{Var}(N_A)/\mathbb E[N_A]\).
+Define the inward patch integral and patch‑mean density
 \[
 J_A:=\int_A \big(\mathbf j\!\cdot \mathbf n\big)_{-}\,\mathrm dA,
 \qquad
 j_A:=\frac{\mathbb E[N_A]}{|A|\,\Delta t}=\frac{J_A}{|A|}.
 \]
-With the Linear Channel Closure \eqref{axioms:linear-closure:eq},
+An effective duration \(\Delta t_{\!\mathrm{eff}}\le\Delta t\) is obtained from the count autocorrelation on the same record.
+
+\paragraph{Derivation.}
+From the Linear Channel Closure \eqref{axioms:linear-closure:eq} ( \( \mathbf j=-\kappa\,\mathbf E_I\) ), the variance floor of any unbiased estimator \(\widehat{E}_I\) over the window satisfies
 \begin{equation}
 \mathrm{Var}(\widehat{E}_I)
 \;\gtrsim\;
 \frac{F_A\,j_A}{\kappa^{2}\,|A|\,\Delta t_{\!\mathrm{eff}}}.
-\label{corollary:noise:eq:estimator-floor}
+\label{corollary:noise:eq:primary}
 \end{equation}
-Shot‑noise specialization: \(F_A\to 1\) and \(\Delta t_{\!\mathrm{eff}}\to \Delta t\).
 
-\paragraph{Correlated arrivals (time constant \(\tau\)).}
-If arrivals exhibit a correlation time \(\tau>0\), the variance bound \eqref{corollary:noise:eq:estimator-floor} is
+\paragraph{Specialization (correlated arrivals).}
+If arrivals have a correlation time \(\tau>0\), the effective duration scales as \(\Delta t_{\!\mathrm{eff}}\sim \Delta t/\tau\), giving
 \begin{equation}
 \mathrm{Var}(\widehat{E}_I)
 \;\gtrsim\;
 \frac{j_A}{\kappa^{2}\,|A|}\,\frac{\tau}{\Delta t}.
-\label{corollary:noise:eq:tau-floor}
+\label{corollary:noise:eq:special}
 \end{equation}
 
-\paragraph{Energy‑rate fluctuations \(\Rightarrow\) acceleration noise (far field, frame).}
-On a frame in a source‑free annulus, the inverse‑area law \eqref{corollary:info-gas:eq:sphere} implies
-\(|\mathbf E_I(r)|=\frac{1}{\kappa}\,\frac{\Phi}{A(r)}\).
-At fixed geometry \((r,A)\), \eqref{corollary:noise:eq:label} yields
+\paragraph{Calibration.}
+With a one–datum sector mapping \(Y=c_{\mathrm{sec}}\,|E_I|\) on the same region, the measured‑unit floor is
+\begin{equation}
+\mathrm{Var}(\widehat Y)
+\;\gtrsim\;
+\frac{c_{\mathrm{sec}}^{\,2}\,F_A\,j_A}{\kappa^{2}\,|A|\,\Delta t_{\!\mathrm{eff}}}.
+\label{corollary:noise:eq:calib}
+\end{equation}
+In a far‑field frame, the inverse‑area law \eqref{corollary:info-gas:eq:primary} and a source family labeled by total energy \(E_{\rm src}\) with \(\Phi\propto E_{\rm src}\) imply the fractional mapping
 \begin{equation}
 \frac{\delta Y(r,t)}{Y(r)}=\frac{\delta\Phi}{\Phi}
-=\frac{\delta E_{\rm src}(t)}{E_{\rm src}} .
+=\frac{\delta E_{\rm src}(t)}{E_{\rm src}}.
 \label{corollary:noise:eq:ratio}
 \end{equation}
-For an acceleration readout \(Y\equiv g\),
+Hence the one‑sided PSD and in‑band rms specializations are
 \begin{equation}
-\boxed{\ \ \delta g(r,t)=g(r)\,\frac{\delta E_{\rm src}(t)}{E_{\rm src}}\ .\ }
-\label{corollary:noise:eq:delta-g}
-\end{equation}
-In one‑sided PSD form,
-\begin{equation}
-\boxed{\ \ S_g(\omega)=\left(\frac{g(r)}{E_{\rm src}}\right)^{\!2}\,S_{E}(\omega)\ .\ }
+S_g(\omega)=\left(\frac{g(r)}{E_{\rm src}}\right)^{\!2} S_{E}(\omega),
 \label{corollary:noise:eq:psd}
 \end{equation}
-For a canonical ensemble with heat capacity \(C\) within band (white \(S_E\)),
 \begin{equation}
-\boxed{\ \ g_{\mathrm{rms}}(r)\ \approx\ g(r)\,\frac{\sqrt{k_B T^2 C}}{E_{\rm src}}\ .\ }
+g_{\mathrm{rms}}(r)\ \approx\ g(r)\,\frac{\sqrt{k_B\,T^{2}\,C}}{E_{\rm src}}.
 \label{corollary:noise:eq:rms}
 \end{equation}
 
+\paragraph{Falsification.}
+In a shot‑noise regime \(F_A\!\to\!1\) with \(\Delta t_{\!\mathrm{eff}}\!\to\!\Delta t\), hold \(j_A\) and \(|A|\) fixed and vary \(\Delta t\) over at least one decade; if
+\[
+\mathrm{Var}(\widehat Y)\,\Delta t
+\]
+deviates from the constant predicted by \eqref{corollary:noise:eq:calib} by more than a factor of \(3\), the closure or counting assumptions used to obtain \eqref{corollary:noise:eq:primary} are falsified on that window.
+
+\medskip
+\noindent\emph{Provenance.}
+\eqref{axioms:linear-closure:eq},
+\eqref{corollary:noise:eq:primary},
+\eqref{corollary:noise:eq:special},
+\eqref{corollary:noise:eq:calib},
+\eqref{corollary:info-gas:eq:primary},
+\eqref{corollary:noise:eq:ratio},
+\eqref{corollary:noise:eq:psd},
+\eqref{corollary:noise:eq:rms}.
+
 \medskip
 \noindent\emph{Literature note.}
-Hu–Verdaguer~\cite{HuVerdaguer2008}; Kingman~\cite{Kingman1993}.
+Hu–Verdaguer (stochastic gravity) and Kingman (Poisson processes).

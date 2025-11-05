@@ -1,5 +1,5 @@
 % ======================================================================
-% 00_info-gas.tex — Relational info–gas on boundaries
+% 00_info-gas.tex — Info–Gas & Stokes (AF‑Pure)
 % ======================================================================
 
 \subsection{Info–Gas \& Stokes}
@@ -7,57 +7,48 @@
 
 \paragraph{Setup.}
 A narrow tube \(\mathcal T\) has side tangent to \(\mathbf j\) and cross‑sections \(\Sigma(r)\) orthogonal to its axis.
-On a \frame (\S\ref{axioms:frame}) \(\partial_t i=0\) and on an open set \(W\subset U\) with \(\sigma|_W=0\), the tube lies in \(W\).
+Work on a frame with \(\partial_t i=0\); the tube lies in an open \(W\subset U\) with \(\sigma|_W=0\).
 
-\paragraph{Tube invariance.}
-For
+\paragraph{Derivation.}
+From the local continuity identity \(\eqref{axioms:stokes:identity:eq:local-continuity}\) on \(W\), the directed flux through \(\Sigma(r)\) is independent of \(r\):
 \begin{equation}
-\Phi(r):=\int_{\Sigma(r)} \mathbf j\!\cdot \mathbf n\,\mathrm dA ,
-\label{corollary:info-gas:eq:flux}
+\Phi(r):=\int_{\Sigma(r)} \mathbf j\!\cdot\!\mathbf n\,\mathrm dA \;=\; \Phi \;\;\text{(const.)}.
+\label{corollary:info-gas:eq:flux-const}
 \end{equation}
-the local continuity law \eqref{axioms:stokes:identity:eq:local-continuity} on \(W\) implies
+Hence the cross‑sectional mean of the normal component satisfies
 \begin{equation}
-\Phi(r)=\mathrm{const},
-\qquad
-\big\langle j_n\big\rangle(r)=\frac{\Phi}{A(r)},
-\label{corollary:info-gas:eq:tube}
+\big\langle j_n\big\rangle(r)\;=\;\frac{\Phi}{A(r)},\qquad
+A(r):=\int_{\Sigma(r)} \mathrm dA .
+\label{corollary:info-gas:eq:primary}
 \end{equation}
-with \(A(r):=\int_{\Sigma(r)}\mathrm dA\) and \(\langle j_n\rangle\) the cross‑sectional mean of the normal component.
 
-\paragraph{Cones \& boundary sectors.}
+\paragraph{Specialization.}
 For a conical sector of fixed solid angle \(\Delta\Omega\) in \(n\) spatial dimensions,
 \begin{equation}
 A_n(r)=\Delta\Omega\,r^{\,n-1}
 \;\Rightarrow\;
-\big\langle j_n\big\rangle(r)=\frac{\Phi}{\Delta\Omega}\,\frac{1}{r^{\,n-1}} .
-\label{corollary:info-gas:eq:cone}
+\big\langle j_n\big\rangle(r)=\frac{\Phi}{\Delta\Omega}\,r^{-(n-1)} .
+\label{corollary:info-gas:eq:special}
 \end{equation}
-With the Linear Channel Closure \eqref{axioms:linear-closure:eq},
+
+\paragraph{Calibration.}
+With the Linear Channel Closure \(\eqref{axioms:linear-closure:eq}\),
 \begin{equation}
-\big|\mathbf E_I(r)\big|
-=\frac{1}{\kappa}\,\big\langle j_n\big\rangle(r)
-=\frac{1}{\kappa}\,\frac{\Phi}{A_n(r)}
-\ \propto\ r^{-(n-1)} .
-\label{corollary:info-gas:eq:sphere}
+\big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\big\langle j_n\big\rangle(r)
+=\frac{1}{\kappa}\,\frac{\Phi}{A(r)} .
+\label{corollary:info-gas:eq:calib}
 \end{equation}
 
-\paragraph{Directional filtering.}
-For apertures or one‑sided diaphragms, the inward component is
-\[
-\Phi_-(r):=\int_{\Sigma(r)}\!\big(\mathbf j\!\cdot \mathbf n\big)_-\,\mathrm dA .
-\]
-Equations \eqref{corollary:info-gas:eq:tube}–\eqref{corollary:info-gas:eq:sphere} are valid under the substitution \(\Phi\mapsto\Phi_-\).
+\paragraph{Falsification.}
+On a source‑free tube, if \(\big\langle j_n\big\rangle(r)\,A(r)\) deviates from a constant by more than a stated tolerance over a declared \(r\)‑range, the premises of this corollary are contradicted.
 
-\paragraph{Window counts \& statistics.}
-On a boundary patch \(A\) over \([t,t+\Delta t]\),
-\[
-N_A(\Delta t):=\int_t^{t+\Delta t}\!\!\int_A j_n\,\mathrm dA\,\mathrm dt,\quad
-I_A:=\frac{N_A(\Delta t)}{\Delta t},\quad
-\bar j_n:=\Delta t^{-1}\!\int_t^{t+\Delta t} j_n\,\mathrm dt .
-\]
-The Fano factor \(F_A:=\mathrm{Var}[N_A]/\mathbb E[N_A]\) and an effective window \(\Delta t_{\!\mathrm{eff}}\le\Delta t\) (from the count autocorrelation) summarize fluctuations.
+\medskip
+\noindent\emph{Provenance.}
+\(\eqref{axioms:stokes:identity:eq:local-continuity}\),
+\(\eqref{axioms:linear-closure:eq}\),
+\(\eqref{corollary:info-gas:eq:primary}\).
 
 \medskip
 \noindent\emph{Literature note.}
 Flux conservation from divergence‑free fields: Frankel~\cite{Frankel2011}.
-Inverse‑power radial profiles and solid‑angle sectors: Jackson~\cite{Jackson1999};
+Inverse‑power radial profiles and solid‑angle sectors: Jackson~\cite{Jackson1999}.

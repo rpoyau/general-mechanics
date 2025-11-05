@@ -6,75 +6,62 @@
 \label{corollary:time-info}
 
 \paragraph{Setup.}
-A boundary patch \(A\subset\partial U\) is observed over a window \([t,t+\Delta t]\) (\S\ref{axioms:window}).
-With the directional split (\S\ref{axioms:directional-split}), the inward, window‑averaged counting rate is
+A boundary patch \(A\subset\partial U\) is observed over a window \([t,t+\Delta t]\).
+With the directional split, the inward, window‑averaged counting rate is
 \begin{equation}
-\overline{J}_{A}
+J_A
 \;:=\;
 \frac{1}{\Delta t}\int_{t}^{t+\Delta t}\!\!\int_{A}\big(\mathbf j\!\cdot\!\mathbf n\big)_{-}\,\mathrm dA\,\mathrm dt
-\qquad\text{(nats/time)}.
+\quad\text{(nats/time)}.
 \label{corollary:time-info:eq:JA}
 \end{equation}
-The \(\varepsilon\)‑reliable channel capacities are denoted \(C_{\rm chan}^{(\mathrm{nats})}(\varepsilon)\) (nats/time) and
-\(C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)\) (trits/time).
-The thermodynamic erasure budget uses the boundary mapping \(q=T\,j_S\) (\S\ref{axioms:boundary-heat});
-available erasure power \(P\) at boundary temperature \(T\) yields an erasure‑limited rate bound measured in nats/time.
+An erasure power budget \(P\) acts at boundary temperature \(T\).
+Reliable channel capacities are denoted \(C_{\rm chan}^{(\mathrm{nats})}(\varepsilon)\) and
+\(C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)\).
 
-\paragraph{Bounds (nats).}
+\paragraph{Derivation.}
+By boundary identification and heat mapping (on boundaries \(j\equiv j_S\) and \(q:=T\,j_S\)),
+the erasure‑limited rate bound is \(P/T\) (nats/time). Combining this with the inward
+window rate \eqref{corollary:time-info:eq:JA} and any \(\varepsilon\)‑reliable channel capacity gives:
 \begin{equation}
-\frac{\Delta I_{\rm nats}}{\Delta t}
+\frac{\Delta I_{\mathrm{nats}}}{\Delta t}
 \;\le\;
-\min\!\Big\{\,\overline{J}_{A},\ C_{\rm chan}^{(\mathrm{nats})}(\varepsilon),\ P/T\,\Big\}.
-\label{corollary:time-info:eq:rate-nats}
+\min\!\Big\{\,J_A,\ C_{\rm chan}^{(\mathrm{nats})}(\varepsilon),\ P/T\,\Big\}.
+\label{corollary:time-info:eq:primary}
 \end{equation}
 
-\paragraph{Bounds (trits).}
-Using the trit/nat relation in \S\ref{axioms:relational:counting},
+\paragraph{Specialization.}
+Using the base‑3 to natural‑log conversion \(1~\mathrm{trit}=\ln 3~\mathrm{nats}\),
 \begin{equation}
-\frac{\Delta I_{\rm trits}}{\Delta t}
+\frac{\Delta I_{\mathrm{trits}}}{\Delta t}
 \;\le\;
-\min\!\Big\{\,\frac{\overline{J}_{A}}{\ln 3},\ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon),\ \frac{P}{T\,\ln 3}\,\Big\}.
-\label{corollary:time-info:eq:rate-trits}
+\min\!\Big\{\,J_A/\ln 3,\ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon),\ P/(T\ln 3)\,\Big\}.
+\label{corollary:time-info:eq:special}
 \end{equation}
-Equivalently,
+
+\paragraph{Calibration.}
+For one reliable trit \((\Delta I_{\mathrm{trits}}=1)\), the minimal window duration obeys
 \begin{equation}
 \Delta t
 \;\ge\;
-\max\!\Big\{\,\frac{\Delta I_{\rm trits}}{\overline{J}_{A}/\ln 3},\ \frac{\Delta I_{\rm trits}}{C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)},\ \frac{\Delta I_{\rm trits}\,\ln 3\,T}{P}\,\Big\}.
-\label{corollary:time-info:eq:time-trits}
+\max\!\Big\{\,\big(J_A/\ln 3\big)^{-1},\ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)^{-1},\ (\ln 3)\,T/P\,\Big\}.
+\label{corollary:time-info:eq:calib}
 \end{equation}
 
-\paragraph{Specialization (one reliable trit).}
-For \(\Delta I_{\rm trits}=1\),
-\begin{equation}
-\Delta t
-\;\ge\;
-\max\!\Big\{\,(\overline{J}_{A}/\ln 3)^{-1},\ \ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)^{-1},\ \ (\ln 3)\,T/P\,\Big\}.
-\label{corollary:time-info:eq:one-trit}
-\end{equation}
+\paragraph{Falsification.}
+On a fixed patch \(A\) with measured \((J_A,P,T)\) and capacity target \(\varepsilon\),
+if a protocol achieves a one‑trit decision with \(\Delta t\) smaller than the bound in
+\eqref{corollary:time-info:eq:calib} by \(>5\%\) under the same budgets, then at least one premise
+(capacity estimate, boundary mapping, or rate accounting) is violated on that window.
 
-\paragraph{Erasures/unknowns (resolved content).}
-If a fraction \(\varepsilon_{\bot}\in[0,1)\) of observed symbols on the same window are erasures \((\bot)\),
-the resolved‑content bounds follow from the substitutions
-\begin{equation}
-\overline{J}_{A}\ \mapsto\ (1-\varepsilon_{\bot})\,\overline{J}_{A},
-\qquad
-C_{\rm chan}^{(\cdot)}\ \mapsto\ (1-\varepsilon_{\bot})\,C_{\rm chan}^{(\cdot)},
-\label{corollary:time-info:eq:erasure-subst}
-\end{equation}
-applied to \eqref{corollary:time-info:eq:rate-nats}–\eqref{corollary:time-info:eq:time-trits}.
-
-\paragraph{Capacity as a functional.}
-The \(\varepsilon\)‑reliable capacity (trits/time) is an abstract functional of controls, noise, and budgets,
-\[
-C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)
-\;=\;
-\mathcal C\big[R^{(a)};\,\mathcal N,\,\mathcal B;\,\varepsilon\big],
-\]
-where \(R^{(a)}\) are boundary/control parameters, \(\mathcal N\) a noise kernel, and
-\(\mathcal B\) resource budgets (e.g., \(P,T,A,\Delta t\)).
+\medskip
+\noindent\emph{Provenance.}
+\eqref{corollary:time-info:eq:JA}, \eqref{corollary:time-info:eq:primary},
+\eqref{corollary:time-info:eq:special}, \eqref{corollary:time-info:eq:calib};
+boundary identification/heat mapping stated in \ref{axioms:boundary-heat};
+directional split in \ref{axioms:directional-split}.
 
 \medskip
 \noindent\emph{Literature note.}
-Reliable communication and capacity: Shannon~\cite{Shannon1948}, Gallager~\cite{Gallager1968}.
-Erasure cost and reversibility: Landauer~\cite{Landauer1961}, Bennett~\cite{Bennett2003}.
+Shannon~\cite{Shannon1948}; Gallager~\cite{Gallager1968};
+Landauer~\cite{Landauer1961}; Bennett~\cite{Bennett2003}.

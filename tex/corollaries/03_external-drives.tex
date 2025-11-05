@@ -7,7 +7,7 @@
 
 \paragraph{Setup.}
 A narrow tube \(\mathcal T\) connects an inlet cross–section \(\Sigma_{\rm in}\) to an outlet \(\Sigma_{\rm out}\).
-The directed inlet/outlet fluxes (using \S\ref{axioms:directional-split}) are
+The directed inlet/outlet fluxes (directional split) are
 \[
 \Phi_{\rm in}(t):=\int_{\Sigma_{\rm in}}(\mathbf j\!\cdot \mathbf n)_-\,\mathrm dA,
 \qquad
@@ -94,6 +94,16 @@ With the Linear Channel Closure \eqref{axioms:linear-closure:eq} and the one–d
 Y(s,t)=\frac{c_{\rm sec}}{\kappa}\,\langle j_n\rangle(s,t).
 \]
 
+\paragraph{Falsification.}
+With known \(\{v(s),\mu(s)\}\) and measured inlet/outlet histories, any systematic failure of
+\eqref{corollary:external-drives:eq:delay} (transparent) or \eqref{corollary:external-drives:eq:attenuated-delay} (attenuating) beyond
+experimental tolerance falsifies the advective transport premise \eqref{corollary:external-drives:eq:transport} on the declared window.
+
 \medskip
+\noindent\emph{Provenance.}
+\eqref{axioms:stokes:identity:eq:cut}, \eqref{axioms:stokes:identity:eq:integral}, \eqref{axioms:linear-closure:eq},
+\eqref{corollary:external-drives:eq:cut}–\eqref{corollary:external-drives:eq:composition}.
+\medskip
+
 \noindent\emph{Literature note.}
 Advection–attenuation (first‑order transport, Beer–Lambert type) and characteristic methods: Evans~\cite{Evans2010}.

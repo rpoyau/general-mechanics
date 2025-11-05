@@ -1,17 +1,16 @@
 % ======================================================================
-% corollaries/09_least-action.tex — Least‑action equivalence
+% corollaries/09_least-action.tex — Least‑action equivalence (AF‑Pure)
 % ======================================================================
 
 \subsection{Least‑action equivalence}
 \label{corollary:least-action}
 
 \paragraph{Setup.}
-On configuration–time space \((q,t)\) as in \S\ref{axioms:path-rate}, the canonical rate equations
-\eqref{axioms:path-rate:eq:canonical} hold. Legendre regularity is assumed on the sector of interest
-(strict convexity in \(P\)).
+On \((q,t)\) as in \S\ref{axioms:path-rate}, the canonical rate equations \eqref{axioms:path-rate:eq:canonical} hold.
+Legendre regularity (strict convexity in \(P\)) is assumed on the sector.
 
-\paragraph{Legendre pair and rate functional.}
-The rate functional \(\mathcal R\) is defined by the Legendre transform in \(P\):
+\paragraph{Derivation.}
+Define the Legendre pair
 \begin{equation}
 \mathcal R(q,\dot q,t)
 \;:=\;
@@ -20,56 +19,37 @@ The rate functional \(\mathcal R\) is defined by the Legendre transform in \(P\)
 H(q,P,t)=\sup_{\dot q}\,\big(P_i\dot q^i-\mathcal R(q,\dot q,t)\big).
 \label{corollary:least-action:eq:Legendre}
 \end{equation}
-At the stationary pair,
+Using the Poincaré–Cartan form \(\Theta_{\mathcal R}=P_i\,dq^i- H\,dt\) (\S\ref{axioms:path-rate}),
+closure on rectangular \(\Sigma\) implies \(\int_{\partial\Sigma}\Theta_{\mathcal R}=0\).
+Hence the variation of
 \begin{equation}
-\dot q^i=\partial_{P_i}H,
-\qquad
-P_i=\frac{\partial \mathcal R}{\partial \dot q^i}.
-\label{corollary:least-action:eq:R-def}
-\end{equation}
-Using the Poincaré–Cartan form \(\Theta_{\mathcal R}\) from \eqref{axioms:path-rate:eq:pc-form}, \(\Theta_{\mathcal R}\) on solutions becomes
-\begin{equation}
-\Theta_{\mathcal R}
-\;=\;
-\big(P_i\dot q^i-H\big)\,dt
-\;=\;
-\mathcal R(q,\dot q,t)\,dt .
-\label{corollary:least-action:eq:theta-as-Rdt}
-\end{equation}
-
-\paragraph{Boundary closure implies stationarity.}
-Evaluating Stokes on a rectangular \(2\)-surface \(\Sigma\) spanned by two nearby curves between \(t_0\) and \(t_1\)
-(as in \S\ref{axioms:path-rate}) yields \(\int_{\partial\Sigma}\Theta_{\mathcal R}=0\).
-With \eqref{corollary:least-action:eq:theta-as-Rdt}, the boundary integral is the first variation of
-\begin{equation}
-\mathcal S[q]\;:=\;\int_{t_0}^{t_1}\!\mathcal R\big(q,\dot q,t\big)\,dt ,
+\mathcal S[q]\;:=\;\int_{t_0}^{t_1}\!\mathcal R\big(q,\dot q,t\big)\,dt
 \label{corollary:least-action:eq:action}
 \end{equation}
-hence
-\begin{equation}
-\delta\mathcal S[q]\;=\;0 \quad \text{for fixed endpoints } q(t_0),\,q(t_1).
-\label{corollary:least-action:eq:deltaS0}
-\end{equation}
-
-\paragraph{Euler–Lagrange \(\Leftrightarrow\) canonical rates.}
-Stationarity of \eqref{corollary:least-action:eq:action} gives
+vanishes for fixed endpoints, \(\delta\mathcal S[q]=0\).
+Therefore the Euler–Lagrange equations
 \begin{equation}
 \frac{d}{dt}\Big(\frac{\partial \mathcal R}{\partial \dot q^i}\Big)
 \;-\;
 \frac{\partial \mathcal R}{\partial q^i}
-\;=\;0 .
-\label{corollary:least-action:eq:EL}
+\;=\;0
+\label{corollary:least-action:eq:primary}
 \end{equation}
-With \(P_i=\partial_{\dot q^i}\mathcal R\) and \(\mathcal R=P\!\cdot\dot q-H\), this yields
-\(\dot P_i=-\,\partial_{q^i}H\); together with \(\dot q^i=\partial_{P_i}H\) one recovers
-\eqref{axioms:path-rate:eq:canonical}. Thus the Euler–Lagrange equations and Hamilton’s equations are equivalent,
-with \(\Theta_{\mathcal R}\) given by \eqref{axioms:path-rate:eq:pc-form}.
+are equivalent to the canonical rates \eqref{axioms:path-rate:eq:canonical}.
 
-\paragraph{Constraints, nonconvexity, and dissipation.}
-If \(H\) is not strictly convex in \(P\), the Legendre transform is replaced by a convex dual or constraints
-are imposed with Lagrange multipliers; the equivalence holds on the constrained submanifold. Nonconservative or driven channels
-arise from explicit \(t\)-dependence or nonpotential terms in \(H(q,P,t)\), producing the corresponding
-Rayleigh‑type contributions.
+\paragraph{Specialization.}
+At the stationary pair,
+\(\dot q^i=\partial_{P_i}H\) and \(P_i=\partial_{\dot q^i}\mathcal R\); with \(\mathcal R=P\!\cdot\dot q-H\),
+one recovers \(\dot P_i=-\partial_{q^i}H\).
+
+\paragraph{Falsification.}
+On a short window with fixed endpoints, if \(\int_{\partial\Sigma}\Theta_{\mathcal R}\neq 0\) under the declared regularity and boundary conditions,
+the equivalence between \eqref{corollary:least-action:eq:primary} and \eqref{axioms:path-rate:eq:canonical} is violated for the modelling choice at hand.
+
+\medskip
+\noindent\emph{Provenance.}
+\eqref{axioms:path-rate:eq:pc-form}, \eqref{axioms:path-rate:eq:canonical},
+\eqref{corollary:least-action:eq:Legendre}–\eqref{corollary:least-action:eq:primary}.
 
 \medskip
 \noindent\emph{Literature note.}

@@ -6,12 +6,14 @@
 \label{axioms}
 
 \paragraph{Three pillars (thermodynamics, information–relational, Stokes).}
-(i) \emph{Thermodynamics as content.} The piston thought–experiment generalizes via Stokes.\\
-(ii) \emph{Information theory / relational.} Counting and priors are Shannon‑based over a \emph{ternary}
-alphabet (\emph{yes/no/unknown}); observables are relational.\\
-(iii) \emph{Geometric calculus (Stokes identity).} A single generalized Stokes identity \eqref{axioms:stokes:identity:eq}
-is applied on a chosen region and its time extension, with cap/side (\worldtube) decomposition
-(\S\ref{axioms:worldtube}). Frame boundary invariants use open subsets with \(\sigma|_W\equiv0\).
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{\emph{Thermodynamics as content.}} The piston thought–experiment generalizes via Stokes.
+    \item \textbf{\emph{Information theory / relational.}} Counting and priors are Shannon‑based over a \emph{ternary}
+alphabet (\emph{yes/no/unknown}); observables are relational.
+    \item \textbf{\emph{Geometric calculus (Stokes identity).}} A single generalized Stokes identity \eqref{axioms:stokes:identity:eq}
+      is applied on a chosen region and its time extension, with cap/side (\worldtube) decomposition
+      (\ref{axioms:worldtube}). Frame boundary invariants use open subsets with \(\sigma|_W\equiv0\).
+\end{enumerate}
 
 % ---------------------------- Glossary -------------------------------
 \subsection{Glossary of agnostic terms}
@@ -43,6 +45,97 @@ For any scalar \(a\), \(a_\pm:=\tfrac12(a\pm|a|)\); inward/outward boundary flux
 \label{axioms:boundary-heat}
 On boundaries, the information current is identified with the entropy current: \(j \equiv j_S\) (counts / area / time).
 The volume density is \(i \equiv s\) (nats / vol). With a boundary temperature field \(T\), the heat flux is \(q := T\,j_S\) (Kz).
+\begin{equation}
+j \equiv j_S,\qquad i \equiv s,\qquad q := T\,j_S .
+\label{axioms:boundary-heat:eq}
+\end{equation}
+
+\paragraph{Heat on a \window (total).}
+On a boundary patch \(A\) over \([t_0,t_1]\), the total heat is defined by
+\begin{equation}
+Q_A\!\left([t_0,t_1]\right)
+\;=\;
+\int_{t_0}^{t_1}\!\!\int_A T\,\mathbf j_S\!\cdot\!\mathbf n\,\mathrm dA\,\mathrm dt.
+\label{axioms:continuity:eq:total-heat}
+\end{equation}
+
+\paragraph{Heat on a \frame (flux density).}
+In frame form,
+\begin{equation}
+\mathbf q \;=\; T\,\mathbf j_S .
+\label{axioms:continuity:eq:heat-flux}
+\end{equation}
+
+% ---------------------------- Symbols (anchored) ----------------------
+\subsection*{List of Symbols (anchored)}
+\label{axioms:symbols}
+\addcontentsline{toc}{subsection}{List of Symbols (anchored)}
+\begin{description}[labelwidth=2.8em,leftmargin=3.2em,itemsep=0.25em,font=\bfseries]
+
+\item[\hypertarget{symbols:j}{\(j\)}]
+Informational/entropic current (1‑form); \eqref{axioms:stokes:identity:eq}; boundary mapping: \eqref{axioms:boundary-heat:eq}.
+
+\item[\hypertarget{symbols:jS}{\(j_S\)}]
+Entropy current on boundaries; \(j\equiv j_S\) by \eqref{axioms:boundary-heat:eq}.
+
+\item[\hypertarget{symbols:q}{\(q\)}]
+Heat‑flux density \(q=T\,j_S\); mapping: \eqref{axioms:boundary-heat:eq}. Frame form: \eqref{axioms:continuity:eq:heat-flux}.
+
+\item[\hypertarget{symbols:i}{\(i\)}]
+Informational/entropic density (nats/vol). Local law: \eqref{axioms:stokes:identity:eq:local-continuity}.
+
+\item[{\hypertarget{symbols:Sigma}{\(\Sigma\)}, \hypertarget{symbols:sigma}{\(\sigma\)}}]
+Production \(n\)-form \(\Sigma=\sigma\,\mathrm{vol}\) and density \(\sigma\). Identity: \eqref{axioms:stokes:identity:eq}.
+
+\item[\hypertarget{symbols:Jmu}{\(J^\mu\)}]
+Coordinate current; \(\partial_\mu J^\mu=\sigma\). Identity: \eqref{axioms:stokes:identity:eq}.
+
+\item[\hypertarget{symbols:PhiInOut}{\(\Phi_{\mathrm{in/out}}\)}]
+Directed boundary fluxes (directional split). Cut form: \eqref{axioms:stokes:identity:eq:cut}.
+
+\item[\hypertarget{symbols:Ienc}{\(I_{\mathrm{enc}}\)}]
+Enclosed information. Cut form: \eqref{axioms:stokes:identity:eq:cut}.
+
+\item[\hypertarget{symbols:Phi}{\(\Phi\)}]
+Tube/sector flux through a screen. Definition: \eqref{corollary:info-gas:eq:flux-const}.
+
+\item[\hypertarget{symbols:EI}{\(\mathbf E_I\)}]
+Informational field amplitude; closure: \eqref{axioms:linear-closure:eq}.
+
+\item[\hypertarget{symbols:PhiI}{\(\Phi_I\)}]
+Informational potential; \(\mathbf E_I=-\nabla\Phi_I\) in \eqref{axioms:linear-closure:eq}.
+
+\item[\hypertarget{symbols:kappa}{\(\kappa\)}]
+Linear‑channel coefficient; \(\mathbf j=-\kappa\,\mathbf E_I\) in \eqref{axioms:linear-closure:eq}.
+
+\item[\hypertarget{symbols:T}{\(T\)}]
+Boundary temperature (Kz). Maps \(j_S\!\mapsto\!q\) via \eqref{axioms:boundary-heat:eq}.
+
+\item[\hypertarget{symbols:mu}{\(\mu\)}]
+Attenuation/removal rate along a tube; transport: \eqref{corollary:external-drives:eq:transport}.
+
+\item[\hypertarget{symbols:An}{\(A_n(r)\)}]
+\(n\)-dimensional boundary area; frame scalings: \eqref{corollary:frame-boundary:eq:boundary-law}. Sector: \(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\).
+
+\item[\hypertarget{symbols:Aperp}{\(A_\perp\)}]
+Effective cross‑section (guides/tubes); constant along an effective 1D segment.
+
+\item[\hypertarget{symbols:theta}{\(\theta\)}]
+Expansion of a tube congruence (geometry tool).
+
+\item[\hypertarget{symbols:JA}{\(J_A\)}]
+Inward boundary count rate on patch \(A\) (window). See \eqref{corollary:time-info:eq:JA}.
+
+\item[\hypertarget{symbols:Nalpha}{\(N,\ \alpha\)}]
+Addressable trits and areal density \(N(r)=\alpha\,A_n(r)\) (capacity ceiling context).
+
+\item[\hypertarget{symbols:Emax}{\(E_{\max}\)}]
+Ceiling field; \eqref{corollary:entropic-corrections:eq:emax}.
+
+\item[\hypertarget{symbols:QA}{\(Q_A\)}]
+Total heat through patch \(A\) on a window; \eqref{axioms:continuity:eq:total-heat}.
+
+\end{description}
 
 % ---------------------------- Relational -------------------------------
 \subsection{Relational}
@@ -96,7 +189,7 @@ The local coordinate form is
 \label{axioms:stokes:identity:eq:local-continuity}
 \end{equation}
 
-% ----------------------------- Constitutive closures (manifold properties) -------------------
+% ----------------------------- Constitutive closures -------------------
 \subsubsection{Constitutive closures (manifold properties)}
 \label{axioms:closures}
 

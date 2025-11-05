@@ -1,32 +1,29 @@
 % ======================================================================
-% corollaries/08_thermo-newton.tex — Thermodynamics → Newtonian rate laws
+% corollaries/08_thermo-newton.tex — Thermodynamics → Newtonian rate laws (AF‑Pure)
 % ======================================================================
 
 \subsection{Thermodynamics to Newtonian rate laws (constant‑free)}
 \label{corollary:thermo-newton}
 
 \paragraph{Setup.}
-On configuration–time space \((q,t)\) (\S\ref{axioms:path-rate}), a Hamiltonian with quadratic kinetic term and external potential is adopted:
+On configuration–time space \((q,t)\) (\S\ref{axioms:path-rate}),
+adopt a quadratic kinetic term and an external potential:
 \begin{equation}
-H(q,P,t)=\tfrac12\,P\!\cdot M^{-1}P \;+\; U(q,t),
-\qquad M>0 .
+H(q,P,t)=\tfrac12\,P\!\cdot M^{-1}P \;+\; U(q,t),\qquad M>0 .
 \label{corollary:thermo-newton:eq:kinetic}
 \end{equation}
 
-\paragraph{Newtonian update.}
-From the canonical rate equations \eqref{axioms:path-rate:eq:canonical} applied to \eqref{corollary:thermo-newton:eq:kinetic},
-\[
-\dot q = M^{-1}P,\qquad \dot P = -\,\partial_q U .
-\]
-With \(\mathbf p:=M\dot q\) and \(\mathbf f:=-\,\partial_q U\), this gives
+\paragraph{Derivation.}
+From the canonical rate equations \eqref{axioms:path-rate:eq:canonical} applied to
+\eqref{corollary:thermo-newton:eq:kinetic}, \(\dot q=M^{-1}P\), \(\dot P=-\partial_q U\).
+With \(\mathbf p:=M\dot q\) and \(\mathbf f:=-\,\partial_q U\), one obtains the Newtonian rate law
 \begin{equation}
 \dot{\mathbf p} \;=\; \mathbf f.
-\label{corollary:thermo-newton:eq:newton}
+\label{corollary:thermo-newton:eq:primary}
 \end{equation}
-If \(M=M(q)\), additional geometric terms arise from \(\partial_q\!\bigl(P\!\cdot M^{-1}P/2\bigr)\).
 
-\paragraph{Work–power identity.}
-For \(K(P):=\tfrac12\,P\!\cdot M^{-1}P=\tfrac12\,\dot q\!\cdot M\dot q\),
+\paragraph{Specialization.}
+Work–power identity for \(K(P):=\tfrac12\,P\!\cdot M^{-1}P=\tfrac12\,\dot q\!\cdot M\dot q\):
 \begin{equation}
 \frac{dK}{dt}
 = \dot q\!\cdot \dot P
@@ -35,21 +32,26 @@ For \(K(P):=\tfrac12\,P\!\cdot M^{-1}P=\tfrac12\,\dot q\!\cdot M\dot q\),
 \qquad \mathbf v:=\dot q .
 \label{corollary:thermo-newton:eq:power}
 \end{equation}
-If \(U=U(q,t)\) has explicit time dependence, \(\dot H=\partial_t U\) with \(H:=K+U\); otherwise \(\dot H=0\).
+If \(U\) is time‑independent, \(\dot H=0\) for \(H=K+U\).
 
-\paragraph{REOS reading.}
-With the Relational Equation of State \eqref{axioms:reos:eq}, a control field that induces a spatial price gradient produces a force \(\mathbf f=-\partial_q U\), matching \eqref{corollary:thermo-newton:eq:newton}. Non‑integrable cycles \(d\lambda\neq0\) entail nonnegative production \(\sigma\) as recorded by \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}.
+\paragraph{Calibration.}
+With the linear sector mapping (App.\ A), measured fields satisfy
+\begin{equation}
+\mathbf g=c_M\,\mathbf E_I,
+\qquad
+\mathbf E=c_Q\,\mathbf E_I .
+\label{corollary:thermo-newton:eq:calib}
+\end{equation}
 
-\paragraph{Variants.}
-\begin{itemize}\itemsep2pt
-\item \textbf{Anisotropic inertia.} For matrix \(M\), \(\mathbf p=M\dot q\) and \eqref{corollary:thermo-newton:eq:newton} hold; if \(M(q)\), Christoffel‑type terms appear in \(\dot{\mathbf p}\).
-\item \textbf{Dissipation.} A Rayleigh term \(\mathcal R(\dot q)\) modifies the second canonical equation to
-\(\dot P=-\partial_q U-\partial_{\dot q}\mathcal R\), introducing drag consistent with nonnegative production in \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}.
-\end{itemize}
+\paragraph{Falsification.}
+In a constant‑mass, time‑independent \(U\) regime, if measured \(\mathbf p(t)\) and \(\mathbf f(t)\) on the same window fail
+\(\dot{\mathbf p}=\mathbf f\) by more than the declared estimation bounds, either the Hamiltonian choice
+\eqref{corollary:thermo-newton:eq:kinetic} or the calibration \eqref{corollary:thermo-newton:eq:calib} is inconsistent with the axioms invoked.
 
-\paragraph{Calibration (sector readouts).}
-With the Linear Channel Closure \eqref{axioms:linear-closure:eq} and the one–datum sector calibration,
-measured sector fields satisfy \(\mathbf g=c_M\,\mathbf E_I\) and \(\mathbf E=c_Q\,\mathbf E_I\).
+\medskip
+\noindent\emph{Provenance.}
+\eqref{axioms:path-rate:eq:canonical}, \eqref{corollary:thermo-newton:eq:kinetic},
+\eqref{corollary:thermo-newton:eq:primary}, \eqref{corollary:thermo-newton:eq:power}, \eqref{corollary:thermo-newton:eq:calib}.
 
 \medskip
 \noindent\emph{Literature note.}
