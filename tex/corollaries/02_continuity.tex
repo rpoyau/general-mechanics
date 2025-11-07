@@ -14,24 +14,24 @@ On \([t_0,t_1]\),
 \begin{equation}
 Q_A\!\left([t_0,t_1]\right)
 \;=\;
-\int_{t_0}^{t_1}\!\!\int_A T\,\mathbf j_S\!\cdot\!\mathbf n\,\mathrm dA\,\mathrm dt,
+\int_{t_0}^{t_1}\!\!\int_A \Tz\,\mathbf j_S\!\cdot\!\mathbf n\,\mathrm dA\,\mathrm dt,
 \label{corollary:continuity:eq:total-heat}
 \end{equation}
 and the frame heat‑flux density is
 \begin{equation}
-\mathbf q \;=\; T\,\mathbf j_S .
+\mathbf q \;=\; \Tz\,\mathbf j_S .
 \label{corollary:continuity:eq:heat-flux}
 \end{equation}
 
 \paragraph{Derivation.}
 From the local continuity identity \eqref{axioms:stokes:identity:eq:local-continuity}
-and the boundary identification/heat mapping (by \eqref{axioms:boundary-heat}, \(j\equiv j_S\), \(q:=Tj_S\)),
+and the boundary identification/heat mapping (by \eqref{axioms:boundary-heat}, \(j\equiv j_S\), \(q:=\Tz\j_S\)),
 the Clausius local form follows.
 
 \paragraph{Clausius form (local).}
-With \(s=i\) and \(\mathbf j_S=\mathbf q/T\),
+With \(s=i\) and \(\mathbf j_S=\mathbf q/\Tz\),
 \begin{equation}
-\partial_t s \;+\; \nabla\!\cdot\!\left(\frac{\mathbf q}{T}\right) \;=\; \sigma \ \ge\ 0 .
+\partial_t s \;+\; \nabla\!\cdot\!\left(\frac{\mathbf q}{\Tz}\right) \;=\; \sigma \ \ge\ 0 .
 \label{corollary:continuity:eq:clausius-local}
 \end{equation}
 
@@ -40,27 +40,27 @@ From the cut identity \eqref{axioms:stokes:identity:eq:cut}, using the direction
 \begin{equation}
 \dot S_{\mathrm{enc}}
 \;=\;
-\int_{\partial V}\frac{\big(\mathbf q\!\cdot\!\mathbf n\big)_-}{T}\,\mathrm dA
+\int_{\partial V}\frac{\big(\mathbf q\!\cdot\!\mathbf n\big)_-}{\Tz}\,\mathrm dA
 \;-\;
-\int_{\partial V}\frac{\big(\mathbf q\!\cdot\!\mathbf n\big)_+}{T}\,\mathrm dA
+\int_{\partial V}\frac{\big(\mathbf q\!\cdot\!\mathbf n\big)_+}{\Tz}\,\mathrm dA
 \;+\;
 \Pi_{\mathrm th}
 \ \ \ge\ 0 ,
 \label{corollary:continuity:eq:clausius-cut}
 \end{equation}
-with \(\Pi_{\mathrm th}:=\int_V \sigma\,\mathrm d^n x\) (by \eqref{axioms:boundary-heat}, \(j\equiv j_S\), \(q:=Tj_S\)).
+with \(\Pi_{\mathrm th}:=\int_V \sigma\,\mathrm d^n x\) (by \eqref{axioms:boundary-heat}, \(j\equiv j_S\), \(q:=\Tz\j_S\)).
 
 \paragraph{Calibration to the informational field.}
 With the Linear Channel Closure \eqref{axioms:linear-closure:eq} and the one–datum sector calibration,
 \begin{equation}
 \mathbf j \;=\; -\,\kappa\,\mathbf E_I,
 \qquad
-\mathbf q \;=\; -\,T\,\kappa\,\mathbf E_I .
+\mathbf q \;=\; -\,\Tz\,\kappa\,\mathbf E_I .
 \label{corollary:continuity:eq:calibrated}
 \end{equation}
 
 \paragraph{Falsification.}
-On a closed boundary with measured \(\mathbf q,T\) and access to \(\dot S_{\mathrm{enc}}\),
+On a closed boundary with measured \(\mathbf q,\Tz\) and access to \(\dot S_{\mathrm{enc}}\),
 any reproducible violation of \eqref{corollary:continuity:eq:clausius-local} or a negative right–hand side in
 \eqref{corollary:continuity:eq:clausius-cut} beyond experimental uncertainty falsifies the premises (local identity
 \eqref{axioms:stokes:identity:eq:local-continuity} and/or the boundary mapping used).

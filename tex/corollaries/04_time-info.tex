@@ -21,12 +21,12 @@ Reliable channel capacities are denoted \(C_{\rm chan}^{(\mathrm{nats})}(\vareps
 
 \paragraph{Derivation.}
 By boundary identification and heat mapping (on boundaries \(j\equiv j_S\) and \(q:=T\,j_S\)),
-the erasure‑limited rate bound is \(P/T\) (nats/time). Combining this with the inward
+the erasure‑limited rate bound is \(\Pz/\Tz\) (nats/time). Combining this with the inward
 window rate \eqref{corollary:time-info:eq:JA} and any \(\varepsilon\)‑reliable channel capacity gives:
 \begin{equation}
 \frac{\Delta I_{\mathrm{nats}}}{\Delta t}
 \;\le\;
-\min\!\Big\{\,J_A,\ C_{\rm chan}^{(\mathrm{nats})}(\varepsilon),\ \tfrac{P}{T}\,\Big\}.
+\min\!\Big\{\,J_A,\ C_{\rm chan}^{(\mathrm{nats})}(\varepsilon),\ \tfrac{\Pz}{\Tz}\,\Big\}.
 \label{corollary:time-info:eq:primary}
 \end{equation}
 
@@ -35,7 +35,7 @@ Using the base‑3 to natural‑log conversion \(1~\mathrm{trit}=\ln 3~\mathrm{n
 \begin{equation}
 \frac{\Delta I_{\mathrm{trits}}}{\Delta t}
 \;\le\;
-\min\!\Big\{\,\tfrac{J_A}{\ln 3},\ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon),\ \tfrac{P}{T\,\ln 3}\,\Big\}.
+\min\!\Big\{\,\tfrac{J_A}{\ln 3},\ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon),\ \tfrac{\Pz}{\Tz\,\ln 3}\,\Big\}.
 \label{corollary:time-info:eq:special}
 \end{equation}
 
@@ -44,12 +44,12 @@ For one reliable trit \((\Delta I_{\mathrm{trits}}=1)\), the minimal window dura
 \begin{equation}
 \Delta t
 \;\ge\;
-\max\!\Big\{\,\big(J_A/\ln 3\big)^{-1},\ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)^{-1},\ (\ln 3)\,T/P\,\Big\}.
+\max\!\Big\{\,\big(J_A/\ln 3\big)^{-1},\ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)^{-1},\ (\ln 3)\,\Tz/\Pz\,\Big\}.
 \label{corollary:time-info:eq:calib}
 \end{equation}
 
 \paragraph{Falsification.}
-On a fixed patch \(A\) with measured \((J_A,P,T)\) and capacity target \(\varepsilon\),
+On a fixed patch \(A\) with measured \((J_A,\Pz,\Tz)\) and capacity target \(\varepsilon\),
 if a protocol achieves a one‑trit decision with \(\Delta t\) smaller than the bound in
 \eqref{corollary:time-info:eq:calib} by \(>5\%\) under the same budgets, then at least one premise
 (capacity estimate, boundary mapping, or rate accounting) is violated on that window.

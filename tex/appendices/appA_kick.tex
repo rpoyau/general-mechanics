@@ -8,10 +8,10 @@
 \paragraph{Scope.}
 Records the Kz unit convention (division by \(h\)), an optional Kram anchor ladder, one‑datum sector
 calibrations, and the capacity/erasure relations used in the body. This appendix is reference‑only;
-it introduces no new axioms and does not restate cap/side formulae.
+it introduces no new axioms and does not restate cap/side formulas.
 
 \paragraph{Setup.}
-\textbf{Kz units.} For any SI quantity \(X\), define \(X_{\mathrm{Kz}}:=X/h\) using Planck’s constant \(h\) (not \(\hbar\)).\\
+\textbf{Kz units.} For any SI quantity \(X\), define \(X_{\Kz}:=X/h\) using Planck’s constant \(h\) (not \(\hbar\)).\\
 \textbf{Count base.} Information counts default to trits with \(S_{\mathrm{nats}}=(\ln 3)\,S_{\mathrm{trits}}\) and \(S_{\mathrm{bits}}=S_{\mathrm{nats}}/\ln 2\).\\
 \textbf{Screens/windows.} \(A_n(r)\) denotes a geometric \((n{-}1)\)-screen at scale \(r\). A measurement window has duration \(\Delta t\).\\
 \textbf{Local notation.} \(\Phi(r):=\int_{A_n(r)}(\mathbf j\!\cdot \mathbf n)\,\mathrm dA\) (tube flux through \(A_n(r)\));
@@ -22,33 +22,33 @@ it introduces no new axioms and does not restate cap/side formulae.
 
 % --- Kz mapping (units) ---
 \begin{equation}
-E_{\mathrm{Kz}}=\frac{E}{h},\qquad
-M_{\mathrm{Kz}}=\frac{mc^{2}}{h},\qquad
-T_{\mathrm{Kz}}=\frac{k_{B}T}{h},\qquad
-P_{\mathrm{Kz}}=\frac{P}{h},
+\Ez=\frac{E}{h},\qquad
+\Mz=\frac{mc^{2}}{h},\qquad
+\Tz=\frac{k_{B}T}{h},\qquad
+\Pz=\frac{P}{h},
 \label{app:kick:eq:kz-map}
 \end{equation}
-where \(E_{\mathrm{Kz}}\), \(M_{\mathrm{Kz}}\) (rest‑energy rate), and \(T_{\mathrm{Kz}}\) have units \(\mathrm s^{-1}\), and \(P_{\mathrm{Kz}}\) has units \(\mathrm s^{-2}\).
-Hence \(P_{\mathrm{Kz}}/T_{\mathrm{Kz}}\) has units \(\mathrm s^{-1}\).
+where \(\Ez\), \(\Mz\) (rest‑energy rate), and \(\Tz\) have units \(\mathrm s^{-1}\), and \(\Pz\) has units \(\mathrm s^{-2}\).
+Hence \(\Pz/\Tz\) has units \(\mathrm s^{-1}\).
 
 % --- Erasure term (time–information) ---
 \begin{equation}
-\frac{\Delta I_{\rm trits}}{\Delta t}\ \le\ \frac{P_{\mathrm{Kz}}}{T_{\mathrm{Kz}}\,\ln 3},
+\frac{\Delta I_{\rm trits}}{\Delta t}\ \le\ \frac{\Pz}{\Tz\,\ln 3},
 \label{app:kick:eq:erasure-rate}
 \end{equation}
-with equivalent forms \(\Delta I_{\rm nats}/\Delta t \le P_{\mathrm{Kz}}/T_{\mathrm{Kz}}\) and
-\(\Delta I_{\rm bits}/\Delta t \le P_{\mathrm{Kz}}/(T_{\mathrm{Kz}}\,\ln 2)\).
+with equivalent forms \(\Delta I_{\rm nats}/\Delta t \le \Pz/\Tz\) and
+\(\Delta I_{\rm bits}/\Delta t \le \Pz/(\Tz\,\ln 2)\).
 
 % --- Kram anchors (convenience ladder) ---
 \begin{equation}
-1\,k=10^{47}\,\mathrm{Kz},\qquad
-1\,kk=10^{50}\,\mathrm{Kz},\qquad
-1\,Mk=10^{53}\,\mathrm{Kz},\qquad
-1\,Gk=10^{56}\,\mathrm{Kz},\qquad
-1\,Tk=10^{59}\,\mathrm{Kz}.
+1\,k=10^{47}\,\Kz,\qquad
+1\,kk=10^{50}\,\Kz,\qquad
+1\,Mk=10^{53}\,\Kz,\qquad
+1\,Gk=10^{56}\,\Kz,\qquad
+1\,Tk=10^{59}\,\Kz.
 \label{app:kick:eq:kram}
 \end{equation}
-\noindent\emph{Note.} These anchors are convenience scales; they do not modify the Kz units \(X_{\mathrm{Kz}}=X/h\).
+\noindent\emph{Note.} These anchors are convenience scales; they do not modify the Kz units \(X_{\Kz}=X/h\).
 
 % --- One‑datum sector calibrations (linear readouts) ---
 \begin{equation}
@@ -84,11 +84,11 @@ Y(r)=c_{\rm sec}\,|\mathbf E_I(r)|
 \min\!\left\{
 \frac{A\,\overline{J}_{A}}{\ln 3},\quad
 C_{\rm chan}^{(\text{trits})}(\varepsilon),\quad
-\frac{P_{\mathrm{Kz}}}{T_{\mathrm{Kz}}\,\ln 3}
+\frac{\Pz}{\Tz\,\ln 3}
 \right\},
 \label{app:kick:eq:time-info}
 \end{equation}
-where \(C_{\rm chan}^{(\text{trits})}(\varepsilon)=\mathcal C\!\left[R^{(a)};\,\mathcal N,\,\mathcal B;\,\varepsilon\right]\) denotes a reliable channel capacity for boundary controls \(R^{(a)}\), noise kernel \(\mathcal N\), and budgets \(\mathcal B\) (including \(P_{\mathrm{Kz}}\), \(T_{\mathrm{Kz}}\), area \(A\), window duration \(\Delta t\)), at reliability \(\varepsilon\).
+where \(C_{\rm chan}^{(\text{trits})}(\varepsilon)=\mathcal C\!\left[R^{(a)};\,\mathcal N,\,\mathcal B;\,\varepsilon\right]\) denotes a reliable channel capacity for boundary controls \(R^{(a)}\), noise kernel \(\mathcal N\), and budgets \(\mathcal B\) (including \(\Pz\), \(\Tz\), area \(A\), window duration \(\Delta t\)), at reliability \(\varepsilon\).
 
 \paragraph{Specializations (optional).}
 \begin{equation}
