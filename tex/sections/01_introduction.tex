@@ -7,10 +7,43 @@
 
 \subsection{Aim and stance}
 \label{introduction:aim-stance}
-The Relational Equation of State (REOS) treats observed mechanics as relational statements extracted from a single geometric identity on an informational manifold: the generalized Stokes/continuity statement \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:local-continuity}. An observer specifies a region \(U\subset M\) with boundary \(\partial U\); quantities are read from boundaries.
+This work takes \emph{General Mechanics} to mean: familiar mechanics appear as \emph{relational motifs}
+read from a single geometric identity (the generalized Stokes identity) on a chosen \emph{informational} manifold.
+Relations are primary; observables are relational motifs. An observer specifies a region \(U\subset M\) with
+boundary \(\partial U\); motifs are read from the boundary.
+
+
+\subsection{Units and calibration}
+Kz units are used (App.~\ref{app:kick}) so energies and powers are rates. The abstract informational field is mapped
+to measured sectors (gravitational, electric, thermal) by a \emph{one‑datum} linear calibration;
+no bare constants are carried through the algebra.
+
+
+\subsection{How to use the framework (recipe)}
+\begin{enumerate}\itemsep2pt
+  \item Declare \(U\subset M\) and \(\partial U\) (boundary or sector).
+  \item Write the Stokes identity \(d(*j)=\sigma\,\mathrm{vol}\) and, when needed, the \emph{cut identity} on \(U\)
+        \(\big(\)\eqref{axioms:stokes:identity:eq:local-continuity}, \eqref{axioms:stokes:identity:eq:cut}\(\big)\).
+  \item Choose a closure suited to the regime: \textbf{frame} \(\eqref{axioms:linear-closure:eq}\) for frame problems
+        (\S\ref{corollary:info-gas}–\S\ref{corollary:frame-boundary}); or a \textbf{wave‑supporting} closure for export on
+        source‑free segments (see \S\ref{waves}). If the window is LTI and causal, the Causality–Dispersion comparison may be
+        used locally (\S\ref{waves:causality-dispersion}).
+  \item Count distinctions on \(\partial U\) in a ternary alphabet (\emph{yes/no/unknown}) using information‑theoretic
+        bookkeeping, and relate them to \(j\).
+  \item If comparison with a measured sector is required, fix a single datum to calibrate (App.~\ref{app:kick}).
+  \item Read \textbf{frame laws} from the inverse‑area rule (\(\propto 1/A\); \S\ref{corollary:info-gas}, \S\ref{corollary:frame-boundary});
+        for wave export and far‑field envelopes, follow \S\ref{waves}.
+  \item Apply operational limits: time–information complementarity \S\ref{corollary:time-info} and the counting‑noise floor
+        (\S\ref{corollary:noise}) for finite windows/areas.
+\end{enumerate}
+
+\subsection{Scope and reductions}
+Dimensional reductions (1D/2D confinement) are handled by replacing \(A_n(r)\) with an effective
+cross‑section/circumference; the resulting \textbf{frame} and wave summaries appear in \S\ref{corollary:dimensional}.
+Detailed wave envelopes and exported‑power statements are collected in \S\ref{waves}.
 
 \medskip
 \noindent\emph{Literature note.}
-Frankel~\cite{Frankel2011}; Jackson~\cite{Jackson1999}; Landau--Lifshitz--Pitaevskii~\cite{LandauLifshitzEDCM1984};
-Shannon~\cite{Shannon1948}; Gallager~\cite{Gallager1968}; Landauer~\cite{Landauer1961}; Bennett~\cite{Bennett2003}.
-
+Differential forms/Stokes background: Frankel~\cite{Frankel2011}. Poynting/export in EM: Jackson~\cite{Jackson1999},
+Landau--Lifshitz--Pitaevskii~\cite{LandauLifshitzEDCM1984}. Information/capacity: Shannon~\cite{Shannon1948},
+Gallager~\cite{Gallager1968}. Erasure cost: Landauer~\cite{Landauer1961}, Bennett~\cite{Bennett2003}.

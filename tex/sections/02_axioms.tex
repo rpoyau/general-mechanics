@@ -8,145 +8,24 @@
 \paragraph{Three pillars (thermodynamics, information–relational, Stokes).}
 \begin{enumerate}[label=(\roman*)]
     \item \textbf{\emph{Thermodynamics as content.}} The piston thought–experiment generalizes via Stokes.
-    \item \textbf{\emph{Information theory / relational.}} Counting and priors are Shannon‑based over a \emph{ternary}
+    \item \textbf{\emph{Information theory / relational.}} Counting and priors are Shannon-based over a \emph{ternary}
 alphabet (\emph{yes/no/unknown}); observables are relational.
     \item \textbf{\emph{Geometric calculus (Stokes identity).}} A single generalized Stokes identity \eqref{axioms:stokes:identity:eq}
-      is applied on a chosen region and its time extension, with cap/side (\worldtube) decomposition
-      (\ref{axioms:worldtube}). Frame boundary invariants use open subsets with \(\sigma|_W\equiv0\).
+      is applied on a chosen region and its time extension, with cap/side (\worldtube) decomposition.
 \end{enumerate}
 
-% ---------------------------- Glossary -------------------------------
-\subsection{Glossary of agnostic terms}
-\label{axioms:glossary}
+% ---------------------------- Core Axioms ------------------------------
+\subsection{Core Axioms}
 
-\paragraph{Window (definition).}
-\label{axioms:window}
-A \emph{window} is a finite interval \([t_0,t_1]\) on the same region.
-
-\paragraph{Frame (definition).}
-\label{axioms:frame}
-A \emph{frame} is a time‑frozen spatial slice \(V_t:=U\cap\{t=\mathrm{const}\}\).
-The \frame form of any window statement is the limit \(\Delta t\!\to\!0\) evaluated on \(V_t\).
-
-\paragraph{Worldtube (cap/side; moving boundary).}
-\label{axioms:worldtube}
-The time‑extended boundary \(\partial(U\times[t_0,t_1])\) decomposes into a top cap, a bottom cap, and a side.
-For moving boundaries with normal speed \(v_n\), the side integrand is
-\[
-\mathbf j\!\cdot\!\mathbf n \;-\; i\,v_n .
-\]
-
-\paragraph{Directional split.}
-\label{axioms:directional-split}
-For any scalar \(a\), \(a_\pm:=\tfrac12(a\pm|a|)\); inward/outward boundary fluxes use
-\((\mathbf j\!\cdot\!\mathbf n)_-\) and \((\mathbf j\!\cdot\!\mathbf n)_+\).
-
-\paragraph{Boundary identification and heat mapping.}
-\label{axioms:boundary-heat}
-On boundaries, the information current is identified with the entropy current: \(j \equiv j_S\) (counts / area / time).
-The volume density is \(i \equiv s\) (nats / vol). With a boundary temperature field \(T\), the heat flux is \(q := T\,j_S\) (Kz).
-\begin{equation}
-j \equiv j_S,\qquad i \equiv s,\qquad q := T\,j_S .
-\label{axioms:boundary-heat:eq}
-\end{equation}
-
-\paragraph{Heat on a \window (total).}
-On a boundary patch \(A\) over \([t_0,t_1]\), the total heat is defined by
-\begin{equation}
-Q_A\!\left([t_0,t_1]\right)
-\;=\;
-\int_{t_0}^{t_1}\!\!\int_A T\,\mathbf j_S\!\cdot\!\mathbf n\,\mathrm dA\,\mathrm dt.
-\label{axioms:continuity:eq:total-heat}
-\end{equation}
-
-\paragraph{Heat on a \frame (flux density).}
-In frame form,
-\begin{equation}
-\mathbf q \;=\; T\,\mathbf j_S .
-\label{axioms:continuity:eq:heat-flux}
-\end{equation}
-
-% ---------------------------- Symbols (anchored) ----------------------
-\subsection*{List of Symbols (anchored)}
-\label{axioms:symbols}
-\addcontentsline{toc}{subsection}{List of Symbols (anchored)}
-\begin{description}[labelwidth=2.8em,leftmargin=3.2em,itemsep=0.25em,font=\bfseries]
-
-\item[\hypertarget{symbols:j}{\(j\)}]
-Informational/entropic current (1‑form); \eqref{axioms:stokes:identity:eq}; boundary mapping: \eqref{axioms:boundary-heat:eq}.
-
-\item[\hypertarget{symbols:jS}{\(j_S\)}]
-Entropy current on boundaries; \(j\equiv j_S\) by \eqref{axioms:boundary-heat:eq}.
-
-\item[\hypertarget{symbols:q}{\(q\)}]
-Heat‑flux density \(q=T\,j_S\); mapping: \eqref{axioms:boundary-heat:eq}. Frame form: \eqref{axioms:continuity:eq:heat-flux}.
-
-\item[\hypertarget{symbols:i}{\(i\)}]
-Informational/entropic density (nats/vol). Local law: \eqref{axioms:stokes:identity:eq:local-continuity}.
-
-\item[{\hypertarget{symbols:Sigma}{\(\Sigma\)}, \hypertarget{symbols:sigma}{\(\sigma\)}}]
-Production \(n\)-form \(\Sigma=\sigma\,\mathrm{vol}\) and density \(\sigma\). Identity: \eqref{axioms:stokes:identity:eq}.
-
-\item[\hypertarget{symbols:Jmu}{\(J^\mu\)}]
-Coordinate current; \(\partial_\mu J^\mu=\sigma\). Identity: \eqref{axioms:stokes:identity:eq}.
-
-\item[\hypertarget{symbols:PhiInOut}{\(\Phi_{\mathrm{in/out}}\)}]
-Directed boundary fluxes (directional split). Cut form: \eqref{axioms:stokes:identity:eq:cut}.
-
-\item[\hypertarget{symbols:Ienc}{\(I_{\mathrm{enc}}\)}]
-Enclosed information. Cut form: \eqref{axioms:stokes:identity:eq:cut}.
-
-\item[\hypertarget{symbols:Phi}{\(\Phi\)}]
-Tube/sector flux through a screen. Definition: \eqref{corollary:info-gas:eq:flux-const}.
-
-\item[\hypertarget{symbols:EI}{\(\mathbf E_I\)}]
-Informational field amplitude; closure: \eqref{axioms:linear-closure:eq}.
-
-\item[\hypertarget{symbols:PhiI}{\(\Phi_I\)}]
-Informational potential; \(\mathbf E_I=-\nabla\Phi_I\) in \eqref{axioms:linear-closure:eq}.
-
-\item[\hypertarget{symbols:kappa}{\(\kappa\)}]
-Linear‑channel coefficient; \(\mathbf j=-\kappa\,\mathbf E_I\) in \eqref{axioms:linear-closure:eq}.
-
-\item[\hypertarget{symbols:T}{\(T\)}]
-Boundary temperature (Kz). Maps \(j_S\!\mapsto\!q\) via \eqref{axioms:boundary-heat:eq}.
-
-\item[\hypertarget{symbols:mu}{\(\mu\)}]
-Attenuation/removal rate along a tube; transport: \eqref{corollary:external-drives:eq:transport}.
-
-\item[\hypertarget{symbols:An}{\(A_n(r)\)}]
-\(n\)-dimensional boundary area; frame scalings: \eqref{corollary:frame-boundary:eq:boundary-law}. Sector: \(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\).
-
-\item[\hypertarget{symbols:Aperp}{\(A_\perp\)}]
-Effective cross‑section (guides/tubes); constant along an effective 1D segment.
-
-\item[\hypertarget{symbols:theta}{\(\theta\)}]
-Expansion of a tube congruence (geometry tool).
-
-\item[\hypertarget{symbols:JA}{\(J_A\)}]
-Inward boundary count rate on patch \(A\) (window). See \eqref{corollary:time-info:eq:JA}.
-
-\item[\hypertarget{symbols:Nalpha}{\(N,\ \alpha\)}]
-Addressable trits and areal density \(N(r)=\alpha\,A_n(r)\) (capacity ceiling context).
-
-\item[\hypertarget{symbols:Emax}{\(E_{\max}\)}]
-Ceiling field; \eqref{corollary:entropic-corrections:eq:emax}.
-
-\item[\hypertarget{symbols:QA}{\(Q_A\)}]
-Total heat through patch \(A\) on a window; \eqref{axioms:continuity:eq:total-heat}.
-
-\end{description}
-
-% ---------------------------- Relational -------------------------------
-\subsection{Relational}
+\subsubsection{Relational}
 \label{axioms:relational}
 
-\subsubsection{Relational primacy}
+\paragraph{Relational primacy.}
 \label{axioms:relational:primacy}
 Relations are the primitives; observables are relational. A model specifies a region \(U\subset M\) and its boundary
 \(\partial U\).
 
-\subsubsection{Counting \& priors (trits/nats)}
+\paragraph{Counting \& priors (trits/nats).}
 \label{axioms:relational:counting}
 A configuration determined by \(n\) ternary distinctions has \(W=3^{\,n}\) microstates. With a prior \(p(x)\) on an
 alphabet \(\mathcal A\) of size \(3\), the uncertainty is the Shannon entropy
@@ -155,86 +34,61 @@ alphabet \(\mathcal A\) of size \(3\), the uncertainty is the Shannon entropy
 H_{\text{trits}}=\frac{H_{\text{nats}}}{\ln 3}.
 \]
 
-% ---------------------------- Mechanical Axioms -----------------------
-\subsection{Mechanical Axioms}
-\label{axioms:stokes}
-
-\subsubsection{Identity (continuity)}
+\subsubsection{Identity (Stokes postulate)}
 \label{axioms:stokes:identity}
-The informational/entropic flux \(1\)-form \(j\) (with Hodge‑dual \(j^{(n)}\))
-and production \(\Sigma:=\sigma\,\mathrm{vol}\) satisfy
+The informational/entropic flux \(1\)-form \(j\) (with Hodge-dual \(j^{(n)}\))
+and production \(\Sigma:=\sigma\,\mathrm{vol}\) satisfy the postulate
 \begin{equation}
 d\,j^{(n)}=\Sigma
 \quad\Longleftrightarrow\quad
 \partial_\mu J^\mu=\sigma .
 \label{axioms:stokes:identity:eq}
 \end{equation}
-The integral form is
+
+\paragraph{Boundary identification and heat mapping.}
+\label{axioms:boundary-heat}
+On boundaries, identify the information current with the entropy current \(j\equiv j_S\) (counts/area/time),
+and the volume density \(i\equiv s\) (nats/vol). With a boundary temperature field \(T\), the heat flux is \(q:=T\,j_S\):
+\begin{equation}
+j \equiv j_S,\qquad i \equiv s,\qquad q := T\,j_S .
+\label{axioms:boundary-heat:eq}
+\end{equation}
+
+% ------------------------ Key Consequences of the Axioms ---------------
+\subsection{Key Consequences of the Axioms}
+
+\subsubsection{Continuity forms (derived)}
+From \eqref{axioms:stokes:identity:eq} on \(U\times[t_0,t_1]\),
 \begin{equation}
 \int_{\partial(U\times[t_0,t_1])}\! j^{(n)}
 \;=\;
 \int_{U\times[t_0,t_1]}\! \Sigma .
 \label{axioms:stokes:identity:eq:integral}
 \end{equation}
-On a fixed \(U\), the \emph{cut identity} is
+On a fixed \(U\), the cut identity is
 \begin{equation}
 \dot I_{\mathrm{enc}}(t)=\Phi_{\mathrm{in}}(t)-\Phi_{\mathrm{out}}(t)+\Pi(t),
 \label{axioms:stokes:identity:eq:cut}
 \end{equation}
 where \(I_{\mathrm{enc}}\), \(\Phi_{\mathrm{in/out}}\), and \(\Pi\) denote the volume/boundary integrals of
 \(i\), \((\mathbf j\!\cdot\!\mathbf n)_{\mp}\), and \(\sigma\).
-The local coordinate form is
+In local coordinates,
 \begin{equation}
 \partial_t i(x,t)+\nabla\!\cdot \mathbf j(x,t)=\sigma(x,t).
 \label{axioms:stokes:identity:eq:local-continuity}
 \end{equation}
 
-% ----------------------------- Constitutive closures -------------------
-\subsubsection{Constitutive closures (manifold properties)}
-\label{axioms:closures}
-
-\paragraph{Linear channel closure.}
-\label{axioms:linear-closure}
-In linear, isotropic, near‑equilibrium regimes,
-\begin{equation}
-\mathbf E_I:=-\,\nabla\Phi_I,
-\qquad
-\mathbf j=-\,\kappa\,\mathbf E_I .
-\label{axioms:linear-closure:eq}
-\end{equation}
-
-\paragraph{Wave‑supporting closure.}
-\label{axioms:waves:closure}
-On a window \([t_0,t_1]\), fields \((U,V)\) with a linear, causal constitutive map
-\begin{equation}
-V=\chi:U,
-\label{axioms:waves:eq:chi}
-\end{equation}
-have stored energy
-\begin{equation}
-u \;:=\; \tfrac12\,U{:}V ,
-\label{axioms:waves:eq:energy}
-\end{equation}
-and a spatial flux \(\mathbf S\) satisfying
-\begin{equation}
-\partial_t u \;+\; \nabla\!\cdot\mathbf S \;=\; -\,\Pi,
-\qquad \Pi\ge 0.
-\label{axioms:waves:eq:balance}
-\end{equation}
-
-% ------------------------------- REOS ----------------------------------
 \subsubsection{Relational Equation of State (REOS)}
 \label{axioms:reos}
 For admissible boundary/control variations \(R^{(a)}\) and calibrated rate density \(\rho=\rho(R)\),
-the price one‑form \(\lambda:=\lambda_a\,dR^{(a)}\) (with \(\lambda_a:=-\,\partial\rho/\partial R^{(a)}\)) satisfies
+the price one-form \(\lambda:=\lambda_a\,dR^{(a)}\) (with \(\lambda_a:=-\,\partial\rho/\partial R^{(a)}\)) satisfies
 \begin{equation}
 d\rho \;=\; -\,\lambda_a\,dR^{(a)} .
 \label{axioms:reos:eq}
 \end{equation}
-If \(d\lambda=0\), \(\rho\) is path‑independent. If \(d\lambda\neq 0\), cyclic variations entail nonnegative production \(\sigma\)
+If \(d\lambda=0\), \(\rho\) is path-independent. If \(d\lambda\neq 0\), cyclic variations entail nonnegative production \(\sigma\)
 in \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}.
 
-% ------------------------ Canonical rates on (q,t) ---------------------
 \subsubsection{Canonical rates from Stokes on \((q,t)\)}
 \label{axioms:path-rate}
 For a rate (Poincaré–Cartan) \(1\)-form on configuration–time space
@@ -252,4 +106,37 @@ which is equivalent to
 \qquad
 \dot P_i=-\,\partial_{q^i}H .
 \label{axioms:path-rate:eq:canonical}
+\end{equation}
+
+% ----------------------------- Constitutive Models ---------------------
+\subsection{Constitutive Models}
+\label{axioms:closures}
+
+\paragraph{Linear channel closure.}
+\label{axioms:linear-closure}
+In linear, isotropic, near-equilibrium regimes,
+\begin{equation}
+\mathbf E_I:=-\,\nabla\Phi_I,
+\qquad
+\mathbf j=-\,\kappa\,\mathbf E_I .
+\label{axioms:linear-closure:eq}
+\end{equation}
+
+\paragraph{Wave-supporting closure.}
+\label{axioms:waves:closure}
+On a window \([t_0,t_1]\), fields \((U,V)\) with a linear, causal constitutive map
+\begin{equation}
+V=\chi:U,
+\label{axioms:waves:eq:chi}
+\end{equation}
+have stored energy
+\begin{equation}
+u \;:=\; \tfrac12\,U{:}V ,
+\label{axioms:waves:eq:energy}
+\end{equation}
+and a spatial flux \(\mathbf S\) satisfying
+\begin{equation}
+\partial_t u \;+\; \nabla\!\cdot\mathbf S \;=\; -\,\Pi,
+\qquad \Pi\ge 0.
+\label{axioms:waves:eq:balance}
 \end{equation}

@@ -10,7 +10,7 @@
 Integrating the local balance \eqref{axioms:waves:eq:balance} on a source‑free, lossless
 subregion \(W\) and applying Stokes on its spatial boundary \(\Sigma(r)\) yields radius‑independent export
 \begin{equation}
-P(r):=\int_{\Sigma(r)}\!\langle \mathbf S\rangle\!\cdot \mathbf n\,\mathrm dA \;=\; \text{const in } r,
+P(r):=\int_{\Sigma(r)}\!\langle \mathbf S\rangle\!\cdot \mathbf n\,\mathrm dA \;=\; \text{const.\ in } r,
 \label{waves:eq:const-power}
 \end{equation}
 and therefore the far‑field envelope scales as
@@ -30,7 +30,6 @@ For confined propagation, replace \(A(r)\) by the effective cross‑section \(A_
 \big\langle |U| \big\rangle \;\propto\; [A_\perp]^{-1/2}.
 \label{waves:eq:confinement}
 \end{equation}
-
 
 \subsection{Eikonal limit, Fermat principle, and tube transport}
 \label{waves:eikonal}
@@ -103,15 +102,37 @@ Raychaudhuri‑type identity
 \end{equation}
 where \(\varsigma\) denotes the shear magnitude and \(\mathcal R_{\rm eff}[n(u)]\) collects the transverse curvature induced by
 gradients of \(\ln n(u)\) along the congruence (vanishes for uniform \(n\)).
-No gravitational postulate is invoked: \eqref{waves:nonlinear:eq:raychaudhuri-analogue} is the refractive focusing identity
+Equation~\eqref{waves:nonlinear:eq:raychaudhuri-analogue} is the refractive focusing identity
 induced by the feedback \(n\!\circ\!u\!\circ\!A_\perp\).
 
 \subsection{Causality–Dispersion (KK‑window corollary)}
 \label{waves:causality-dispersion}
-On a window that is linear, time‑invariant, and causal (retarded, stationary \(\chi(\omega)\) on that window),
-the measured dispersion on that window may be compared with the Kramers–Kronig Hilbert–pair relation.
+\paragraph{Hypotheses (declared on this window).}
+(H1) Linear, time‑invariant response on the window: \(V=\chi*U\). \;
+(H2) Causality: \(\chi(t)=0\) for \(t<0\) with \(\chi\in L^1(\mathbb{R})\). \;
+(H3) Regularity: \(\widehat\chi(\omega)\) exists and is bounded. \;
+(These are the window‑level specializations corresponding to \eqref{axioms:waves:eq:chi}–\eqref{axioms:waves:eq:balance}.)
 
-\subsection{\worldtube s, moving boundaries, and boundary sectors}
+\paragraph{Witness (mathematics only).}
+Under (H1)–(H3), the boundary values of \(\widehat\chi\) on the real axis satisfy the Hilbert‑pair relations
+\[
+\Re\,\widehat\chi(\omega)=\mathcal{H}\{\Im\,\widehat\chi\}(\omega),\qquad
+\Im\,\widehat\chi(\omega)=-\,\mathcal{H}\{\Re\,\widehat\chi\}(\omega),
+\]
+and, for minimum‑phase windows,
+\[
+\arg\widehat\chi(\omega)=-\,\mathcal{H}\{\ln|\widehat\chi|\}(\omega).
+\]
+
+\paragraph{Derivation (sketch).}
+Causality and \(L^1\) imply analyticity of \(\widehat\chi\) in the upper half‑plane; the Plemelj–Sokhotski formulas yield the Hilbert‑pair relations.
+Only the declared window choices and complex analysis are used.
+
+\paragraph{Falsification (same window).}
+On this window, measure \(\Re/\Im\) (or \(|\cdot|/\arg\)) of \(\widehat\chi\); a persistent Hilbert‑pair residual beyond tolerance falsifies (H1)–(H3)
+(or the minimum‑phase clause) on this window.
+
+\subsection{Worldtubes, moving boundaries, and boundary sectors}
 \label{waves:worldtube}
-For moving boundaries, the side integrand is \(\mathbf j\!\cdot\! \mathbf n - i\,v_n\) (\S\ref{axioms:worldtube}).
+For moving boundaries, the side integrand is \(\mathbf j\!\cdot\! \mathbf n - i\,v_n\) (App~\ref{app:glossary:worldtube}).
 For fixed boundary sectors, export remains constant; envelopes follow \([A_\perp]^{-1/2}\) with \(A_\perp\) the sector’s cross‑section.

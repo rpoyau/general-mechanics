@@ -54,7 +54,8 @@ S_g(\omega)=\left(\frac{g(r)}{E_{\rm src}}\right)^{\!2} S_{E}(\omega),
 \label{corollary:noise:eq:psd}
 \end{equation}
 \begin{equation}
-g_{\mathrm{rms}}(r)\ \approx\ g(r)\,\frac{\sqrt{k_B\,T^{2}\,C}}{E_{\rm src}}.
+g_{\mathrm{rms}}(r)\ \approx\ g(r)\,\frac{\sqrt{\displaystyle \int_{\Omega} S_E(\omega)\,\mathrm d\omega}}{E_{\rm src}}
+\;=\; g(r)\,\frac{\sqrt{\mathrm{Var}[E]_{\Omega}}}{E_{\rm src}}.
 \label{corollary:noise:eq:rms}
 \end{equation}
 

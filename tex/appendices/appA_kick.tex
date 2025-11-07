@@ -11,31 +11,33 @@ calibrations, and the capacity/erasure relations used in the body. This appendix
 it introduces no new axioms and does not restate cap/side formulae.
 
 \paragraph{Setup.}
-\textbf{Kz gauge.} For any SI quantity \(X\), define \(X^{(\mathrm{Kz})}:=X/h\) using Planck’s constant \(h\) (not \(\hbar\)).  
-\textbf{Count base.} Information counts default to trits with \(S_{\mathrm{nats}}=(\ln 3)\,S_{\mathrm{trits}}\) and \(S_{\mathrm{bits}}=S_{\mathrm{nats}}/\ln 2\).  
-\textbf{Screens/windows.} \(A_n(r)\) denotes a geometric \((n{-}1)\)-screen at scale \(r\). A measurement window has duration \(\Delta t\).  
-\textbf{Local notation.} \(\Phi(r):=\int_{A_n(r)}(\mathbf j\!\cdot \mathbf n)\,\mathrm dA\) (tube flux through \(A_n(r)\)); \(\overline{J}_{A}:=\frac{1}{A}\!\int_{A}\!|\mathbf j\!\cdot \mathbf n|\,\mathrm dA\) (admissible area‑averaged boundary entropic‑flux bound over patch \(A\)); \(\kappa\) (proportionality constant from the frame boundary relation); \(\mathbf E_I\) (instrument reference field used for linear readouts).
+\textbf{Kz units.} For any SI quantity \(X\), define \(X_{\mathrm{Kz}}:=X/h\) using Planck’s constant \(h\) (not \(\hbar\)).\\
+\textbf{Count base.} Information counts default to trits with \(S_{\mathrm{nats}}=(\ln 3)\,S_{\mathrm{trits}}\) and \(S_{\mathrm{bits}}=S_{\mathrm{nats}}/\ln 2\).\\
+\textbf{Screens/windows.} \(A_n(r)\) denotes a geometric \((n{-}1)\)-screen at scale \(r\). A measurement window has duration \(\Delta t\).\\
+\textbf{Local notation.} \(\Phi(r):=\int_{A_n(r)}(\mathbf j\!\cdot \mathbf n)\,\mathrm dA\) (tube flux through \(A_n(r)\));
+\(\overline{J}_{A}:=\frac{1}{A}\!\int_{A}\!|\mathbf j\!\cdot \mathbf n|\,\mathrm dA\) (admissible area‑averaged boundary entropic‑flux bound over patch \(A\));
+\(\kappa\) (proportionality constant from the frame boundary relation); \(\mathbf E_I\) (instrument reference field used for linear readouts).
 
 \paragraph{Statement(s).}
 
 % --- Kz mapping (units) ---
 \begin{equation}
-E^{(\mathrm{Kz})}=\frac{E}{h},\qquad
-M^{(\mathrm{Kz})}=\frac{mc^{2}}{h},\qquad
-T^{(\mathrm{Kz})}=\frac{k_{B}T}{h},\qquad
-P^{(\mathrm{Kz})}=\frac{P}{h},
+E_{\mathrm{Kz}}=\frac{E}{h},\qquad
+M_{\mathrm{Kz}}=\frac{mc^{2}}{h},\qquad
+T_{\mathrm{Kz}}=\frac{k_{B}T}{h},\qquad
+P_{\mathrm{Kz}}=\frac{P}{h},
 \label{app:kick:eq:kz-map}
 \end{equation}
-where \(E^{(\mathrm{Kz})}\), \(M^{(\mathrm{Kz})}\) (rest‑energy rate), and \(T^{(\mathrm{Kz})}\) have units \(\mathrm s^{-1}\), and \(P^{(\mathrm{Kz})}\) has units \(\mathrm s^{-2}\).
-Hence \(P^{(\mathrm{Kz})}/T^{(\mathrm{Kz})}\) has units \(\mathrm s^{-1}\).
+where \(E_{\mathrm{Kz}}\), \(M_{\mathrm{Kz}}\) (rest‑energy rate), and \(T_{\mathrm{Kz}}\) have units \(\mathrm s^{-1}\), and \(P_{\mathrm{Kz}}\) has units \(\mathrm s^{-2}\).
+Hence \(P_{\mathrm{Kz}}/T_{\mathrm{Kz}}\) has units \(\mathrm s^{-1}\).
 
 % --- Erasure term (time–information) ---
 \begin{equation}
-\frac{\Delta I_{\rm trits}}{\Delta t}\ \le\ \frac{P^{(\mathrm{Kz})}}{T^{(\mathrm{Kz})}\,\ln 3},
+\frac{\Delta I_{\rm trits}}{\Delta t}\ \le\ \frac{P_{\mathrm{Kz}}}{T_{\mathrm{Kz}}\,\ln 3},
 \label{app:kick:eq:erasure-rate}
 \end{equation}
-with equivalent forms \(\Delta I_{\rm nats}/\Delta t \le P^{(\mathrm{Kz})}/T^{(\mathrm{Kz})}\) and
-\(\Delta I_{\rm bits}/\Delta t \le P^{(\mathrm{Kz})}/(T^{(\mathrm{Kz})}\,\ln 2)\).
+with equivalent forms \(\Delta I_{\rm nats}/\Delta t \le P_{\mathrm{Kz}}/T_{\mathrm{Kz}}\) and
+\(\Delta I_{\rm bits}/\Delta t \le P_{\mathrm{Kz}}/(T_{\mathrm{Kz}}\,\ln 2)\).
 
 % --- Kram anchors (convenience ladder) ---
 \begin{equation}
@@ -46,7 +48,7 @@ with equivalent forms \(\Delta I_{\rm nats}/\Delta t \le P^{(\mathrm{Kz})}/T^{(\
 1\,Tk=10^{59}\,\mathrm{Kz}.
 \label{app:kick:eq:kram}
 \end{equation}
-\noindent\emph{Gauge note.} These anchors are convenience scales; they do not modify the Kz gauge \(X^{(\mathrm{Kz})}=X/h\).
+\noindent\emph{Note.} These anchors are convenience scales; they do not modify the Kz units \(X_{\mathrm{Kz}}=X/h\).
 
 % --- One‑datum sector calibrations (linear readouts) ---
 \begin{equation}
@@ -82,11 +84,11 @@ Y(r)=c_{\rm sec}\,|\mathbf E_I(r)|
 \min\!\left\{
 \frac{A\,\overline{J}_{A}}{\ln 3},\quad
 C_{\rm chan}^{(\text{trits})}(\varepsilon),\quad
-\frac{P^{(\mathrm{Kz})}}{T^{(\mathrm{Kz})}\,\ln 3}
+\frac{P_{\mathrm{Kz}}}{T_{\mathrm{Kz}}\,\ln 3}
 \right\},
 \label{app:kick:eq:time-info}
 \end{equation}
-where \(C_{\rm chan}^{(\text{trits})}(\varepsilon)=\mathcal C\!\left[R^{(a)};\,\mathcal N,\,\mathcal B;\,\varepsilon\right]\) denotes a reliable channel capacity for boundary controls \(R^{(a)}\), noise kernel \(\mathcal N\), and budgets \(\mathcal B\) (including \(P^{(\mathrm{Kz})}\), \(T^{(\mathrm{Kz})}\), area \(A\), window duration \(\Delta t\)), at reliability \(\varepsilon\).
+where \(C_{\rm chan}^{(\text{trits})}(\varepsilon)=\mathcal C\!\left[R^{(a)};\,\mathcal N,\,\mathcal B;\,\varepsilon\right]\) denotes a reliable channel capacity for boundary controls \(R^{(a)}\), noise kernel \(\mathcal N\), and budgets \(\mathcal B\) (including \(P_{\mathrm{Kz}}\), \(T_{\mathrm{Kz}}\), area \(A\), window duration \(\Delta t\)), at reliability \(\varepsilon\).
 
 \paragraph{Specializations (optional).}
 \begin{equation}
