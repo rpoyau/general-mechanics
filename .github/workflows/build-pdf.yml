@@ -1,0 +1,70 @@
+name: Build PDF
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths: [ 'tex/**' ]
+  pull_request:
+    paths: [ 'tex/**' ]
+
+jobs:
+  latex:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install TinyTeX
+        run: |
+          wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh
+          ~/bin/tlmgr install latex-bin xetex collection-fontsrecommended
+
+      - name: Add TinyTeX to PATH
+        run: echo "$HOME/bin" >> $GITHUB_PATH
+
+      - name: Cache TeX Live
+        uses: actions/cache@v4
+        with:
+          path: ~/texlive
+          key: texlive-${{ hashFiles('tex/**/*.tex') }}
+
+      - name: Compile main.tex
+        run: |
+          cd tex
+          latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+
+      - name: Create smart filename
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            NAME="general-mechanics-PR${{ github.event.pull_request.number }}"
+          else
+            NAME="general-mechanics-$(date +%F)"
+          fi
+          cp tex/main.pdf "$NAME.pdf"
+          echo "PDF=$NAME.pdf" >> $GITHUB_ENV
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.PDF }}
+          path: ${{ env.PDF }}
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const pdf = fs.readFileSync(process.env.PDF, {encoding: 'base64'});
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `general-mechanics PDF Preview\n\n` +
+                    `![PDF](data:application/pdf;base64,${pdf})\n\n` +
+                    `[Download ${{ env.PDF }}](https://github.com/${{ github.repository }}/suites/${{ github.run_id }}/artifacts)`
+            });
