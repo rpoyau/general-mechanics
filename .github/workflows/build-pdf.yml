@@ -32,8 +32,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.TinyTeX
-          # Use a fixed key, update the version (v1.0) if you significantly change the package list
-          key: ${{ runner.os }}-tinytex-v1.0
+          # AF-Compliant Fix: Invalidate the poisoned cache by bumping the version.
+          # This forces the install step to run ONE time.
+          key: ${{ runner.os }}-tinytex-v1.1
           restore-keys: |
             ${{ runner.os }}-tinytex-
 
@@ -69,7 +70,7 @@ jobs:
           done
 
       # 3. Add TinyTeX to PATH (The "Focusing Station" Fix)
-      # This step is now *unconditional* and runs *every time*,
+      # This step is *unconditional* and runs *every time*,
       # ensuring the PATH is set correctly even on a cache hit.
       - name: Add TinyTeX to PATH
         run: echo "$HOME/bin" >> $GITHUB_PATH
