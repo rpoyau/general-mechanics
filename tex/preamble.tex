@@ -1,89 +1,149 @@
-% ------------------------------------------------------------------
-% Global preamble for REOS / RIM note
-% ------------------------------------------------------------------
+% ======================================================================
+% preamble.tex  (v0.9.1.1) — shared packages, macros, and formatting
+% ======================================================================
 
-% -------------------- Document geometry & fonts -------------------
+% --- Packages
 \usepackage[a4paper,margin=1in]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}            % LM family, looks fine in math
-\usepackage{microtype}
-
-% -------------------- Math & symbols ------------------------------
 \usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage{physics}            % for \grad, \div, etc.
-\usepackage{siunitx}            % \SI{ }{ } if needed
-
-
-\usepackage{listings} 
-
-\lstset{
-  basicstyle=\ttfamily\small,
-  language=Python,
-  literate={Δ}{{$\Delta$}}1                   % map U+0394 → math \Delta
-           {δ}{{$\delta$}}1                   % (optional) U+03B4 → \delta
-}
-
-
-
-% -------------------- Graphics & colour ---------------------------
-\usepackage{graphicx}
-\graphicspath{{../figs/}}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{float} 
-
-% -------------------- Tables & lists ------------------------------
-\usepackage{standalone} 
-\usepackage{booktabs}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{microtype}
 \usepackage{enumitem}
-\setlist[itemize]{leftmargin=1.1em}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage[nameinlink,capitalise]{cleveref}
+\usepackage[section]{placeins} % auto-places a FloatBarrier at each \section
 
-% -------------------- Boxes & environments ------------------------
-\usepackage[skins,breakable]{tcolorbox}
-
-% boxed equation environment ---------------------------------------
-\usepackage{environ}  % to capture body of custom env.
-
-\NewEnviron{boxedeq}[1][]% optional argument = label name
-{%
-  \begin{equation}
-    \boxed{\BODY}
-    \if\relax\detokenize{#1}\relax\else\label{#1}\fi
-  \end{equation}
+% --- Hyperref setup (make metadata match the manuscript title)
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black,
+  pdfauthor={Reginald Poyau},
+  pdftitle={General Mechanics}
 }
 
-% -------------------- Kick-unit symbol ----------------------------
-\newcommand{\Kk}{\text{K\kern-.1em k}}   % upright “Kk” ligature
+% --- Theorem-like envs
+\newtheorem{axiom}{Axiom}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
 
-% -------------------- Hyperlinks & clever references --------------
-\usepackage[hidelinks]{hyperref}
-\usepackage[capitalise]{cleveref}
+% --- siunitx
+\sisetup{
+  separate-uncertainty = true,
+  per-mode = symbol,
+  detect-all = true
+}
 
-% -------------------- TikZ (figures like pillars mosaic) ----------
-\usepackage{tikz}
-\usetikzlibrary{calc,arrows.meta,positioning,decorations.pathmorphing,patterns}
+% --- Cleveref names (consistent \cref/\Cref usage)
+\crefname{equation}{eq.}{eqs.}
+\Crefname{equation}{Eq.}{Eqs.}
+\crefname{figure}{fig.}{figs.}
+\Crefname{figure}{Fig.}{Figs.}
+\crefname{table}{table}{tables}
+\Crefname{table}{Table}{Tables}
+\crefname{section}{\S}{\S\S}
+\Crefname{section}{Section}{Sections}
+\crefname{axiom}{axiom}{axioms}
+\Crefname{axiom}{Axiom}{Axioms}
+\crefname{definition}{definition}{definitions}
+\Crefname{definition}{Definition}{Definitions}
+\crefname{theorem}{theorem}{theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{proposition}{proposition}{propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{lemma}{lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{corollary}{corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
 
-% -------------------- Theorem style (if you need) -----------------
-\theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[section]
+% --- Lists
+\setlist{itemsep=0.25em, topsep=0.25em}
 
-% -------------------- Bibliography setup --------------------------
-\usepackage[numbers,sort&compress]{natbib}
+% --- Equation numbering per section (optional)
+\numberwithin{equation}{section}
+
+% ======================================================================
+% Shortcuts & notation
+% ======================================================================
+
+% --- Kick (Kz) units (canonical) + backward-compatible Kk macros
+\newcommand{\Kz}{\mathrm{Kz}}                    % Kick unit (s^{-1})
+\newcommand{\Ez}{E_{\mathrm{z}}}               % E/h
+\newcommand{\Mz}{m_{\mathrm{z}}}               % mc^2/h
+\newcommand{\Tz}{T_{\mathrm{z}}}               % k_B T / h
+\newcommand{\Pz}{P_{\mathrm{z}}}               % P / h
+% Back-compat: define Kk macros to point to Kz versions (harmless if unused)
+\newcommand{\Kk}{\Kz}
+\newcommand{\Ekk}{\Ez}
+\newcommand{\Mkk}{\Mz}
+\newcommand{\Tkk}{\Tz}
+\newcommand{\Pkk}{\Pz}
+
+% --- Informational current/density and production
+\newcommand{\JJ}{J^{\mu}_I}                      % informational 4-current
+\newcommand{\jj}{\bm{j}}                         % spatial information flux
+\newcommand{\ii}{i}                              % information/entropy density
+\newcommand{\sig}{\sigma}                        % production
+
+% --- Informational potential/fields (form language)
+\newcommand{\Ainfo}{\mathcal{A}_I}               % info potential 1-form
+\newcommand{\Finfo}{\mathcal{F}_I}               % info field 2-form
+\newcommand{\Hinfo}{\mathcal{H}_I}               % info excitation
+
+% --- Boundary normals & worldtube side-integrand (moving boundary)
+\newcommand{\nn}{\bm{n}}                          % outward unit normal
+\newcommand{\jn}{j_n}                              % normal flux component (scalar)
+\newcommand{\vn}{v_n}                              % normal speed of the boundary
+\newcommand{\sideint}{\jj\!\cdot\!\nn - \ii\,\vn} % j·n - i v_n
+
+% --- Boundaries & sectors (geometry helpers)
+\newcommand{\Snm}{S_{n-1}}                         % area of unit (n-1)-sphere
+\newcommand{\An}[1]{A_{#1}}                        % A_n
+\newcommand{\Anr}[1]{A_{#1}(r)}                    % A_n(r)
+\newcommand{\Adelta}{A_{\Delta}}                   % A_Δ
+\newcommand{\Adeltar}{A_{\Delta}(r)}               % A_Δ(r)
+
+% --- Windowed counting / noise (operational; used in main text and App. E)
+\newcommand{\FA}{F_{A}}                            % Fano factor on a window
+\newcommand{\teff}{\Delta t_{\mathrm{eff}}}        % effective window from autocorrelation
+\newcommand{\JA}{J_{A}}                            % integrated inward counts across patch A
+\newcommand{\jA}{j_{A}}                            % mean inward current density on patch A
+
+% --- Semantic label helpers (optional)
+\newcommand{\labtitle}{\label{title:root}}
+\newcommand{\labintro}[1][]{\label{introduction\if\relax\detokenize{#1}\relax\else:#1\fi}}
+\newcommand{\labaxiom}[1]{\label{axiom:#1}}
+\newcommand{\labcor}[1]{\label{corollary:#1}}
+\newcommand{\labapp}[1]{\label{appendix:#1}}
 
 
-% -------------------- Handy shorthand macros ----------------------
+% ---- reference helpers
+% 1. Section Reference (Adds the § symbol)
+\newcommand{\seref}[1]{\S\ref{#1}}
 
-\newcommand{\bmf}[1]{\boldsymbol{#1}}  % bold math
+% 2. Axiom Reference (Adds the ★ symbol)
+\newcommand{\axref}[1]{$\star$\ref{#1}}
 
-\newcommand{\bb}[1]{\mathbb{#1}}       % blackboard bold
+% 3. Bare Number Reference (For Thm, Cor, Def in main text)
+\newcommand{\nref}[1]{\ref{#1}}
 
-% Einstein coupling without G
-\newcommand{\AEin}{\mathcal{A}_{\mathrm{E}}}      % Einstein-area symbol A_E
-\newcommand{\AEinVal}{8\pi \ell_{\mathrm P}^{2}}  % its value
-\newcommand{\kE}{\frac{\AE}{\hbar c}}         % replaces 8\pi G/c^4
-% optional: G/c^4 used in Newtonian limit
-\newcommand{\GonCfour}{\frac{\kE}{8\pi}}
+% 4. Appendix Reference (For sections and items in Appendix)
+\newcommand{\apref}[1]{App.~\ref{#1}}
+
+% --- Project helpers (worldtube tag, calibrated-equality mark)
+\newcommand{\worldtube}{\emph{worldtube}}
+\newcommand{\calibeq}{\overset{\scriptsize\mathrm{cal}}{=}}
+
+\newcommand{\window}{\emph{window}}
 
 
-% ------------------------------------------------------------------
-% End preamble
-% ------------------------------------------------------------------
+% --- Tiny prose helpers (comparison-only phrasing; never as premises)
+\newcommand{\CutIdentity}{\textit{cut identity}}
+\newcommand{\KKcompare}{\textit{may be compared to Kramers--Kronig on the chosen window}}

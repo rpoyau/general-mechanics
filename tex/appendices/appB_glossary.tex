@@ -1,0 +1,125 @@
+% ======================================================================
+% appB_glossary.tex — Appendix B: Glossary & Symbols (AF-Pure)
+% ======================================================================
+
+\section{Glossary \& Symbols}
+\label{app:glossary-symbols}
+
+% ---------------------------- Glossary -------------------------------
+\subsection*{Glossary of agnostic terms}
+
+\paragraph{Window (definition).}
+\label{app:glossary:window}
+A \emph{window} is a finite interval \([t_0,t_1]\) on a fixed region \(U\).
+Window statements apply on \(U\times[t_0,t_1]\) using the integral and cut forms
+\eqref{axioms:stokes:identity:eq:integral}–\eqref{axioms:stokes:identity:eq:cut}.
+
+\paragraph{Frame (definition).}
+\label{app:glossary:frame}
+A \emph{frame} is a time‑frozen spatial slice \(V_t:=U\cap\{t=\mathrm{const}\}\).
+The frame form of a window statement is the limit \(\Delta t\!\to\!0\) evaluated on \(V_t\)
+(cf.\ \eqref{axioms:stokes:identity:eq:local-continuity}).
+
+\paragraph{Worldtube (cap/side; moving boundary).}
+\label{app:glossary:worldtube}
+The time‑extended boundary \(\partial(U\times[t_0,t_1])\) decomposes into a top cap, a bottom cap, and a side.
+For moving boundaries with normal speed \(v_n\), the side integrand used in balances is
+\[
+\mathbf j\!\cdot\!\mathbf n \;-\; i\,v_n .
+\]
+
+\paragraph{Directional split.}
+\label{app:glossary:directional-split}
+For any scalar \(a\), define \(a_\pm:=\tfrac12(a\pm|a|)\).
+Inward/outward boundary fluxes use \((\mathbf j\!\cdot\!\mathbf n)_-\) and \((\mathbf j\!\cdot\!\mathbf n)_+\).
+
+\paragraph{Boundary identification and heat mapping (pointer).}
+\label{app:glossary:boundary-heat}
+On boundaries, the informational current \(j\) is identified with the entropy current \(j_S\),
+the density \(i\) with \(s\), and the heat flux is \(q:=\Tz\,j_S\). The mapping is the axiom
+\eqref{axioms:boundary-heat:eq} in \axref{axioms}.
+
+\paragraph{Heat on a window (total).}
+\label{app:glossary:heat-window}
+On a boundary patch \(A\subset\partial U\) over \([t_0,t_1]\), the total heat is defined and used in the body as
+\(\,Q_A([t_0,t_1])\,\) in \eqref{corollary:continuity:eq:total-heat}.
+
+\paragraph{Heat on a frame (flux density).}
+\label{app:glossary:heat-frame}
+In frame form, the heat‑flux density is \(\mathbf q=\Tz\,\mathbf j_S\) (cf.\ \eqref{corollary:continuity:eq:heat-flux}).
+
+% ---------------------------- Symbols (reference list) ----------------
+\subsection*{List of Symbols (reference)}
+\addcontentsline{toc}{subsection}{List of Symbols}
+\begin{description}[labelwidth=2.8em,leftmargin=3.2em,itemsep=0.25em,font=\bfseries]
+
+\item[\(j\)]
+Informational/entropic current (1‑form). Identity: \eqref{axioms:stokes:identity:eq}.
+
+\item[\(j_S\)]
+Entropy current on boundaries; \(j\equiv j_S\) by \eqref{axioms:boundary-heat:eq}.
+
+\item[\(q\)]
+Heat‑flux density \(q=\Tz\,j_S\). Frame form in \eqref{corollary:continuity:eq:heat-flux}.
+
+\item[\(i\)]
+Informational/entropic density (nats/vol). Local law: \eqref{axioms:stokes:identity:eq:local-continuity}.
+
+\item[\(\Sigma,\ \sigma\)]
+Production \(n\)-form \(\Sigma=\sigma\,\mathrm{vol}\) and density \(\sigma\). Identity: \eqref{axioms:stokes:identity:eq}.
+
+\item[\(J^\mu\)]
+Coordinate current; \(\partial_\mu J^\mu=\sigma\). Identity: \eqref{axioms:stokes:identity:eq}.
+
+\item[\(\Phi_{\mathrm{in/out}}\)]
+Directed boundary fluxes (directional split). Cut form: \eqref{axioms:stokes:identity:eq:cut}.
+
+\item[\(I_{\mathrm{enc}}\)]
+Enclosed information. Cut form context: \eqref{axioms:stokes:identity:eq:cut}.
+
+\item[\(\Phi\)]
+Tube/sector flux through a screen. Definition: \eqref{corollary:info-gas:eq:flux-const}.
+
+\item[\(\mathbf E_I\)]
+Informational field amplitude; closure: \eqref{axioms:linear-closure:eq}.
+
+\item[\(\Phi_I\)]
+Informational potential with \(\mathbf E_I=-\nabla\Phi_I\) in \eqref{axioms:linear-closure:eq}.
+
+\item[\(\kappa\)]
+Linear‑channel coefficient; \(\mathbf j=-\,\kappa\,\mathbf E_I\) in \eqref{axioms:linear-closure:eq}.
+
+\item[\(\Tz\)]
+Boundary temperature in Kz units; \eqref{app:kick:eq:kz-map}.
+
+\item[\(\Pz\)]
+Power budget in Kz units; \eqref{app:kick:eq:kz-map}.
+
+\item[\(P\)]
+Canonical momentum in the rate (Poincaré–Cartan) form \eqref{axioms:path-rate:eq:pc-form}.
+
+\item[\(\mu\)]
+Attenuation/removal rate along a tube; transport: \eqref{corollary:external-drives:eq:transport}.
+
+\item[\(A_n(r)\)]
+\((n{-}1)\)-dimensional boundary area; sector \(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\).
+
+\item[\(A_\perp\)]
+Effective cross‑section (guides/tubes).
+
+\item[\(\theta\)]
+Expansion of a tube congruence.
+
+\item[\(J_A\)]
+Inward boundary count rate on patch \(A\) (window); \eqref{corollary:time-info:eq:JA}.
+
+\item[\(N,\ \alpha\)]
+Addressable trits and areal density \(N(r)=\alpha\,A_n(r)\).
+
+\item[\(E_{\max}\)]
+Ceiling field; \eqref{corollary:entropic-corrections:eq:emax}.
+
+\item[\(Q_A\)]
+Total heat through patch \(A\) on a window; \eqref{corollary:continuity:eq:total-heat}.
+
+\end{description}

@@ -1,0 +1,77 @@
+% ======================================================================
+% corollaries/02_continuity.tex — Continuity & Clausius (boundary heat mapping)
+% ======================================================================
+
+\subsection{Continuity \& Clausius}
+\label{corollary:continuity}
+
+\paragraph{Setup.}
+Let \(V\subset U\) be a fixed region with outward unit normal \(\mathbf n\).
+On a boundary patch \(A\subset\partial V\) over a window, denote the boundary entropy flux density by \(\mathbf j_S\).
+
+\paragraph{Boundary heat.}
+On \([t_0,t_1]\),
+\begin{equation}
+Q_A\!\left([t_0,t_1]\right)
+\;=\;
+\int_{t_0}^{t_1}\!\!\int_A \Tz\,\mathbf j_S\!\cdot\!\mathbf n\,\mathrm dA\,\mathrm dt,
+\label{corollary:continuity:eq:total-heat}
+\end{equation}
+and the frame heat‑flux density is
+\begin{equation}
+\mathbf q \;=\; \Tz\,\mathbf j_S .
+\label{corollary:continuity:eq:heat-flux}
+\end{equation}
+
+\paragraph{Derivation.}
+From the local continuity identity \eqref{axioms:stokes:identity:eq:local-continuity}
+and the boundary identification/heat mapping (by \eqref{axioms:boundary-heat}, \(j\equiv j_S\), \(q:=\Tz\j_S\)),
+the Clausius local form follows.
+
+\paragraph{Clausius form (local).}
+With \(s=i\) and \(\mathbf j_S=\mathbf q/\Tz\),
+\begin{equation}
+\partial_t s \;+\; \nabla\!\cdot\!\left(\frac{\mathbf q}{\Tz}\right) \;=\; \sigma \ \ge\ 0 .
+\label{corollary:continuity:eq:clausius-local}
+\end{equation}
+
+\paragraph{Clausius form (cut).}
+From the cut identity \eqref{axioms:stokes:identity:eq:cut}, using the directional split,
+\begin{equation}
+\dot S_{\mathrm{enc}}
+\;=\;
+\int_{\partial V}\frac{\big(\mathbf q\!\cdot\!\mathbf n\big)_-}{\Tz}\,\mathrm dA
+\;-\;
+\int_{\partial V}\frac{\big(\mathbf q\!\cdot\!\mathbf n\big)_+}{\Tz}\,\mathrm dA
+\;+\;
+\Pi_{\mathrm th}
+\ \ \ge\ 0 ,
+\label{corollary:continuity:eq:clausius-cut}
+\end{equation}
+with \(\Pi_{\mathrm th}:=\int_V \sigma\,\mathrm d^n x\) (by \eqref{axioms:boundary-heat}, \(j\equiv j_S\), \(q:=\Tz\j_S\)).
+
+\paragraph{Calibration to the informational field.}
+With the Linear Channel Closure \eqref{axioms:linear-closure:eq} and the one–datum sector calibration,
+\begin{equation}
+\mathbf j \;=\; -\,\kappa\,\mathbf E_I,
+\qquad
+\mathbf q \;=\; -\,\Tz\,\kappa\,\mathbf E_I .
+\label{corollary:continuity:eq:calibrated}
+\end{equation}
+
+\paragraph{Falsification.}
+On a closed boundary with measured \(\mathbf q,\Tz\) and access to \(\dot S_{\mathrm{enc}}\),
+any reproducible violation of \eqref{corollary:continuity:eq:clausius-local} or a negative right–hand side in
+\eqref{corollary:continuity:eq:clausius-cut} beyond experimental uncertainty falsifies the premises (local identity
+\eqref{axioms:stokes:identity:eq:local-continuity} and/or the boundary mapping used).
+
+\medskip
+\noindent\emph{Provenance.}
+\eqref{axioms:stokes:identity:eq:local-continuity}, \eqref{axioms:stokes:identity:eq:cut}, \eqref{axioms:boundary-heat}, \eqref{axioms:linear-closure:eq},
+\eqref{corollary:continuity:eq:clausius-local}, \eqref{corollary:continuity:eq:clausius-cut}.
+
+\medskip
+\noindent\emph{Literature note.}
+Continuity in differential‑form language and Stokes’ theorem: Frankel~\cite{Frankel2011}.
+Clausius inequality in macroscopic thermodynamics: Callen~\cite{Callen1985};
+nonequilibrium balance form: de~Groot \& Mazur~\cite{deGrootMazur1962}.

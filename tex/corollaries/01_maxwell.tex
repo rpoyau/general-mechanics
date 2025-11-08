@@ -1,0 +1,40 @@
+% ======================================================================
+% 01_maxwell.tex — Corollary (AF‑Pure): Info–EM (Maxwell form)
+% ======================================================================
+
+\subsection{Info–EM (Maxwell form)}
+\label{corollary:info-em:maxwell}
+
+\paragraph{Setup.}
+On a wave window with the wave–supporting closure (\eqref{axioms:waves:eq:chi}–\eqref{axioms:waves:eq:balance}),
+choose an informational potential $A_I$ (a $1$–form) and define the field $2$–form $F_I := dA_I$.
+Let the excitation be $H_I := \chi : F_I$ (medium/model choice). Boundary orientation is as in §2.1.
+
+\paragraph{Derivation.}
+From $F_I=dA_I$ (identity of exterior calculus), $dF_I=0$.
+With $H_I=\chi:F_I$, define the current $3$–form $J_I := dH_I$; then $dH_I = J_I$ and $dJ_I=0$,
+consistent with the continuity/Stokes family (\eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:local-continuity}).
+The Maxwell system on the window is
+\begin{equation}
+\boxed{\, dF_I = 0, \qquad dH_I = J_I \,}
+\label{corollary:info-em:maxwell:eq:differential}
+\end{equation}
+with $H_I=\chi:F_I$ supplying the constitutive relation.
+
+\paragraph{Specialization.}
+Under a $(3{+}1)$ split identifying $F_I \leftrightarrow (\mathbf E,\mathbf B)$ and
+$H_I \leftrightarrow (\mathbf D,\mathbf H)$, \eqref{corollary:info-em:maxwell:eq:differential} reduces to
+\begin{equation}
+\nabla\!\cdot\mathbf B=0,\quad
+\nabla\times\mathbf E+\partial_t\mathbf B=0,\quad
+\nabla\!\cdot\mathbf D=\rho,\quad
+\nabla\times\mathbf H-\partial_t\mathbf D=\mathbf J ,
+\label{corollary:info-em:maxwell:eq:components}
+\end{equation}
+where $J_I \leftrightarrow (\rho,\mathbf J)$. Poynting’s theorem is the instance of
+(\eqref{axioms:waves:eq:energy}–\eqref{axioms:waves:eq:balance}) with
+$u=\tfrac12(\mathbf E\!\cdot\!\mathbf D+\mathbf B\!\cdot\!\mathbf H)$ and $\mathbf S=\mathbf E\times\mathbf H$.
+
+\medskip
+\noindent\emph{Literature note.}
+Forms \& Stokes: Frankel; macroscopic Maxwell: Jackson; Landau–Lifshitz–Pitaevskii.

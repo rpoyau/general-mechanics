@@ -1,0 +1,138 @@
+% ======================================================================
+% 03_wave.tex — Universal wave transport & refraction (+ aperture witness)
+% ======================================================================
+
+\section{Universal wave transport \& refraction}
+\label{waves}
+
+\subsection{Wave‑supporting closure and exported power}
+\label{waves:closure}
+Integrating the local balance \eqref{axioms:waves:eq:balance} on a source‑free, lossless
+subregion \(W\) and applying Stokes on its spatial boundary \(\Sigma(r)\) yields radius‑independent export
+\begin{equation}
+P(r):=\int_{\Sigma(r)}\!\langle \mathbf S\rangle\!\cdot \mathbf n\,\mathrm dA \;=\; \text{const.\ in } r,
+\label{waves:eq:const-power}
+\end{equation}
+and therefore the far‑field envelope scales as
+\begin{equation}
+\big\langle |U(r)| \big\rangle \;\propto\; [A(r)]^{-1/2},
+\label{waves:eq:envelope}
+\end{equation}
+where \(A(r)\) is the area of the boundary \(\Sigma(r)\). With attenuation \(\mu\) along a \worldtube,
+\(P(r)\propto \exp\!\big[-\int\mu\,\mathrm ds\big]\) and the envelope acquires
+\begin{equation}
+\big\langle |U(r)| \big\rangle \;\propto\; [A(r)]^{-1/2}\,
+\exp\!\left[-\tfrac12\!\int \mu\,\mathrm ds\right].
+\label{waves:eq:envelope-loss}
+\end{equation}
+For confined propagation, replace \(A(r)\) by the effective cross‑section \(A_\perp\) of the transport tube, giving
+\begin{equation}
+\big\langle |U| \big\rangle \;\propto\; [A_\perp]^{-1/2}.
+\label{waves:eq:confinement}
+\end{equation}
+
+\subsection{Eikonal limit, Fermat principle, and tube transport}
+\label{waves:eikonal}
+Assume a high‑frequency limit on a homogeneous or slowly varying window: the amplitude and index vary slowly
+relative to the carrier,
+\[
+\|\nabla A\|/|A| \ll \omega, \qquad \|\nabla n\|/n \ll \omega/c_I .
+\]
+Use the ansatz
+\begin{equation}
+U(x,t)\;\sim\; \Re\!\Big\{ A(x)\,e^{i\omega S(x)-i\omega t}\Big\},
+\label{waves:eikonal:eq:ansatz}
+\end{equation}
+with slowly varying amplitude \(A\) and phase \(S\) (eikonal).
+The constitutive description \eqref{axioms:waves:eq:chi} defines an \emph{effective index} \(n(x)\) from dispersion and a local speed
+\(c_{\mathrm{eff}}:=c_I/n(x)\). In locally isotropic media (or for an effectively isotropic eigenmode), \(n\) is a scalar; otherwise
+\(n\) denotes the scalar slowness along the ray. At leading order, \(S\) satisfies the Hamilton–Jacobi equation
+\begin{equation}
+|\nabla S(x)|^2 \;=\; n^2(x)\,\frac{\omega^2}{c_I^2},
+\label{waves:eikonal:eq}
+\end{equation}
+and rays are the integral curves of \(\mathbf k:=\nabla S\) with unit tangent \(\hat{\mathbf s}:=\mathbf k/|\mathbf k|\); they extremize the optical time
+\begin{equation}
+\delta\,\int_\gamma \frac{n(x)}{c_I}\,\mathrm ds \;=\; 0,
+\label{waves:eikonal:eq:fermat}
+\end{equation}
+yielding Snell’s law at interfaces. The ray equation is, equivalently,
+\begin{equation}
+\frac{\mathrm d}{\mathrm ds}\!\big(n\,\hat{\mathbf s}\big)\;=\;\nabla n,
+\qquad\Longleftrightarrow\qquad
+\frac{\mathrm d\hat{\mathbf s}}{\mathrm ds}\;=\;\nabla_{\!\perp}\big(\ln n\big).
+\label{waves:eikonal:eq:ray}
+\end{equation}
+Tube transport for the slowly varying amplitude gives
+\begin{equation}
+\frac{\mathrm d}{\mathrm ds}\!\Big(|A|^2 A_\perp\Big) \;=\; -\,|A|^2 A_\perp\,\mu(s),
+\qquad\Rightarrow\qquad
+|A|^2 A_\perp \propto \exp\!\left[-\!\int\mu\,\mathrm ds\right],
+\label{waves:eikonal:eq:tube-transport}
+\end{equation}
+so \(|A|\propto A_\perp^{-1/2}\) (lossless), consistent with \eqref{waves:eq:envelope}.
+
+\subsection{Nonlinear refraction from constitutive feedback}
+\label{waves:nonlinear}
+If the constitutive map \(\chi\) depends on a local invariant of the field, e.g.\ the energy density
+\(u=\tfrac12\,U{:}V\) or occupancy on the window, then the effective index becomes \emph{amplitude‑dependent}:
+\begin{equation}
+n\;=\;n_0 \;+\; \alpha\,u \;+\; \mathcal O(u^2) \qquad (\text{weak feedback}).
+\label{waves:eq:nonlinear}
+\end{equation}
+Using \eqref{waves:eikonal:eq:tube-transport}, \(u\propto |A|^2\propto A_\perp^{-1}\) (lossless), so the ray equation acquires a
+self‑consistent bending term:
+\begin{equation}
+\frac{\mathrm d}{\mathrm ds}\!\big(n\,\hat{\mathbf s}\big)
+\;=\;
+\nabla n\!\big(u(x)\big)
+\quad\Longleftrightarrow\quad
+\frac{\mathrm d\hat{\mathbf s}}{\mathrm ds} \;=\; \nabla_{\!\perp}\!\big(\ln n(u)\big),
+\label{waves:nonlinear:eq:ray-bending}
+\end{equation}
+closing the loop \(\text{geometry}\to |A|\to u\to n(u)\to \text{geometry}\).
+In differential‑geometric language, the expansion \(\theta:=\mathrm d(\ln A_\perp)/\mathrm ds\) along a congruence of rays follows a
+Raychaudhuri‑type identity
+\begin{equation}
+\frac{\mathrm d\theta}{\mathrm ds}
+\;=\;
+-\,\tfrac12\,\theta^2 \;-\; \varsigma^2 \;-\; \mathcal R_{\rm eff}[n(u)]
+\;+\; \text{attenuation terms},
+\label{waves:nonlinear:eq:raychaudhuri-analogue}
+\end{equation}
+where \(\varsigma\) denotes the shear magnitude and \(\mathcal R_{\rm eff}[n(u)]\) collects the transverse curvature induced by
+gradients of \(\ln n(u)\) along the congruence (vanishes for uniform \(n\)).
+Equation~\eqref{waves:nonlinear:eq:raychaudhuri-analogue} is the refractive focusing identity
+induced by the feedback \(n\!\circ\!u\!\circ\!A_\perp\).
+
+\subsection{Causality–Dispersion (KK‑window corollary)}
+\label{waves:causality-dispersion}
+\paragraph{Hypotheses (declared on this window).}
+(H1) Linear, time‑invariant response on the window: \(V=\chi*U\). \;
+(H2) Causality: \(\chi(t)=0\) for \(t<0\) with \(\chi\in L^1(\mathbb{R})\). \;
+(H3) Regularity: \(\widehat\chi(\omega)\) exists and is bounded. \;
+(These are the window‑level specializations corresponding to \axref{axioms:waves:closure}.)
+
+\paragraph{Witness (mathematics only).}
+Under (H1)–(H3), the boundary values of \(\widehat\chi\) on the real axis satisfy the Hilbert‑pair relations
+\[
+\Re\,\widehat\chi(\omega)=\mathcal{H}\{\Im\,\widehat\chi\}(\omega),\qquad
+\Im\,\widehat\chi(\omega)=-\,\mathcal{H}\{\Re\,\widehat\chi\}(\omega),
+\]
+and, for minimum‑phase windows,
+\[
+\arg\widehat\chi(\omega)=-\,\mathcal{H}\{\ln|\widehat\chi|\}(\omega).
+\]
+
+\paragraph{Derivation (sketch).}
+Causality and \(L^1\) imply analyticity of \(\widehat\chi\) in the upper half‑plane; the Plemelj–Sokhotski formulas yield the Hilbert‑pair relations.
+Only the declared window choices and complex analysis are used.
+
+\paragraph{Falsification (same window).}
+On this window, measure \(\Re/\Im\) (or \(|\cdot|/\arg\)) of \(\widehat\chi\); a persistent Hilbert‑pair residual beyond tolerance falsifies (H1)–(H3)
+(or the minimum‑phase clause) on this window.
+
+\subsection{Worldtubes, moving boundaries, and boundary sectors}
+\label{waves:worldtube}
+For moving boundaries, the side integrand is \(\mathbf j\!\cdot\! \mathbf n - i\,v_n\) \apref{app:glossary:worldtube}.
+For fixed boundary sectors, export remains constant; envelopes follow \([A_\perp]^{-1/2}\) with \(A_\perp\) the sector’s cross‑section.

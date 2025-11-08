@@ -1,0 +1,58 @@
+% ======================================================================
+% corollaries/09_least-action.tex — Least‑action equivalence (AF‑Pure)
+% ======================================================================
+
+\subsection{Least‑action equivalence}
+\label{corollary:least-action}
+
+\paragraph{Setup.}
+On \((q,t)\) as in \axref{axioms:path-rate}, the canonical rate equations \eqref{axioms:path-rate:eq:canonical} hold.
+Legendre regularity (strict convexity in \(P\)) is assumed on the sector.
+
+\paragraph{Derivation.}
+Define the Legendre pair
+\begin{equation}
+\mathcal R(q,\dot q,t)
+\;:=\;
+\sup_{P}\,\big(P_i\dot q^i-H(q,P,t)\big),
+\qquad
+H(q,P,t)=\sup_{\dot q}\,\big(P_i\dot q^i-\mathcal R(q,\dot q,t)\big).
+\label{corollary:least-action:eq:Legendre}
+\end{equation}
+Using the Poincaré–Cartan form \(\Theta_{\mathcal R}=P_i\,dq^i- H\,dt\) \axref{axioms:path-rate},
+closure on rectangular \(\Sigma\) implies \(\int_{\partial\Sigma}\Theta_{\mathcal R}=0\).
+Hence the variation of
+\begin{equation}
+\mathcal S[q]\;:=\;\int_{t_0}^{t_1}\!\mathcal R\big(q,\dot q,t\big)\,dt
+\label{corollary:least-action:eq:action}
+\end{equation}
+vanishes for fixed endpoints, \(\delta\mathcal S[q]=0\).
+Therefore the Euler–Lagrange equations
+\begin{equation}
+\frac{d}{dt}\Big(\frac{\partial \mathcal R}{\partial \dot q^i}\Big)
+\;-\;
+\frac{\partial \mathcal R}{\partial q^i}
+\;=\;0
+\label{corollary:least-action:eq:primary}
+\end{equation}
+are equivalent to the canonical rates \eqref{axioms:path-rate:eq:canonical}.
+
+\paragraph{Specialization.}
+At the stationary pair,
+\(\dot q^i=\partial_{P_i}H\) and \(P_i=\partial_{\dot q^i}\mathcal R\); with \(\mathcal R=P\!\cdot\dot q-H\),
+one recovers \(\dot P_i=-\partial_{q^i}H\).
+
+\paragraph{Falsification.}
+On a short window with fixed endpoints, if \(\int_{\partial\Sigma}\Theta_{\mathcal R}\neq 0\) under the declared regularity and boundary conditions,
+the equivalence between \eqref{corollary:least-action:eq:primary} and \eqref{axioms:path-rate:eq:canonical} is violated for the modelling choice at hand.
+
+\medskip
+\noindent\emph{Provenance.}
+\eqref{axioms:path-rate:eq:pc-form}, \eqref{axioms:path-rate:eq:canonical},
+\eqref{corollary:least-action:eq:Legendre}–\eqref{corollary:least-action:eq:primary}.
+
+\medskip
+\noindent\emph{Literature note.}
+Equivalence of Hamilton/Euler–Lagrange via the Poincaré–Cartan form: Arnold~\cite{Arnold1989};
+geometric mechanics (Abraham–Marsden)~\cite{AbrahamMarsden1978}; convex duality and Legendre transforms:
+Rockafellar~\cite{Rockafellar1970}.

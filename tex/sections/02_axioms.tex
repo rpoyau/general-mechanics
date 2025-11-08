@@ -1,0 +1,143 @@
+% ======================================================================
+% 02_axioms.tex — Axioms (manifold-first, Stokes-only core)
+% ======================================================================
+
+\section{Axioms}
+\label{axioms}
+
+\paragraph{Three pillars (thermodynamics, information–relational, Stokes).}
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{\emph{Thermodynamics as content.}} The piston thought–experiment generalizes via Stokes.
+    \item \textbf{\emph{Information theory / relational.}} Counting and priors are Shannon-based over a \emph{ternary}
+alphabet (\emph{yes/no/unknown}); observables are relational.
+    \item \textbf{\emph{Geometric calculus (Stokes identity).}} A single generalized Stokes identity \eqref{axioms:stokes:identity:eq}
+      is applied on a chosen region and its time extension, with cap/side (\worldtube) decomposition.
+\end{enumerate}
+
+% ---------------------------- Core Axioms ------------------------------
+\subsection{Core Axioms}
+
+\subsubsection{Relational}
+\label{axioms:relational}
+
+\paragraph{Relational primacy.}
+\label{axioms:relational:primacy}
+Relations are the primitives; observables are relational. A model specifies a region \(U\subset M\) and its boundary
+\(\partial U\).
+
+\paragraph{Counting \& priors (trits/nats).}
+\label{axioms:relational:counting}
+A configuration determined by \(n\) ternary distinctions has \(W=3^{\,n}\) microstates. With a prior \(p(x)\) on an
+alphabet \(\mathcal A\) of size \(3\), the uncertainty is the Shannon entropy
+\(H(p)=-\sum_{x\in\mathcal A} p(x)\ln p(x)\) (nats), with
+\[
+H_{\text{trits}}=\frac{H_{\text{nats}}}{\ln 3}.
+\]
+
+\subsubsection{Identity (Stokes postulate)}
+\label{axioms:stokes:identity}
+The informational/entropic flux \(1\)-form \(j\) (with Hodge-dual \(j^{(n)}\))
+and production \(\Sigma:=\sigma\,\mathrm{vol}\) satisfy the postulate
+\begin{equation}
+d\,j^{(n)}=\Sigma
+\quad\Longleftrightarrow\quad
+\partial_\mu J^\mu=\sigma .
+\label{axioms:stokes:identity:eq}
+\end{equation}
+
+\paragraph{Boundary identification and heat mapping.}
+\label{axioms:boundary-heat}
+On boundaries, identify the information current with the entropy current \(j\equiv j_S\) (counts/area/time),
+and the volume density \(i\equiv s\) (nats/vol). With a boundary temperature field \(\Tz\), the heat flux is \(q:=\Tz\,j_S\):
+\begin{equation}
+j \equiv j_S,\qquad i \equiv s,\qquad q := \Tz\,j_S .
+\label{axioms:boundary-heat:eq}
+\end{equation}
+
+% ------------------------ Key Consequences of the Axioms ---------------
+\subsection{Key Consequences of the Axioms}
+
+\subsubsection{Continuity forms (derived)}
+\label{axioms:stokes:continuity}
+From \eqref{axioms:stokes:identity:eq} on \(U\times[t_0,t_1]\),
+\begin{equation}
+\int_{\partial(U\times[t_0,t_1])}\! j^{(n)}
+\;=\;
+\int_{U\times[t_0,t_1]}\! \Sigma .
+\label{axioms:stokes:identity:eq:integral}
+\end{equation}
+On a fixed \(U\), the cut identity is
+\begin{equation}
+\dot I_{\mathrm{enc}}(t)=\Phi_{\mathrm{in}}(t)-\Phi_{\mathrm{out}}(t)+\Pi(t),
+\label{axioms:stokes:identity:eq:cut}
+\end{equation}
+where \(I_{\mathrm{enc}}\), \(\Phi_{\mathrm{in/out}}\), and \(\Pi\) denote the volume/boundary integrals of
+\(i\), \((\mathbf j\!\cdot\!\mathbf n)_{\mp}\), and \(\sigma\).
+In local coordinates,
+\begin{equation}
+\partial_t i(x,t)+\nabla\!\cdot \mathbf j(x,t)=\sigma(x,t).
+\label{axioms:stokes:identity:eq:local-continuity}
+\end{equation}
+
+\subsubsection{Relational Equation of State (REOS)}
+\label{axioms:reos}
+For admissible boundary/control variations \(R^{(a)}\) and calibrated rate density \(\rho=\rho(R)\),
+the price one-form \(\lambda:=\lambda_a\,dR^{(a)}\) (with \(\lambda_a:=-\,\partial\rho/\partial R^{(a)}\)) satisfies
+\begin{equation}
+d\rho \;=\; -\,\lambda_a\,dR^{(a)} .
+\label{axioms:reos:eq}
+\end{equation}
+If \(d\lambda=0\), \(\rho\) is path-independent. If \(d\lambda\neq 0\), cyclic variations entail nonnegative production \(\sigma\)
+in \eqref{axioms:stokes:identity:eq}–\eqref{axioms:stokes:identity:eq:cut}.
+
+\subsubsection{Canonical rates from Stokes on \((q,t)\)}
+\label{axioms:path-rate}
+For a rate (Poincaré–Cartan) \(1\)-form on configuration–time space
+\begin{equation}
+\Theta_{\mathcal R}=P_i\,dq^i- H(q,P,t)\,dt ,
+\label{axioms:path-rate:eq:pc-form}
+\end{equation}
+evaluating Stokes on a rectangular \(2\)-surface \(\Sigma\) spanned by two nearby paths gives
+\[
+\int_{\partial\Sigma}\Theta_{\mathcal R}\;=\;\int_{\Sigma} d\Theta_{\mathcal R}\;=\;0,
+\]
+which is equivalent to
+\begin{equation}
+\dot q^i=\partial_{P_i}H,
+\qquad
+\dot P_i=-\,\partial_{q^i}H .
+\label{axioms:path-rate:eq:canonical}
+\end{equation}
+
+% ----------------------------- Constitutive Models ---------------------
+\subsection{Constitutive Models}
+\label{axioms:closures}
+
+\paragraph{Linear channel closure.}
+\label{axioms:linear-closure}
+In linear, isotropic, near-equilibrium regimes,
+\begin{equation}
+\mathbf E_I:=-\,\nabla\Phi_I,
+\qquad
+\mathbf j=-\,\kappa\,\mathbf E_I .
+\label{axioms:linear-closure:eq}
+\end{equation}
+
+\paragraph{Wave-supporting closure.}
+\label{axioms:waves:closure}
+On a window \([t_0,t_1]\), fields \((U,V)\) with a linear, causal constitutive map
+\begin{equation}
+V=\chi:U,
+\label{axioms:waves:eq:chi}
+\end{equation}
+have stored energy
+\begin{equation}
+u \;:=\; \tfrac12\,U{:}V ,
+\label{axioms:waves:eq:energy}
+\end{equation}
+and a spatial flux \(\mathbf S\) satisfying
+\begin{equation}
+\partial_t u \;+\; \nabla\!\cdot\mathbf S \;=\; -\,\Pi,
+\qquad \Pi\ge 0.
+\label{axioms:waves:eq:balance}
+\end{equation}

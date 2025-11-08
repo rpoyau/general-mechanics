@@ -1,0 +1,82 @@
+% ======================================================================
+% 05_noise.tex — Corollary: Boundary-window estimator floors & spectral forms (AF–Pure)
+% ======================================================================
+
+\subsection{Noise on boundary windows}
+\label{corollary:noise}
+
+\paragraph{Setup.}
+A boundary patch \(A\subset\partial U\) is observed over a window \([t,t+\Delta t]\).
+Window counts are \(N_A(\Delta t)\) with windowed Fano factor \(F_A:=\mathrm{Var}(N_A)/\mathbb E[N_A]\).
+Define the inward patch integral and patch‑mean density
+\[
+J_A:=\int_A \big(\mathbf j\!\cdot \mathbf n\big)_{-}\,\mathrm dA,
+\qquad
+j_A:=\frac{\mathbb E[N_A]}{|A|\,\Delta t}=\frac{J_A}{|A|}.
+\]
+An effective duration \(\Delta t_{\!\mathrm{eff}}\le\Delta t\) is obtained from the count autocorrelation on the same record.
+
+\paragraph{Derivation.}
+From the Linear Channel Closure \eqref{axioms:linear-closure:eq} ( \( \mathbf j=-\kappa\,\mathbf E_I\) ), the variance floor of any unbiased estimator \(\widehat{E}_I\) over the window satisfies
+\begin{equation}
+\mathrm{Var}(\widehat{E}_I)
+\;\gtrsim\;
+\frac{F_A\,j_A}{\kappa^{2}\,|A|\,\Delta t_{\!\mathrm{eff}}}.
+\label{corollary:noise:eq:primary}
+\end{equation}
+
+\paragraph{Specialization (correlated arrivals).}
+If arrivals have a correlation time \(\tau>0\), the effective duration scales as \(\Delta t_{\!\mathrm{eff}}\sim \Delta t/\tau\), giving
+\begin{equation}
+\mathrm{Var}(\widehat{E}_I)
+\;\gtrsim\;
+\frac{j_A}{\kappa^{2}\,|A|}\,\frac{\tau}{\Delta t}.
+\label{corollary:noise:eq:special}
+\end{equation}
+
+\paragraph{Calibration.}
+With a one–datum sector mapping \(Y=c_{\mathrm{sec}}\,|E_I|\) on the same region, the measured‑unit floor is
+\begin{equation}
+\mathrm{Var}(\widehat Y)
+\;\gtrsim\;
+\frac{c_{\mathrm{sec}}^{\,2}\,F_A\,j_A}{\kappa^{2}\,|A|\,\Delta t_{\!\mathrm{eff}}}.
+\label{corollary:noise:eq:calib}
+\end{equation}
+In a far‑field frame, the inverse‑area law \eqref{corollary:info-gas:eq:primary} and a source family labeled by total energy \(E_{\rm src}\) with \(\Phi\propto E_{\rm src}\) imply the fractional mapping
+\begin{equation}
+\frac{\delta Y(r,t)}{Y(r)}=\frac{\delta\Phi}{\Phi}
+=\frac{\delta E_{\rm src}(t)}{E_{\rm src}}.
+\label{corollary:noise:eq:ratio}
+\end{equation}
+Hence the one‑sided PSD and in‑band rms specializations are
+\begin{equation}
+S_g(\omega)=\left(\frac{g(r)}{E_{\rm src}}\right)^{\!2} S_{E}(\omega),
+\label{corollary:noise:eq:psd}
+\end{equation}
+\begin{equation}
+g_{\mathrm{rms}}(r)\ \approx\ g(r)\,\frac{\sqrt{\displaystyle \int_{\Omega} S_E(\omega)\,\mathrm d\omega}}{E_{\rm src}}
+\;=\; g(r)\,\frac{\sqrt{\mathrm{Var}[E]_{\Omega}}}{E_{\rm src}}.
+\label{corollary:noise:eq:rms}
+\end{equation}
+
+\paragraph{Falsification.}
+In a shot‑noise regime \(F_A\!\to\!1\) with \(\Delta t_{\!\mathrm{eff}}\!\to\!\Delta t\), hold \(j_A\) and \(|A|\) fixed and vary \(\Delta t\) over at least one decade; if
+\[
+\mathrm{Var}(\widehat Y)\,\Delta t
+\]
+deviates from the constant predicted by \eqref{corollary:noise:eq:calib} by more than a factor of \(3\), the closure or counting assumptions used to obtain \eqref{corollary:noise:eq:primary} are falsified on that window.
+
+\medskip
+\noindent\emph{Provenance.}
+\eqref{axioms:linear-closure:eq},
+\eqref{corollary:noise:eq:primary},
+\eqref{corollary:noise:eq:special},
+\eqref{corollary:noise:eq:calib},
+\eqref{corollary:info-gas:eq:primary},
+\eqref{corollary:noise:eq:ratio},
+\eqref{corollary:noise:eq:psd},
+\eqref{corollary:noise:eq:rms}.
+
+\medskip
+\noindent\emph{Literature note.}
+Hu–Verdaguer (stochastic gravity) and Kingman (Poisson processes).

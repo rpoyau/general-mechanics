@@ -1,0 +1,61 @@
+% ======================================================================
+% corollaries/08_thermo-newton.tex — Thermodynamics → Newtonian rate laws (AF‑Pure)
+% ======================================================================
+
+\subsection{Thermodynamics to Newtonian rate laws (constant‑free)}
+\label{corollary:thermo-newton}
+
+\paragraph{Setup.}
+On configuration–time space \((q,t)\) \axref{axioms:path-rate},
+assume a quadratic kinetic term with a positive‑definite, window‑constant mass metric \(M\) and an external potential:
+\begin{equation}
+H(q,P,t)=\tfrac12\,P\!\cdot M^{-1}P \;+\; U(q,t),\qquad M>0 .
+\label{corollary:thermo-newton:eq:kinetic}
+\end{equation}
+
+\paragraph{Derivation.}
+From the canonical rate equations \eqref{axioms:path-rate:eq:canonical} applied to
+\eqref{corollary:thermo-newton:eq:kinetic}, \(\dot q=M^{-1}P\), \(\dot P=-\partial_q U\).
+With \(\mathbf p:=M\dot q\) and \(\mathbf f:=-\,\partial_q U\), one obtains the Newtonian rate law
+\begin{equation}
+\dot{\mathbf p} \;=\; \mathbf f.
+\label{corollary:thermo-newton:eq:primary}
+\end{equation}
+
+\paragraph{Specialization.}
+Work–power identity for \(K(P):=\tfrac12\,P\!\cdot M^{-1}P=\tfrac12\,\dot q\!\cdot M\dot q\):
+\begin{equation}
+\frac{dK}{dt}
+= \dot q\!\cdot \dot P
+= \dot q\!\cdot \mathbf f
+= \mathbf f\!\cdot \mathbf v ,
+\qquad \mathbf v:=\dot q .
+\label{corollary:thermo-newton:eq:power}
+\end{equation}
+If \(U\) is time‑independent, \(\dot H=0\) for \(H=K+U\).
+
+\paragraph{Calibration.}
+With the one‑datum linear sector mapping \eqref{app:kick:eq:calib-map} and scale \eqref{app:kick:eq:one-datum},
+measured sector fields satisfy
+\begin{equation}
+\mathbf g=c_M\,\mathbf E_I,
+\qquad
+\mathbf E=c_Q\,\mathbf E_I .
+\label{corollary:thermo-newton:eq:calib}
+\end{equation}
+
+\paragraph{Falsification.}
+In a constant‑mass, time‑independent \(U\) regime, if measured \(\mathbf p(t)\) and \(\mathbf f(t)\) on the same window fail
+\(\dot{\mathbf p}=\mathbf f\) by more than the declared estimation bounds, either the Hamiltonian choice
+\eqref{corollary:thermo-newton:eq:kinetic} or the calibration \eqref{corollary:thermo-newton:eq:calib} is inconsistent with the axioms invoked.
+
+\medskip
+\noindent\emph{Provenance.}
+\eqref{axioms:path-rate:eq:canonical}, \eqref{corollary:thermo-newton:eq:kinetic},
+\eqref{corollary:thermo-newton:eq:primary}, \eqref{corollary:thermo-newton:eq:power}, \eqref{corollary:thermo-newton:eq:calib},
+\eqref{app:kick:eq:calib-map}, \eqref{app:kick:eq:one-datum}.
+
+\medskip
+\noindent\emph{Literature note.}
+Poincaré–Cartan form and Hamiltonian rates: Arnold~\cite{Arnold1989}. Convex duality and Legendre regularity:
+Rockafellar~\cite{Rockafellar1970}.

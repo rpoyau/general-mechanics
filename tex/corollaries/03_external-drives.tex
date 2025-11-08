@@ -1,0 +1,109 @@
+% ======================================================================
+% 02_external-drives-delay.tex — External drives, delay & production
+% ======================================================================
+
+\subsection{External drives, delay \& production}
+\label{corollary:external-drives}
+
+\paragraph{Setup.}
+A narrow tube \(\mathcal T\) connects an inlet cross–section \(\Sigma_{\rm in}\) to an outlet \(\Sigma_{\rm out}\).
+The directed inlet/outlet fluxes (directional split) are
+\[
+\Phi_{\rm in}(t):=\int_{\Sigma_{\rm in}}(\mathbf j\!\cdot \mathbf n)_-\,\mathrm dA,
+\qquad
+\Phi_{\rm out}(t):=\int_{\Sigma_{\rm out}}(\mathbf j\!\cdot \mathbf n)_+\,\mathrm dA .
+\]
+Let \(I_{\mathcal T}(t):=\int_{\mathcal T} i\,\mathrm d^n x\),
+\(\Pi_{\mathcal T}(t):=\int_{\mathcal T}\sigma\,\mathrm d^n x\),
+and \(A(s)\) the cross–section area at coordinate \(s\).
+
+\paragraph{Derivation.}
+From the cut identity \eqref{axioms:stokes:identity:eq:cut} applied to \(\mathcal T\),
+\begin{equation}
+\dot I_{\mathcal T}(t) \;=\; \Phi_{\rm in}(t)-\Phi_{\rm out}(t) \;+\; \Pi_{\mathcal T}(t) .
+\label{corollary:external-drives:eq:cut}
+\end{equation}
+
+\paragraph{Transit and delay (transparent segment).}
+On a source–free open subsegment \(W\subset\mathcal T\) with \(\sigma|_{W}=0\) and directed speed profile
+\(v(s)>0\) along tube coordinate \(s\in[0,L]\), the transit time is
+\begin{equation}
+\tau \;=\; \int_{0}^{L}\frac{\mathrm ds}{v(s)} .
+\label{corollary:external-drives:eq:transit}
+\end{equation}
+With negligible dispersion,
+\begin{equation}
+\Phi_{\rm out}(t)\;=\;\Phi_{\rm in}(t-\tau).
+\label{corollary:external-drives:eq:delay}
+\end{equation}
+For mild dispersion, \(\Phi_{\rm out}=K*\Phi_{\rm in}\) with a causal kernel \(K\) of unit mass and mean \(\tau\).
+
+\paragraph{Attenuation and production.}
+In an advective regime with speed \(v(s)\) and local removal rate \(\mu(s)\ge 0\) (per unit length), the directed tube flux
+\(\Phi(s,t):=\int_{\Sigma(s)}(\mathbf j\!\cdot \mathbf n)_+\,\mathrm dA\) satisfies
+\begin{equation}
+\partial_t \Phi(s,t) + v(s)\,\partial_s \Phi(s,t) \;=\; -\,\mu(s)\,\Phi(s,t) .
+\label{corollary:external-drives:eq:transport}
+\end{equation}
+Along characteristics,
+\begin{equation}
+S \;=\; \exp\!\Bigl(-\int_{0}^{L}\mu(s)\,\mathrm ds\Bigr),
+\qquad
+\tau \;=\; \int_{0}^{L}\frac{\mathrm ds}{v(s)},
+\label{corollary:external-drives:eq:survival}
+\end{equation}
+and
+\begin{equation}
+\Phi_{\rm out}(t)\;=\; S\,\Phi_{\rm in}(t-\tau).
+\label{corollary:external-drives:eq:attenuated-delay}
+\end{equation}
+
+\paragraph{Amplitude profile.}
+With \(\langle j_n\rangle(s,t):=\Phi(s,t)/A(s)\) the mean normal flux density, the transparent case (\(S=1\))
+gives \(\langle j_n\rangle\propto 1/A(s)\).
+With attenuation,
+\begin{equation}
+\langle j_n\rangle(s,t)
+\;=\;
+\frac{\Phi(0,t-\tau_s)}{A(s)}\,
+\exp\!\Bigl(-\int_{0}^{s}\mu(u)\,\mathrm du\Bigr),
+\qquad
+\tau_s=\int_{0}^{s}\frac{\mathrm du}{v(u)} .
+\label{corollary:external-drives:eq:amplitude}
+\end{equation}
+
+\paragraph{Series composition.}
+For piecewise‑constant segments \(\{(L_k,v_k,\mu_k)\}\),
+\begin{equation}
+\tau \;=\; \sum_k \frac{L_k}{v_k},
+\qquad
+S \;=\; \prod_k e^{-\mu_k L_k}
+\;=\;\exp\!\Bigl(-\sum_k \mu_k L_k\Bigr).
+\label{corollary:external-drives:eq:composition}
+\end{equation}
+
+\paragraph{Kinematic invariance.}
+If \(\Sigma(s,t)=\Sigma(s-\xi(t))\) with \(\dot\xi=U(t)\), the Stokes identity \eqref{axioms:stokes:identity:eq:integral}
+on \(\mathcal T\times[t_0,t_1]\) yields the same balance \eqref{corollary:external-drives:eq:cut}. A co‑moving frame replaces \(\partial_t\) by
+the material derivative along \(U(t)\) without altering
+\eqref{corollary:external-drives:eq:delay}–\eqref{corollary:external-drives:eq:composition}.
+
+\paragraph{Calibration.}
+With the Linear Channel Closure \eqref{axioms:linear-closure:eq} and the one–datum sector calibration, measured sector readouts \(Y\) satisfy
+\[
+Y(s,t)=\frac{c_{\rm sec}}{\kappa}\,\langle j_n\rangle(s,t).
+\]
+
+\paragraph{Falsification.}
+With known \(\{v(s),\mu(s)\}\) and measured inlet/outlet histories, any systematic failure of
+\eqref{corollary:external-drives:eq:delay} (transparent) or \eqref{corollary:external-drives:eq:attenuated-delay} (attenuating) beyond
+experimental tolerance falsifies the advective transport premise \eqref{corollary:external-drives:eq:transport} on the declared window.
+
+\medskip
+\noindent\emph{Provenance.}
+\eqref{axioms:stokes:identity:eq:cut}, \eqref{axioms:stokes:identity:eq:integral}, \eqref{axioms:linear-closure:eq},
+\eqref{corollary:external-drives:eq:cut}–\eqref{corollary:external-drives:eq:composition}.
+\medskip
+
+\noindent\emph{Literature note.}
+Advection–attenuation (first‑order transport, Beer–Lambert type) and characteristic methods: Evans~\cite{Evans2010}.

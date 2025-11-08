@@ -1,0 +1,81 @@
+% ======================================================================
+% _template_pure.tex — Corollary template (AF‑Pure, no label magic)
+% ======================================================================
+
+% ------------------------ Editor-only guidance (comments) --------------
+% AF discipline (Axiomatic Fundamentalism):
+% • Use paragraph style only: Setup., Derivation., Specialization., Calibration., Falsification., Provenance., Literature note.
+% • Cite ONLY precise internal labels (A/D/eq) via \eqref{...}; NEVER use section ranges like “§§a–b”.
+% • Do NOT restate axioms or choices; just cite their labels (e.g., \eqref{axioms:stokes:identity:eq}, \eqref{axioms:linear-closure:eq}).
+% • Give every displayed relation its own anchor (primary / specialization / calibration) for single‑label references.
+% • No custom theorem-like environments (e.g., choice, axiom, consequence) in corollaries.
+% • “Literature note.” is external provenance only (textbooks/papers); keep it terse to avoid overfull hboxes.
+
+% How to instantiate this template:
+% 1) Replace [TITLE] and [LABEL] below.
+% 2) In “Setup.” state initial conditions and geometry DECLARATIVELY
+%    (e.g., frame/window regime, source-free set, regularity). No instructions.
+% 3) In “Derivation.” INSERT governing identity/closure BY LABEL inline
+%    (e.g., “From \eqref{<identity>} and \eqref{<closure>} …”). Keep it neutral.
+% 4) Put the main statement in the PRIMARY equation block and label it
+%    \label{corollary:[LABEL]:eq:primary}.
+% 5) Optional: add one specialization (geometry/regime) with its own label
+%    \label{corollary:[LABEL]:eq:special}.
+% 6) Optional: add a calibration paragraph tied to a one‑datum scale already
+%    defined elsewhere; label it \label{corollary:[LABEL]:eq:calib}.
+% 7) Optional: add a falsification hook (operational test/threshold).
+% 8) End with “Provenance.” (internal labels only) and a short “Literature note.”
+% ----------------------------------------------------------------------
+
+\subsection{[TITLE]}
+\label{corollary:[LABEL]}
+
+\paragraph{Setup.}
+% State initial conditions and geometric context in 1–2 sentences.
+% Example: Frame form with \(\partial_t i=0\) on an open \(W\subset U\) and \(\sigma|_W=0\).
+% Example: Wave window with homogeneous constitutive map on the segment; sources excluded.
+
+\paragraph{Derivation.}
+% Cite identities/closures INLINE here; do not restate them.
+% Example: From \eqref{axioms:stokes:identity:eq} and \eqref{axioms:linear-closure:eq}, the quantity satisfies:
+\begin{equation}
+% [PRIMARY] Insert the main relation here.
+% e.g., \bigl\langle j_n\bigr\rangle(r)=\Phi/A_n(r) \quad\text{or}\quad |E_I(r)|=\Phi/(\kappa A_n(r)).
+\label{corollary:[LABEL]:eq:primary}
+\end{equation}
+
+% ------------------------- Optional specialization ---------------------
+\paragraph{Specialization.}
+% One neutral sentence indicating the regime/geometry specialization.
+% Example: For a spherical boundary in \(n\) spatial dimensions with area \(A_n(r)\), \eqref{corollary:[LABEL]:eq:primary} reduces to:
+\begin{equation}
+% [SPECIALIZATION] Insert the specialized relation, e.g.,
+% |E_I(r)|=\Phi/(\kappa S_{n-1})\,r^{-(n-1)}.
+\label{corollary:[LABEL]:eq:special}
+\end{equation}
+
+% --------------------------- Optional calibration ----------------------
+\paragraph{Calibration.}
+% One sentence tying measured readouts to the primary amplitude by a one‑datum scale
+% already defined elsewhere (CITE THE LABEL; do not repeat formulas).
+% Example: With the one‑datum calibration \eqref{<calibration-label>}, measured sector readouts satisfy:
+\begin{equation}
+% [CALIBRATION] Insert calibrated/measured relation(s), e.g.,
+% Y(r)=c_{\mathrm{sec}}\,|E_I(r)|.
+\label{corollary:[LABEL]:eq:calib}
+\end{equation}
+
+% ---------------------------- Optional falsification -------------------
+\paragraph{Falsification.}
+% A concrete test/threshold that could contradict this corollary within the stated regime.
+% Example: If measured \(U(r)\) in the declared 1D guide departs from linear by \(>3\%\) beyond \(r_\star\), the 1D choice is falsified.
+
+\medskip
+\noindent\emph{Provenance.}
+% List ONLY internal labels actually used (no prose, no ranges).
+% Example: \eqref{axioms:stokes:identity:eq}, \eqref{axioms:linear-closure:eq}, \eqref{corollary:[LABEL]:eq:primary}.
+
+\medskip
+\noindent\emph{Literature note.}
+% External sources only (no self-citations). Terse; provenance, not premises.
+% Example: Frankel [forms/Stokes]; Jackson [inverse-power fields]; Callen [macroscopic thermodynamics].

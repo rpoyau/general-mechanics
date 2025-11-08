@@ -1,0 +1,65 @@
+% ======================================================================
+% corollaries/07_dimensional.tex — Dimensional flows & confinement
+% ======================================================================
+
+\subsection{Dimensional flows \& confinement}
+\label{corollary:dimensional}
+
+\paragraph{Setup.}
+A \emph{frame} \apref{app:glossary:frame} is taken with \(\partial_t i=0\) on an open annulus \(W\subset U\) where \(\sigma|_{W}=0\).
+In \(n\) spatial dimensions, a radius–\(r\) boundary has area \(A_n(r)\); a conical sector of solid angle \(\Delta\Omega\) has
+\(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\).
+
+\paragraph{Frame scaling.}
+From tube invariance \eqref{corollary:info-gas:eq:primary} and the Linear Channel Closure \eqref{axioms:linear-closure:eq},
+\begin{equation}
+\big\langle j_n\big\rangle(r)=\frac{\Phi}{A_n(r)},
+\qquad
+\big|\mathbf E_I(r)\big|=\frac{1}{\kappa}\,\frac{\Phi}{A_n(r)} .
+\label{corollary:dimensional:eq:frame-scale}
+\end{equation}
+For spherical or conical boundaries with \(A_n(r)=S_{n-1}\,r^{\,n-1}\), this gives \(|\mathbf E_I|\propto r^{-(n-1)}\).
+
+\paragraph{Wave envelope.}
+On source‑free windows in homogeneous segments, exported power is radius‑independent and the far‑field envelope \eqref{waves:eq:envelope} satisfies
+\begin{equation}
+\big\langle |\mathbf E_I(r)|\big\rangle \ \propto\ \big[A_n(r)\big]^{-1/2};
+\label{corollary:dimensional:eq:wave-scale}
+\end{equation}
+for spherical/conical boundaries this yields
+\(\langle|\mathbf E_I|\rangle\propto r^{-(n-1)/2}\).
+
+\paragraph{Dimensional summary (table).}
+\begin{table}[t]
+\centering
+\caption{Geometric scaling of frame amplitudes and wave envelopes by effective spatial dimension \(n_{\rm eff}\).}
+\label{corollary:dimensional:tab:scaling}
+\begin{tabular}{lccc}
+\hline
+\textbf{Effective dimension} & \textbf{Area \(A_n(r)\)} & \textbf{Frame \(|\mathbf E_I|\)} & \textbf{Wave \(\langle|\mathbf E_I|\rangle\)} \\
+\hline
+1D (guide / tube)      & \(A_\perp\) (const.)   & \(\propto r^{0}\)   & \(\propto r^{0}\) \\
+2D (sheet / interface) & \(A_2(r)\propto r\)    & \(\propto r^{-1}\)  & \(\propto r^{-1/2}\) \\
+3D (spherical)         & \(A_3(r)=4\pi r^{2}\)  & \(\propto r^{-2}\)  & \(\propto r^{-1}\) \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Confinement (effective dimension).}
+Boundaries that constrain propagation reduce the accessible dimension \(n_{\rm eff}\).
+\begin{itemize}\itemsep2pt
+  \item \textbf{Waveguides (effective 1D).} Cross‑section \(A_\perp\) fixed along the axis:
+  \(\langle j_n\rangle=\Phi/A_\perp\) and \(|\mathbf E_I|=\Phi/(\kappa A_\perp)\) are independent of \(r\);
+  wave envelopes remain \(r^{0}\).
+  \item \textbf{Sheets / interfaces (effective 2D).} Fixed thickness implies \(A_2(r)\propto r\):
+  frame amplitudes scale as \(r^{-1}\); wave envelopes scale as \(r^{-1/2}\).
+\end{itemize}
+
+\paragraph{Directional sectors.}
+For an aperture subtending \(\Delta\Omega\) in \(n\) dimensions, the sector area is \(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\).
+Relations \eqref{corollary:dimensional:eq:frame-scale}–\eqref{corollary:dimensional:eq:wave-scale} hold with \(A_n\mapsto A_\Delta\).
+
+\medskip
+\noindent\emph{Literature note.}
+Geometric flows and inverse‑power laws: Frankel~\cite{Frankel2011}; radiation and far‑field envelopes:
+Jackson~\cite{Jackson1999}; Landau, Lifshitz \& Pitaevskii~\cite{LandauLifshitzEDCM1984}.

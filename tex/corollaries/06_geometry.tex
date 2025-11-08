@@ -1,0 +1,60 @@
+% ======================================================================
+% corollaries/06_geometry.tex — Geometry as tool (flat ↔ curved)
+% ======================================================================
+
+\subsection{Geometry as tool—flat \texorpdfstring{$\leftrightarrow$}{↔} curved}
+\label{corollary:geometry}
+
+\paragraph{Setup.}
+On a (Lorentzian or Riemannian) manifold, a future‑directed null or timelike congruence \(k^a\) threads a narrow tube of trajectories, with affine (or proper) parameter \(\lambda\) and cross‑sectional area \(A(\lambda)\) orthogonal to \(k^a\).
+
+\paragraph{Expansion and area.}
+The expansion is
+\begin{equation}
+\theta \;:=\; \nabla_a k^a,
+\qquad
+\frac{d}{d\lambda}\ln A \;=\; \theta .
+\label{corollary:geometry:eq:expansion}
+\end{equation}
+From the tube invariance \eqref{corollary:info-gas:eq:primary} on steady, source‑free segments, \(\Phi\) is constant and \(\langle j_n\rangle=\Phi/A\), hence
+\begin{equation}
+\frac{d}{d\lambda}\,\ln \langle j_n\rangle \;=\; -\,\theta .
+\label{corollary:geometry:eq:spread-frame}
+\end{equation}
+With the wave envelope in homogeneous segments \eqref{waves:eq:envelope}, \(\langle |\mathbf E_I|\rangle \propto A^{-1/2}\), giving
+\begin{equation}
+\frac{d}{d\lambda}\,\ln \langle |\mathbf E_I|\rangle \;=\; -\,\frac{1}{2}\,\theta .
+\label{corollary:geometry:eq:spread-wave}
+\end{equation}
+
+\paragraph{Raychaudhuri focusing.}
+For a geodesic, hypersurface‑orthogonal congruence (\(\omega_{ab}=0\)), the Raychaudhuri equation is
+\begin{equation}
+\frac{d\theta}{d\lambda}
+\;=\;
+-\,\frac{1}{2}\,\theta^2
+\;-\;\sigma_{ab}\sigma^{ab}
+\;-\;R_{ab}\,k^a k^b ,
+\label{corollary:geometry:eq:raychaudhuri}
+\end{equation}
+where \(\sigma_{ab}\) is the shear and \(R_{ab}\) the Ricci tensor. For timelike congruences, the coefficient of \(\theta^2\) is dimension‑dependent; the sign of the Ricci term is unchanged.
+
+\paragraph{Calibrated equality.}
+On the same region used for sector calibration, the focusing term relates to a calibrated stress component by
+\begin{equation}
+R_{ab}\,k^a k^b
+\;\calibeq\;
+8\pi\,\mathcal T^{(\mathrm{cal})}_{ab}\,k^a k^b .
+\label{corollary:geometry:eq:info-einstein}
+\end{equation}
+
+\paragraph{Flat specialization.}
+In flat geometry with a radial congruence in \(n\) spatial dimensions, \(A(\lambda)\propto r^{\,n-1}\) and \(\theta=(n{-}1)\,\dot r/r\).
+Then \eqref{corollary:geometry:eq:spread-frame} yields \(\langle j_n\rangle\propto r^{-(n-1)}\), and \eqref{corollary:geometry:eq:spread-wave} yields \(\langle |\mathbf E_I|\rangle\propto r^{-(n-1)/2}\).
+
+\paragraph{Shear and vorticity.}
+Shear \(\sigma_{ab}\) modifies \(A(\lambda)\) through \eqref{corollary:geometry:eq:raychaudhuri}; nonzero vorticity \(\omega_{ab}\) counteracts focusing. The amplitude rules \eqref{corollary:geometry:eq:spread-frame}–\eqref{corollary:geometry:eq:spread-wave} follow from the resulting \(A(\lambda)\).
+
+\medskip
+\noindent\emph{Literature note.}
+Geodesic congruences and Raychaudhuri: Wald~\cite{Wald1984}, Raychaudhuri~\cite{Raychaudhuri1955}, Poisson~\cite{Poisson2004}. Local‑horizon focusing: Jacobson~\cite{Jacobson1995}.

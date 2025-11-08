@@ -1,0 +1,44 @@
+% ======================================================================
+% 13_quark_tube.tex — QCD string (declared 1D tube; AF–Pure)
+% ======================================================================
+
+\subsection{QCD string (declared 1D tube)}
+\label{corollary:qcd-string}
+
+\paragraph{Setup.}
+Frame form with \(\partial_t i=0\) on an open \(W\subset U\) where \(\sigma|_W=0\).
+Declare an effective 1D flux‑tube with constant cross‑section \(A_\perp\).
+Adopt the linear channel closure \eqref{axioms:linear-closure:eq}.
+
+\paragraph{Derivation.}
+From \eqref{corollary:conf:eq:1d}, the informational field inside the tube is uniform:
+\begin{equation}
+E_I\;=\;\frac{\Phi}{\kappa\,A_\perp}\;=:\;E_{\mathrm{string}}.
+\label{corollary:qcd-string:eq:primary}
+\end{equation}
+With \(\mathbf E_I=-\nabla\Phi_I\) and a sector calibration \(U=c_{\mathrm{conf}}\Phi_I\),
+the separation potential is
+\begin{equation}
+U(r)=U_0+\sigma r,\qquad \sigma=c_{\mathrm{conf}}\,E_{\mathrm{string}} .
+\label{corollary:qcd-string:eq:calib}
+\end{equation}
+
+\paragraph{Specialization.}
+For a lattice‑anchored \(A_\perp=\pi r_0^2\), any single datum for \(\sigma\) fixes
+\(c_{\mathrm{conf}}E_{\mathrm{string}}\).
+
+\paragraph{Calibration.}
+A typical datum \(\sigma\approx(0.44\,\mathrm{GeV})^2\) sets the slope in the chosen sector.
+
+\paragraph{Falsification.}
+If the measured force \(F=dU/dr\) differs from a constant by \(>3\%\) for \(r\gtrsim1.5\,\mathrm{fm}\)
+in the declared 1D regime, the tube specialization is falsified.
+
+\medskip
+\noindent\emph{Provenance.}
+\eqref{axioms:linear-closure:eq}, \eqref{corollary:conf:eq:1d},
+\eqref{corollary:qcd-string:eq:primary}–\eqref{corollary:qcd-string:eq:calib}.
+
+\medskip
+\noindent\emph{Literature note.}
+External provenance only: lattice flux‑tube/string‑tension measurements (Wilson loops; Polyakov‑type formulations).

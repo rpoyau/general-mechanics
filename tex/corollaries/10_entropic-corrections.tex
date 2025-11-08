@@ -1,0 +1,150 @@
+% ======================================================================
+% corollaries/10_entropic-corrections.tex — Entropic–gravity corrections
+% ======================================================================
+
+\subsection{Entropic–gravity corrections (attenuation, production, capacity)}
+\label{corollary:entropic-corrections}
+
+\paragraph{Setup.}
+A radial boundary in \(n\) spatial dimensions has area \(A_n(r)=S_{n-1}r^{\,n-1}\).
+The radial flux density is \(j_r(r)\); the directed flux is \(\Phi(r):=A_n(r)\,j_r(r)\);
+the informational field amplitude is \(E(r):=|\mathbf E_I(r)|\).
+Inward/outward components use the directional split.
+Window and frame notions are as defined in the axioms.
+The boundary capacity is defined by \(N(r)\) addressable trits, a per‑trit reliable rate \(f_{\max}\),
+and the relation \(N(r)=\alpha\,A_n(r)\).
+
+\paragraph{Derivation.}
+From the local continuity identity \eqref{axioms:stokes:identity:eq:local-continuity} and the Linear Channel Closure
+\eqref{axioms:linear-closure:eq} (\(j_r=-\kappa E\)), one obtains the spatial balance and its radial reductions below.
+
+\paragraph{Window balance (cut form).}
+On a window \([t_0,t_1]\) over the worldtube between two nested spheres \(S(r_1)\subset S(r_2)\),
+the cut identity \eqref{axioms:stokes:identity:eq:cut} yields
+\begin{equation}
+\Delta I_{\mathrm{enc}}
+\;=\;
+N_{\mathrm{in}}(r_1)\;-\;N_{\mathrm{out}}(r_2)\;+\;\Pi_{[r_1,r_2]},
+\qquad
+N_{\mathrm{in/out}}(r):=\int_{t_0}^{t_1}\!\!\int_{S(r)} \big(\mathbf j\!\cdot\!\mathbf n\big)_{\mp}\,\mathrm dA\,\mathrm dt .
+\label{corollary:entropic-corrections:eq:window-cut}
+\end{equation}
+For advective transport, \eqref{corollary:external-drives:eq:attenuated-delay} relates inlet and outlet histories by
+\begin{equation}
+\Phi_{\rm out}(t)\;=\;S\,\Phi_{\rm in}(t-\tau),
+\qquad
+S=\exp\!\Bigl(-\!\int\mu\,\mathrm ds\Bigr).
+\label{corollary:entropic-corrections:eq:window-survival}
+\end{equation}
+
+\paragraph{Frame reduction (steady limit).}
+On a frame with \(\partial_t i=0\) and radially symmetric data, the local form
+\eqref{axioms:stokes:identity:eq:local-continuity} gives
+\begin{equation}
+\frac{\mathrm d}{\mathrm dr}\,\Phi(r)\;=\;A_n(r)\,\sigma(r).
+\label{corollary:entropic-corrections:eq:dphi}
+\end{equation}
+With \(j_r=-\kappa E\),
+\begin{equation}
+\frac{\mathrm d}{\mathrm dr}\Big(A_n(r)\,E(r)\Big)\;=\;-\frac{1}{\kappa}\,A_n(r)\,\sigma(r).
+\label{corollary:entropic-corrections:eq:core}
+\end{equation}
+
+\paragraph{Attenuation (sink).}
+For a local removal rate \(\mu(r)\ge 0\) with sink \(\sigma_{\rm sink}(r)=-\mu(r)\,j_r(r)\),
+\eqref{corollary:entropic-corrections:eq:core} and \(j_r=-\kappa E\) yield
+\begin{equation}
+\boxed{\ \frac{\mathrm d}{\mathrm dr}\Big(A_n E\Big)+\mu(r)\,A_n\,E=0\ }
+\label{corollary:entropic-corrections:eq:ode-atten}
+\end{equation}
+with solution
+\begin{equation}
+E(r)=\frac{C}{A_n(r)}\,
+\exp\!\Bigl(-\!\int_{r_0}^{r}\mu(u)\,\mathrm du\Bigr),
+\qquad
+C=\frac{\Phi(r_0)}{\kappa}.
+\label{corollary:entropic-corrections:eq:sol-atten}
+\end{equation}
+
+\paragraph{Volumetric source/sink (forcing).}
+With an additional bounded source density \(\sigma_{\rm src}(r)\) so that \(\sigma=\sigma_{\rm src}-\mu\,j_r\),
+\begin{equation}
+\frac{\mathrm d}{\mathrm dr}\big(A_n E\big)+\mu\,A_n\,E
+\;=\;-\frac{1}{\kappa}\,A_n\,\sigma_{\rm src},
+\label{corollary:entropic-corrections:eq:ode-forced}
+\end{equation}
+and the integrating‑factor solution is
+\begin{equation}
+E(r)=\frac{1}{A_n(r)}\,e^{-\!\int_{r_0}^{r}\mu}\!
+\left[
+C - \frac{1}{\kappa}
+\int_{r_0}^{r} A_n(\rho)\,\sigma_{\rm src}(\rho)\,
+e^{\int_{r_0}^{\rho}\mu}\, \mathrm d\rho
+\right].
+\label{corollary:entropic-corrections:eq:sol-forced}
+\end{equation}
+
+\paragraph{3D specialization.}
+For \(n=3\), \(A_3(r)=4\pi r^2\),
+\begin{equation}
+E(r)=\frac{C}{4\pi r^2}\,\exp\!\Bigl(-\!\int_{r_0}^{r}\mu(u)\,\mathrm du\Bigr).
+\label{corollary:entropic-corrections:eq:3d-general}
+\end{equation}
+Constant and power‑law cases:
+\[
+\mu(r)=0:\ E=\frac{C}{4\pi r^2};\qquad
+\mu(r)=\mu_0:\ E=\frac{C}{4\pi r^2}e^{-\mu_0(r-r_0)};\qquad
+\mu(r)=\frac{a}{r}:\ E=\frac{C}{4\pi}\,\frac{r_0^{a}}{r^{2+a}}.
+\]
+
+\paragraph{Capacity ceiling (inner flattening).}
+From the setup definitions, \(J_A(r)\le f_{\max}N(r)\) and \(j_r(r)\le f_{\max}N(r)/A_n(r)\).
+With \(N(r)=\alpha\,A_n(r)\),
+\begin{equation}
+E(r)\ \le\ \frac{f_{\max}\alpha}{\kappa}\;=:\;E_{\max}.
+\label{corollary:entropic-corrections:eq:emax}
+\end{equation}
+In \(n=3\) the unattenuated profile \(E=C/(4\pi r^2)\) intersects the ceiling at
+\begin{equation}
+r_{\rm flat}\;=\;\sqrt{\frac{C}{4\pi\,E_{\max}}}\,,
+\qquad
+E(r)\;=\;\min\!\left\{\ \frac{C}{4\pi r^2}\,e^{-\!\int_{r_0}^{r}\mu},\ \ E_{\max}\ \right\}.
+\label{corollary:entropic-corrections:eq:rflat}
+\end{equation}
+
+\paragraph{Piecewise media and composition.}
+For segments \(\{(\mu_k,\sigma_{{\rm src},k},r_k\!\to\!r_{k+1})\}\) with piecewise‑constant data,
+survival factors multiply as \(e^{-\mu_k\Delta r_k}\) and forced contributions add via
+\eqref{corollary:entropic-corrections:eq:sol-forced}. The ceiling \eqref{corollary:entropic-corrections:eq:emax}
+is applied per segment when \(N(r)\) or \(f_{\max}\) changes.
+
+\paragraph{Potential drop (frame).}
+From \(\mathbf E_I=-\nabla\Phi_I\) in \eqref{axioms:linear-closure:eq},
+\begin{equation}
+\Phi_I(r_2)-\Phi_I(r_1) \;=\; -\int_{r_1}^{r_2} E(\rho)\, \mathrm d\rho .
+\label{corollary:entropic-corrections:eq:potential}
+\end{equation}
+
+\paragraph{Sectors and confinement.}
+For a boundary sector of solid angle \(\Delta\Omega\), the sector area is \(A_\Delta(r)=\Delta\Omega\,r^{\,n-1}\);
+relations \eqref{corollary:entropic-corrections:eq:ode-atten}–\eqref{corollary:entropic-corrections:eq:potential}
+hold with \(A_n\mapsto A_\Delta\).
+In effective \(1\)D (guides) or \(2\)D (sheets), the same relations hold with the constant cross‑section or circumference.
+
+\paragraph{Falsification.}
+(i) In a source‑free annulus with \(\mu=0\), measured \(E(r)\) must follow \(r^{-(n-1)}\); persistent departures falsify
+\eqref{corollary:entropic-corrections:eq:3d-general} (specialized). (ii) With known \(\mu(r)\), the ratio
+\(E(r)A_n(r)\,e^{\int\mu}\) must be constant (from \eqref{corollary:entropic-corrections:eq:ode-atten}); deviations falsify the attenuation premise.
+(iii) In a sector with fixed \(\alpha,f_{\max}\), failure to observe a plateau at \(r_{\rm flat}\) computed from
+\eqref{corollary:entropic-corrections:eq:rflat} falsifies the ceiling assumption on that window.
+
+\medskip
+\noindent\emph{Provenance.}
+\eqref{axioms:stokes:identity:eq:local-continuity}, \eqref{axioms:linear-closure:eq},
+\eqref{corollary:external-drives:eq:attenuated-delay},
+\eqref{corollary:entropic-corrections:eq:dphi}–\eqref{corollary:entropic-corrections:eq:rflat}.
+
+\medskip
+\noindent\emph{Literature note.}
+Linear transport/attenuation and integrating factors: Evans~\cite{Evans2010}.
+Capacity and reliable communication limits: Shannon~\cite{Shannon1948}; Cover \& Thomas~\cite{CoverThomas2006}.

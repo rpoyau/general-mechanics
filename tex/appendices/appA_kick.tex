@@ -1,0 +1,115 @@
+% ======================================================================
+% _app_tools_pure.tex — Tool / Reference appendix (AF‑Pure)
+% ======================================================================
+
+\section{Kick (Kz) units \& Kram anchors}
+\label{app:kick}
+
+\paragraph{Scope.}
+Records the Kz unit convention (division by \(h\)), an optional Kram anchor ladder, one‑datum sector
+calibrations, and the capacity/erasure relations used in the body. This appendix is reference‑only;
+it introduces no new axioms and does not restate cap/side formulas.
+
+\paragraph{Setup.}
+\textbf{Kz units.} For any SI quantity \(X\), define \(X_{\Kz}:=X/h\) using Planck’s constant \(h\) (not \(\hbar\)).\\
+\textbf{Count base.} Information counts default to trits with \(S_{\mathrm{nats}}=(\ln 3)\,S_{\mathrm{trits}}\) and \(S_{\mathrm{bits}}=S_{\mathrm{nats}}/\ln 2\).\\
+\textbf{Screens/windows.} \(A_n(r)\) denotes a geometric \((n{-}1)\)-screen at scale \(r\). A measurement window has duration \(\Delta t\).\\
+\textbf{Local notation.} \(\Phi(r):=\int_{A_n(r)}(\mathbf j\!\cdot \mathbf n)\,\mathrm dA\) (tube flux through \(A_n(r)\));
+\(\overline{J}_{A}:=\frac{1}{A}\!\int_{A}\!|\mathbf j\!\cdot \mathbf n|\,\mathrm dA\) (admissible area‑averaged boundary entropic‑flux bound over patch \(A\));
+\(\kappa\) (proportionality constant from the frame boundary relation); \(\mathbf E_I\) (instrument reference field used for linear readouts).
+
+\paragraph{Statement(s).}
+
+% --- Kz mapping (units) ---
+\begin{equation}
+\Ez=\frac{E}{h},\qquad
+\Mz=\frac{mc^{2}}{h},\qquad
+\Tz=\frac{k_{B}T}{h},\qquad
+\Pz=\frac{P}{h},
+\label{app:kick:eq:kz-map}
+\end{equation}
+where \(\Ez\), \(\Mz\) (rest‑energy rate), and \(\Tz\) have units \(\mathrm s^{-1}\), and \(\Pz\) has units \(\mathrm s^{-2}\).
+Hence \(\Pz/\Tz\) has units \(\mathrm s^{-1}\).
+
+% --- Erasure term (time–information) ---
+\begin{equation}
+\frac{\Delta I_{\rm trits}}{\Delta t}\ \le\ \frac{\Pz}{\Tz\,\ln 3},
+\label{app:kick:eq:erasure-rate}
+\end{equation}
+with equivalent forms \(\Delta I_{\rm nats}/\Delta t \le \Pz/\Tz\) and
+\(\Delta I_{\rm bits}/\Delta t \le \Pz/(\Tz\,\ln 2)\).
+
+% --- Kram anchors (convenience ladder) ---
+\begin{equation}
+1\,k=10^{47}\,\Kz,\qquad
+1\,kk=10^{50}\,\Kz,\qquad
+1\,Mk=10^{53}\,\Kz,\qquad
+1\,Gk=10^{56}\,\Kz,\qquad
+1\,Tk=10^{59}\,\Kz.
+\label{app:kick:eq:kram}
+\end{equation}
+\noindent\emph{Note.} These anchors are convenience scales; they do not modify the Kz units \(X_{\Kz}=X/h\).
+
+% --- One‑datum sector calibrations (linear readouts) ---
+\begin{equation}
+\mathbf g=c_M\,\mathbf E_I,\qquad
+\mathbf E=c_Q\,\mathbf E_I,\qquad
+\mathbf j_{\rm th}=\kappa_T\,\mathbf E_I,
+\label{app:kick:eq:calib-map}
+\end{equation}
+where the sector constant \(c_{\rm sec}\in\{c_M,c_Q,\kappa_T\}\) is fixed by one datum in that sector.
+
+% --- One‑datum scale from frame boundary relation ---
+\begin{equation}
+c_{\rm sec}
+=\frac{Y_\star}{|\mathbf E_I(r_\star)|}
+=Y_\star\,\frac{\kappa\,A_n(r_\star)}{\Phi_\star},
+\qquad
+Y_\star\in\{g_\star,E_\star,j_{{\rm th},\star}\},\quad \Phi_\star:=\Phi(r_\star),
+\label{app:kick:eq:one-datum}
+\end{equation}
+with \(A_n(r)\) the screen area at scale \(r\) and \(\Phi(r)\) the tube flux through it.
+
+% --- Ratio form (constant‑free) ---
+\begin{equation}
+Y(r)=c_{\rm sec}\,|\mathbf E_I(r)|
+=Y_\star\,\frac{\Phi(r)}{\Phi_\star}\,\frac{A_n(r_\star)}{A_n(r)}.
+\label{app:kick:eq:ratio}
+\end{equation}
+
+% --- Capacity/time bound (three independent limits) ---
+\begin{equation}
+\frac{\Delta I_{\text{trits}}}{\Delta t}
+\ \le\
+\min\!\left\{
+\frac{A\,\overline{J}_{A}}{\ln 3},\quad
+C_{\rm chan}^{(\text{trits})}(\varepsilon),\quad
+\frac{\Pz}{\Tz\,\ln 3}
+\right\},
+\label{app:kick:eq:time-info}
+\end{equation}
+where \(C_{\rm chan}^{(\text{trits})}(\varepsilon)=\mathcal C\!\left[R^{(a)};\,\mathcal N,\,\mathcal B;\,\varepsilon\right]\) denotes a reliable channel capacity for boundary controls \(R^{(a)}\), noise kernel \(\mathcal N\), and budgets \(\mathcal B\) (including \(\Pz\), \(\Tz\), area \(A\), window duration \(\Delta t\)), at reliability \(\varepsilon\).
+
+\paragraph{Specializations (optional).}
+\begin{equation}
+\text{Lossless frame:}\ \Phi(r)=\Phi_\star\ \Rightarrow\ 
+Y(r)=Y_\star\,\frac{A_n(r_\star)}{A_n(r)}\ \propto\ A_n(r)^{-1}.
+\label{app:kick:eq:lossless-scaling}
+\end{equation}
+
+\paragraph{Notation / units (if needed).}
+Exact constants for quick checks:
+\(h=6.62607015\times 10^{-34}\,\mathrm{J\,s}\),
+\(\dfrac{k_B}{h}=2.083661912\times10^{10}\,\mathrm{s^{-1}\,K^{-1}}\),
+\(\dfrac{1\,\mathrm{eV}}{h}=2.417989242\times10^{14}\,\mathrm{s}^{-1}\),
+\(\dfrac{1\,\mathrm{W}}{h}=1.509190179\times10^{33}\,\mathrm{s}^{-2}\).
+Typical conversions:
+\(E[\mathrm{J}]\mapsto E/h\) (\(\mathrm s^{-1}\)),
+\(E[\mathrm{eV}]\mapsto (E\,e)/h\) (\(\mathrm s^{-1}\)),
+\(T[\mathrm{K}]\mapsto (k_BT)/h\) (\(\mathrm s^{-1}\)),
+\(P[\mathrm{W}]\mapsto P/h\) (\(\mathrm s^{-2}\)).
+
+\medskip
+\noindent\emph{Literature note.}
+Shannon (1948); Cover \& Thomas (2006) for information and reliable communication.
+Landauer (1961); Bennett (2003) for erasure cost and reversibility.

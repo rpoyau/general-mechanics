@@ -1,0 +1,85 @@
+% ======================================================================
+% 11_qpi-template.tex — Quantum path–integral template (AF–Pure)
+% ======================================================================
+
+\subsection{Quantum path–integral template (from informational fluctuations)}
+\label{corollary:qpi-template}
+
+\paragraph{Setup.}
+On configuration–time space \((q,t)\), the canonical rate equations and Poincaré–Cartan form
+hold by \eqref{axioms:path-rate:eq:canonical} and \eqref{axioms:path-rate:eq:pc-form}.
+On a window \([t_0,t_1]\), fluctuations about the canonical drift are modeled by local quadratic data:
+a drift \(v(q,t)\), diffusivity \(D(q,t)>0\), scalar rate \(U(q,t)\), and an inertial map \(M(q,t)>0\).
+A positive wave scale \(\alpha>0\) is used in the oscillatory branch.
+
+\paragraph{Derivation.}
+From \eqref{axioms:path-rate:eq:canonical} (drift) and a quadratic deviation penalty, the
+diffusive branch uses the Onsager–Machlup density
+\begin{equation}
+\mathcal R_{\mathrm{diff}}(q,\dot q,t)
+\;=\;
+\frac{1}{2}\,(\dot q-v)^{\!T} D^{-1}(\dot q-v)\;+\;U(q,t).
+\label{corollary:qpi-template:eq:primary}
+\end{equation}
+The associated path weight is
+\begin{equation}
+\mathbb P[\gamma]\ \propto\
+\exp\!\left(-\!\int_{t_0}^{t_1}\!\mathcal R_{\mathrm{diff}}\,dt\right),
+\label{corollary:qpi-template:eq:weight}
+\end{equation}
+and the state density satisfies the Fokker–Planck equation
+\begin{equation}
+\partial_t \rho
+\;=\;
+-\nabla\!\cdot(v\,\rho)\;+\;\tfrac12\,\nabla^{\!T}\!\bigl(D\,\nabla\rho\bigr).
+\label{corollary:qpi-template:eq:fp}
+\end{equation}
+For an oscillatory branch based on the rate \(1\)-form, the path amplitude uses
+\begin{equation}
+\mathcal A[\gamma]\ \propto\
+\exp\!\left(i\,2\pi\!\int_{t_0}^{t_1}\!\big[P\!\cdot\!\dot q-H(q,P,t)\big]\,dt\right),
+\label{corollary:qpi-template:eq:amp}
+\end{equation}
+with quadratic generator
+\begin{equation}
+H(q,P,t)=\tfrac12\,P^{\!T} M^{-1}(q,t)\,P\;+\;U(q,t).
+\label{corollary:qpi-template:eq:quadH}
+\end{equation}
+A short‑time kernel (Fourier representation) yields the Schrödinger‑type evolution
+\begin{equation}
+i\,\partial_t \psi
+\;=\;
+\Big[-\,\tfrac{\alpha^{2}}{2}\,\nabla^{\!T}\!\big(M^{-1}\nabla\big)+U(q,t)\Big]\psi .
+\label{corollary:qpi-template:eq:schro}
+\end{equation}
+Minimal coupling to an informational \(1\)-form \(A_I\) is
+\begin{equation}
+P\ \mapsto\ P-A_I(q,t)
+\quad\text{in}\quad
+\eqref{corollary:qpi-template:eq:amp}–\eqref{corollary:qpi-template:eq:schro}.
+\label{corollary:qpi-template:eq:min-coupling}
+\end{equation}
+
+\paragraph{Specialization.}
+For constant \(M\) and \(D\), \eqref{corollary:qpi-template:eq:fp} reduces to drift–diffusion
+with uniform coefficients, and \eqref{corollary:qpi-template:eq:schro} becomes a constant‑mass
+Schrödinger generator.
+
+\paragraph{Calibration.}
+(omitted)
+
+\paragraph{Falsification.}
+On a declared window with fixed \((v,D,U,M)\), if the measured transition densities deviate
+from \eqref{corollary:qpi-template:eq:fp} beyond statistical tolerance on the same window, the
+diffusive branch is falsified. If interferometric phase transport fails to obey
+\eqref{corollary:qpi-template:eq:schro} under the same \(U,M,\alpha\), the oscillatory branch
+is falsified.
+
+\medskip
+\noindent\emph{Provenance.}
+\eqref{axioms:path-rate:eq:pc-form}, \eqref{axioms:path-rate:eq:canonical},
+\eqref{corollary:qpi-template:eq:primary}–\eqref{corollary:qpi-template:eq:min-coupling}.
+
+\medskip
+\noindent\emph{Literature note.}
+Onsager–Machlup; Fokker–Planck (Risken; Gardiner). Path integrals (Feynman; Feynman–Hibbs).

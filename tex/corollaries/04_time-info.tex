@@ -1,0 +1,67 @@
+% ======================================================================
+% 04_time-info.tex — Time–information complementarity (AF–Pure)
+% ======================================================================
+
+\subsection{Time–information complementarity}
+\label{corollary:time-info}
+
+\paragraph{Setup.}
+A boundary patch \(A\subset\partial U\) is observed over a window \([t,t+\Delta t]\).
+With the directional split, the inward, window‑averaged counting rate is
+\begin{equation}
+J_A
+\;:=\;
+\frac{1}{\Delta t}\int_{t}^{t+\Delta t}\!\!\int_{A}\big(\mathbf j\!\cdot\!\mathbf n\big)_{-}\,\mathrm dA\,\mathrm dt
+\quad\text{(nats/time)}.
+\label{corollary:time-info:eq:JA}
+\end{equation}
+An erasure power budget \(P\) acts at boundary temperature \(\Tz\).
+Reliable channel capacities are denoted \(C_{\rm chan}^{(\mathrm{nats})}(\varepsilon)\) and
+\(C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)\).
+
+\paragraph{Derivation.}
+By boundary identification and heat mapping (on boundaries \(j\equiv j_S\) and \(q:=\Tz\,j_S\)),
+the erasure‑limited rate bound is \(\Pz/\Tz\) (nats/time). Combining this with the inward
+window rate \eqref{corollary:time-info:eq:JA} and any \(\varepsilon\)‑reliable channel capacity gives:
+\begin{equation}
+\frac{\Delta I_{\mathrm{nats}}}{\Delta t}
+\;\le\;
+\min\!\Big\{\,J_A,\ C_{\rm chan}^{(\mathrm{nats})}(\varepsilon),\ \tfrac{\Pz}{\Tz}\,\Big\}.
+\label{corollary:time-info:eq:primary}
+\end{equation}
+
+\paragraph{Specialization.}
+Using the base‑3 to natural‑log conversion \(1~\mathrm{trit}=\ln 3~\mathrm{nats}\),
+\begin{equation}
+\frac{\Delta I_{\mathrm{trits}}}{\Delta t}
+\;\le\;
+\min\!\Big\{\,\tfrac{J_A}{\ln 3},\ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon),\ \tfrac{\Pz}{\Tz\,\ln 3}\,\Big\}.
+\label{corollary:time-info:eq:special}
+\end{equation}
+
+\paragraph{Calibration.}
+For one reliable trit \((\Delta I_{\mathrm{trits}}=1)\), the minimal window duration obeys
+\begin{equation}
+\Delta t
+\;\ge\;
+\max\!\Big\{\,\big(J_A/\ln 3\big)^{-1},\ C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)^{-1},\ (\ln 3)\,\Tz/\Pz\,\Big\}.
+\label{corollary:time-info:eq:calib}
+\end{equation}
+
+\paragraph{Falsification.}
+On a fixed patch \(A\) with measured \((J_A,\Pz,\Tz)\) and capacity target \(\varepsilon\),
+if a protocol achieves a one‑trit decision with \(\Delta t\) smaller than the bound in
+\eqref{corollary:time-info:eq:calib} by \(>5\%\) under the same budgets, then at least one premise
+(capacity estimate, boundary mapping, or rate accounting) is violated on that window.
+
+\medskip
+\noindent\emph{Provenance.}
+\axref{axioms:boundary-heat},
+\eqref{corollary:time-info:eq:JA}, \eqref{corollary:time-info:eq:primary},
+\eqref{corollary:time-info:eq:special}, \eqref{corollary:time-info:eq:calib},
+\apref{app:glossary:directional-split}.
+
+\medskip
+\noindent\emph{Literature note.}
+Shannon~\cite{Shannon1948}; Gallager~\cite{Gallager1968};
+Landauer~\cite{Landauer1961}; Bennett~\cite{Bennett2003}.

@@ -1,0 +1,26 @@
+% ======================================================================
+% 06_appendices.tex — Appendices aggregator
+% ======================================================================
+
+\clearpage
+\appendix
+
+% --- Overview section (ToC-visible) ---
+\phantomsection
+\section*{Appendices}
+\label{sec:appendices-overview}
+\addcontentsline{toc}{section}{Appendices}
+
+\noindent This appendix set collects supporting material used in the main text:
+\begin{enumerate}\itemsep2pt
+  \item \hyperref[app:kick]{App.~A \; Kick (Kz) units \& Kram anchors}
+  \item \hyperref[app:glossary-symbols]{App.~B \; Glossary \& Symbols}
+
+\end{enumerate}
+
+% --- Include each appendix (each file starts with \section{...}) ---
+\clearpage
+\input{appendices/appA_kick}
+
+\clearpage
+\input{appendices/appB_glossary}
