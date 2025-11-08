@@ -1,171 +1,24 @@
-Here’s a **single Markdown block** you can copy directly into `README.md` — fully formatted for GitHub.
+# General Mechanics
+*Axiomatic, manifold-first mechanics where laws emerge as relational motifs from a single geometric identity (generalized Stokes).*
 
 ---
 
-```markdown
-# General Mechanics (AF-Pure)
+## Abstract
 
-_Axiomatic, manifold-first mechanics where laws emerge as relational motifs from a single geometric identity (generalized Stokes)._
+This work presents a framework for mechanics derived from a single principle: the **generalized Stokes identity on an informational manifold**. By synthesizing this geometric bookkeeping with principles from thermodynamics and information theory, the framework demonstrates how core structures of physics can be reconstructed.
 
-This repository contains the LaTeX source for the **General Mechanics** manuscript written in the **AF-Pure** discipline — Axiomatic Fundamentalism: single-statement axioms, paragraph-only corollaries, one-label equations, neutral voice, and no repeated premises.
+The analysis yields the canonical rate equations of mechanics, the **inverse-area scaling of boundary fields**, and the propagation laws for wave-like transport. The same structure yields operational limits such as **time-information complementarity** and finite channel capacity.
 
----
-
-## 📁 Repository layout
-
-```
-
-tex/
-main.tex                # Entry point
-preamble.tex            # Packages, macros, AF helpers
-sections/               # Introduction, Axioms, Waves, etc.
-corollaries/            # AF-Pure corollaries (one file per result)
-appendices/             # App. A (Kz units), App. B (Glossary & Symbols)
-.github/
-workflows/
-build-pdf.yml         # CI: TinyTeX + latexmk build and artifact upload
-
-````
-
-Key reference files:
-- `appendices/appA_kick.tex`: **Kz units & one-datum calibration** (`\eqref{app:kick:eq:kz-map}`).
-- `appendices/appB_glossary.tex`: **Glossary & Symbols** (labels `app:glossary:*`).
-- `corollaries/_template_pure.tex`: Minimal AF-Pure corollary template.
+For operational use, a **constant-free, one-datum calibration** maps the underlying informational field to measured sectors (e.g., gravitational/thermal, electric), rendering the framework predictive while keeping its core purely manifold-theoretic.
 
 ---
 
-## 🧩 Build locally
+## ⚖️ Core Axioms & Units (Kz System)
 
-### Requirements
-- XeLaTeX (`xelatex`)
-- `latexmk`
-- TeX packages: `amsmath`, `mathtools`, `physics`, `microtype`, `enumitem`, `siunitx`, `booktabs`, `tikz`, `hyperref`, `cleveref`, `placeins`
-
-### Build
-```bash
-cd tex
-latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
-# Output: tex/main.pdf
-````
-
-Clean:
-
-```bash
-latexmk -C
-```
-
-### TinyTeX one-liner
-
-```bash
-wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh
-~/bin/tlmgr install latex-bin xetex collection-fontsrecommended latexmk
-```
-
----
-
-## ⚙️ Continuous Integration
-
-Workflow: `.github/workflows/build-pdf.yml`
-
-* Runs on `ubuntu-latest`
-* Installs TinyTeX and required packages
-* Builds `tex/main.tex` with XeLaTeX
-* Uploads the compiled PDF as an artifact
-
-Permissions fixed with:
-
-```yaml
-permissions:
-  contents: read
-  pull-requests: write
-```
-
-The artifact name format:
-
-```
-general-mechanics-YYYY-MM-DD.pdf
-```
-
----
-
-## 🧠 AF-Pure discipline
-
-* Paragraph structure only:
-  **Setup.**, **Derivation.**, **Specialization.**, **Calibration.**, **Falsification.**, **Provenance.**, **Literature note.**
-* Cite by label, not by restating:
-  `\eqref{axioms:stokes:identity:eq}`, `\eqref{axioms:linear-closure:eq}`
-* One display → one `\label`
-* No section-range cites (no “§§a–b”)
-* Labels are unique by namespace:
-
-  * `axioms:*` — Axioms
-  * `corollary:*` — Derived results
-  * `app:glossary:*` — Glossary (Appendix B)
-  * `app:kick:*` — Kz unit definitions (Appendix A)
-
----
-
-## ⚖️ Units & macros (Kz system)
-
-All quantities normalized by Planck’s constant (h).
-Macros (see `preamble.tex`):
+This framework is constant-free. All quantities are normalized by Planck’s constant (h).
+Macros (defined in `preamble.tex`):
 
 ```tex
 \Kz    % Kick unit (s^{-1})
 \Tz    % Temperature in Kz units (k_B T / h)
 \Pz    % Power budget in Kz units (P / h)
-```
-
-Boundary mapping (axiomatic, Eq. `\eqref{axioms:boundary-heat:eq}`):
-[
-j \equiv j_S,\quad i \equiv s,\quad q := \Tz,j_S.
-]
-
----
-
-## 🧪 Development workflow
-
-1. Create a new corollary file from the template:
-
-   ```bash
-   cp tex/corollaries/_template_pure.tex tex/corollaries/NN_new-result.tex
-   ```
-2. Fill in `Setup.` / `Derivation.` with label citations.
-3. Add `Specialization.` / `Calibration.` / `Falsification.` as needed.
-4. Run `latexmk` locally; fix undefined or duplicate labels.
-5. Commit and push — CI will attach the compiled PDF artifact.
-
----
-
-## 🛠️ Troubleshooting
-
-* **Undefined references:** check label spelling and namespaces.
-* **Multiply defined:** ensure each equation label is unique.
-* **Font errors:** ensure `collection-fontsrecommended` is installed.
-* **CI checkout error:** verify repo permissions (`contents: read`).
-
----
-
-## 🪶 License
-
-Choose and include a license (e.g., **CC BY 4.0** or **MIT**).
-Add a `LICENSE` file at the repository root.
-
----
-
-## 📚 Citation
-
-Cite the latest datestamped artifact (PDF) generated by this repository.
-Reference as:
-
-> *General Mechanics (AF-Pure framework)* — version YYYY-MM-DD.
-
----
-
-## 🙏 Acknowledgments
-Build powered by TinyTeX + XeLaTeX (`latexmk`).
-
----
-
-```
-```
