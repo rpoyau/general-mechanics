@@ -79,6 +79,9 @@ jobs:
       - name: Compile main.tex
         working-directory: tex
         run: |
+          # AF-Compliant Fix: Explicitly set the PATH for *this step*
+          # This is the "Focusing Station" that drains the CI PATH "swamp"
+          export PATH="$HOME/bin:$PATH"
           latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
 
       # 5. Create smart filename
