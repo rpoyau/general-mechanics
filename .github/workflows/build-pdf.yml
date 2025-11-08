@@ -4,9 +4,13 @@ on:
   workflow_dispatch:
   push:
     branches: [ main ]
-    paths: [ 'tex/**' ]
+    paths:
+      - 'tex/**'
+      - '.github/workflows/build-pdf.yml' # <-- This is the fix
   pull_request:
-    paths: [ 'tex/**' ]
+    paths:
+      - 'tex/**'
+      - '.github/workflows/build-pdf.yml' # <-- And this is the fix
 
 jobs:
   latex:
