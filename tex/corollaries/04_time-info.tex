@@ -15,12 +15,12 @@ J_A
 \quad\text{(nats/time)}.
 \label{corollary:time-info:eq:JA}
 \end{equation}
-An erasure power budget \(P\) acts at boundary temperature \(T\).
+An erasure power budget \(P\) acts at boundary temperature \(\Tz\).
 Reliable channel capacities are denoted \(C_{\rm chan}^{(\mathrm{nats})}(\varepsilon)\) and
 \(C_{\rm chan}^{(\mathrm{trits})}(\varepsilon)\).
 
 \paragraph{Derivation.}
-By boundary identification and heat mapping (on boundaries \(j\equiv j_S\) and \(q:=T\,j_S\)),
+By boundary identification and heat mapping (on boundaries \(j\equiv j_S\) and \(q:=\Tz\,j_S\)),
 the erasure‑limited rate bound is \(\Pz/\Tz\) (nats/time). Combining this with the inward
 window rate \eqref{corollary:time-info:eq:JA} and any \(\varepsilon\)‑reliable channel capacity gives:
 \begin{equation}
@@ -56,10 +56,10 @@ if a protocol achieves a one‑trit decision with \(\Delta t\) smaller than the 
 
 \medskip
 \noindent\emph{Provenance.}
+\axref{axioms:boundary-heat},
 \eqref{corollary:time-info:eq:JA}, \eqref{corollary:time-info:eq:primary},
-\eqref{corollary:time-info:eq:special}, \eqref{corollary:time-info:eq:calib};
-boundary identification/heat mapping stated in \ref{axioms:boundary-heat};
-directional split in \ref{app:glossary:directional-split}.
+\eqref{corollary:time-info:eq:special}, \eqref{corollary:time-info:eq:calib},
+\apref{app:glossary:directional-split}.
 
 \medskip
 \noindent\emph{Literature note.}

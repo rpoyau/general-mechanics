@@ -123,6 +123,20 @@
 \newcommand{\labcor}[1]{\label{corollary:#1}}
 \newcommand{\labapp}[1]{\label{appendix:#1}}
 
+
+% ---- reference helpers
+% 1. Section Reference (Adds the § symbol)
+\newcommand{\seref}[1]{\S\ref{#1}}
+
+% 2. Axiom Reference (Adds the ★ symbol)
+\newcommand{\axref}[1]{$\star$\ref{#1}}
+
+% 3. Bare Number Reference (For Thm, Cor, Def in main text)
+\newcommand{\nref}[1]{\ref{#1}}
+
+% 4. Appendix Reference (For sections and items in Appendix)
+\newcommand{\apref}[1]{App.~\ref{#1}}
+
 % --- Project helpers (worldtube tag, calibrated-equality mark)
 \newcommand{\worldtube}{\emph{worldtube}}
 \newcommand{\calibeq}{\overset{\scriptsize\mathrm{cal}}{=}}
