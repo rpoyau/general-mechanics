@@ -1,4 +1,7 @@
 # General Mechanics
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17561416.svg)](https://doi.org/10.5281/zenodo.17561416)
+ DOI: 10.5281/zenodo.17561416
+
 *Axiomatic, manifold-first mechanics where laws emerge as relational motifs from a single geometric identity (generalized Stokes).*
 
 ---
