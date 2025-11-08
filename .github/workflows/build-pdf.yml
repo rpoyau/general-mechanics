@@ -38,7 +38,7 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         shell: bash
         run: |
-          # Exit immediately if any command fails, helping you pinpoint the failing package
+          # Exit immediately if any command fails
           set -e
 
           echo "Cache miss. Installing TinyTeX and packages..."
@@ -52,12 +52,14 @@ jobs:
           # Update tlmgr and all packages to ensure freshness (optional, but robust)
           ~/bin/tlmgr update --self --all
 
-          # Install all required packages. If any package name is incorrect, this will fail immediately.
-          ~/bin/tlmgr install \
-            latexmk xetex \
-            amsmath amsfonts amssymb mathtools \
+          # Install packages one by one for superior error reporting
+          for pkg in latexmk xetex amsmath amsfonts amssymb mathtools \
             physics microtype enumitem siunitx booktabs tikz \
-            hyperref cleveref placeins
+            hyperref cleveref placeins; do
+            echo "Attempting to install: $pkg"
+            # Use the conditional execution to explicitly report the failing package
+            ~/bin/tlmgr install "$pkg" || { echo "ERROR: Failed to install LaTeX package '$pkg'. Please check spelling or availability."; exit 1; }
+          done
 
       # 3. Add TinyTeX to PATH (for subsequent steps to find latexmk)
       - name: Add TinyTeX to PATH
