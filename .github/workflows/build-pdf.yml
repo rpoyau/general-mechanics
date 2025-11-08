@@ -53,10 +53,10 @@ jobs:
           ~/bin/tlmgr update --self --all
 
           # Install packages one by one for superior error reporting.
-          # NOTE: 'amssymb', 'amsthm', and 'bm' have been removed as they are usually included in core AMS bundles.
+          # NOTE: 'tikz' was replaced by 'pgf'. 'amssymb', 'amsthm', and 'bm' were removed.
           for pkg in latexmk xetex \
             geometry amsmath amsfonts mathtools \
-            physics microtype enumitem siunitx booktabs tikz \
+            physics microtype enumitem siunitx booktabs pgf \
             hyperref cleveref placeins; do
             echo "Attempting to install: $pkg"
             # Use the conditional execution to explicitly report the failing package
