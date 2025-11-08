@@ -6,11 +6,11 @@ on:
     branches: [ main ]
     paths:
       - 'tex/**'
-      - '.github/workflows/build-pdf.yml' # <-- This is the fix
+      - '.github/workflows/build-pdf.yml'
   pull_request:
     paths:
       - 'tex/**'
-      - '.github/workflows/build-pdf.yml' # <-- And this is the fix
+      - '.github/workflows/build-pdf.yml'
 
 jobs:
   latex:
@@ -25,49 +25,36 @@ jobs:
         with:
           fetch-depth: 1
 
-      # 1. Restore TinyTeX Cache (must happen before install)
+      # 1. Restore TinyTeX Cache
       - name: Restore TinyTeX Cache
         id: cache
         uses: actions/cache@v4
         with:
           path: ~/.TinyTeX
-          # Use a fixed key, update the version (v1.0) if you significantly change the package list
           key: ${{ runner.os }}-tinytex-v1.0
           restore-keys: |
             ${{ runner.os }}-tinytex-
 
       # 2. Conditional Install and Update (runs only if cache misses)
       - name: Install and Update TinyTeX (if cache miss)
-        # Only run this step if the cache was not successfully restored
         if: steps.cache.outputs.cache-hit != 'true'
         shell: bash
         run: |
-          # Exit immediately if any command fails
           set -e
-
           echo "Cache miss. Installing TinyTeX and packages..."
-
-          # Install TinyTeX base
           wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh
-
-          # Add the TinyTeX bin directory to the PATH for the current shell
           export PATH=$HOME/bin:$PATH
-
-          # Update tlmgr and all packages to ensure freshness (optional, but robust)
           ~/bin/tlmgr update --self --all
-
-          # Install packages one by one for superior error reporting.
-          # NOTE: 'tikz' was replaced by 'pgf'. 'amssymb', 'amsthm', and 'bm' were removed.
           for pkg in latexmk xetex \
             geometry amsmath amsfonts mathtools \
             physics microtype enumitem siunitx booktabs pgf \
             hyperref cleveref placeins; do
             echo "Attempting to install: $pkg"
-            # Use the conditional execution to explicitly report the failing package
             ~/bin/tlmgr install "$pkg" || { echo "ERROR: Failed to install LaTeX package '$pkg'. Please check spelling or availability."; exit 1; }
           done
 
-      # 3. Add TinyTeX to PATH (for subsequent steps to find latexmk)
+      # 3. Add TinyTeX to PATH (THE FIX: This must run *every* time)
+      # This is the "Focusing Station" that makes the PATH explicit.
       - name: Add TinyTeX to PATH
         run: echo "$HOME/bin" >> $GITHUB_PATH
 
@@ -77,7 +64,7 @@ jobs:
         run: |
           latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
 
-      # 5. Create smart filename
+      # 5. Create smart filename (Updated to match your 'cat' output)
       - name: Create smart filename
         shell: bash
         run: |
@@ -86,7 +73,6 @@ jobs:
           else
             NAME="general-mechanics-$(date +%F)"
           fi
-          # Note: The original path 'tex/main.pdf' is assumed to be correct
           cp tex/main.pdf "$NAME.pdf"
           echo "PDF=$NAME.pdf" >> $GITHUB_ENV
 
@@ -97,20 +83,17 @@ jobs:
           name: ${{ env.PDF }}
           path: ${{ env.PDF }}
 
-      # 7. Comment on PR
+      # 7. Comment on PR (Updated to match your 'cat' output)
       - name: Comment on PR
         if: github.event_name == 'pull_request'
         uses: actions/github-script@v7
         with:
           script: |
             const name = process.env.PDF;
-            const runId = process.env.GITHUB_RUN_ID;
-            const repo = context.repo.repo;
-            const owner = context.repo.owner;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
-              owner,
-              repo,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
               body: `📄 **general-mechanics PDF preview**\n\n` +
                     `The build artifact is attached to this workflow run.\n\n` +
                     `➡️ **Download**: look for **${name}** in the "Artifacts" section of the run.`
