@@ -52,8 +52,10 @@ jobs:
           # Update tlmgr and all packages to ensure freshness (optional, but robust)
           ~/bin/tlmgr update --self --all
 
-          # Install packages one by one for superior error reporting
-          for pkg in latexmk xetex amsmath amsfonts amssymb mathtools \
+          # Install packages one by one for superior error reporting.
+          # We added 'geometry', 'amsthm', and 'bm' to match your preamble.
+          for pkg in latexmk xetex \
+            geometry amsmath amsfonts amsthm mathtools bm \
             physics microtype enumitem siunitx booktabs tikz \
             hyperref cleveref placeins; do
             echo "Attempting to install: $pkg"
