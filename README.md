@@ -4,7 +4,7 @@
 [![Repository DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.17561648-blue.svg)](https://doi.org/10.5281/zenodo.17561648)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--8303--8627-green.svg)](https://orcid.org/0009-0007-8303-8627)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpoyau/general-mechanics-tests/blob/main/notebooks/gm-tests.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rpoyau/general-mechanics/blob/main/notebooks/gm-tests.ipynb)
 
 *Axiomatic, manifold-first mechanics where laws emerge as relational motifs from a single geometric identity (generalized Stokes).*
 
